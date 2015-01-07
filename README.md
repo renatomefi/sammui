@@ -31,7 +31,21 @@ Edit database credentials :
 
 	vim app/config/parameters.yml
 
-Update schemas (FOSUserBundle) :
+To switch between ORM and ODM (Database and MongoDB) uncomment/comment the following lines on config.yml :
+	
+	# FOS User Bundle for ORM
+    fos_user:
+        db_driver: orm
+        firewall_name: main
+        user_class: Flyers\BackendBundle\Entity\User
+    
+    # FOS User Bundle for MongoDB
+    fos_user:
+        db_driver: mongodb
+        firewall_name: main
+        user_class: Flyers\BackendBundle\Document\User
+
+Update schemas (FOSUserBundle) : * Not needed for MongoDB
 
  	php app/console doctrine:schema:create
 
@@ -73,4 +87,8 @@ You can use this template and adapt it to your needs.
 
 @FlyersWeb
 
+Adaptations by @renatomefi
 
+- MongoDB support
+
+- Symfony and related dependencies/bundles update
