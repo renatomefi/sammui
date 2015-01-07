@@ -56,6 +56,23 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
+# Doctrine MongoDB Bundle Configuration
+doctrine_mongodb:
+    connections:
+        default:
+            server: %mongodb_connection_string%
+            options: %mongodb_connection_options%
+    default_database: %mongodb_database%
+    document_managers:
+        default:
+            auto_mapping: false
+            mappings:
+                FOSUserBundle: ~
+#                AppBundle:
+#                    type: annotation
+#                    dir: %kernel.root_dir%/../src/AppBundle/Document
+#                    prefix: AppBundle\Document
+
 # Swiftmailer Configuration
 swiftmailer:
     transport: %mailer_transport%
