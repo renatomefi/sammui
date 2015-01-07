@@ -87,7 +87,7 @@ You can use this template and adapt it to your needs.
 
 @FlyersWeb
 
-Adaptations by @renatomefi
+Adaptations by @renatomefidf
 
 - MongoDB support
 
