@@ -50,6 +50,10 @@ Update packages :
 	cd angular-symfony
 	composer.phar install
 
+
+Configuration
+-------------
+
 Create cache and logs folders :
 
 	mkdir app/cache
@@ -122,3 +126,5 @@ Adaptations by @renatomefidf
 - MongoDB support
 
 - Symfony and related dependencies/bundles update
+
+- Packagist project
