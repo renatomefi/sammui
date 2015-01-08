@@ -21,11 +21,24 @@ In use libs and technologies
 
 - FOS User Bundle (friendsofsymfony/user-bundle) 1.3.5
 
-@todo
-
 - Layout Mobile Angular UI - http://mobileangularui.com/
 
-Installation
+
+Automatic Installation
+------------
+
+Master:
+
+	composer create-project renatomefidf/sammui sammui dev-master
+	
+Any tag:
+
+	composer create-project renatomefidf/sammui sammui v0.0.1
+
+
+Check the composer package at: https://packagist.org/packages/renatomefidf/sammui
+
+Manual Installation
 ------------
 
 Clone the project :

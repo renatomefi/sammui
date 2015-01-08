@@ -1,6 +1,6 @@
 {
   "name": "renatomefidf/sammui",
-  "description": "Base project for Symfony and AngularJS, base on FlyersWeb/angular-symfony: The Symfony Angular MongoDB Mobile UI Project - sammui",
+  "description": "The Symfony AngularJS MongoDB Mobile UI Project - sammui, Based on FlyersWeb/angular-symfony",
   "license": "MIT",
   "type": "project",
   "autoload": {
