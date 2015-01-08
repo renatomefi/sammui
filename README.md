@@ -1,19 +1,36 @@
-angular-symfony
+sammui
 ===============
 
-Project Bootstrap for an angularJS + Symfony webservices project.
+The Symfony Angular MongoDB Mobile UI Project
+
+Original project by @flyers: https://github.com/FlyersWeb/angular-symfony 
 
 Introduction
 ------------
 
 This project is a template application with secured communication via a RestFul API between the client part with AngularJS and the server part with Symfony2.
 
+In use libs and technologies
+------------
+
+- Symfony 2.6
+
+- Doctrine MongoDB Bundle (doctrine/mongodb-odm-bundle) 3.0
+
+- FOS Rest Bundle (friendsofsymfony/rest-bundle) 1.4
+
+- FOS User Bundle (friendsofsymfony/user-bundle) 1.3.5
+
+@todo
+
+- Layout Mobile Angular UI - http://mobileangularui.com/
+
 Installation
 ------------
 
 Clone the project :
 
-	git clone git@github.com:FlyersWeb/angular-symfony.git angular-symfony
+	git clone git@github.com:renatomefidf/sammui sammui
 
 Update packages :
 
