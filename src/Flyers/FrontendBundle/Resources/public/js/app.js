@@ -1,11 +1,17 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-var sammui = angular.module('sammui', ['ngRoute', 'sammui.filters', 'sammui.services', 'sammui.directives', 'sammui.controllers'])
-
-    .config(function ($routeProvider) {
-        $routeProvider.when('/login', {templateUrl: '/bundles/frontend/partials/login.html', controller: 'Login'});
-        $routeProvider.when('/view1', {templateUrl: '/bundles/frontend/partials/partial1.html', controller: 'MyCtrl1'});
-        $routeProvider.when('/view2', {templateUrl: '/bundles/frontend/partials/partial2.html', controller: 'MyCtrl2'});
-        $routeProvider.otherwise({redirectTo: '/login'});
-    });
+var sammui = angular.module('sammui', [
+    'ngRoute',
+    'mobile-angular-ui',
+    'mobile-angular-ui.gestures',
+    'sammui.filters',
+    'sammui.services',
+    'sammui.directives',
+    'sammui.controllers'
+]).config(function ($routeProvider) {
+    $routeProvider.when('/login', {templateUrl: '/bundles/frontend/partials/login.html', controller: 'Login'});
+    $routeProvider.when('/view1', {templateUrl: '/bundles/frontend/partials/partial1.html', controller: 'MyCtrl1'});
+    $routeProvider.when('/view2', {templateUrl: '/bundles/frontend/partials/partial2.html', controller: 'MyCtrl2'});
+    $routeProvider.otherwise({redirectTo: '/login'});
+});
