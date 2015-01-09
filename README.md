@@ -23,7 +23,6 @@ In use libs and technologies
 
 - Layout Mobile Angular UI - http://mobileangularui.com/
 
-
 Automatic Installation
 ------------
 
@@ -49,7 +48,6 @@ Update packages :
 
 	cd angular-symfony
 	composer.phar install
-
 
 Configuration
 -------------
@@ -92,6 +90,8 @@ Link project to your webserver and access it :
 
 	ln -snf ./ /var/www/html/angular-symfony
 	firefox http://localhost/angular-symfony/ &
+
+Want to run it via nginx? There is a sample virtual host on docs/nginx
 
 Authentication system
 ---------------------

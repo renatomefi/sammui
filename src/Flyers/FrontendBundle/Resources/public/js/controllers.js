@@ -8,6 +8,7 @@ angular.module('sammui.controllers', ['ngCookies']).
     $scope.getSalt = function() {
         var username = $scope.username;
         var password = $scope.password;
+        console.log('login was:', $scope.username + ' : '+ $scope.password);
         // Get Salt
         Salt.get({username:username}, function(data){
             var salt = data.salt;

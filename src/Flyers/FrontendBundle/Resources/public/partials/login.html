@@ -10,12 +10,14 @@
                 <legend>Please enter a symfony valid user:</legend>
 
                 <p ng-show="salt"><strong>{{ username }}</strong> salt is <em>{{ salt }}</em></p>
+
                 <p ng-show="secret"><strong>{{ username }}</strong> generated secret is <em>{{ secret }}</em></p>
+
                 <p ng-show="secret">You should now have access to API because your're logged in</p>
 
                 <div class="form-group has-success has-feedback">
                     <label>Symfony Username</label>
-                    <input type="text   "
+                    <input type="text"
                            ng-model="username"
                            class="form-control"
                            placeholder="Enter your username">
@@ -24,6 +26,7 @@
                 <div class="form-group">
                     <label>Password</label>
                     <input type="password"
+                           ng-model="password"
                            class="form-control"
                            placeholder="Password">
                 </div>
@@ -34,11 +37,10 @@
                             ng-model='rememberMe'></ui-switch>
                 </div>
             </fieldset>
+
             <hr>
 
-            <button class="btn btn-primary btn-block">
-                Login
-            </button>
+            <input class="btn btn-primary btn-block" type="submit" value="login">
 
             <div ui-content-for="navbarAction">
                 <a class='btn' ng-click='getSalt()'>Login</a>
