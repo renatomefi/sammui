@@ -148,6 +148,7 @@ angular.module('sammui.services', ['ngResource']).
         var tokenWrapper = function (resource, action) {
             resource['_' + action] = resource[action];
             resource[action] = function (data, success, error) {
+                console.log('Wrapper', data.username);
                 if ((typeof data.username != 'undefined') && (typeof data.secret != 'undefined')) {
                     $http.defaults.headers.common['X-WSSE'] = tokenHandler.getCredentials(data.username, data.secret);
                     delete data.username;

@@ -1,3 +1,13 @@
+/* Login View */
+
+.form-login input.ng-invalid.ng-touched {
+  background-color: #FA787E;
+}
+
+.form-login input.ng-valid.ng-touched {
+  background-color: #78FA89;
+}
+
 /* app css stylesheet */
 
 .menu {
