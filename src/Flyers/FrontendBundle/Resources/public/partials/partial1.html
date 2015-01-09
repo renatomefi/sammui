@@ -1,3 +1,23 @@
-<p>This is the partial for view 1.</p>
+<div class="scrollable">
+    <div class="scrollable-content section">
 
-<p>Hello {{ hello.world }} !!!</p>
+        <div class="container-fluid">
+
+            <p>This is the partial for view 1.</p>
+
+            <p>Hello {{ hello.world }} !!!</p>
+
+            <div class="notices-container">
+                <div ng-repeat="notice in notices"
+                     drag-to-dismiss="deleteNotice(notice)"
+                     class="section section-break">
+                    <i class="fa fa-{{ notice.icon }}"></i> {{ notice.message }}
+                </div>
+            </div>
+        </div>
+
+        <br/>
+
+    </div>
+</div>
+

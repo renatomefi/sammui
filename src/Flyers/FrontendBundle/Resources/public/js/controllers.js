@@ -26,9 +26,26 @@ angular.module('sammui.controllers', ['ngCookies']).
     }])
     .controller('MyCtrl1', ['$rootScope', '$scope', '$window', 'Hello', 'Salt', function ($rootScope, $scope, $window, Hello, Salt) {
         // If not authenticated, go to login
+
         if (typeof $rootScope.userAuth == "undefined") {
             $window.location = '#/login';
         }
+
+        $scope.notices = [];
+
+        for (var j = 0; j < 3; j++) {
+            $scope.notices.push({icon: 'envelope', message: 'Notice ' + (j + 1) });
+        }
+
+        console.log('notices', $scope.notices);
+
+        $scope.deleteNotice = function(notice) {
+            var index = $scope.notices.indexOf(notice);
+            if (index > -1) {
+                $scope.notices.splice(index, 1);
+            }
+        };
+
         // Simple communication sample, return world
         $scope.hello = Hello.get({username: $rootScope.userAuth.username, secret: $rootScope.userAuth.secret});
     }])

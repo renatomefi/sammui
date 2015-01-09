@@ -12,13 +12,12 @@ class WsseFactory implements SecurityFactoryInterface
 {
     public function create(ContainerBuilder $container, $id, $config, $userProvider, $defaultEntryPoint)
     {
-        $providerId = 'security.authentication.provider.wsse.'.$id;
+        $providerId = 'security.authentication.provider.wsse.' . $id;
         $container
             ->setDefinition($providerId, new DefinitionDecorator('wsse.security.authentication.provider'))
-            ->replaceArgument(0, new Reference($userProvider))
-        ;
+            ->replaceArgument(0, new Reference($userProvider));
 
-        $listenerId = 'security.authentication.listener.wsse.'.$id;
+        $listenerId = 'security.authentication.listener.wsse.' . $id;
         $listener = $container->setDefinition($listenerId, new DefinitionDecorator('wsse.security.authentication.listener'));
 
         return array($providerId, $listenerId, $defaultEntryPoint);
@@ -37,8 +36,8 @@ class WsseFactory implements SecurityFactoryInterface
     public function addConfiguration(NodeDefinition $node)
     {
         $node
-        ->children()
-        ->scalarNode('lifetime')->defaultValue(300)
-        ->end();
+            ->children()
+            ->scalarNode('lifetime')->defaultValue(300)
+            ->end();
     }
 }
