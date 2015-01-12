@@ -6,6 +6,13 @@ angular.module('sammui.controllers', ['ngCookies']).
     controller('Login', ['$rootScope', '$scope', '$window', 'Salt', 'Digest', function ($rootScope, $scope, $window, Salt, Digest) {
         // On Submit function
         $scope.getSalt = function () {
+
+            //if (typeof $scope.user == 'undefined') return;
+            //
+            //$scope.user = {
+            //    username : null,
+            //    password: null
+            //};
             var username = $scope.user.username;
             var password = $scope.user.password;
             // Get Salt
@@ -30,21 +37,6 @@ angular.module('sammui.controllers', ['ngCookies']).
         if (typeof $rootScope.userAuth == "undefined") {
             $window.location = '#/login';
         }
-
-        $scope.notices = [];
-
-        for (var j = 0; j < 3; j++) {
-            $scope.notices.push({icon: 'envelope', message: 'Notice ' + (j + 1) });
-        }
-
-        console.log('notices', $scope.notices);
-
-        $scope.deleteNotice = function(notice) {
-            var index = $scope.notices.indexOf(notice);
-            if (index > -1) {
-                $scope.notices.splice(index, 1);
-            }
-        };
 
         // Simple communication sample, return world
         $scope.hello = Hello.get({username: $rootScope.userAuth.username, secret: $rootScope.userAuth.secret});

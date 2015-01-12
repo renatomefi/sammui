@@ -1,0 +1,3 @@
+translate_homepage:
+    path:     /l10n/{lang}
+    defaults: { _controller: TranslateBundle:Default:index }

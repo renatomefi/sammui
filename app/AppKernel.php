@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Flyers\BackendBundle\BackendBundle(),
             new Flyers\FrontendBundle\FrontendBundle(),
+            new Renatomefi\TranslateBundle\TranslateBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),

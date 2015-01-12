@@ -1,5 +1,5 @@
 <div class="scrollable">
-    <div class="scrollable-content section">
+    <div class="scrollable-content">
 
         <div class="container-fluid">
 
@@ -7,13 +7,6 @@
 
             <p>Hello {{ hello.world }} !!!</p>
 
-            <div class="notices-container">
-                <div ng-repeat="notice in notices"
-                     drag-to-dismiss="deleteNotice(notice)"
-                     class="section section-break">
-                    <i class="fa fa-{{ notice.icon }}"></i> {{ notice.message }}
-                </div>
-            </div>
         </div>
 
         <br/>

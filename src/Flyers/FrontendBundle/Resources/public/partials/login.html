@@ -5,13 +5,14 @@
 <div class="scrollable">
     <div class="scrollable-content section">
 
-        <form role="form" ng-submit='getSalt()' class="form-login">
+        <form role="form" ng-submit='indexgetSalt()' class="form-login">
             <fieldset>
                 <legend>Please enter a symfony valid user:</legend>
 
                 <p ng-show="user.salt"><strong>{{ user.username }}</strong> salt is <em>{{ user.salt }}</em></p>
 
-                <p ng-show="user.secret"><strong>{{ user.username }}</strong> generated secret is <em>{{ user.secret }}</em></p>
+                <p ng-show="user.secret"><strong>{{ user.username }}</strong> generated secret is
+                    <em>{{ user.secret }}</em></p>
 
                 <p ng-show="user.secret">You should now have access to API because your're logged in</p>
 
@@ -41,10 +42,6 @@
             <hr>
 
             <input class="btn btn-primary btn-block" type="submit" value="login">
-
-            <div ui-content-for="navbarAction">
-                <a class='btn' ng-click='getSalt()'>Login</a>
-            </div>
 
         </form>
     </div>
