@@ -7,12 +7,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
-class DefaultController extends Controller
+class LanguageController extends Controller
 {
     /**
      * @Route("/{lang}", requirements={"lang" = "\w+"})
      */
-    public function indexAction($lang)
+    public function getAction($lang)
     {
         return $this->render('TranslateBundle:Default:index.html.twig', array('name' => $lang));
     }
