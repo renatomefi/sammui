@@ -1,6 +1,6 @@
 translate_manage:
-    type:     rest
     resource: "@TranslateBundle/Controller/ManageController.php"
+    type:     rest
     prefix:   /l10n/manage
 
 translate:
