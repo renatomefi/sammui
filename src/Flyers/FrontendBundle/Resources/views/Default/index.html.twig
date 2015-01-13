@@ -30,22 +30,22 @@
 <div ng-include="'{{ asset('bundles/frontend/partials/layout/sidebarRight.html') }}'"
      class="sidebar sidebar-right"></div>
 
+{% verbatim %}
 <div class="app" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ng-swipe-left='Ui.turnOff("uiSidebarLeft")'>
 
     <!-- Navbars -->
-
     <div class="navbar navbar-app navbar-absolute-top">
         <div class="navbar-brand navbar-brand-center" ui-yield-to="title">
-            Mobile Angular UI
+            {{ 'index-title' | translate }}
         </div>
         <div class="btn-group pull-left">
             <div ui-toggle="uiSidebarLeft" class="btn sidebar-toggle">
-                <i class="fa fa-bars"></i> Menu
+                <i class="fa fa-bars"></i> {{ 'index-title-sidebar-left' | translate }}
             </div>
         </div>
         <div class="btn-group pull-right" ui-yield-to="navbarAction">
             <div ui-toggle="uiSidebarRight" class="btn">
-                <i class="fa fa-angle-left"></i> Side
+                <i class="fa fa-angle-left"></i> {{ 'index-title-sidebar-right' | translate }}
             </div>
         </div>
     </div>
@@ -75,6 +75,8 @@
 
 <div ui-yield-to="modals"></div>
 
+{% endverbatim %}
+
 <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
 <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha512.js"></script>
 <script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
@@ -88,12 +90,16 @@
 <script src="{{ asset('bundles/frontend/lib/angular-1.3.8/angular-cookies.js') }}"></script>
 <script src="{{ asset('bundles/frontend/lib/angular-1.3.8/angular-resource.js') }}"></script>
 
+{#Angular Translate#}
+<script src="{{ asset('bundles/translate/lib/angular-translate-2.5.2/angular-translate.js') }}"></script>
+
 {#Mobile Angular UI#}
 <script src="{{ asset('bundles/frontend/lib/mobile-angular-ui/js/mobile-angular-ui.js') }}"></script>
 <script src="{{ asset('bundles/frontend/lib/mobile-angular-ui/js/mobile-angular-ui.gestures.js') }}"></script>
 
 {#Angular APP#}
 <script src="{{ asset('bundles/frontend/js/app.js') }}"></script>
+<script src="{{ asset('bundles/translate/js/translate.js') }}"></script>
 <script src="{{ asset('bundles/frontend/js/services.js') }}"></script>
 <script src="{{ asset('bundles/frontend/js/controllers.js') }}"></script>
 <script src="{{ asset('bundles/frontend/js/filters.js') }}"></script>

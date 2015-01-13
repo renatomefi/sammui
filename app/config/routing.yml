@@ -1,5 +1,6 @@
 translate:
-    resource: "@TranslateBundle/Resources/config/routing.yml"
+    resource: "@TranslateBundle/Controller/"
+    type:     annotation
     prefix:   /
 
 frontend:
