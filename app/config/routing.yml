@@ -4,9 +4,9 @@ translate_manage:
     prefix:   /l10n/manage
 
 translate:
-    resource: "@TranslateBundle/Controller/"
+    resource: "@TranslateBundle/Controller/LanguageController.php"
     type:     annotation
-    prefix:   /l10n
+    prefix:   /l10n/lang
 
 frontend:
     resource: "@FrontendBundle/Controller/"
