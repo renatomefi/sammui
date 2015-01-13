@@ -1,7 +1,12 @@
+translate_manage:
+    type:     rest
+    resource: "@TranslateBundle/Controller/ManageController.php"
+    prefix:   /l10n/manage
+
 translate:
     resource: "@TranslateBundle/Controller/"
     type:     annotation
-    prefix:   /
+    prefix:   /l10n
 
 frontend:
     resource: "@FrontendBundle/Controller/"

@@ -81,6 +81,10 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
+fos_rest:
+    routing_loader:
+        default_format: json
+
 # FOS User Bundle for ORM
 #fos_user:
 #    db_driver: orm
