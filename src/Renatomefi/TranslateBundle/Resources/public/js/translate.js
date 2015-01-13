@@ -10,4 +10,10 @@ angular.module('sammui').config(['$translateProvider', function ($translateProvi
         'index-title-sidebar-left': 'Menu',
         'index-title-sidebar-right': 'admin'
     });
+
+    $translateProvider.translations('pt-br', {
+        'index-title': 'SAMMUI Exemplo',
+        'index-title-sidebar-left': 'Menu',
+        'index-title-sidebar-right': 'admin'
+    });
 }]);
