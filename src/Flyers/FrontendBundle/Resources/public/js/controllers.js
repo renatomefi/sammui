@@ -31,11 +31,18 @@ angular.module('sammui.controllers', ['ngCookies']).
             });
         };
     }])
+    .controller('UiCtrl', ['$rootScope', '$scope', function ($rootScope, $scope) {
+
+        // User agent displayed in home page
+        $scope.userAgent = navigator.userAgent;
+
+    }])
     .controller('MyCtrl1', ['$rootScope', '$scope', '$window', 'Hello', 'Salt', function ($rootScope, $scope, $window, Hello, Salt) {
         // If not authenticated, go to login
 
         if (typeof $rootScope.userAuth == "undefined") {
             $window.location = '#/login';
+            return;
         }
 
         // Simple communication sample, return world
@@ -45,6 +52,7 @@ angular.module('sammui.controllers', ['ngCookies']).
         // If not authenticated, go to login
         if (typeof $rootScope.userAuth == "undefined") {
             $window.location = '#/login';
+            return;
         }
 
         // Load Todos with secured connection

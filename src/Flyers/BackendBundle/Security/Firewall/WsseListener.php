@@ -17,7 +17,7 @@ class WsseListener implements ListenerInterface
     protected $authenticationManager;
     protected $logger;
 
-    public function __construct(SecurityContextInterface $securityContext, 
+    public function __construct(SecurityContextInterface $securityContext,
                                 AuthenticationManagerInterface $authenticationManager,
                                 LoggerInterface $logger)
     {
@@ -40,18 +40,18 @@ class WsseListener implements ListenerInterface
                 $token = new WsseUserToken();
                 $token->setUser($matches[1]);
 
-                $token->digest   = $matches[2];
-                $token->nonce    = $matches[3];
-                $token->created  = $matches[4];
+                $token->digest = $matches[2];
+                $token->nonce = $matches[3];
+                $token->created = $matches[4];
 
                 try {
                     // Authentication process 
                     $authToken = $this->authenticationManager->authenticate($token);
                     $this->securityContext->setToken($authToken);
-                    
+
                     return;
                 } catch (AuthenticationException $failed) {
-                    $failedMessage = 'WSSE Login failed for '.$token->getUsername().'. Why ? '.$failed->getMessage();
+                    $failedMessage = 'WSSE Login failed for ' . $token->getUsername() . '. Why ? ' . $failed->getMessage();
                     $this->logger->err($failedMessage);
 
                     // To deny the authentication clear the token. This will redirect to the login page.
@@ -67,8 +67,8 @@ class WsseListener implements ListenerInterface
                     $event->setResponse($response);
 
                     return;
-                } catch( NonceExpiredException $expired) {
-                    $failedMessage = 'WSSE Nonce Expired for '.$token->getUsername().'. Why ? '.$failed->getMessage();
+                } catch (NonceExpiredException $expired) {
+                    $failedMessage = 'WSSE Nonce Expired for ' . $token->getUsername() . '. Why ? ' . $failed->getMessage();
                     $this->logger->err($failedMessage);
 
                     // Deny authentication with a '403 Forbidden' HTTP response
@@ -91,6 +91,6 @@ class WsseListener implements ListenerInterface
         $response = new Response();
         $response->setStatusCode(403);
         $event->setResponse($response);
-        
+
     }
 }

@@ -17,15 +17,13 @@
           href="{{ asset('bundles/frontend/lib/mobile-angular-ui/css/mobile-angular-ui-desktop.css') }}"/>
 
     <link rel="stylesheet" href="{{ asset('bundles/frontend/css/app.css') }}"/>
-</head>
 
-<!DOCTYPE html>
-<html>
+</head>
 
 <body ng-app="sammui">
 
 <!-- Sidebars -->
-<div ng-include="'{{ asset('bundles/frontend/partials/layout/sidebarRight.html') }}'"
+<div ng-include="'{{ asset('bundles/frontend/partials/layout/sidebar.html') }}'"
      ui-track-as-search-param='true'
      class="sidebar sidebar-left"></div>
 
