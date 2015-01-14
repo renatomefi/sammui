@@ -28,7 +28,8 @@
     "friendsofsymfony/user-bundle": "1.3.5",
     "jms/serializer-bundle": "*",
     "jms/security-extra-bundle": "*",
-    "jms/di-extra-bundle": "*"
+    "jms/di-extra-bundle": "*",
+    "sp/bower-bundle": "0.11.*"
   },
   "require-dev": {
     "phpunit/phpunit": "3.7.*",

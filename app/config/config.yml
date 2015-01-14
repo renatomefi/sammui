@@ -38,6 +38,10 @@ assetic:
         #yui_css:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
 
+sp_bower:
+    bundles:
+        FrontendBundle: ~
+
 # Doctrine Configuration
 #doctrine:
 #    dbal:
@@ -82,6 +86,7 @@ swiftmailer:
     spool:     { type: memory }
 
 fos_rest:
+    param_fetcher_listener: true
     view:
         view_response_listener: true
     routing_loader:

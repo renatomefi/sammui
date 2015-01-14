@@ -23,9 +23,10 @@ class AppKernel extends Kernel
             new Flyers\BackendBundle\BackendBundle(),
             new Flyers\FrontendBundle\FrontendBundle(),
             new Renatomefi\TranslateBundle\TranslateBundle(),
-            new FOS\RestBundle\FOSRestBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new FOS\RestBundle\FOSRestBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Sp\BowerBundle\SpBowerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
