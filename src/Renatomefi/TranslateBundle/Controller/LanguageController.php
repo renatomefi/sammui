@@ -30,28 +30,4 @@ class LanguageController extends Controller
 //        return $this->render('TranslateBundle:Default:index.html.twig');
     }
 
-    /**
-     * @Route("/test/{lang}")
-     */
-    public function testAction($lang)
-    {
-        $dm = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
-//        $product = $dm->findAll();
-        $language = $dm->findOneBy(array('key' => $lang));
-
-
-        if (!$language) {
-            throw $this->createNotFoundException('No product found for lang ' . $lang);
-        } else {
-            \Doctrine\Common\Util\Debug::dump($language);
-            \Doctrine\Common\Util\Debug::dump($dm->findAll());
-//            \Doctrine\Common\Util\Debug::dump($product->getLastUpdate());
-        }
-
-//        var_dump($dm->getRepository('TranslateBundle:Language'));
-//        var_dump($dm->getRepository('TranslateBundle:Language')->find());
-//        var_dump($response);
-
-        return $this->render('TranslateBundle:Default:index.html.twig', ['name' => $lang]);
-    }
 }
