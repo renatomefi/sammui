@@ -6,8 +6,6 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Renatomefi\TranslateBundle\Document\Language;
 use Renatomefi\TranslateBundle\Document\Translation;
-use FOS\RestBundle\Request\ParamFetcher;
-use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
 class ManageController extends FOSRestController
@@ -19,11 +17,9 @@ class ManageController extends FOSRestController
      *
      * @Rest\Post("/key/{lang}")
      *
-     * @param ParamFetcher $paramFetcher
-     *
      * @return View
      */
-    public function postKeyAction(ParamFetcher $paramFetcher, Request $request, $lang)
+    public function postKeyAction(Request $request, $lang)
     {
         $languageDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
         $language = $languageDM->findOneBy(array('key' => $lang));
@@ -33,18 +29,13 @@ class ManageController extends FOSRestController
         }
         $dm = $this->get('doctrine_mongodb')->getManager();
 
-        \Doctrine\Common\Util\Debug::dump(json_decode($request->getContent(),true));
-        \Doctrine\Common\Util\Debug::dump($paramFetcher->all());
         $translation = new Translation();
         $translation->setLanguage($language);
-        $translation->setKey($paramFetcher->get('key'));
-        $translation->setValue($paramFetcher->get('value'));
+        $translation->setKey($request->get('key'));
+        $translation->setValue($request->get('value'));
 
-        \Doctrine\Common\Util\Debug::dump($translation);
         $dm->persist($translation);
         $dm->flush();
-
-        \Doctrine\Common\Util\Debug::dump($translation);
 
         $view = $this->view($translation);
 

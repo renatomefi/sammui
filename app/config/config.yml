@@ -28,7 +28,7 @@ twig:
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
-    use_controller: true
+    use_controller: false
     bundles:        [ FrontendBundle , TranslateBundle ]
 
     #java: /usr/bin/java
@@ -96,6 +96,12 @@ fos_rest:
         view_response_listener: true
     routing_loader:
         default_format: json
+
+services:
+  kernel.event_listener.json_request_transformer:
+    class: Qandidate\Common\Symfony\HttpKernel\EventListener\JsonRequestTransformerListener
+    tags:
+      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }
 
 # FOS User Bundle for ORM
 #fos_user:
