@@ -15,3 +15,6 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
+    bower_bin: /usr/local/bin/bower
+    fos_user_db_driver: mongodb
+    fos_user_class: Flyers\BackendBundle\Document\User

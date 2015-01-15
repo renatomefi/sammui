@@ -40,7 +40,7 @@ assetic:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
 
 sp_bower:
-    bin: /usr/local/bin/bower
+    bin: %bower_bin%
     assetic:
         enabled: false
     bundles:
@@ -104,13 +104,10 @@ services:
       - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }
 
 # FOS User Bundle for ORM
-#fos_user:
-#    db_driver: orm
-#    firewall_name: main
-#    user_class: Flyers\BackendBundle\Entity\User
-
-# FOS User Bundle for MongoDB
+# In order to use ORM change the parameters.yml to
+# fos_user_db_driver: orm
+# fos_user_class: Flyers\BackendBundle\Entity\User
 fos_user:
-    db_driver: mongodb
+    db_driver: %fos_user_db_driver%
     firewall_name: main
-    user_class: Flyers\BackendBundle\Document\User
+    user_class: %fos_user_class%
