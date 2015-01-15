@@ -27,6 +27,15 @@ class Language
      */
     protected $key;
 
+    /**
+     * @ODM\ReferenceMany(targetDocument="Translation" , mappedBy="language")
+     */
+    protected $translations;
+
+    public function __construct()
+    {
+        $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -80,5 +89,35 @@ class Language
     public function getKey()
     {
         return $this->key;
+    }
+
+    /**
+     * Add translation
+     *
+     * @param Renatomefi\TranslateBundle\Document\Translation $translation
+     */
+    public function addTranslation(\Renatomefi\TranslateBundle\Document\Translation $translation)
+    {
+        $this->translations[] = $translation;
+    }
+
+    /**
+     * Remove translation
+     *
+     * @param Renatomefi\TranslateBundle\Document\Translation $translation
+     */
+    public function removeTranslation(\Renatomefi\TranslateBundle\Document\Translation $translation)
+    {
+        $this->translations->removeElement($translation);
+    }
+
+    /**
+     * Get translations
+     *
+     * @return Doctrine\Common\Collections\Collection $translations
+     */
+    public function getTranslations()
+    {
+        return $this->translations;
     }
 }

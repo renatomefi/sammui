@@ -10,16 +10,24 @@ use Symfony\Component\HttpFoundation\Request;
 
 class ManageController extends FOSRestController
 {
-    /**
-     *
-     * @Rest\QueryParam(name="key")
-     * @Rest\QueryParam(name="value")
-     *
-     * @Rest\Post("/key/{lang}")
-     *
-     * @return View
-     */
-    public function postKeyAction(Request $request, $lang)
+
+    public function postLangAction($lang)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
+        $language = new Language();
+        $language->setKey($lang);
+        $language->setLastUpdate(time());
+
+        $dm->persist($language);
+        $dm->flush();
+
+        $view = $this->view($language);
+
+        return $this->handleView($view);
+    }
+
+    public function postLangKeyAction(Request $request, $lang, $key)
     {
         $languageDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
         $language = $languageDM->findOneBy(array('key' => $lang));
@@ -27,11 +35,16 @@ class ManageController extends FOSRestController
         if (!$language) {
             throw $this->createNotFoundException('Language not found: ' . $lang);
         }
+
+        $translateDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Translation');
+        $translation = $translateDM->findOneByKey($key);
+
+
         $dm = $this->get('doctrine_mongodb')->getManager();
 
         $translation = new Translation();
         $translation->setLanguage($language);
-        $translation->setKey($request->get('key'));
+        $translation->setKey($key);
         $translation->setValue($request->get('value'));
 
         $dm->persist($translation);
@@ -43,17 +56,25 @@ class ManageController extends FOSRestController
 
     }
 
-    public function getKeysAction($lang)
+    public function getLangKeysAction($lang)
     {
-        $view = $this->view(['lang' => $lang, 'keys' => ['a', 'b', 'c']], 200);
+        $languageDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
+        $language = $languageDM->findOneByKey($lang);
+
+        if (!$language) {
+            throw $this->createNotFoundException('Language not found: ' . $lang);
+        }
+
+            $translations = $language->getTranslations();
+
+        \Doctrine\Common\Util\Debug::dump($language);
+
+        $view = $this->view(['lang' => $language, 't' => $translations]);
 
         return $this->handleView($view);
     }
 
-    /**
-     * @Rest\Get("/{lang}/key/{key}")
-     */
-    public function getKeyAction($lang, $key)
+    public function getLangKeyAction($lang, $key)
     {
         $view = $this->view(['lang' => $lang, 'key' => $key], 200);
 
@@ -61,7 +82,7 @@ class ManageController extends FOSRestController
 
     }
 
-    public function deleteKeyAction($lang, $key)
+    public function deleteLangKeyAction($lang, $key)
     {
         $user = $this->get('security.context')->getToken()->getUser();
     }
@@ -90,7 +111,7 @@ class ManageController extends FOSRestController
             throw $this->createNotFoundException('Language not found: ' . $lang);
         }
 
-        $view = $this->view(['lang' => $language]);
+        $view = $this->view($language);
 
         return $this->handleView($view);
     }

@@ -18,7 +18,7 @@ class Translation
     protected $id;
 
     /**
-     * @ODM\ReferenceOne(targetDocument="Language")
+     * @ODM\ReferenceOne(targetDocument="Language", inversedBy="translations")
      */
     protected $language;
 
