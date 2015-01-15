@@ -28,8 +28,9 @@ twig:
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
-    use_controller: false
-    bundles:        [ ]
+    use_controller: true
+    bundles:        [ FrontendBundle , TranslateBundle ]
+
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -39,8 +40,12 @@ assetic:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
 
 sp_bower:
+    bin: /usr/local/bin/bower
+    assetic:
+        enabled: false
     bundles:
         FrontendBundle: ~
+        TranslateBundle: ~
 
 # Doctrine Configuration
 #doctrine:

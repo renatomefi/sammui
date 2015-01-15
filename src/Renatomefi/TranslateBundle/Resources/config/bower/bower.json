@@ -1,0 +1,6 @@
+{
+  "name": "RenatomefiTranslateBundle",
+  "dependencies": {
+    "angular-translate": "~2.5.2"
+  }
+}

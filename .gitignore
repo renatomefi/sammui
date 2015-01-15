@@ -7,7 +7,9 @@
 /composer.phar
 composer.lock
 
-src/Flyers/FrontendBundle/Resources/public/components
+# Bower components
+src/*/*Bundle/Resources/public/components
+
 # Configuration files
 app/config/parameters.ini
 app/config/parameters.yml

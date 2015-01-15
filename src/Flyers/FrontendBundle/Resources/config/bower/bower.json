@@ -1,7 +1,12 @@
 {
   "name": "FlyersFrontendBundle",
   "dependencies": {
-    "angular": "~1.3.8",
+    "angular": "~1.3.9",
+    "angular-loader": "~1.3.9",
+    "angular-route": "~1.3.9",
+    "angular-cookies": "~1.3.9",
+    "angular-resource": "~1.3.9",
+    "angular-i18n": "~1.3.9",
     "mobile-angular-ui": "~1.2.0"
   }
 }
