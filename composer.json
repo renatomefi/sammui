@@ -5,8 +5,7 @@
   "type": "project",
   "autoload": {
     "psr-0": {
-      "": "src/",
-      "SymfonyStandard": "app/"
+      "": "src/"
     }
   },
   "require": {
