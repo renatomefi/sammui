@@ -40,6 +40,7 @@ assetic:
         #    jar: %kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar
 
 sp_bower:
+    allow_root: false
     bin: %bower_bin%
     assetic:
         enabled: false
