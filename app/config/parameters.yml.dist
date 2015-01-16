@@ -1,4 +1,5 @@
 # This file is a "template" of what your parameters.yml file should look like
+
 # It is based on sammui needs
 parameters:
     database_driver:   pdo_mysql
