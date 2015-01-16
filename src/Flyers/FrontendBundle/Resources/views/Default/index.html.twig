@@ -77,12 +77,11 @@
 
 {% block javascripts %}
 
-    {% set FrontendBundleComponents = "bundles/frontend/components" %}
-
-    <script type="text/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
-    <script type="text/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha512.js"></script>
-    <script type="text/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/md5.js"></script>
-    <script type="text/javascript" src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/components/enc-base64-min.js"></script>
+    {#Crypto JS#}
+    <script type="text/javascript" src="{{ asset("bundles/frontend/components/cryptojslib/rollups/sha1.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("bundles/frontend/components/cryptojslib/rollups/sha512.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("bundles/frontend/components/cryptojslib/rollups/md5.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("bundles/frontend/components/cryptojslib/components/enc-base64-min.js") }}"></script>
 
     {#Angular JS resources#}
     <script type="text/javascript" src="{{ asset("bundles/frontend/components/angular/angular.js") }}"></script>
