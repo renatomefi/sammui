@@ -3,11 +3,12 @@
 // Declare app level module which depends on filters, and services
 var sammui = angular.module('sammui', [
     'ngRoute',
+    'sammui.services',
     'pascalprecht.translate',
+    'xeditable',
     'mobile-angular-ui',
     'mobile-angular-ui.gestures',
     'sammui.filters',
-    'sammui.services',
     'sammui.directives',
     'sammui.controllers'
 ]).config(function ($routeProvider) {
