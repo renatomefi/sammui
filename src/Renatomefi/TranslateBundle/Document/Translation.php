@@ -8,6 +8,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
  * @ODM\Document
+ * @ODM\UniqueIndex(keys={"language"="asc", "key"="asc"})
  */
 class Translation
 {

@@ -11,6 +11,25 @@ use Symfony\Component\HttpFoundation\Request;
 class ManageController extends FOSRestController
 {
 
+    /**
+     * Find and retrieve a language from Language repository
+     *
+     * @param $lang
+     * @param bool $notFoundException Throw an exception if language is not found
+     * @return mixed
+     */
+    public function getLang($lang, $notFoundException = false)
+    {
+        $languageDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
+        $language = $languageDM->findOneByKey($lang);
+
+        if (TRUE == $notFoundException && !$language) {
+            throw $this->createNotFoundException('Language not found: ' . $lang);
+        }
+
+        return $language;
+    }
+
     public function postLangAction($lang)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
@@ -29,12 +48,7 @@ class ManageController extends FOSRestController
 
     public function postLangKeyAction(Request $request, $lang, $key)
     {
-        $languageDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
-        $language = $languageDM->findOneBy(array('key' => $lang));
-
-        if (!$language) {
-            throw $this->createNotFoundException('Language not found: ' . $lang);
-        }
+        $language = $this->getLang($lang, true);
 
         $dm = $this->get('doctrine_mongodb')->getManager();
 
@@ -54,14 +68,10 @@ class ManageController extends FOSRestController
 
     public function getLangKeysAction($lang)
     {
-        $languageDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
-        $language = $languageDM->findOneByKey($lang);
 
-        if (!$language) {
-            throw $this->createNotFoundException('Language not found: ' . $lang);
-        }
+        $language = $this->getLang($lang, true);
 
-            $translations = $language->getTranslations();
+        $translations = $language->getTranslations();
 
         $view = $this->view($translations);
 
@@ -78,7 +88,23 @@ class ManageController extends FOSRestController
 
     public function deleteLangKeyAction($lang, $key)
     {
-        $user = $this->get('security.context')->getToken()->getUser();
+        $this->getLang($lang, true);
+
+        $dm = $this->get('doctrine_mongodb');
+        $translationRepo = $dm->getRepository('TranslateBundle:Translation');
+        $translation = $translationRepo->findByKey($key);
+
+        $dm = $dm->getManager();
+
+        foreach ($translation as $t) {
+            $dm->remove($t);
+        }
+
+        $dm->flush();
+
+        $view = $this->view($translation);
+
+        return $this->handleView($view);
     }
 
     public function getLangsAction()
@@ -98,12 +124,7 @@ class ManageController extends FOSRestController
 
     public function getLangAction($lang)
     {
-        $dm = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
-        $language = $dm->findOneBy(array('key' => $lang));
-
-        if (!$language) {
-            throw $this->createNotFoundException('Language not found: ' . $lang);
-        }
+        $language = $this->getLang($lang, true);
 
         $view = $this->view($language);
 

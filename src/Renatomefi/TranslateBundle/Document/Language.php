@@ -23,7 +23,7 @@ class Language
     protected $lastUpdate;
 
     /**
-     * @ODM\String @ODM\Index(unique=true)
+     * @ODM\String @ODM\UniqueIndex
      */
     protected $key;
 
