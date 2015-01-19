@@ -36,10 +36,6 @@ class ManageController extends FOSRestController
             throw $this->createNotFoundException('Language not found: ' . $lang);
         }
 
-        $translateDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Translation');
-        $translation = $translateDM->findOneByKey($key);
-
-
         $dm = $this->get('doctrine_mongodb')->getManager();
 
         $translation = new Translation();
@@ -67,9 +63,7 @@ class ManageController extends FOSRestController
 
             $translations = $language->getTranslations();
 
-        \Doctrine\Common\Util\Debug::dump($language);
-
-        $view = $this->view(['lang' => $language, 't' => $translations]);
+        $view = $this->view($translations);
 
         return $this->handleView($view);
     }
