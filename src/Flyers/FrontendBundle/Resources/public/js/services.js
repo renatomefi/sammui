@@ -181,7 +181,7 @@ angular.module('sammui.services', ['ngResource']).
     }]).
     factory('Salt', ['$resource', function ($resource) {
         // Service to load Salt
-        return $resource('/app_dev.php/:username/salt', {username: '@id'});
+        return $resource('/:username/salt', {username: '@id'});
     }]).
     factory('Digest', ['$q', function ($q) {
         var factory = {
@@ -213,20 +213,20 @@ angular.module('sammui.services', ['ngResource']).
         return factory;
     }]).
     factory('Hello', ['$resource', 'TokenHandler', function ($resource, tokenHandler) {
-        var resource = $resource('/app_dev.php/api/hello');
+        var resource = $resource('/api/hello');
         resource = tokenHandler.wrapActions(resource, ['get']);
         return resource;
     }]).
     factory('Todos', ['$resource', 'TokenHandler', function ($resource, tokenHandler) {
-        var resource = $resource('/app_dev.php/api/todos', {}, {
+        var resource = $resource('/api/todos', {}, {
             query: {method: 'GET', params: {}, isArray: true}
         });
         resource = tokenHandler.wrapActions(resource, ['get', 'query']);
         return resource;
     }]).
     factory('Todo', ['$resource', 'TokenHandler', function ($resource, tokenHandler) {
-        var resource = $resource('/app_dev.php/api/todo', {}, {
-            update: {method: 'PUT'},
+        var resource = $resource('/api/todo', {}, {
+            update: {method: 'PUT'}
         });
         resource = tokenHandler.wrapActions(resource, ['get', 'update']);
         return resource;
