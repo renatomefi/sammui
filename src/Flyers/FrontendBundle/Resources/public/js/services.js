@@ -228,4 +228,4 @@ angular.module('sammui.services', ['ngResource']).
         resource = tokenHandler.wrapActions(resource, ['get', 'update']);
         return resource;
     }]).
-    value('version', '0.1');
+    value('version', '0.0.2');
