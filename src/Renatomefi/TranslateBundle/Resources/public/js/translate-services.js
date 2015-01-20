@@ -1,16 +1,16 @@
 'use strict';
 
-angular.module('sammui.translateServices', ['ngResource']).
-    factory('translateLoader', ['$q', '$timeout', '$resource', function ($q, $timeout, $resource) {
-
+angular.module('sammui.translateServices', ['ngResource'])
+    .factory('translateLangs', function ($resource) {
+        return $resource('/l10n/manage/langs/:lang');
+    }).
+    factory('translateLoader', ['$q', 'translateLangs', function ($q, translateLangs) {
         return function (options) {
             var deferred = $q.defer(), translations = new Object();
 
-            var Languages = $resource('/l10n/manage/langs/:lang', {lang: '@lang'});
-
-            console.debug('Downloading translate');
-            var lang = Languages.get({lang: options.key}, function () {
-                lang.translations.forEach(function(t){
+            console.debug('Downloading translate for ' + options.key);
+            var lang = translateLangs.get({lang: options.key}, function () {
+                lang.translations.forEach(function (t) {
                     if (t) {
                         translations[t.key] = t.value;
                     }
