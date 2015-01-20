@@ -13,7 +13,13 @@ var sammui = angular.module('sammui', [
     'sammui.filters',
     'sammui.directives',
     'sammui.controllers'
-]).config(function ($routeProvider) {
+]).config(function ($locationProvider, $routeProvider) {
+
+    $locationProvider.html5Mode({
+        enabled: false,
+        requireBase: false
+    });
+
     $routeProvider.when('/login', {
         templateUrl: '/bundles/frontend/partials/login.html',
         templatePreload: true,
