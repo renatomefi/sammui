@@ -6,7 +6,7 @@ translate_manage:
 translate:
     resource: "@TranslateBundle/Controller/LanguageController.php"
     type:     annotation
-    prefix:   /l10n/lang
+    prefix:   /l10n
 
 frontend:
     resource: "@FrontendBundle/Controller/"

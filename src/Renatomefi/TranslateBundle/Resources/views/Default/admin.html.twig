@@ -1,0 +1,45 @@
+{% verbatim %}
+<div ui-content-for="title">
+    <span>{{ 'translate-admin-index' | translate }}</span>
+</div>
+
+<div class="scrollable">
+    <div class="scrollable-content section">
+
+        <form role="form" ng-submit='getSalt()' class="form-login">
+            <fieldset>
+                <legend>{{ 'translate-admin-title' | translate }}</legend>
+
+                <p ng-show="user.secret">You should now have access to API because your're logged in</p>
+
+                <div class="form-group has-success has-feedback">
+                    <label>k</label>
+                    <input type="text"
+                           ng-model="user.username" required
+                           class="form-control"
+                           placeholder="Enter your username">
+                </div>
+
+                <div class="form-group">
+                    <label>v</label>
+                    <input type="text"
+                           ng-model="user.password" required
+                           class="form-control"
+                           placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <label>Remember Me</label>
+                    <ui-switch
+                            ng-model='rememberMe'></ui-switch>
+                </div>
+            </fieldset>
+
+            <hr>
+
+            <input class="btn btn-primary btn-block" type="submit" value="login">
+
+        </form>
+    </div>
+</div>
+{% endverbatim %}

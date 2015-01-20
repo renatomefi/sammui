@@ -5,10 +5,11 @@ var sammui = angular.module('sammui', [
     'ngRoute',
     'sammui.services',
     'pascalprecht.translate',
-    'sammui.translateServices',
     'xeditable',
     'mobile-angular-ui',
     'mobile-angular-ui.gestures',
+    'sammui.translateServices',
+    'sammui.translateControllers',
     'sammui.filters',
     'sammui.directives',
     'sammui.controllers'
