@@ -12,6 +12,6 @@ angular.module('sammui.translateControllers', ['ngRoute'])
     })
     .controller('TranslateAdmin', ['$rootScope', '$scope', '$window', 'translateLangs', 'translateLangsKeys',
         function ($rootScope, $scope, $window, translateLangs, translateLangsKeys) {
-
+            $scope.langs = translateLangs.query();
         }
     ]);

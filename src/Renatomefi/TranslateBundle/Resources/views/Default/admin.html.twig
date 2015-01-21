@@ -6,6 +6,12 @@
 <div class="scrollable">
     <div class="scrollable-content section">
 
+        <div class="btn-group">
+            <a href="" class="btn btn-default" ui-turn-on="new_lang" ui-state="new_lang"
+               ui-class="{'active': new_lang}" ui-exclusion-group="langsButtons">{{ 'translate-admin-new' | translate }}</a>
+            <a ng-repeat="l in langs" href="" class="btn btn-default" ui-turn-on="{{ l.key }}" ui-state="{{ l.key }}"
+               ui-class="{'active': {{ l.key }}}" ui-exclusion-group="langsButtons">{{ l.key }}</a>
+        </div>
         <form role="form" ng-submit='getSalt()' class="form-login">
             <fieldset>
                 <legend>{{ 'translate-admin-title' | translate }}</legend>

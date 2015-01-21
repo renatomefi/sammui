@@ -47,6 +47,18 @@ var sammui = angular.module('sammui', [
     $routeProvider.otherwise({redirectTo: '/login'});
 });
 
+sammui.run([
+    '$rootScope', (function ($rootScope) {
+        $rootScope.$on('$routeChangeStart', function () {
+            $rootScope.loading = true;
+        });
+
+        $rootScope.$on('$routeChangeSuccess', function () {
+            $rootScope.loading = false;
+        });
+    })
+]);
+
 // Template pre-load
 sammui.run([
     '$route', '$templateCache', '$http', (function ($route, $templateCache, $http) {
@@ -61,3 +73,8 @@ sammui.run([
         }
     })
 ]);
+
+// Xeditable configs
+sammui.run(function (editableOptions) {
+    editableOptions.theme = 'bs3';
+});

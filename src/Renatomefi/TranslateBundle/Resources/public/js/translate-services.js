@@ -18,10 +18,6 @@ angular.module('sammui.translateServices', ['ngResource', 'ngRoute'])
             var deferred = $q.defer(),
                 translations = new Object();
 
-            var langs = translateLangs.query(function () {
-                console.log(langs);
-            });
-
             var lang = translateLangs.get({lang: options.key}, function () {
                 lang.translations.forEach(function (t) {
                     if (t) {
