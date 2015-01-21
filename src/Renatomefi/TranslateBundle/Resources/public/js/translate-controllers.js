@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('sammui.translateControllers', ['ngRoute'])
-// Routes
+    // Routes
     .config(function ($routeProvider) {
         $routeProvider.when('/l10n/admin', {
             templateUrl: '/l10n/admin',
@@ -29,13 +29,15 @@ angular.module('sammui.translateControllers', ['ngRoute'])
 
             $scope.deleteLangKey = function (index) {
                 var langTranslation = $scope.translate.langs.keys[index];
-                console.debug('going to delete key ' + langTranslation.key + ' from language ' + langTranslation.language.key);
                 translateLangsKeys.delete({lang: langTranslation.language.key, key: langTranslation.key},
                     function (successResult) {
                         $scope.translate.langs.keys.splice(index, 1);
                     },
                     function (errorResult) {
-                        $rootScope.Ui.turnOn("modalError");
+                        console.debug(errorResult);
+                        $scope.error = errorResult;
+
+                        $scope.Ui.turnOn("modalError");
                     });
             };
         }

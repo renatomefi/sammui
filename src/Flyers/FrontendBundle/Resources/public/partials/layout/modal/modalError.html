@@ -5,7 +5,8 @@
             <div class="modal-header">
                 <button class="close"
                         ui-turn-off="modalError">&times;</button>
-                <h4 class="modal-title">{{ 'modal-error-title' | translate }}</h4>
+                <h4 ng-show="error" class="modal-title">{{ error.status }}: <b>{{ error.statusText }}</b></h4>
+                <h4 ng-show="!error" class="modal-title">{{ 'modal-error-title' | translate }}</h4>
             </div>
             <div class="modal-body bg-danger">
                 <p ng-show="error.message">{{ error.message }}</p>
