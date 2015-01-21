@@ -6,11 +6,7 @@ angular.module('sammui.translateServices', ['ngResource', 'ngRoute'])
         return $resource('/l10n/manage/langs/:lang')
     })
     .factory('translateLangsKeys', function ($resource) {
-        return $resource('/l10n/manage/langs/:lang/keys/:keys', {
-            update: {
-                method: 'PUT'
-            }
-        })
+        return $resource('/l10n/manage/langs/:lang/keys/:keys')
     })
     // Translation Loader to use inside Translation Provider
     .factory('translateLoader', ['$q', 'translateLangs', function ($q, translateLangs) {

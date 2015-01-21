@@ -12,6 +12,31 @@ angular.module('sammui.translateControllers', ['ngRoute'])
     })
     .controller('TranslateAdmin', ['$rootScope', '$scope', '$window', 'translateLangs', 'translateLangsKeys',
         function ($rootScope, $scope, $window, translateLangs, translateLangsKeys) {
-            $scope.langs = translateLangs.query();
+            $scope.translate = new Object();
+
+            $scope.translate.langs = translateLangs.query();
+
+            $scope.translate.table = false;
+
+            $scope.langKeysTable = function (lang) {
+                $rootScope.loading = true;
+                var langKeys = translateLangsKeys.query({lang: lang}, function () {
+                    $scope.translate.langs.keys = langKeys;
+                    $rootScope.loading = false;
+                    $scope.translate.table = true;
+                });
+            };
+
+            $scope.deleteLangKey = function (index) {
+                var langTranslation = $scope.translate.langs.keys[index];
+                console.debug('going to delete key ' + langTranslation.key + ' from language ' + langTranslation.language.key);
+                translateLangsKeys.delete({lang: langTranslation.language.key, key: langTranslation.key},
+                    function (successResult) {
+                        $scope.translate.langs.keys.splice(index, 1);
+                    },
+                    function (errorResult) {
+                        $rootScope.Ui.turnOn("modalError");
+                    });
+            };
         }
     ]);

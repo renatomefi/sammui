@@ -1,0 +1,19 @@
+<div class="modal" ui-if='modalError' ui-state='modalError'>
+    <div class="modal-backdrop in"></div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close"
+                        ui-turn-off="modalError">&times;</button>
+                <h4 class="modal-title">{{ 'modal-error-title' | translate }}</h4>
+            </div>
+            <div class="modal-body bg-danger">
+                <p ng-show="error.message">{{ error.message }}</p>
+                <p ng-show="!error.message" class="">{{ 'modal-error-unknown' | translate }}</p>
+            </div>
+            <div class="modal-footer">
+                <button ui-turn-off="modalError" class="btn btn-default">{{ 'modal-error-close' | translate }}</button>
+            </div>
+        </div>
+    </div>
+</div>

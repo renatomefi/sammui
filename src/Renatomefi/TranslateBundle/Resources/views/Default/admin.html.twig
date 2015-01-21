@@ -7,40 +7,52 @@
     <div class="scrollable-content section">
 
         <div class="btn-group">
-            <a href="" class="btn btn-default" ui-turn-on="new_lang" ui-state="new_lang"
-               ui-class="{'active': new_lang}" ui-exclusion-group="langsButtons">{{ 'translate-admin-new' | translate }}</a>
-            <a ng-repeat="l in langs" href="" class="btn btn-default" ui-turn-on="{{ l.key }}" ui-state="{{ l.key }}"
-               ui-class="{'active': {{ l.key }}}" ui-exclusion-group="langsButtons">{{ l.key }}</a>
+            <a href="" class="btn btn-default">{{ 'translate-admin-new' | translate }}</a>
+            <a ng-repeat="l in translate.langs" ng-click="langKeysTable(l.key)" class="btn btn-default">{{ l.key }}</a>
         </div>
-        <form role="form" ng-submit='getSalt()' class="form-login">
-            <fieldset>
-                <legend>{{ 'translate-admin-title' | translate }}</legend>
 
-                <p ng-show="user.secret">You should now have access to API because your're logged in</p>
+        <hr>
 
-                <div class="form-group has-success has-feedback">
-                    <label>k</label>
-                    <input type="text"
-                           ng-model="user.username" required
-                           class="form-control"
-                           placeholder="Enter your username">
-                </div>
+        <table ng-show="translate.table" class="table table-striped table-hover">
+            <tr style="font-weight: bold">
+                <td style="width:35%">Key</td>
+                <td style="width:35%">Value</td>
+                <td style="width:30%">Edit</td>
+            </tr>
+            <tr ng-repeat="translation in translate.langs.keys">
+                <td>
+                    {{ translation.key }}
+                </td>
+                <td>
+                    <span editable-text="translation.value" e-name="value" e-form="rowform" e-required>
+                        {{ translation.value }}
+                    </span></td>
+                <td style="white-space: nowrap">
+                    <!-- form -->
+                    <form editable-form name="rowform" onbeforesave="saveUser($data, translation.id)"
+                          ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == translation">
+                        <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                            save
+                        </button>
+                        <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()"
+                                class="btn btn-default">
+                            cancel
+                        </button>
+                    </form>
+                    <div class="buttons" ng-show="!rowform.$visible">
+                        <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+                        <button class="btn btn-danger" ng-click="deleteLangKey($index)">del
+                        </button>
+                    </div>
+                </td>
+            </tr>
+        </table>
 
-                <div class="form-group">
-                    <label>v</label>
-                    <input type="text"
-                           ng-model="user.password" required
-                           class="form-control"
-                           placeholder="Password">
-                </div>
-
-            </fieldset>
-
-            <hr>
-
-            <input class="btn btn-primary btn-block" type="submit" value="Save">
-
-        </form>
     </div>
 </div>
+
 {% endverbatim %}
+
+<div ui-content-for="modals">
+    <div ng-include="'{{ asset('bundles/frontend/partials/layout/modal/modalError.html') }}'"></div>
+</div>

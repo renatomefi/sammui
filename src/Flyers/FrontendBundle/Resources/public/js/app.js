@@ -47,6 +47,7 @@ var sammui = angular.module('sammui', [
     $routeProvider.otherwise({redirectTo: '/login'});
 });
 
+// Loading spin for every route change
 sammui.run([
     '$rootScope', (function ($rootScope) {
         $rootScope.$on('$routeChangeStart', function () {
@@ -62,7 +63,6 @@ sammui.run([
 // Template pre-load
 sammui.run([
     '$route', '$templateCache', '$http', (function ($route, $templateCache, $http) {
-        console.debug('templateCache: Starting caching all templates from routes')
         var url;
         for (var i in $route.routes) {
             if ($route.routes[i].templatePreload) {
