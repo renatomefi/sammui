@@ -30,13 +30,11 @@ angular.module('sammui.translateControllers', ['ngRoute'])
             $scope.deleteLangKey = function (index) {
                 var langTranslation = $scope.translate.langs.keys[index];
                 translateLangsKeys.delete({lang: langTranslation.language.key, key: langTranslation.key},
-                    function (successResult) {
+                    function (response) {
                         $scope.translate.langs.keys.splice(index, 1);
                     },
-                    function (errorResult) {
-                        console.debug(errorResult);
-                        $scope.error = errorResult;
-
+                    function (errorResponse) {
+                        $scope.error = errorResponse;
                         $scope.Ui.turnOn("modalError");
                     });
             };

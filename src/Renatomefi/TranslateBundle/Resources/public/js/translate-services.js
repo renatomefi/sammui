@@ -5,9 +5,21 @@ angular.module('sammui.translateServices', ['ngResource', 'ngRoute'])
     .factory('translateLangs', function ($resource) {
         return $resource('/l10n/manage/langs/:lang')
     })
-    .factory('translateLangsKeys', function ($resource) {
-        return $resource('/l10n/manage/langs/:lang/keys/:keys')
-    })
+    .factory('translateLangsKeys', ['$resource', function ($resource) {
+        function resourceDeleteErrorHandler(errorResult) {
+            //alert('error');
+            //console.debug(errorResult)
+            //$scope.error = errorResult;
+            //$scope.Ui.turnOn("modalError");
+        };
+
+        return $resource('/l10n/manage/langs/:lang/keys/:keys', {}, {
+            'delete': {
+                method: 'DELETE',
+                interceptor: {responseError: resourceDeleteErrorHandler}
+            }
+        });
+    }])
     // Translation Loader to use inside Translation Provider
     .factory('translateLoader', ['$q', 'translateLangs', function ($q, translateLangs) {
         return function (options) {
