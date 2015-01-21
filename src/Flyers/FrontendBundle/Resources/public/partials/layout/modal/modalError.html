@@ -3,14 +3,20 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <button class="close"
-                        ui-turn-off="modalError">&times;</button>
-                <h4 ng-show="error" class="modal-title">{{ error.status }}: <b>{{ error.statusText }}</b></h4>
-                <h4 ng-show="!error" class="modal-title">{{ 'modal-error-title' | translate }}</h4>
+                <button class="close" ui-turn-off="modalError">&times;</button>
+                <h4 class="modal-title">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span ng-show="error">
+                        {{ error.status }}: <b>{{ error.statusText }}</b>
+                    </span>
+                    <span ng-show="!error">
+                        {{ 'modal-error-title' | translate }}
+                    </span>
+                </h4>
             </div>
             <div class="modal-body bg-danger">
                 <p ng-show="error.message">{{ error.message }}</p>
-                <p ng-show="!error.message" class="">{{ 'modal-error-unknown' | translate }}</p>
+                <p ng-show="!error.message">{{ 'modal-error-unknown' | translate }}</p>
             </div>
             <div class="modal-footer">
                 <button ui-turn-off="modalError" class="btn btn-default">{{ 'modal-error-close' | translate }}</button>

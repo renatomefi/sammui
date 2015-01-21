@@ -27,8 +27,21 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                 });
             };
 
+            $scope.addLangKey = function() {
+                $scope.inserted = {
+                    key: null,
+                    value: null
+                };
+                $scope.translate.langs.keys.push($scope.inserted);
+            };
+
             $scope.deleteLangKey = function (index) {
                 var langTranslation = $scope.translate.langs.keys[index];
+
+                if (typeof langTranslation.id === 'undefined') {
+                    $scope.translate.langs.keys.splice(index, 1);
+                    return;
+                }
                 translateLangsKeys.delete({lang: langTranslation.language.key, key: langTranslation.key},
                     function (response) {
                         $scope.translate.langs.keys.splice(index, 1);
