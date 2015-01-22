@@ -13,7 +13,7 @@
         </div>
         <div class="btn-group">
             <a href="" class="btn btn-default">{{ 'translate-admin-new' | translate }}</a>
-            <a ng-repeat="l in translate.langs" ng-click="langKeysTable(l.key)" class="btn btn-default">{{ l.key }}</a>
+            <a ng-repeat="l in translate.langs" ng-click="langChange(l.key)" class="btn btn-default">{{ l.key }}</a>
         </div>
 
         <hr>
@@ -32,7 +32,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="translation in translate.langs.keys">
+            <tr ng-repeat="translation in translate.langKeys">
                 <td>
                     <span editable-text="translation.key"
                           e-name="value" e-form="translateLangKeyForm"

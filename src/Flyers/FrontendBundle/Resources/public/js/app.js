@@ -47,9 +47,10 @@ var sammui = angular.module('sammui', [
     $routeProvider.otherwise({redirectTo: '/login'});
 });
 
-// Loading spin for every route change
+
 sammui.run([
     '$rootScope', (function ($rootScope) {
+        // Loading spin for every route change
         $rootScope.$on('$routeChangeStart', function () {
             $rootScope.loading = true;
         });

@@ -1,46 +1,48 @@
 'use strict'
 
 angular.module('sammui.translateControllers', ['ngRoute'])
-    .filter('test', function () {
-
-    })
     // Routes
     .config(function ($routeProvider) {
-        $routeProvider.when('/l10n/admin/:lang?', {
+        $routeProvider.when('/l10n/admin', {
             templateUrl: '/l10n/admin',
             templatePreload: false,
             controller: 'TranslateAdmin',
             reloadOnSearch: false
         });
     })
-    .controller('TranslateAdmin', ['$rootScope', '$scope', '$window', '$filter', '$routeParams', 'translateLangs', 'translateLangsKeys',
-        function ($rootScope, $scope, $window, $filter, $routeParams, translateLangs, translateLangsKeys) {
+    .controller('TranslateAdmin', ['$rootScope', '$scope', '$window', '$location', '$filter', '$routeParams', 'translateLangs', 'translateLangsKeys',
+        function ($rootScope, $scope, $window, $location, $filter, $routeParams, translateLangs, translateLangsKeys) {
             $scope.translate = new Object();
 
             $scope.translate.table = false;
 
             $scope.translate.langs = translateLangs.query({}, function () {
-                if ($routeParams.lang) {
-                    $scope.langKeysTable($routeParams.lang);
+                if ($location.search()['lang']) {
+                    $rootScope.langKeysTable();
                 }
             });
 
-            $scope.langKeysTable = function (lang, reload) {
+            $scope.langChange = function (lang) {
+                $location.search('lang', lang);
+            }
+
+            $rootScope.langKeysTable = function (lang, reload) {
                 $rootScope.loading = true;
 
+                lang = lang || $location.search()['lang'];
                 reload = reload || false;
 
                 var language = $filter('getByKey')($scope.translate.langs, lang);
 
                 if (language && reload === false) {
-                    $scope.translate.langs.keys = language.translations;
+                    $scope.translate.langKeys = language.translations;
                     $scope.translate.table = true;
                     $rootScope.loading = false;
                     return;
                 }
 
                 var langKeys = translateLangsKeys.query({lang: lang}, function () {
-                    $scope.translate.langs.keys = langKeys;
+                    $scope.translate.langKeys = langKeys;
                     $scope.translate.table = true;
                     $rootScope.loading = false;
                 });
@@ -51,7 +53,7 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                     key: null,
                     value: null
                 };
-                $scope.translate.langs.keys.push($scope.inserted);
+                $scope.translate.langKeys.push($scope.inserted);
             };
 
             $scope.editCheck = function (translation) {
@@ -66,15 +68,16 @@ angular.module('sammui.translateControllers', ['ngRoute'])
             };
 
             $scope.deleteLangKey = function (index) {
-                var langTranslation = $scope.translate.langs.keys[index];
+                var langTranslation = $scope.translate.langKeys[index];
 
                 if (typeof langTranslation.id === 'undefined') {
-                    $scope.translate.langs.keys.splice(index, 1);
+                    $scope.translate.langKeys.splice(index, 1);
                     return;
                 }
+                console.debug(langTranslation);
                 translateLangsKeys.delete({lang: langTranslation.language.key, key: langTranslation.key},
                     function (response) {
-                        $scope.translate.langs.keys.splice(index, 1);
+                        $scope.translate.langKeys.splice(index, 1);
                     },
                     function (errorResponse) {
                         $scope.error = errorResponse;
