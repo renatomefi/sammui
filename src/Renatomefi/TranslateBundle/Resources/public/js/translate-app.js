@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 // Configuring $translateProvider
 var sammuiTranslate = angular.module('sammui')
@@ -23,11 +23,15 @@ var sammuiTranslate = angular.module('sammui')
     });
 
 sammuiTranslate.run([
-    '$rootScope', function ($rootScope) {
+    '$rootScope', '$route', function ($rootScope, $route) {
         $rootScope.$on('$locationChangeSuccess', function () {
-            if (typeof $rootScope.langKeysTable !== 'undefined') {
+            if (typeof $route.current.$$route === 'undefined')
+                return;
+
+            if (typeof $rootScope.langKeysTable !== 'undefined' &&
+                $route.current.$$route.controller === 'TranslateKeysController') {
                 $rootScope.langKeysTable()
             }
         });
     }
-])
+]);
