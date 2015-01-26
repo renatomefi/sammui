@@ -34,9 +34,9 @@
             <tbody>
             <tr ng-repeat="translation in translate.langKeys">
                 <td>
-                    <span editable-text="translation.key"
-                          e-name="value" e-form="translateLangKeyForm"
-                          e-required>
+                    <span editable-text="translation.key" e-ng-disabled="translateLangKeyFormEditableKey"
+                          e-name="value" e-form="translateLangKeyForm" onshow="editCheck(translation)"
+                          e-required ng-minlength=2>
                         {{ translation.key || ('translate-edit-empty' | translate) }}
                     </span>
                 </td>

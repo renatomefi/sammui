@@ -66,12 +66,9 @@ angular.module('sammui.translateControllers', ['ngRoute'])
             };
 
             $scope.editCheck = function (translation) {
-                console.debug('onshow check');
                 if (translation.id) {
-                    console.debug('true');
                     $scope.translateLangKeyFormEditableKey = true;
                 } else {
-                    console.debug('false');
                     $scope.translateLangKeyFormEditableKey = false;
                 }
             };
@@ -93,7 +90,7 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                 translateLangsKeys.delete(
                     {
                         lang: $location.search()['lang'],
-                        key: langTranslation.key
+                        keys: langTranslation.key
                     },
                     function () {
                         $scope.translate.langKeys.splice(index, 1);

@@ -90,7 +90,7 @@ class ManageController extends FOSRestController
 
         $translationRepo = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Translation');
 
-        $result = $translationRepo->createQueryBuilder('Translation')
+        $result = $translationRepo->createQueryBuilder()
             ->field('language')->references($language)
             ->field('key')->equals($key)
             ->getQuery()
@@ -107,21 +107,19 @@ class ManageController extends FOSRestController
 
     public function deleteLangKeyAction($lang, $key)
     {
-        $this->getLang($lang, true);
+        $language = $this->getLang($lang, true);
 
         $dm = $this->get('doctrine_mongodb');
         $translationRepo = $dm->getRepository('TranslateBundle:Translation');
-        $translation = $translationRepo->findByKey($key);
 
-        $dm = $dm->getManager();
+        $ts = $translationRepo->createQueryBuilder()
+            ->remove()
+            ->field('language')->references($language)
+            ->field('key')->equals($key)
+            ->getQuery()
+            ->execute();
 
-        foreach ($translation as $t) {
-            $dm->remove($t);
-        }
-
-        $dm->flush();
-
-        $view = $this->view($translation);
+        $view = $this->view($ts);
 
         return $this->handleView($view);
     }
