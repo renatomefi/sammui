@@ -3,7 +3,7 @@
     <span>{{ 'translate-admin-index' | translate }}</span>
 </div>
 
-<div class="scrollable">
+<div class="scrollable" ng-controller="TranslateKeysController">
     <div class="scrollable-content section">
 
         <div ng-class="{loading: loading}">
@@ -34,8 +34,8 @@
             <tbody>
             <tr ng-repeat="translation in translate.langKeys">
                 <td>
-                    <span editable-text="translation.key" e-ng-disabled="translateLangKeyFormEditableKey"
-                          e-name="value" e-form="translateLangKeyForm" onshow="editCheck(translation)"
+                    <span editable-text="translation.key" e-ng-disabled="translateLangKeyFormEditableKey || translateLangKeyForm.$waiting"
+                          e-name="key" e-form="translateLangKeyForm" onshow="editCheck(translation)"
                           e-required ng-minlength=2>
                         {{ translation.key || ('translate-edit-empty' | translate) }}
                     </span>
@@ -50,7 +50,7 @@
                 <td style="white-space: nowrap" colspan="2">
                     <!-- form -->
                     <form editable-form name="translateLangKeyForm"
-                          onbeforesave="saveUser($data, translation.id)"
+                          onbeforesave="saveLangKey($data, translation)"
                           ng-show="translateLangKeyForm.$visible" class="form-buttons form-inline"
                           shown="inserted == translation">
                         <button type="submit" ng-disabled="translateLangKeyForm.$waiting" class="btn btn-primary">

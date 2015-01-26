@@ -11,8 +11,8 @@ angular.module('sammui.translateControllers', ['ngRoute'])
         });
     })
     .controller('TranslateKeysController',
-    ['$rootScope', '$scope', '$window', '$location', '$filter', '$routeParams', 'translateLangs', 'translateLangsKeys',
-        function ($rootScope, $scope, $window, $location, $filter, $routeParams, translateLangs, translateLangsKeys) {
+    ['$rootScope', '$scope', '$q', '$window', '$location', '$filter', '$routeParams', 'translateLangs', 'translateLangsKeys',
+        function ($rootScope, $scope, $q, $window, $location, $filter, $routeParams, translateLangs, translateLangsKeys) {
 
             $scope.translate = {
                 'table': false,
@@ -80,6 +80,27 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                 $scope.Ui.turnOn("modalError");
             });
 
+            $scope.saveLangKey = function (data, translation) {
+                var d = $q.defer();
+                var type = (angular.isUndefined(translation.id)) ? 'save' : 'update';
+
+                translateLangsKeys[type](
+                    {
+                        lang: $location.search()['lang'],
+                        keys: data.key,
+                        value: data.value
+                    },
+                    function (response) {
+                        if (!angular.isUndefined(response.id)) d.resolve();
+                    },
+                    function (error) {
+                        d.reject(error.statusText);
+                    }
+                );
+
+                return d.promise;
+            };
+
             $scope.deleteLangKey = function (index) {
                 var langTranslation = $scope.translate.langKeys[index];
 
@@ -97,7 +118,8 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                         if (response.ok) {
                             $scope.translate.langKeys.splice(index, 1);
                         } else {
-                            $rootScope.$emit('errorResourceReq', function(e, response){});
+                            $rootScope.$emit('errorResourceReq', function (e, response) {
+                            });
                         }
                     });
             };
