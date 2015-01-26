@@ -10,7 +10,8 @@ angular.module('sammui.translateControllers', ['ngRoute'])
             reloadOnSearch: false
         });
     })
-    .controller('TranslateKeysController', ['$rootScope', '$scope', '$window', '$location', '$filter', '$routeParams', 'translateLangs', 'translateLangsKeys',
+    .controller('TranslateKeysController',
+    ['$rootScope', '$scope', '$window', '$location', '$filter', '$routeParams', 'translateLangs', 'translateLangsKeys',
         function ($rootScope, $scope, $window, $location, $filter, $routeParams, translateLangs, translateLangsKeys) {
 
             $scope.translate = {
@@ -92,8 +93,12 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                         lang: $location.search()['lang'],
                         keys: langTranslation.key
                     },
-                    function () {
-                        $scope.translate.langKeys.splice(index, 1);
+                    function (response) {
+                        if (response.ok) {
+                            $scope.translate.langKeys.splice(index, 1);
+                        } else {
+                            $rootScope.$emit('errorResourceReq', function(e, response){});
+                        }
                     });
             };
         }
