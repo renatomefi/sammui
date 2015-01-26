@@ -1,36 +1,40 @@
 'use strict';
 
 // Configuring $translateProvider
-var sammuiTranslate = angular.module('sammui')
-    .config(['$translateProvider', function ($translateProvider) {
+var sammuiTranslate = angular.module('sammui.translate', [
+    'pascalprecht.translate',
+    'sammui.translateServices',
+    'sammui.translateControllers',
+]).config(['$translateProvider', function ($translateProvider) {
 
-        $translateProvider.preferredLanguage('en-us');
-        $translateProvider.useLoader('translateLoader');
+    $translateProvider.preferredLanguage('en-us');
+    $translateProvider.useLoader('translateLoader');
 
-    }])
-    .filter('getByKey', function () {
-        return function (data, key) {
-            var result = null;
-            angular.forEach(data, function (item) {
-                if (key == item.key) {
-                    result = item;
-                    return;
-                }
-            });
+}]);
 
-            return result;
-        }
-    });
+sammuiTranslate.filter('getByKey', function () {
+    return function (data, key) {
+        var result = null;
+        angular.forEach(data, function (item) {
+            if (key == item.key) {
+                result = item;
+                return;
+            }
+        });
+
+        return result;
+    }
+});
 
 sammuiTranslate.run([
     '$rootScope', '$route', function ($rootScope, $route) {
         $rootScope.$on('$locationChangeSuccess', function () {
-            if (typeof $route.current.$$route === 'undefined')
+            if (!angular.isDefined($route.current.$$route))
                 return;
 
-            if (typeof $rootScope.langKeysTable !== 'undefined' &&
+            if (angular.isFunction($rootScope.langKeysTable) &&
                 $route.current.$$route.controller === 'TranslateKeysController') {
-                $rootScope.langKeysTable()
+                $rootScope.langKeysTable();
             }
         });
     }

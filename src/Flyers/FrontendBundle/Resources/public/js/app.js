@@ -4,16 +4,16 @@
 var sammui = angular.module('sammui', [
     'ngRoute',
     'sammui.services',
-    'pascalprecht.translate',
     'xeditable',
     'mobile-angular-ui',
     'mobile-angular-ui.gestures',
-    'sammui.translateServices',
-    'sammui.translateControllers',
+    'sammui.translate',
     'sammui.filters',
     'sammui.directives',
     'sammui.controllers'
-]).config(function ($locationProvider, $routeProvider) {
+]).config(function ($locationProvider, $routeProvider, $compileProvider) {
+
+    $compileProvider.debugInfoEnabled(true);
 
     $locationProvider.html5Mode({
         enabled: false,

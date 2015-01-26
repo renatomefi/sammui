@@ -31,6 +31,9 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                 lang = lang || $location.search()['lang'];
                 reload = reload || false;
 
+                if (angular.isUndefined(lang))
+                    return;
+
                 var language = $filter('getByKey')($scope.translate.langs, lang);
 
                 if (language && reload === false) {
