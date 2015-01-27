@@ -14,19 +14,28 @@ angular.module('sammui.translateControllers', ['ngRoute'])
     ['$rootScope', '$scope', '$q', '$window', '$location', '$filter', '$routeParams', '$translate', 'translateLangs', 'translateLangsKeys',
         function ($rootScope, $scope, $q, $window, $location, $filter, $routeParams, $translate, translateLangs, translateLangsKeys) {
 
-            $scope.translate = {
-                'table': false,
-                'langs': translateLangs.query({}, function () {
+            $scope.loadLangs = function () {
+                translateLangs.query({}, function (data) {
+
+                    $scope.translate.langs = data;
+
                     if ($location.search()['lang']) {
                         $rootScope.langKeysTable();
                     }
-                }),
+
+                    return data;
+                });
+            };
+
+            $scope.translate = {
+                'table': false,
+                'langs': $scope.loadLangs(),
                 'currentLang': null
             };
 
             $scope.langPublish = function () {
                 $translate.refresh()
-            }
+            };
 
             $scope.langChange = function (lang) {
                 $location.search('lang', lang);
