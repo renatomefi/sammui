@@ -10,7 +10,9 @@
     <div ng-include="'{{ asset('bundles/frontend/partials/layout/sidebarRight.html') }}'"
          class="sidebar sidebar-right"></div>
 
-    <div class="app" ng-swipe-right='Ui.turnOn("uiSidebarLeft")' ng-swipe-left='Ui.turnOff("uiSidebarLeft")'>
+    <div class="app"
+         ng-swipe-right='(Ui.isActive("uiSidebarRight") ? Ui.turnOff("uiSidebarRight") : Ui.turnOn("uiSidebarLeft"))'
+         ng-swipe-left='(Ui.isActive("uiSidebarLeft") ? Ui.turnOff("uiSidebarLeft") : Ui.turnOn("uiSidebarRight"))'>
         {% verbatim %}
         <!-- Navbars -->
         <div class="navbar navbar-app navbar-absolute-top">
