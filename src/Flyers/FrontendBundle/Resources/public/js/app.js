@@ -65,13 +65,12 @@ sammui.run([
 sammui.run([
     '$route', '$templateCache', '$http', (function ($route, $templateCache, $http) {
         var url;
-        for (var i in $route.routes) {
-            if ($route.routes[i].templatePreload) {
-                if (url = $route.routes[i].templateUrl) {
+        angular.forEach($route.routes, function($r){
+            if ($r.templatePreload) {
+                if (url = $r.templateUrl)
                     $http.get(url, {cache: $templateCache});
-                }
             }
-        }
+        });
     })
 ]);
 

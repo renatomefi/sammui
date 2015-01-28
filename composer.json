@@ -25,6 +25,7 @@
     "incenteev/composer-parameter-handler": "~2.0",
     "friendsofsymfony/rest-bundle": "1.5.0-RC5",
     "friendsofsymfony/user-bundle": "1.3.5",
+    "friendsofsymfony/oauth-server-bundle": "1.4.2",
     "jms/serializer-bundle": "*",
     "jms/security-extra-bundle": "*",
     "jms/di-extra-bundle": "*",

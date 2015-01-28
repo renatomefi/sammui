@@ -3,11 +3,10 @@
 {% block body %}
 
     <!-- Sidebars -->
-    <div ng-include="'{{ asset('bundles/frontend/partials/layout/sidebar.html') }}'"
+    <div ng-include="'{{ asset("bundles/frontend/partials/layout/sidebar.html") }}'"
          ui-track-as-search-param='true'
          class="sidebar sidebar-left"></div>
-
-    <div ng-include="'{{ asset('bundles/frontend/partials/layout/sidebarRight.html') }}'"
+    <div ng-include="'{{ asset("bundles/frontend/partials/layout/sidebarRight.html") }}'"
          class="sidebar sidebar-right"></div>
 
     <div class="app"
@@ -53,7 +52,8 @@
             </div>
             <div class="app-content">
                 <div class="alert alert-warning alert-dismissible" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
                     <strong>Warning!</strong> Better check yourself, you're not looking too good.
                 </div>
                 <ng-view>{% block ng_view %}{% endblock %}</ng-view>
@@ -63,7 +63,12 @@
     </div>
     <!-- ~ .app -->
 
-    <div ui-yield-to="modals"></div>
+    <div>
+        <div ui-yield-to="modals"></div>
+        <div ng-include="'{{ asset("bundles/frontend/partials/layout/modal/modalError.html") }}'"></div>
+        <div ng-include="'{{ asset("bundles/frontend/partials/layout/modal/modalInfo.html") }}'"></div>
+    </div>
+
 
 {% endblock %}
 
