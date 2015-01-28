@@ -6,10 +6,8 @@ var sammuiTranslate = angular.module('sammui.translate', [
     'sammui.translateServices',
     'sammui.translateControllers',
 ]).config(['$translateProvider', function ($translateProvider) {
-
     $translateProvider.preferredLanguage('en-us');
     $translateProvider.useLoader('translateLoader');
-
 }]);
 
 sammuiTranslate.filter('getByKey', function () {
@@ -25,17 +23,3 @@ sammuiTranslate.filter('getByKey', function () {
         return result;
     }
 });
-
-sammuiTranslate.run([
-    '$rootScope', '$route', function ($rootScope, $route) {
-        $rootScope.$on('$locationChangeSuccess', function () {
-            if (!angular.isDefined($route.current.$$route))
-                return;
-
-            if (angular.isFunction($rootScope.langKeysTable) &&
-                $route.current.$$route.controller === 'TranslateKeysController') {
-                $rootScope.langKeysTable();
-            }
-        });
-    }
-]);
