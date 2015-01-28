@@ -1,0 +1,7 @@
+<div class="modal" ui-if='modalInfo' ui-state='modalInfo'>
+    <div class="alert alert-info alert-dismissible" role="alert">
+        <button type="button" class="close" ui-turn-off="modalInfo" aria-label="Close"><span
+                aria-hidden="true">&times;</span></button>
+        <strong>{{ modalInfoTitle || 'modal-info-title' | translate }}</strong> {{ modalInfoBody || 'modal-info-body' | translate }}
+    </div>
+</div>

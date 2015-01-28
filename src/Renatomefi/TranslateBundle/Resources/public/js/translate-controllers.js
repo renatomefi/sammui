@@ -36,7 +36,11 @@ angular.module('sammui.translateControllers', ['ngRoute'])
             };
 
             $scope.langPublish = function () {
-                $translate.refresh()
+                var refresh = $translate.refresh();
+                refresh.then(function () {
+                    $scope.modalInfoBody = 'translate-admin-publish-success';
+                    $scope.Ui.turnOn("modalInfo");
+                });
             };
 
             $scope.langChange = function (lang) {
