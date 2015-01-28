@@ -73,6 +73,30 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    public function putLangKeyAction(Request $request, $lang, $key)
+    {
+        $language = $this->getLang($lang, true);
+
+        $translationRepo = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Translation');
+
+        $result = $translationRepo->createQueryBuilder()
+            ->update()
+            ->field('value')->set($request->get('value'))
+            ->field('language')->references($language)
+            ->field('key')->equals($key)
+            ->getQuery()
+            ->execute();
+
+        if ($result['updatedExisting'] == false) {
+            throw $this->createNotFoundException("No key \"$key\" found for lang \"$lang\"");
+        }
+
+        // I don't know if it's safe to call another action liked this in SF2
+        // Any suggestions to reuse the code?
+        return $this->getLangKeyAction($lang, $key);
+
+    }
+
     public function getLangKeysAction($lang)
     {
         $language = $this->getLang($lang, true);
@@ -93,6 +117,7 @@ class ManageController extends FOSRestController
         $result = $translationRepo->createQueryBuilder()
             ->field('language')->references($language)
             ->field('key')->equals($key)
+            ->hydrate(true)
             ->getQuery()
             ->getSingleResult();
 

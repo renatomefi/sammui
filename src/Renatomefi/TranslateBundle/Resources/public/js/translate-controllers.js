@@ -102,6 +102,7 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                         value: data.value
                     },
                     function (response) {
+                        console.debug(response);
                         if (!angular.isUndefined(response.id)) {
                             $scope.translate.langKeys[index] = response;
                             post.resolve();
