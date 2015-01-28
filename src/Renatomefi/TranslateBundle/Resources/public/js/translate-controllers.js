@@ -14,8 +14,6 @@ angular.module('sammui.translateControllers', ['ngRoute'])
     ['$rootScope', '$scope', '$q', '$window', '$location', '$filter', '$translate', 'translateLangs', 'translateLangsKeys',
         function ($rootScope, $scope, $q, $window, $location, $filter, $translate, translateLangs, translateLangsKeys) {
 
-            console.debug('entrei controller');
-
             $scope.loadLangs = function () {
                 translateLangs.query({}, function (data) {
 
