@@ -5,49 +5,45 @@
 
 <div class="scrollable">
     <div class="scrollable-content section">
+        <div>
+            <div class="btn-toolbar" role="toolbar">
+                <div class="btn-group" role="group">
+                    <button class="btn btn-success" ng-click="Ui.turnOn('modalLangNew')">
+                        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                    </button>
+                    <button class="btn btn-info" ng-click="loadLangs()">
+                        <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+                    </button>
 
-        <div ng-class="{loading: loading}">
-            <div ng-show="loading_langs" class="app-content-loading">
-                Loading<i class="fa fa-spinner fa-spin loading-spinner"></i>
-            </div>
-        </div>
+                    <button class="btn btn-warning" ng-click="langPublish()">
+                        <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="btn-group col-xs-6" role="group">
+                    <div class="input-group">
+                        <select class="form-control" ng-model="translate.currentLang"
+                                ng-change="langChange(translate.currentLang.key)"
+                                ng-options="lang as lang.key for lang in translate.langs">
+                            <option value=""
+                                    ng-if="!translate.currentLang">{{ 'translate-admin-select-default' | translate }}</option>
+                        </select>
 
-        <div class="btn-toolbar" role="toolbar">
-            <div class="btn-group" role="group">
-                <button class="btn btn-success" ng-click="Ui.turnOn('modalLangNew')">
-                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
-                </button>
-                <button class="btn btn-info" ng-click="loadLangs()">
-                    <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-                </button>
-
-                <button class="btn btn-warning" ng-click="langPublish()">
-                    <span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
-                </button>
-            </div>
-            <div class="btn-group col-xs-6" role="group">
-                <div class="input-group">
-                    <select class="form-control" ng-model="translate.currentLang"
-                            ng-change="langChange(translate.currentLang.key)"
-                            ng-options="lang as lang.key for lang in translate.langs">
-                        <option value=""
-                                ng-if="!translate.currentLang">{{ 'translate-admin-select-default' | translate }}</option>
-                    </select>
-
-                    <div class="input-group-addon"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                        <div class="input-group-addon"><span class="glyphicon glyphicon-globe"
+                                                             aria-hidden="true"></span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr>
+            <hr>
+        </div>
 
         <table ng-show="translate.langKeys" class="table table-striped table-hover table-condensed">
             <thead style="font-weight: bold">
             <tr>
-                <td style="width:40%">Key</td>
-                <td style="width:35%">Value</td>
-                <td style="width:15%">Edit</td>
+                <td style="width:40%">{{ 'translate-table-key' | translate }}</td>
+                <td style="width:35%">{{ 'translate-table-value' | translate }}</td>
+                <td style="width:15%">{{ 'translate-table-actions' | translate }}</td>
                 <td style="width:10%">
                     <button class="btn btn-success btn-sm" ng-click="addLangKey()">
                         <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
@@ -87,8 +83,10 @@
                         </button>
                     </form>
                     <div class="buttons" ng-show="!translateLangKeyForm.$visible">
-                        <button class="btn btn-primary" ng-click="translateLangKeyForm.$show()">edit</button>
-                        <button class="btn btn-danger" ng-click="deleteLangKey($index)">del</button>
+                        <button class="btn btn-primary" ng-click="translateLangKeyForm.$show()"><span
+                                    class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
+                        <button class="btn btn-danger" ng-click="deleteLangKey($index)"><span
+                                    class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span></button>
                     </div>
                 </td>
             </tr>
@@ -100,7 +98,6 @@
 {% endverbatim %}
 
 <div ui-content-for="modals">
-
     {% verbatim %}
     <div class="modal" ui-if='modalLangNew' ui-state='modalLangNew'>
         <div class="modal-backdrop in"></div>

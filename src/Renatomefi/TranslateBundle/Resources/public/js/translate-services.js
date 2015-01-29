@@ -10,7 +10,7 @@ angular.module('sammui.translateServices', ['ngResource', 'ngRoute'])
             'delete': {
                 method: 'DELETE'
             },
-            'update' : {
+            'update': {
                 method: 'PUT'
             }
         });
@@ -26,8 +26,7 @@ angular.module('sammui.translateServices', ['ngResource', 'ngRoute'])
                     if (t) {
                         translations[t.key] = t.value;
                     }
-                })
-
+                });
                 deferred.resolve(translations);
             });
 
