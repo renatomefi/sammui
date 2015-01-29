@@ -82,7 +82,7 @@
                                 class="btn btn-default"> cancel
                         </button>
                     </form>
-                    <div class="buttons" ng-show="!translateLangKeyForm.$visible">
+                    <div class="buttons pull-right" ng-show="!translateLangKeyForm.$visible">
                         <button class="btn btn-primary" ng-click="translateLangKeyForm.$show()"><span
                                     class="glyphicon glyphicon-edit" aria-hidden="true"></span></button>
                         <button class="btn btn-danger" ng-click="deleteLangKey($index)"><span
@@ -111,17 +111,8 @@
                     </h4>
                 </div>
                 <div class="modal-body">
-                    <form editable-form name="langNewForm" ng-submit="saveLang()" class="form-lang-new">
-                        lang: <input ng-model="langNew.lang" name="lang" required>
-                        <span class="error" ng-show="langNewForm.input.$error.required">Required!</span><br>
-                        <tt>userType = {{ userType }}</tt><br>
-                        <pre>
-                        <tt>{{ langNewForm.lang | json }}</tt>
-                        </pre>
-                        <tt>langNewForm.input.$valid = {{ langNewForm.lang.$valid }}</tt><br>
-                        <tt>langNewForm.input.$error = {{ langNewForm.lang.$error }}</tt><br>
-                        <tt>langNewForm.$valid = {{ langNewForm.$valid }}</tt><br>
-                        <tt>langNewForm.$error.required = {{ !!langNewForm.$error.required }}</tt><br>
+                    <form name="langNewForm" ng-submit="saveLang(langNew)" class="form-lang-new">
+                        {{ 'modal-translate-lang-input' | translate }} <input type="text" ng-model="langNew.lang" required>
                     </form>
                 </div>
                 <div class="modal-footer">

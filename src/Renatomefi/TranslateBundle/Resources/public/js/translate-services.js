@@ -3,13 +3,10 @@
 angular.module('sammui.translateServices', ['ngResource', 'ngRoute'])
     // Resource factories for Langs API
     .factory('translateLangs', function ($resource) {
-        return $resource('/l10n/manage/langs/:lang', {lang: '@lang'})
+        return $resource('/l10n/manage/langs/:lang', {lang: '@lang'});
     })
-    .factory('translateLangsKeys', ['$resource', '$rootScope', function ($resource, $rootScope) {
+    .factory('translateLangsKeys', ['$resource', '$rootScope', function ($resource) {
         return $resource('/l10n/manage/langs/:lang/keys/:keys', {lang: '@lang', keys: '@keys'}, {
-            'delete': {
-                method: 'DELETE'
-            },
             'update': {
                 method: 'PUT'
             }

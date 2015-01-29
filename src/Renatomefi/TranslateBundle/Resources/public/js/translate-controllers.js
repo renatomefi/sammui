@@ -68,15 +68,14 @@ angular.module('sammui.translateControllers', ['ngRoute'])
 
                 $rootScope.loading = true;
 
-                var langKeys = translateLangsKeys.query({lang: lang},
+                var langFrom = translateLangs.get({lang: lang},
                     function () {
-                        $scope.translate.langKeys = langKeys;
-                        $scope.translate.table = true;
+                        if (!language) $scope.translate.langs.push(langFrom);
+                        $scope.langKeysTable(lang);
                         $rootScope.loading = false;
                     },
-                    function (errorResponse) {
-                        $scope.error = errorResponse;
-                        $scope.Ui.turnOn("modalError");
+                    function(errorResponse) {
+                        $rootScope.$emit('errorResourceReq', errorResponse);
                         $rootScope.loading = false;
                     });
             };
@@ -93,17 +92,18 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                 $scope.translateLangKeyFormEditableKey = (translation.id) ? true : false;
             };
 
-            $scope.saveLang = function () {
+            $scope.saveLang = function (data) {
                 var post = $q.defer();
                 translateLangs.save({
-                        lang: langNewForm.lang.$modelValue
+                        lang: data.lang
                     },
                     function (response) {
                         $scope.langChange(response.key);
+                        $scope.Ui.turnOff('modalLangNew');
                         post.resolve();
                     },
                     function (error) {
-                        $rootScope.$broadcast('errorResourceReq', error);
+                        $rootScope.$emit('errorResourceReq', error);
                         post.reject(error.statusText);
                     }
                 );

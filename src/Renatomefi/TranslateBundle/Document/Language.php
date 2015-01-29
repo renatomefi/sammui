@@ -50,7 +50,7 @@ class Language
     /**
      * Set lastUpdate
      *
-     * @param timestamp $lastUpdate
+     * @param time $lastUpdate
      * @return self
      */
     public function setLastUpdate($lastUpdate)
