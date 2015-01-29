@@ -32,7 +32,7 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                     }
 
                     return data;
-                }).$promise.finally(function() {
+                }).$promise.finally(function () {
                         $scope.translate.loading = false;
                     });
             };

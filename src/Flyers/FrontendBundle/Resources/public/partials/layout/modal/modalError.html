@@ -16,6 +16,8 @@
             </div>
             <div class="modal-body bg-danger">
                 <p ng-show="error.message">{{ error.message | translate  }}</p>
+                <p ng-show="error.data.message"><strong>{{ 'modal-error-server-message' | translate }}: </strong>
+                    {{ error.data.message  }}</p>
 
                 <p ng-show="!error.message">{{ 'modal-error-unknown' | translate }}</p>
             </div>

@@ -6,7 +6,9 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Renatomefi\TranslateBundle\Document\Language;
 use Renatomefi\TranslateBundle\Document\Translation;
+use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
 class ManageController extends FOSRestController
 {
@@ -45,9 +47,14 @@ class ManageController extends FOSRestController
         $language = new Language();
         $language->setKey($lang);
         $language->setLastUpdate(time());
-
         $dm->persist($language);
-        $dm->flush();
+
+        try {
+            $dm->flush();
+        } catch (\Exception $e) {
+            if ($e instanceof \MongoCursorException)
+                throw new ConflictHttpException('Duplicate entry for lang: ' . $lang, $e);
+        }
 
         $view = $this->view($language);
 
