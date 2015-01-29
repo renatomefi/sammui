@@ -21,6 +21,7 @@
             <div class="btn-group col-xs-6" role="group">
                 <div class="input-group">
                     <select class="form-control" ng-model="translate.currentLang"
+                            ng-disabled="translate.loading"
                             ng-change="langChange(translate.currentLang.key)"
                             ng-options="lang as lang.key for lang in translate.langs">
                         <option value=""
