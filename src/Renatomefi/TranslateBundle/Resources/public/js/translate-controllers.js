@@ -74,7 +74,7 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                         $scope.langKeysTable(lang);
                         $rootScope.loading = false;
                     },
-                    function(errorResponse) {
+                    function (errorResponse) {
                         $rootScope.$emit('errorResourceReq', errorResponse);
                         $rootScope.loading = false;
                     });
@@ -91,9 +91,13 @@ angular.module('sammui.translateControllers', ['ngRoute'])
             $scope.editCheck = function (translation) {
                 $scope.translateLangKeyFormEditableKey = (translation.id) ? true : false;
             };
-
             $scope.saveLang = function (data) {
+                $scope.langNewFormLoading = true;
                 var post = $q.defer();
+                post.promise.finally(function () {
+                        $scope.langNewFormLoading = false;
+                    }
+                );
                 translateLangs.save({
                         lang: data.lang
                     },
@@ -107,7 +111,10 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                         post.reject(error.statusText);
                     }
                 );
+
+                return post.promise;
             };
+
 
             $scope.saveLangKey = function (data, translation, index) {
                 var post = $q.defer();
