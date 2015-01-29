@@ -14,7 +14,7 @@
 
         <div class="btn-toolbar" role="toolbar">
             <div class="btn-group" role="group">
-                <button class="btn btn-success" ng-click="addLangKey()">
+                <button class="btn btn-success" ng-click="Ui.turnOn('modalLangNew')">
                     <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
                 </button>
                 <button class="btn btn-info" ng-click="loadLangs()">
@@ -97,8 +97,43 @@
 
     </div>
 </div>
-
 {% endverbatim %}
 
 <div ui-content-for="modals">
+
+    {% verbatim %}
+    <div class="modal" ui-if='modalLangNew' ui-state='modalLangNew'>
+        <div class="modal-backdrop in"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" ui-turn-off="modalLangNew">&times;</button>
+                    <h4 class="modal-title">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span>{{ 'modal-translate-lang-new' | translate }}</span>
+                    </h4>
+                </div>
+                <div class="modal-body">
+                    <form editable-form name="langNewForm" ng-submit="saveLang()" class="form-lang-new">
+                        lang: <input ng-model="langNew.lang" name="lang" required>
+                        <span class="error" ng-show="langNewForm.input.$error.required">Required!</span><br>
+                        <tt>userType = {{ userType }}</tt><br>
+                        <pre>
+                        <tt>{{ langNewForm.lang | json }}</tt>
+                        </pre>
+                        <tt>langNewForm.input.$valid = {{ langNewForm.lang.$valid }}</tt><br>
+                        <tt>langNewForm.input.$error = {{ langNewForm.lang.$error }}</tt><br>
+                        <tt>langNewForm.$valid = {{ langNewForm.$valid }}</tt><br>
+                        <tt>langNewForm.$error.required = {{ !!langNewForm.$error.required }}</tt><br>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button ui-turn-off="modalLangNew"
+                            class="btn btn-default">{{ 'modal-error-close' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endverbatim %}
 </div>
+

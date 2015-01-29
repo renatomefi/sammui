@@ -93,6 +93,22 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                 $scope.translateLangKeyFormEditableKey = (translation.id) ? true : false;
             };
 
+            $scope.saveLang = function () {
+                var post = $q.defer();
+                translateLangs.save({
+                        lang: langNewForm.lang.$modelValue
+                    },
+                    function (response) {
+                        $scope.langChange(response.key);
+                        post.resolve();
+                    },
+                    function (error) {
+                        $rootScope.$broadcast('errorResourceReq', error);
+                        post.reject(error.statusText);
+                    }
+                );
+            };
+
             $scope.saveLangKey = function (data, translation, index) {
                 var post = $q.defer();
                 var type = (angular.isUndefined(translation.id)) ? 'save' : 'update';
@@ -104,14 +120,14 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                         value: data.value
                     },
                     function (response) {
-                        console.debug(response);
                         if (!angular.isUndefined(response.id)) {
                             $scope.translate.langKeys[index] = response;
                             post.resolve();
                         }
+                        post.reject('invalid-response');
                     },
                     function (error) {
-                        $rootScope.$emit('errorResourceReq', error);
+                        $scope.$emit('errorResourceReq', error);
                         post.reject(error.statusText);
                     }
                 );
@@ -152,9 +168,9 @@ angular.module('sammui.translateControllers', ['ngRoute'])
             });
 
             $rootScope.$on('errorResourceReq', function (e, errorResponse) {
-                $scope.error = errorResponse;
-                $scope.error.message = 'error-translate-delete-' + errorResponse.status;
-                $scope.Ui.turnOn("modalError");
+                $rootScope.error = errorResponse;
+                $rootScope.error.message = 'error-translate-' + errorResponse.status;
+                $rootScope.Ui.turnOn("modalError");
             });
 
         }

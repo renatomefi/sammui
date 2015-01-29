@@ -6,14 +6,9 @@ angular.module('sammui.translateServices', ['ngResource', 'ngRoute'])
         return $resource('/l10n/manage/langs/:lang', {lang: '@lang'})
     })
     .factory('translateLangsKeys', ['$resource', '$rootScope', function ($resource, $rootScope) {
-        function resourceDeleteErrorHandler(errorResult) {
-            $rootScope.$broadcast('errorResourceReq', errorResult);
-        };
-
         return $resource('/l10n/manage/langs/:lang/keys/:keys', {lang: '@lang', keys: '@keys'}, {
             'delete': {
-                method: 'DELETE',
-                interceptor: {responseError: resourceDeleteErrorHandler}
+                method: 'DELETE'
             },
             'update' : {
                 method: 'PUT'
