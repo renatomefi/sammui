@@ -1,0 +1,17 @@
+<div class="modal modal-overlay" ui-if='modalLangChoose' ui-state='modalLangChoose'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                    <span>{{ 'modal-translate-lang-new' | translate }}</span>
+                </h4>
+            </div>
+            <div class="modal-footer">
+                <button ui-turn-off="modalLangChoose"
+                        class="btn btn-default">{{ 'modal-cancel' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

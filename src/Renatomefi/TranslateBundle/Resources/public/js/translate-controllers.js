@@ -98,12 +98,9 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                 $scope.translateLangKeyFormEditableKey = (translation.id) ? true : false;
             };
             $scope.saveLang = function (data) {
-                $scope.langNewFormLoading = true;
+                
                 var post = $q.defer();
-                post.promise.finally(function () {
-                        $scope.langNewFormLoading = false;
-                    }
-                );
+
                 translateLangs.save({
                         lang: data.lang
                     },

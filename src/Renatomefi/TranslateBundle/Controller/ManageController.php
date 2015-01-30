@@ -40,6 +40,21 @@ class ManageController extends FOSRestController
         return $language;
     }
 
+    public function getLangsInfoAction()
+    {
+        $translationRepo = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
+
+        $result = $translationRepo->createQueryBuilder()
+//            ->hydrate(false)
+//            ->count()
+            ->getQuery()
+            ->execute();
+
+        $view = $this->view($result);
+
+        return $this->handleView($view);
+    }
+
     public function postLangAction($lang)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
@@ -73,7 +88,13 @@ class ManageController extends FOSRestController
         $translation->setValue($request->get('value'));
 
         $dm->persist($translation);
-        $dm->flush();
+
+        try {
+            $dm->flush();
+        } catch (\Exception $e) {
+            if ($e instanceof \MongoCursorException)
+                throw new ConflictHttpException('Duplicate entry for lang: ' . $lang . ' with key: ' . $key, $e);
+        }
 
         $view = $this->view($translation);
 
