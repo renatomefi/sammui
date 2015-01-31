@@ -19,7 +19,7 @@ angular.module('sammui.translateServices', ['ngResource', 'ngRoute'])
     .factory('translateLoader', ['$q', 'translateLangs', function ($q, translateLangs) {
         return function (options) {
             var deferred = $q.defer(),
-                translations = new Object();
+                translations = {};
 
             var lang = translateLangs.get({lang: options.key}, function () {
                 lang.translations.forEach(function (t) {

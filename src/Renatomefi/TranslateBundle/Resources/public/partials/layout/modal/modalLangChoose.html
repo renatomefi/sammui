@@ -4,8 +4,15 @@
             <div class="modal-header">
                 <h4 class="modal-title">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                    <span>{{ 'modal-translate-lang-new' | translate }}</span>
+                    <span>{{ 'modal-translate-lang-choose' | translate }}</span>
                 </h4>
+            </div>
+            <div class="modal-body">
+                <div class="btn-group-vertical" role="group">
+                    <button type="button" class="btn btn-info btn-small" ng-repeat="lang in modalLangItems"
+                            ng-click="appLangChoose(lang.key)">{{ lang.key }}
+                    </button>
+                </div>
             </div>
             <div class="modal-footer">
                 <button ui-turn-off="modalLangChoose"
