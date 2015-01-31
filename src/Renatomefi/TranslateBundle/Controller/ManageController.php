@@ -42,16 +42,20 @@ class ManageController extends FOSRestController
 
     public function getLangsInfoAction()
     {
-        $translationRepo = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
+        $languageDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
 
-        $result = $translationRepo->createQueryBuilder()
-//            ->hydrate(false)
-//            ->count()
+        $result = $languageDM->createQueryBuilder()
+            ->hydrate(false)
+            ->sort('key', 'asc')
             ->getQuery()
             ->execute();
 
-        $view = $this->view($result);
+        $langs = array();
+        foreach ($result as $lang) {
+            $langs[] = $lang;
+        }
 
+        $view = $this->view($langs);
         return $this->handleView($view);
     }
 
