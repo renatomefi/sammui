@@ -93,6 +93,11 @@ Link project to your webserver and access it :
 
 Want to run it via nginx? There is a sample virtual host on docs/nginx
 
+Database
+---------------------
+If you want to use my current dev database you can get it at /docs/mongo/DATE_dump
+I'm using mongodump tool, so it's easy to recover!
+
 Authentication system
 ---------------------
 

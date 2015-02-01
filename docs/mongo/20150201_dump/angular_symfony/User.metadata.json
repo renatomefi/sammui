@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "angular_symfony.User", "name" : "_id_" }, { "v" : 1, "key" : { "usernameCanonical" : 1 }, "unique" : true, "ns" : "angular_symfony.User", "w" : 1, "name" : "usernameCanonical_1" }, { "v" : 1, "key" : { "emailCanonical" : 1 }, "unique" : true, "ns" : "angular_symfony.User", "w" : 1, "name" : "emailCanonical_1" } ] }

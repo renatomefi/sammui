@@ -1,0 +1,1 @@
+{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "angular_symfony.Translation", "name" : "_id_" }, { "v" : 1, "key" : { "language.$id" : 1, "key" : 1 }, "unique" : true, "ns" : "angular_symfony.Translation", "sparse" : false, "w" : 1, "name" : "language_$id_1_key_1" } ] }
