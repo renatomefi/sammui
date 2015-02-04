@@ -23,9 +23,11 @@ class AppKernel extends Kernel
             new Flyers\BackendBundle\BackendBundle(),
             new Flyers\FrontendBundle\FrontendBundle(),
             new Renatomefi\TranslateBundle\TranslateBundle(),
+            new Renatomefi\ApiBundle\ApiBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new FOS\RestBundle\FOSRestBundle(),
-//            new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
+            new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
         );

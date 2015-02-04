@@ -92,8 +92,22 @@ swiftmailer:
     password:  %mailer_password%
     spool:     { type: memory }
 
+nelmio_api_doc: ~
+
+fos_oauth_server:
+    db_driver: mongodb
+    client_class:        Renatomefi\ApiBundle\Document\Client
+    access_token_class:  Renatomefi\ApiBundle\Document\AccessToken
+    refresh_token_class: Renatomefi\ApiBundle\Document\RefreshToken
+    auth_code_class:     Renatomefi\ApiBundle\Document\AuthCode
+    service:
+        user_provider: fos_user.user_manager
+        options:
+            supported_scopes: read
+
 fos_rest:
     param_fetcher_listener: false
+    body_listener: true
     format_listener:
             rules:
                 - { path: '^/l10n', priorities: [json, xml, html], fallback_format: json, prefer_extension: false }

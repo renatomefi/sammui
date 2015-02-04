@@ -17,6 +17,10 @@ class Client extends BaseClient
      */
     protected $id;
 
+    /**
+     * @ODM\String
+     */
+    protected $name;
 
     /**
      * Get id
@@ -26,5 +30,27 @@ class Client extends BaseClient
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return self
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string $name
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

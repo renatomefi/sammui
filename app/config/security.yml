@@ -4,7 +4,11 @@ jms_security_extra:
 
 security:
     encoders:
-        FOS\UserBundle\Model\UserInterface: plaintext
+        FOS\UserBundle\Model\UserInterface:
+            algorithm:            pbkdf2
+            hash_algorithm:       sha512
+            encode_as_base64:     true
+            iterations:           1000
 
     role_hierarchy:
         ROLE_ADMIN:       ROLE_USER
@@ -15,15 +19,6 @@ security:
             id: fos_user.user_provider.username_email
 
     firewalls:
-        wsse_secured:
-            pattern: ^/api/.*
-            stateless: true
-            wsse:      true
-            anonymous : false
-            wsse: { lifetime: 30}
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
         main:
             pattern:        ^/
             switch_user:    true
@@ -34,8 +29,29 @@ security:
                 login_path: /login
             logout:         true
             anonymous:      true
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+        l10n:
+            pattern: ^/l10n
+            fos_oauth: true
+        api:
+            pattern:    ^/api
+            stateless:  true
+            anonymous:  true
+        wsse_secured:
+            pattern: ^/api/.*
+            stateless: true
+            wsse:      true
+            anonymous : false
+            wsse: { lifetime: 30}
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
 
     access_control:
+        - { path: ^/oauth/v2/auth_login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/l10n, roles: [ IS_AUTHENTICATED_FULLY ] }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/profile, roles: IS_AUTHENTICATED_ANONYMOUSLY }
