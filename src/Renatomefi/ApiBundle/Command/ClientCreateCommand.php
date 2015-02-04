@@ -13,7 +13,7 @@ class ClientCreateCommand extends Command
     protected function configure()
     {
         $this
-            ->setName('renatomefi:oauth-server:client-create')
+            ->setName('renatomefi:oauth-server:client:create')
             ->setDescription('Create a new client')
             ->addArgument('name', InputArgument::REQUIRED, 'Sets the client name', null)
             ->addOption('redirect-uri', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Sets redirect uri for client. Use this option multiple times to set multiple redirect URIs.', null)
@@ -29,6 +29,13 @@ class ClientCreateCommand extends Command
         $client->setRedirectUris($input->getOption('redirect-uri'));
         $client->setAllowedGrantTypes($input->getOption('grant-type'));
         $clientManager->updateClient($client);
-        $output->writeln(sprintf('Added a new client with name <info>%s</info> and public id <info>%s</info>.', $client->getName(), $client->getPublicId()));
+        $output->writeln(
+            sprintf(
+                'Added a new client with name <info>%s</info>, public id <info>%s</info> and secret <info>%s</info>.',
+                $client->getName(),
+                $client->getPublicId(),
+                $client->getSecret()
+            )
+        );
     }
 }

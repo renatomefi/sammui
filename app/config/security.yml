@@ -7,7 +7,7 @@ security:
         FOS\UserBundle\Model\UserInterface:
             algorithm:            pbkdf2
             hash_algorithm:       sha512
-            encode_as_base64:     true
+            encode_as_base64:     false
             iterations:           1000
 
     role_hierarchy:
@@ -19,38 +19,47 @@ security:
             id: fos_user.user_provider.username_email
 
     firewalls:
-        main:
-            pattern:        ^/
-            switch_user:    true
-            anonymous:      ~
-            form_login:
-                provider:   fos_userbundle
-                csrf_provider: form.csrf_provider
-                login_path: /login
-            logout:         true
-            anonymous:      true
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+#        main:
+#            pattern:        ^/
+#            switch_user:    true
+#            anonymous:      ~
+#            form_login:
+#                provider:   fos_userbundle
+#                csrf_provider: form.csrf_provider
+#                login_path: /login
+#            logout:         true
+#            anonymous:      true
+
         oauth_token:
             pattern:    ^/oauth/v2/token
             security:   false
+
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            anonymous: true
+
         l10n:
             pattern: ^/l10n
             fos_oauth: true
+
         api:
             pattern:    ^/api
             stateless:  true
             anonymous:  true
+
         wsse_secured:
             pattern: ^/api/.*
             stateless: true
             wsse:      true
             anonymous : false
             wsse: { lifetime: 30}
-        dev:
-            pattern:  ^/(_(profiler|wdt)|css|images|js)/
-            security: false
+
 
     access_control:
-        - { path: ^/oauth/v2/auth_login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/l10n, roles: [ IS_AUTHENTICATED_FULLY ] }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
