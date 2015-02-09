@@ -7,13 +7,14 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
             'getCredentials': function () {
                 $http.post('/oauth/v2/token',
                     {
+                        // To-do: Where should I store credentials?
                         client_id: '54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44',
                         client_secret: '5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk',
                         grant_type: 'client_credentials'
                     }).
                     success(function (data) {
                         authService.loginConfirmed('success', function (config) {
-                            config.params = {"access_token": data.access_token};
+                            config.params = {access_token: data.access_token};
                             return config;
                         });
                     }).
