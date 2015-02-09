@@ -30,7 +30,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ FrontendBundle , TranslateBundle ]
+    bundles:        [ FrontendBundle , TranslateBundle , ApiBundle ]
 
     #java: /usr/bin/java
     filters:
@@ -48,6 +48,7 @@ sp_bower:
     bundles:
         FrontendBundle: ~
         TranslateBundle: ~
+        ApiBundle: ~
 
 # Doctrine Configuration
 #doctrine:

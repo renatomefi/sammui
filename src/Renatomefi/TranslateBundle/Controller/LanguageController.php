@@ -13,6 +13,7 @@ class LanguageController extends Controller
      */
     public function adminAction()
     {
+        var_dump($this->getUser()->getRoles());
         return $this->render('TranslateBundle:Default:admin.html.twig');
     }
 

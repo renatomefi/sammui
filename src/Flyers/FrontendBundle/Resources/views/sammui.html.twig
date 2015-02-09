@@ -47,6 +47,7 @@
         <div class="app-body" ng-class="{loading: loading}">
             {% endverbatim %}
             <div ng-show="loading" class="app-content-loading">
+                <h3>Loading...</h3>
                 <i class="fa fa-spinner fa-spin loading-spinner"></i>
             </div>
             <div class="app-content">
@@ -84,6 +85,9 @@
     <script type="text/javascript" src="{{ asset("bundles/frontend/components/cryptojslib/rollups/md5.js") }}"></script>
     <script type="text/javascript"
             src="{{ asset("bundles/frontend/components/cryptojslib/components/enc-base64-min.js") }}"></script>
+
+    {#Api Module#}
+    <script type="text/javascript" src="{{ asset('bundles/api/js/api-app.js') }}"></script>
 
     {#Translate Module#}
     <script type="text/javascript" src="{{ asset('bundles/translate/js/translate-app.js') }}"></script>

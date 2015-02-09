@@ -3,6 +3,7 @@
 // Declare app level module which depends on filters, and services
 var sammui = angular.module('sammui', [
     'ngRoute',
+    'sammui.api',
     'sammui.services',
     'xeditable',
     'mobile-angular-ui',

@@ -1,0 +1,6 @@
+{
+  "name": "RenatomefiApiBundle",
+  "dependencies": {
+    "angular-http-auth": "~1.2.2"
+  }
+}
