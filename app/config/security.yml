@@ -46,24 +46,25 @@ security:
             pattern: ^/l10n
             fos_oauth: true
 
-#        api:
-#            pattern:    ^/api
+        api:
+            pattern:    ^/api
+            fos_oauth: true
+            anonymous:  true
 #            stateless:  true
-#            anonymous:  true
 
-        wsse_secured:
-            pattern: ^/api
-            stateless: false
-            wsse:      true
-            anonymous : false
-            wsse: { lifetime: 30}
+#        wsse_secured:
+#            pattern: ^/api
+#            stateless: false
+#            wsse:      true
+#            anonymous : false
+#            wsse: { lifetime: 30}
 
 
     access_control:
         - { path: ^/l10n/admin, roles: ROLE_ADMIN }
         - { path: ^/l10n/manage/langs, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/l10n, roles: IS_AUTHENTICATED_FULLY }
-#        - { path: ^/api, roles: [ IS_AUTHENTICATED_FULLY ] }
+        - { path: ^/api/user/info, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/profile, roles: IS_AUTHENTICATED_ANONYMOUSLY }

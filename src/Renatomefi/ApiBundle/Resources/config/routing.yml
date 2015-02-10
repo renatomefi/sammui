@@ -1,3 +1,6 @@
 api_homepage:
     path:     /hello/{name}
-    defaults: { _controller: ApiBundle:Default:index }
+    defaults: { _controller: ApiBundle:User:index }
+api_user:
+    path:   /user/info
+    defaults: { _controller: ApiBundle:User:info }
