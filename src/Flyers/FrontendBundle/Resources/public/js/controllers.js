@@ -3,6 +3,7 @@
 /* Controllers */
 
 angular.module('sammui.controllers', ['ngCookies'])
+
     .controller('Login', ['$rootScope', '$scope', '$window', 'Salt', 'Digest', function ($rootScope, $scope, $window, Salt, Digest) {
         // On Submit function
         $scope.getSalt = function () {

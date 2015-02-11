@@ -5,6 +5,10 @@
 <div class="scrollable">
     <div class="scrollable-content section">
 
+        <p>
+        <pre>{{ currentUser | json }}</pre>
+        </p>
+
         <form role="form" ng-submit='getSalt()' class="form-login">
             <fieldset>
                 <legend>Please enter a symfony valid user:</legend>

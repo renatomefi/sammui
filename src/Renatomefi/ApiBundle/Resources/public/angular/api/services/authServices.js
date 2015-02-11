@@ -2,7 +2,7 @@
 
 angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
 
-    .service('oAuthSession', function () {
+    .service('oAuthSession', ['$rootScope', function ($rootScope) {
 
         this.create = function (userInfo) {
             this.autenticated = userInfo.autenticated;
@@ -15,6 +15,8 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
             this.username = (userInfo.user) ? userInfo.user.username : null;
             this.email = (userInfo.user) ? userInfo.user.email : null;
             this.roles = (userInfo.user) ? userInfo.user.roles : null;
+
+            $rootScope.$broadcast('event:auth-sessionCreated');
         };
 
         this.destroy = function () {
@@ -28,10 +30,12 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
             this.username = null;
             this.email = null;
             this.roles = null;
+
+            $rootScope.$broadcast('event:auth-sessionDestroyed');
         };
 
         return this;
-    })
+    }])
     // Resource factories for OAuth API
     .factory('oAuth', ['$http', 'authService', 'oAuthSession', function ($http, authService, oAuthSession) {
 
@@ -42,6 +46,31 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
 
         var oAuth = {};
 
+        /**
+         * @description
+         * Check if the user is authenticated
+         *
+         * @returns {boolean}
+         */
+        oAuth.isAuthenticated = function () {
+            return !!oAuthSession.username;
+        };
+
+        /**
+         * @description
+         * Be careful, if the user is authenticated it will also be anonymous
+         *
+         * @returns {boolean}
+         */
+        oAuth.isAnonymous = function () {
+            return !!oAuthSession.autenticated_anonymously;
+        };
+
+        /**
+         * @param {accessToken}
+         * @param {createSession} Want to already register it at oAuthSession?
+         * @returns {*}
+         */
         oAuth.getInfo = function (accessToken, createSession) {
             var userInfo = null;
             createSession = createSession || false;
@@ -60,7 +89,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
             return userInfo;
         };
 
-        oAuth.getAnonymous = function () {
+        oAuth.beAnonymous = function () {
             $http.post('/oauth/v2/token',
                 {
                     client_id: oAuthClientId,
