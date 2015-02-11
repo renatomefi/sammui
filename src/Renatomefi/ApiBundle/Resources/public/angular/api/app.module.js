@@ -7,9 +7,9 @@ var sammuiApi = angular.module('sammui.api', [
 ]);
 
 sammuiApi.run([
-    '$rootScope', '$location', 'oauthAnonymous', (function ($rootScope, $location, oauthAnonymous) {
+    '$rootScope', '$location', 'oAuth', (function ($rootScope, $location, oAuth) {
         $rootScope.$on('event:auth-loginRequired', function () {
-            oauthAnonymous.getCredentials();
+            oAuth.getAnonymous();
         });
         $rootScope.$on('event:auth-forbidden', function () {
             $location.path("/login");
