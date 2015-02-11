@@ -47,6 +47,7 @@ class UserController extends Controller
             'autenticated_anonymously' => $auth->isGranted('IS_AUTHENTICATED_ANONYMOUSLY'),
             'role_user' => $auth->isGranted('ROLE_USER'),
             'role_admin' => $auth->isGranted('ROLE_ADMIN'),
+            'role_anonymous' => $auth->isGranted('IS_AUTHENTICATED_ANONYMOUSLY'),
             'client' => $client,
             'user' => $user
         ];
