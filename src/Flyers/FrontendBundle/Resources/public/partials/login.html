@@ -9,9 +9,44 @@
         <pre>{{ currentUser | json }}</pre>
         </p>
 
+        <form name="oauth-login" ng-submit="login()" ng-controller="oAuthLogin" class="form-login">
+            <fieldset>
+                <legend>{{ 'login-form-legend' | translate }}</legend>
+
+                <div class="form-group has-success has-feedback">
+                    <label>{{ 'login-form-username' | translate }}</label>
+                    <input type="text"
+                           name="username"
+                           ng-model="username" required
+                           class="form-control"
+                           placeholder="Enter your username">
+                </div>
+
+                <div class="form-group">
+                    <label>{{ 'login-form-password' | translate }}</label>
+                    <input type="password"
+                           name="password"
+                           ng-model="password" required
+                           class="form-control"
+                           placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <label>{{ 'login-form-remeber' | translate }}</label>
+                    <ui-switch
+                            ng-model='rememberMe'></ui-switch>
+                </div>
+            </fieldset>
+
+            <hr>
+
+            <input class="btn btn-primary btn-block" type="submit" value="login">
+
+        </form>
+
         <form role="form" ng-submit='getSalt()' class="form-login">
             <fieldset>
-                <legend>Please enter a symfony valid user:</legend>
+                <legend>WSSE Login</legend>
 
                 <p ng-show="user.salt"><strong>{{ user.username }}</strong> salt is <em>{{ user.salt }}</em></p>
 

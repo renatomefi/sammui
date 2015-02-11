@@ -77,7 +77,9 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
 
             $http.get('/api/user/info',
                 {
-                    access_token: accessToken
+                    params: {
+                        access_token: accessToken
+                    }
                 })
                 .success(function (data) {
                     userInfo = data;
@@ -92,9 +94,33 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
         oAuth.beAnonymous = function () {
             $http.post('/oauth/v2/token',
                 {
+                    params: {
+                        client_id: oAuthClientId,
+                        client_secret: oAuthClientSecret,
+                        grant_type: 'client_credentials'
+                    }
+                })
+                .success(function (data) {
+                    oAuth.getInfo(data.access_token, true);
+
+                    authService.loginConfirmed('success', function (config) {
+                        config.params = {access_token: data.access_token};
+                        return config;
+                    });
+                })
+                .error(function (data, status) {
+                    return status;
+                });
+        };
+
+        oAuth.beAuthenticated = function (data) {
+            $http.post('/oauth/v2/token',
+                {
                     client_id: oAuthClientId,
                     client_secret: oAuthClientSecret,
-                    grant_type: 'client_credentials'
+                    username: data.username,
+                    password: data.password,
+                    grant_type: 'password'
                 })
                 .success(function (data) {
                     oAuth.getInfo(data.access_token, true);

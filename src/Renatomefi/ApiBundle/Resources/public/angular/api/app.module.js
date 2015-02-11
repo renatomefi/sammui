@@ -2,7 +2,8 @@
 
 var sammuiApi = angular.module('sammui.api', [
     'http-auth-interceptor',
-    'sammui.apiAuthServices'
+    'sammui.apiAuthServices',
+    'sammui.apiAuthControllers'
 ]);
 
 sammuiApi.run([
