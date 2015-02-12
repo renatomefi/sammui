@@ -26,13 +26,13 @@ security:
 #        main:
 #            pattern:        ^/
 #            switch_user:    true
-#            anonymous:      ~
+#            fos_oauth: true
 #            form_login:
 #                provider:   fos_userbundle
 #                csrf_provider: form.csrf_provider
 #                login_path: /login
 #            logout:         true
-#            anonymous:      true
+#            anonymous:      false
 
         oauth_token:
             pattern:    ^/oauth/v2/token
@@ -66,6 +66,7 @@ security:
         - { path: ^/l10n, roles: IS_AUTHENTICATED_FULLY }
         - { path: ^/api/user/info, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/logout$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/profile, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }

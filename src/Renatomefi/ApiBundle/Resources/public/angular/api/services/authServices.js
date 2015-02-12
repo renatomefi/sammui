@@ -2,9 +2,24 @@
 
 angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
 
+    .factory('oAuthHttpInjector', ['oAuthSession', function (oAuthSession) {
+        var sessionInjector = {
+            request: function (config) {
+                if (oAuthSession.access_token) {
+                    config.params = {
+                        access_token: oAuthSession.access_token
+                    };
+                }
+                return config;
+            }
+        };
+        return sessionInjector;
+    }])
+
     .service('oAuthSession', ['$rootScope', function ($rootScope) {
 
         this.create = function (userInfo) {
+            this.access_token = userInfo.access_token;
             this.autenticated = userInfo.autenticated;
             this.autenticated_fully = userInfo.autenticated_fully;
             this.autenticated_anonymously = userInfo.autenticated_anonymously;
@@ -20,6 +35,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
         };
 
         this.destroy = function () {
+            this.access_token = null;
             this.autenticated = null;
             this.autenticated_fully = null;
             this.autenticated_anonymously = null;
@@ -94,11 +110,9 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
         oAuth.beAnonymous = function () {
             $http.post('/oauth/v2/token',
                 {
-                    params: {
-                        client_id: oAuthClientId,
-                        client_secret: oAuthClientSecret,
-                        grant_type: 'client_credentials'
-                    }
+                    client_id: oAuthClientId,
+                    client_secret: oAuthClientSecret,
+                    grant_type: 'client_credentials'
                 })
                 .success(function (data) {
                     oAuth.getInfo(data.access_token, true);

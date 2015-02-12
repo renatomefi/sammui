@@ -6,6 +6,10 @@ var sammuiApi = angular.module('sammui.api', [
     'sammui.apiAuthControllers'
 ]);
 
+sammuiApi.config(['$httpProvider', function($httpProvider) {
+    $httpProvider.interceptors.push('oAuthHttpInjector');
+}]);
+
 sammuiApi.run([
     '$rootScope', '$location', 'oAuth', 'oAuthSession', (function ($rootScope, $location, oAuth, oAuthSession) {
 
