@@ -53,7 +53,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
         return this;
     }])
     // Resource factories for OAuth API
-    .factory('oAuth', ['$http', 'authService', 'oAuthSession', function ($http, authService, oAuthSession) {
+    .factory('oAuth', ['$http', '$rootScope', 'authService', 'oAuthSession', function ($http, $rootScope, authService, oAuthSession) {
 
         // Sammui client ID and Secret, you should get one with the client:create command at symfony
         // To-do: Where should I store credentials?
