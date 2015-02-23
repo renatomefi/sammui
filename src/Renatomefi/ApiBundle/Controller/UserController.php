@@ -14,6 +14,12 @@ class UserController extends Controller
         return $this->render('ApiBundle:Default:index.html.twig', array('name' => $name));
     }
 
+    public function logoutAction()
+    {
+        $this->get('security.token_storage')->getToken()->eraseCredentials();
+        return $this->infoAction();
+    }
+
     public function infoAction()
     {
         $auth = $this->get('security.authorization_checker');

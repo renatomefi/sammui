@@ -23,16 +23,22 @@ security:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-#        main:
-#            pattern:        ^/
-#            switch_user:    true
-#            fos_oauth: true
+        main:
+            pattern:        ^/
+            switch_user:    true
+            fos_oauth: true
+            anonymous: true
 #            form_login:
 #                provider:   fos_userbundle
 #                csrf_provider: form.csrf_provider
 #                login_path: /login
-#            logout:         true
-#            anonymous:      false
+            logout:
+                path:   /logout
+                target: /api/user/logout
+                invalidate_session: true
+#                handlers: [some.service.id, another.service.id]
+#                success_handler: some.service.id
+            anonymous:      false
 
         oauth_token:
             pattern:    ^/oauth/v2/token

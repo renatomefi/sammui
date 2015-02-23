@@ -3,7 +3,7 @@
 </div>
 
 <div class="scrollable">
-    <div class="scrollable-content section">
+    <div class="scrollable-content section" ng-controller="oAuthLogin">
 
         <div ng-show="currentUser.username">
             {{'login-welcome' | translate}} <strong>{{currentUser.username}}</strong>!
@@ -11,12 +11,12 @@
         </div>
 
         <div>
-            <button ng-show="currentUser.username" class="btn btn-block btn-large btn-primary">
+            <button ng-show="currentUser.username" ng-click="logout()" class="btn btn-block btn-large btn-primary">
                 <span class="glyphicon glyphicon-off"></span> Logout
             </button>
         </div>
 
-        <form ng-show="!currentUser.username" name="oauth-login" ng-submit="login()" ng-controller="oAuthLogin"
+        <form ng-show="!currentUser.username" name="oauth-login" ng-submit="login()"
               class="form-login">
             <fieldset>
                 <legend>{{ 'login-form-legend' | translate }}</legend>

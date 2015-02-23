@@ -8,5 +8,9 @@ angular.module('sammui.apiAuthControllers', ['ngRoute'])
                 // to-do: Treat errors
                 oAuth.beAuthenticated({username: $scope.username, password: $scope.password});
             };
+
+            $scope.logout = function () {
+                oAuth.logout();
+            };
         }
     ]);

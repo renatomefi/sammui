@@ -107,6 +107,17 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
             return userInfo;
         };
 
+        oAuth.logout = function () {
+            $http.get('/logout').success(function (data) {
+                if (data.autenticated_fully) {
+                    $rootScope.$broadcast('event:auth-logoutSuccess');
+                    oAuthSession.destroy();
+                } else {
+                    $rootScope.$broadcast('event:auth-logoutError');
+                }
+            });
+        };
+
         oAuth.beAnonymous = function () {
             $http.post('/oauth/v2/token',
                 {
