@@ -6,7 +6,7 @@
 /vendor/
 /composer.phar
 composer.lock
-/bin/*
+/bin/karma/*
 # Bower components
 src/*/*Bundle/Resources/public/components
 
