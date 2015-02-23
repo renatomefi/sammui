@@ -3,12 +3,12 @@ parameters:
     database_driver: pdo_mysql
     database_host: 10.1.1.8
     database_port: 3306
-    database_name: angular_symfony
+    database_name: sammui
     database_user: angular
     database_password: angular
-    mongodb_connection_string: 'mongodb://localhost:27017'
+    mongodb_connection_string: 'mongodb://127.0.0.1:27017'
     mongodb_connection_options: {  }
-    mongodb_database: angular_symfony
+    mongodb_database: sammui
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null
