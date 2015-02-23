@@ -33,10 +33,10 @@
 
         <div class="navbar navbar-app navbar-absolute-bottom">
             <div class="btn-group justified">
-                <a href="https://github.com/renatomefidf/sammui" class="btn btn-navbar"><i
-                            class="fa fa-github fa-navbar"></i> sammui</a>
-                <a href="https://github.com/mcasimir/mobile-angular-ui" class="btn btn-navbar"><i
-                            class="fa fa-github fa-navbar"></i> angular-ui</a>
+                <a href="https://github.com/renatomefidf/sammui" target="_blank" class="btn btn-navbar">
+                    <i class="fa fa-github fa-navbar"></i> sammui</a>
+                <a href="https://github.com/mcasimir/mobile-angular-ui" target="_blank" class="btn btn-navbar">
+                    <i class="fa fa-github fa-navbar"></i> angular-ui</a>
             </div>
         </div>
 
@@ -81,25 +81,37 @@
             src="{{ asset("bundles/frontend/components/cryptojslib/rollups/sha1.js") }}"></script>
     <script type="text/javascript"
             src="{{ asset("bundles/frontend/components/cryptojslib/rollups/sha512.js") }}"></script>
-    <script type="text/javascript" src="{{ asset("bundles/frontend/components/cryptojslib/rollups/md5.js") }}"></script>
+    <script type="text/javascript"
+            src="{{ asset("bundles/frontend/components/cryptojslib/rollups/md5.js") }}"></script>
     <script type="text/javascript"
             src="{{ asset("bundles/frontend/components/cryptojslib/components/enc-base64-min.js") }}"></script>
 
     {#Api Module#}
-    <script type="text/javascript" src="{{ asset('bundles/api/angular/api/app.module.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/api/angular/api/services/authServices.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/api/angular/api/controllers/authControllers.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/api/angular/api/app.module.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/api/angular/api/services/authServices.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/api/angular/api/controllers/authControllers.js') }}"></script>
 
     {#Translate Module#}
-    <script type="text/javascript" src="{{ asset('bundles/translate/angular/translate/app.module.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/translate/angular/translate/services/translateServices.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/translate/angular/translate/controllers/translateControllers.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/translate/angular/translate/app.module.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/translate/angular/translate/services/translateServices.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/translate/angular/translate/controllers/translateControllers.js') }}"></script>
 
     {#Angular APP#}
-    <script type="text/javascript" src="{{ asset('bundles/frontend/js/app.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/frontend/js/services.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/frontend/js/controllers.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/frontend/js/filters.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('bundles/frontend/js/directives.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/frontend/js/app.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/frontend/js/services.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/frontend/js/controllers.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/frontend/js/filters.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/frontend/js/directives.js') }}"></script>
 
 {% endblock %}

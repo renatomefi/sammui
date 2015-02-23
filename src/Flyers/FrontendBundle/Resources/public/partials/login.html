@@ -6,10 +6,14 @@
     <div class="scrollable-content section">
 
         <div ng-show="currentUser.username">
-            {{'login-welcome' | translate}} <strong>{{currentUser.username}}</strong>! {{'login-welcome-logout' | translate}} <a href="/logout">Logout</a>
+            {{'login-welcome' | translate}} <strong>{{currentUser.username}}</strong>!
+            {{'login-welcome-logout' | translate}} <a ng-click="logout()">Logout</a>
         </div>
+
         <div>
-            <button ng-show="currentUser.username" class="btn btn-block btn-large btn-primary">Logout</button>
+            <button ng-show="currentUser.username" class="btn btn-block btn-large btn-primary">
+                <span class="glyphicon glyphicon-off"></span> Logout
+            </button>
         </div>
 
         <form ng-show="!currentUser.username" name="oauth-login" ng-submit="login()" ng-controller="oAuthLogin"
@@ -42,14 +46,38 @@
 
         </form>
 
-        <div class="bg-success well well-large">
-            <p ng-repeat="(info, value) in currentUser">
-                <strong>{{ info | translate }}</strong>
-                <span class="badge badge-info">{{ value | json }}
-                    <span ng-show="!value" class="glyphicon glyphicon-remove"></span>
-                </span>
-            </p>
-        </div>
+        <hr>
+        <!--Debug Login-->
+        <div>
+            <div>
+                <button ng-click="Ui.turnOn('modalLoginInfo')" class="btn btn-block btn-large btn-warning">
+                    <span class="glyphicon glyphicon-info-sign"></span> Info
+                </button>
+            </div>
 
+            <div ui-content-for="modals">
+                <div class="modal modal-overlay" ui-if='modalLoginInfo' ui-state='modalLoginInfo'>
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body">
+                                <p ng-repeat="(info, value) in currentUser">
+                                    <strong>{{ info | translate }}</strong>
+                                <span class="badge badge-info">
+                                    <span ng-show="!value" class="glyphicon glyphicon-remove"></span>
+                                    <span ng-show="value" class="glyphicon glyphicon-ok"></span>
+                                </span>
+                                    <span>{{ value | json }}</span>
+                                </p>
+                            </div>
+                            <div class="modal-footer">
+                                <button ui-turn-off="modalLoginInfo"
+                                        class="btn btn-default">{{ 'modal-close' | translate }}
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
