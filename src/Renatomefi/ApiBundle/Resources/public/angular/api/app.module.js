@@ -22,6 +22,7 @@ sammuiApi.run([
         });
         $rootScope.$on('event:auth-forbidden', function () {
             $location.path("/login");
+            $rootScope.Ui.turnOn('modalForbidden');
         });
         $rootScope.$on('event:auth-loginConfirmed', function () {
         });

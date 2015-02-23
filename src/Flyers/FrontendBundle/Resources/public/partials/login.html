@@ -5,17 +5,11 @@
 <div class="scrollable">
     <div class="scrollable-content section">
 
+        <div ng-show="currentUser.username">
+            {{'login-welcome' | translate}} <strong>{{currentUser.username}}</strong>! {{'login-welcome-logout' | translate}} <a href="/logout">Logout</a>
+        </div>
         <div>
             <button ng-show="currentUser.username" class="btn btn-block btn-large btn-primary">Logout</button>
-        </div>
-
-        <div class="bg-success well well-large">
-            <p ng-repeat="(info, value) in currentUser">
-                <strong>{{ info | translate }}</strong>
-                <span class="badge badge-info">{{ value }}
-                    <span ng-show="!value" class="glyphicon glyphicon-remove"></span>
-                </span>
-            </p>
         </div>
 
         <form ng-show="!currentUser.username" name="oauth-login" ng-submit="login()" ng-controller="oAuthLogin"
@@ -47,6 +41,15 @@
             <input class="btn btn-primary btn-block" type="submit" value="login">
 
         </form>
+
+        <div class="bg-success well well-large">
+            <p ng-repeat="(info, value) in currentUser">
+                <strong>{{ info | translate }}</strong>
+                <span class="badge badge-info">{{ value | json }}
+                    <span ng-show="!value" class="glyphicon glyphicon-remove"></span>
+                </span>
+            </p>
+        </div>
 
     </div>
 </div>

@@ -28,7 +28,7 @@ sammuiTranslate.filter('getByKey', function () {
 
 sammuiTranslate.run(function ($rootScope, $translate, translateLangsInfo) {
     $rootScope.modalLangChoose = function () {
-        $rootScope.modalLangItems =translateLangsInfo.query(function () {
+        $rootScope.modalLangItems = translateLangsInfo.query(function () {
             $rootScope.Ui.turnOn('modalLangChoose');
         });
     };

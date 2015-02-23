@@ -1,0 +1,24 @@
+<div class="modal modal-overlay" ui-if='modalForbidden' ui-state='modalForbidden'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span>{{ 'modal-oauth-forbidden' | translate }}</span>
+                </h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    {{ 'modal-oauth-forbidden-body' | translate }}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button ui-turn-off="modalForbidden"
+                        class="btn btn-default">{{ 'modal-close' | translate }}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
