@@ -28,8 +28,10 @@ sammuiTranslate.filter('getByKey', function () {
 
 sammuiTranslate.run(function ($rootScope, $translate, translateLangsInfo) {
     $rootScope.modalLangChoose = function () {
+        $rootScope.loading = true;
         $rootScope.modalLangItems = translateLangsInfo.query(function () {
             $rootScope.Ui.turnOn('modalLangChoose');
+            $rootScope.loading = false;
         });
     };
     $rootScope.appLangChoose = function (lang) {
