@@ -17,10 +17,17 @@
             </button>
         </div>
 
-        <form ng-show="!currentUser.username" name="oauth-login" ng-submit="login()"
+        <form ng-show="!currentUser.username" name="oauthLoginForm" ng-submit="login()"
               class="form-login">
-            <fieldset>
+
+            <fieldset ng-disabled="oauthLoginForm.$submitted">
                 <legend>{{ 'login-form-legend' | translate }}</legend>
+
+                <div ng-show="loginError" class="alert alert-danger" role="alert">
+                    <strong>{{'login-form-error'|translate}}</strong> {{loginError.data.error_description | translate}}
+                    <hr>
+                    <strong>Server Error: {{loginError.status}}</strong> {{loginError.data.error}}
+                </div>
 
                 <div class="form-group has-success has-feedback">
                     <label>{{ 'login-form-username' | translate }}</label>
@@ -39,11 +46,11 @@
                            class="form-control"
                            placeholder="Password">
                 </div>
+
+                <input ng-disabled="oauthLoginForm.$invalid" class="btn btn-primary btn-block" type="submit"
+                       value="login">
+
             </fieldset>
-
-            <hr>
-
-            <input class="btn btn-primary btn-block" type="submit" value="login">
 
         </form>
 

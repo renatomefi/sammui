@@ -17,4 +17,4 @@ parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
     bower_bin: /usr/local/bin/bower
     fos_user_db_driver: mongodb
-    fos_user_class: Flyers\BackendBundle\Document\User
+    fos_user_class: Renatomefi\UserBundle\Document\User

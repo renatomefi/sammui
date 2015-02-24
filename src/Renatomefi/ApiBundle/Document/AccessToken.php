@@ -23,7 +23,7 @@ class AccessToken extends BaseAccessToken
     protected $client;
 
     /**
-     * @ODM\ReferenceOne(targetDocument="Flyers\BackendBundle\Document\User")
+     * @ODM\ReferenceOne(targetDocument="Renatomefi\UserBundle\Document\User")
      */
     protected $user;
 
@@ -62,7 +62,7 @@ class AccessToken extends BaseAccessToken
     /**
      * Set user
      *
-     * @param Flyers\BackendBundle\Document\User $user
+     * @param Renatomefi\UserBundle\Document\User $user
      * @return self
      */
     public function setUser(UserInterface $user)
@@ -74,7 +74,7 @@ class AccessToken extends BaseAccessToken
     /**
      * Get user
      *
-     * @return Flyers\BackendBundle\Document\User $user
+     * @return Renatomefi\UserBundle\Document\User $user
      */
     public function getUser()
     {

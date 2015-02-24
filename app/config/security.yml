@@ -25,9 +25,9 @@ security:
 
         main:
             pattern:        ^/
-            switch_user:    true
-            fos_oauth: true
-            anonymous: true
+            switch_user:    false
+            fos_oauth:      true
+            anonymous:      true
 #            form_login:
 #                provider:   fos_userbundle
 #                csrf_provider: form.csrf_provider

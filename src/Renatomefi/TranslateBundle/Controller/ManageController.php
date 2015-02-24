@@ -28,7 +28,6 @@ class ManageController extends FOSRestController
             $language = $languageDM->findAll();
             $exception = 'No Languages found';
         } else {
-
             $language = $languageDM->findOneByKey($lang);
             $exception = 'Language not found: ' . $lang;
         }
