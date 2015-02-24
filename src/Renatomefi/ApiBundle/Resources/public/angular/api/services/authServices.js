@@ -139,7 +139,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
         };
 
         oAuth.beAuthenticated = function (data) {
-            $http.post('/oauth/v2/token',
+            return $http.post('/oauth/v2/token',
                 {
                     client_id: oAuthClientId,
                     client_secret: oAuthClientSecret,
@@ -156,7 +156,8 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
                     });
                 })
                 .error(function (data, status) {
-                    return status;
+                    $rootScope.$broadcast('event:auth-loginFail', data, status);
+                    return data;
                 });
         };
 
