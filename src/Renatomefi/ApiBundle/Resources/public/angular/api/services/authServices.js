@@ -109,7 +109,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
 
         oAuth.logout = function () {
             $http.get('/logout').success(function (data) {
-                if (data.autenticated_fully) {
+                if (!data.autenticated_fully) {
                     $rootScope.$broadcast('event:auth-logoutSuccess');
                     oAuthSession.destroy();
                 } else {
