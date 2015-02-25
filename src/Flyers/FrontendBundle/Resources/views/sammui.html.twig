@@ -29,9 +29,21 @@
                 </div>
             </div>
         </div>
-        {% endverbatim %}
-
         <div class="navbar navbar-app navbar-absolute-bottom">
+            <div ng-repeat="r in loadingList.getList()">
+                Loading: {{ r.config.url }}
+            </div>
+            <div class="progress">
+                <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" style="width: 33%">
+                    <strong>Loading...</strong>
+                </div>
+                <div class="progress-bar progress-bar-danger progress-bar-striped active" role="progressbar" style="width: 33%">
+                    <strong>Loading...</strong>
+                </div>
+                <div class="progress-bar progress-bar-warning progress-bar-striped active" role="progressbar" style="width: 33%">
+                    <strong>Loading...</strong>
+                </div>
+            </div>
             <div class="btn-group justified">
                 <a href="https://github.com/renatomefidf/sammui" target="_blank" class="btn btn-navbar">
                     <i class="fa fa-github fa-navbar"></i> sammui</a>
@@ -40,6 +52,7 @@
             </div>
         </div>
 
+        {% endverbatim %}
         <!-- Modals -->
         {% verbatim %}
         <div class="app-body" ng-class="{loading: loading}">
@@ -89,6 +102,8 @@
     {#Api Module#}
     <script type="text/javascript"
             src="{{ asset('bundles/api/angular/api/app.module.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/api/angular/api/services/httpServices.js') }}"></script>
     <script type="text/javascript"
             src="{{ asset('bundles/api/angular/api/services/authServices.js') }}"></script>
     <script type="text/javascript"
