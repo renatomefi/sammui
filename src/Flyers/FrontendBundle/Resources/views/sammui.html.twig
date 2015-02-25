@@ -3,10 +3,10 @@
 {% block body %}
 
     <!-- Sidebars -->
-    <div ng-include="'{{ asset("bundles/frontend/partials/layout/sidebar.html") }}'"
+    <div ng-include="'{{ asset("bundles/frontend/angular/views/sidebar.html") }}'"
          ui-track-as-search-param='true'
          class="sidebar sidebar-left"></div>
-    <div ng-include="'{{ asset("bundles/frontend/partials/layout/sidebarRight.html") }}'"
+    <div ng-include="'{{ asset("bundles/frontend/angular/views/sidebarRight.html") }}'"
          class="sidebar sidebar-right"></div>
 
     <div class="app"
@@ -58,8 +58,8 @@
 
     <!-- Modals -->
     <div ui-yield-to="modals"></div>
-    <div ng-include="'{{ asset("bundles/frontend/partials/layout/modal/modalError.html") }}'"></div>
-    <div ng-include="'{{ asset("bundles/frontend/partials/layout/modal/modalInfo.html") }}'"></div>
+    <div ng-include="'{{ asset("bundles/frontend/angular/views/modal/modalError.html") }}'"></div>
+    <div ng-include="'{{ asset("bundles/frontend/angular/views/modal/modalInfo.html") }}'"></div>
     <div ng-include="'{{ asset("bundles/translate/angular/views/modal/modalLangChoose.html") }}'"></div>
     <div ng-include="'{{ asset("bundles/api/angular/views/modal/modalForbidden.html") }}'"></div>
     <!-- Modals -->
@@ -104,14 +104,14 @@
 
     {#Angular APP#}
     <script type="text/javascript"
-            src="{{ asset('bundles/frontend/js/app.js') }}"></script>
+            src="{{ asset('bundles/frontend/angular/app.sammui.js') }}"></script>
     <script type="text/javascript"
-            src="{{ asset('bundles/frontend/js/services.js') }}"></script>
+            src="{{ asset('bundles/frontend/angular/sammui/services/mainServices.js') }}"></script>
     <script type="text/javascript"
-            src="{{ asset('bundles/frontend/js/controllers.js') }}"></script>
+            src="{{ asset('bundles/frontend/angular/sammui/controllers/mainControllers.js') }}"></script>
     <script type="text/javascript"
-            src="{{ asset('bundles/frontend/js/filters.js') }}"></script>
+            src="{{ asset('bundles/frontend/angular/sammui/filters/mainFilters.js') }}"></script>
     <script type="text/javascript"
-            src="{{ asset('bundles/frontend/js/directives.js') }}"></script>
+            src="{{ asset('bundles/frontend/angular/sammui/directives/mainDirectives.js') }}"></script>
 
 {% endblock %}

@@ -4,14 +4,14 @@
 var sammui = angular.module('sammui', [
     'ngRoute',
     'sammui.api',
-    'sammui.services',
+    'sammui.mainServices',
     'xeditable',
     'mobile-angular-ui',
     'mobile-angular-ui.gestures',
     'sammui.translate',
-    'sammui.filters',
-    'sammui.directives',
-    'sammui.controllers'
+    'sammui.mainFilters',
+    'sammui.mainDirectives',
+    'sammui.mainControllers'
 ]).config(function ($locationProvider, $routeProvider, $compileProvider) {
 
     $compileProvider.debugInfoEnabled(true);
@@ -22,25 +22,25 @@ var sammui = angular.module('sammui', [
     });
 
     $routeProvider.when('/login', {
-        templateUrl: '/bundles/frontend/partials/login.html',
+        templateUrl: '/bundles/frontend/angular/views/login.html',
         templatePreload: true,
         controller: 'Login',
         reloadOnSearch: false
     });
     $routeProvider.when('/ui', {
-        templateUrl: '/bundles/frontend/partials/ui.html',
+        templateUrl: '/bundles/frontend/angular/views/ui.html',
         templatePreload: true,
         controller: 'UiCtrl',
         reloadOnSearch: false
     });
     $routeProvider.when('/view1', {
-        templateUrl: '/bundles/frontend/partials/partial1.html',
+        templateUrl: '/bundles/frontend/angular/views/partial1.html',
         templatePreload: true,
         controller: 'MyCtrl1',
         reloadOnSearch: false
     });
     $routeProvider.when('/view2', {
-        templateUrl: '/bundles/frontend/partials/partial2.html',
+        templateUrl: '/bundles/frontend/angular/views/partial2.html',
         templatePreload: true,
         controller: 'MyCtrl2',
         reloadOnSearch: false
