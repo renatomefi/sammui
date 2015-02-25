@@ -45,16 +45,22 @@
                 {{ ::r.config.url }}
             </div>
 
-            <div class="progress" style="margin-bottom: 0"
+            <div ng-hide="loadingList.getList().length == 0"
+                 class="progress" style="margin-bottom: 0"
                  ng-class="{ false: 'active'}[loadingList.totalPercent == 100]">
 
                 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-                     style="width: {{ loadingList.completedPercent }}%">
+                     style="width: {{ loadingList.completedPercent }}%;">
                     <strong>{{ loadingList.completedPercent | number:2 }}%</strong>
                 </div>
                 <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
-                     style="width: {{ loadingList.completedErrorPercent }}%">
+                     style="width: {{ loadingList.completedErrorPercent }}%;">
                     <strong>{{ loadingList.completedErrorPercent | number:2 }}%</strong>
+                </div>
+                <div
+                     class="progress-bar progress-bar-info" role="progressbar"
+                     style="width: 100%; width: {{ (100 - loadingList.totalPercent) }}%">
+                    <strong><i class="fa fa-circle-o-notch fa-spin"></i></strong>
                 </div>
             </div>
 
