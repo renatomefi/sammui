@@ -31,7 +31,9 @@
         </div>
         <div class="navbar navbar-app navbar-absolute-bottom">
             <div ng-repeat="r in loadingList.getList()">
-                Loading: {{ r.config.url }}
+                {{ r.config.success }}
+                ({{ r.config.loadingEnd === undefined ? "..." : (r.config.loadingEnd - r.config.loadingStart) + "ms" }}):
+                {{ ::r.config.url }}
             </div>
             <div class="progress">
                 <div class="progress-bar progress-bar-info progress-bar-striped active" role="progressbar" style="width: 33%">
