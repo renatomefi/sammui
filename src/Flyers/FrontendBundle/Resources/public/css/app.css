@@ -1,4 +1,13 @@
 /* Login View */
+.animate-hide {
+    -webkit-transition: all linear 1s;
+    transition: all linear 1s;
+    opacity: 1;
+}
+
+.animate-hide.ng-hide {
+    opacity: 0;
+}
 
 .form-login input.ng-invalid.ng-touched {
     background-color: #FA787E;
