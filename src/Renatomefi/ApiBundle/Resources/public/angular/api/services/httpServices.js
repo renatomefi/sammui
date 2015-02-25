@@ -28,10 +28,13 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
     .service('loadingHttpList', function () {
         var list = [];
         var history = [];
+
         var completed = 0;
         var completedError = 0;
-        var completedTime = 0;
-        var completedErrorTime = 0;
+
+        var completedPercent = 0;
+        var completedErrorPercent = 0;
+        var totalPercent = 0;
 
         return {
             append: function (config, deferred) {
@@ -56,7 +59,10 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
             list: list,
             history: history,
             completed: completed,
-            completedError: completedError
+            completedError: completedError,
+            completedPercent: completedPercent,
+            completedErrorPercent: completedErrorPercent,
+            totalPercent: totalPercent
         };
     })
 
@@ -77,11 +83,16 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
                 deferred.promise.then(function () {
                     loadingHttpList.completed++;
                     config.success = true;
-                    config.loadingEnd = (new Date).getTime();
                 }, function () {
                     loadingHttpList.completedError++;
                     config.success = false;
+                });
+
+                deferred.promise.finally(function () {
                     config.loadingEnd = (new Date).getTime();
+                    loadingHttpList.completedPercent = ((loadingHttpList.completed * 100) / loadingHttpList.getList().length);
+                    loadingHttpList.completedErrorPercent = ((loadingHttpList.completedError * 100) / loadingHttpList.getList().length);
+                    loadingHttpList.totalPercent = (((loadingHttpList.completed + loadingHttpList.completedError) * 100) / loadingHttpList.getList().length);
                 });
 
                 return config;

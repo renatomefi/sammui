@@ -31,34 +31,31 @@
         </div>
         <div class="navbar navbar-app navbar-absolute-bottom">
 
-            <div>
-                <i class="fa fa-circle-o-notch fa-spin"></i>
-                <span class="badge badge-success">
-                    {{ ((loadingList.completedError + loadingList.completed)*100)/loadingList.getList().length | number:0 }}{{ '%' }}
-                </span>
-                <span>{{ loadingList.getList()[loadingList.getList().length - 1].config.url }}</span>
-                <span>{{ loadingList.getList()[0].config.url }}</span>
-            </div>
-            <hr>
-            <div class="progress"
-                 ng-class="{ true: 'active'}[(loadingList.completedError + loadingList.completed) != (loadingList.getList().length)]">
-
-                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
-                     style="width: {{ (loadingList.completed*100)/loadingList.getList().length }}%">
-                    <strong>{{ loadingList.completed }}</strong>
-                </div>
-                <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
-                     style="width: {{ (loadingList.completedError*100)/loadingList.getList().length }}%">
-                    <strong>{{ loadingList.completedError }}</strong>
-                </div>
-            </div>
-            <hr>
             <div ng-repeat="r in loadingList.getList()">
+                <div class="animate-hide" ng-hide="(r.config.success == true || r.config.success == true)">
+                    <i class="fa fa-circle-o-notch fa-spin"></i> {{ ::r.config.url }}
+                </div>
+            </div>
+
+            <div style="display: none;" ng-repeat="r in loadingList.getList()">
                 {{ r.config.success }}
                 ({{ r.config.loadingEnd === undefined ?
                 "..." :
                 (r.config.loadingEnd - r.config.loadingStart) + "ms" }}):
                 {{ ::r.config.url }}
+            </div>
+
+            <div class="progress" style="margin-bottom: 0"
+                 ng-class="{ true: 'active'}[(loadingList.completedError + loadingList.completed) != (loadingList.getList().length)]">
+
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                     style="width: {{ loadingList.completedPercent }}%">
+                    <strong>{{ loadingList.completedPercent | number:2 }}%</strong>
+                </div>
+                <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
+                     style="width: {{ loadingList.completedErrorPercent }}%">
+                    <strong>{{ loadingList.completedErrorPercent | number:2 }}%</strong>
+                </div>
             </div>
 
             <div class="btn-group justified">
