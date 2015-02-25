@@ -32,7 +32,7 @@
         <div class="navbar navbar-app navbar-absolute-bottom">
 
             <div ng-repeat="r in loadingList.getList()">
-                <div class="animate-hide" ng-hide="(r.config.success == true || r.config.success == true)">
+                <div class="animate-hide" ng-hide="(r.config.success == true || r.config.success == false)">
                     <i class="fa fa-circle-o-notch fa-spin"></i> {{ ::r.config.url }}
                 </div>
             </div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="progress" style="margin-bottom: 0"
-                 ng-class="{ true: 'active'}[(loadingList.completedError + loadingList.completed) != (loadingList.getList().length)]">
+                 ng-class="{ false: 'active'}[loadingList.totalPercent == 100]">
 
                 <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
                      style="width: {{ loadingList.completedPercent }}%">
