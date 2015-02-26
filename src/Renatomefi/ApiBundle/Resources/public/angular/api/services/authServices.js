@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
+angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
 
     .factory('oAuthHttpInjector', ['oAuthSession', function (oAuthSession) {
         var sessionInjector = {
@@ -53,7 +53,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
         return this;
     }])
     // Resource factories for OAuth API
-    .factory('oAuth', ['$http', '$rootScope', 'authService', 'oAuthSession', function ($http, $rootScope, authService, oAuthSession) {
+    .factory('oAuth', ['$http', '$rootScope', '$cookieStore', 'authService', 'oAuthSession', function ($http, $rootScope,  $cookieStore, authService, oAuthSession) {
 
         // Sammui client ID and Secret, you should get one with the client:create command at symfony
         // To-do: Where should I store credentials?
@@ -107,7 +107,14 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
             return userInfo;
         };
 
-        oAuth.logout = function () {
+        oAuth.logout = function (force) {
+
+            var forceLogout = function () {
+                $cookieStore.remove('PHPSESSID');
+                oAuthSession.destroy();
+                $rootScope.$broadcast('event:auth-logoutForced');
+            };
+
             $http.get('/logout').success(function (data) {
                 if (!data.autenticated_fully) {
                     $rootScope.$broadcast('event:auth-logoutSuccess');
@@ -115,7 +122,14 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute'])
                 } else {
                     $rootScope.$broadcast('event:auth-logoutError');
                 }
+            }).error(function () {
+                $rootScope.$broadcast('event:auth-logoutReqError');
+            }).finally(function() {
+                if (force) {
+                    forceLogout();
+                }
             });
+
         };
 
         oAuth.beAnonymous = function () {

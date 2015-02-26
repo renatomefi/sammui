@@ -18,8 +18,8 @@ angular.module('sammui.apiAuthControllers', ['ngRoute'])
                 });
             };
 
-            $scope.logout = function () {
-                oAuth.logout();
+            $scope.logout = function (force) {
+                oAuth.logout(force);
                 $scope.loginSuccess = null;
                 $scope.loginError = null;
             };

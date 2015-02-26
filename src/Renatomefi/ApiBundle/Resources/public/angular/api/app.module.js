@@ -19,7 +19,7 @@ sammuiApi.run([
         oAuth.getInfo(null, true);
 
         $rootScope.currentUser = oAuthSession;
-        
+
         $rootScope.loadingList = loadingHttpList;
 
         $rootScope.$on('event:auth-loginRequired', function () {

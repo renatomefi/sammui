@@ -4,6 +4,7 @@
 var sammui = angular.module('sammui', [
     'ngRoute',
     'ngAnimate',
+    'ngCookies',
     'sammui.api',
     'sammui.mainServices',
     'xeditable',
