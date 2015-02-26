@@ -26,24 +26,24 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
     })
 
     .service('loadingHttpList', function ($q, $timeout) {
-        var list = [];
-        var history = [];
-
-        var completed = 0;
-        var completedError = 0;
-
-        var completedPercent = 0;
-        var completedErrorPercent = 0;
-        var totalPercent = 0;
-
         var all;
 
         var service = {
+
+            list: [],
+            history: [],
+            completed: 0,
+            completedError: 0,
+            completedPercent: 0,
+            completedErrorPercent: 0,
+            totalPercent: 0,
+
             append: function (config) {
                 var a = {
                     config: config
                 };
-                list.push(a);
+                service.list.push(a);
+                service.refreshCounters();
 
                 var listPromises = [];
 
@@ -53,50 +53,45 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
                 listPromises.push(config._loadingDefer.promise);
 
                 config._loadingDefer.promise.finally(function () {
-                    service.totalPercent = (((service.completed + service.completedError) * 100) / service.getList().length);
-                    service.completedPercent = ((service.completed * 100) / service.getList().length);
-                    service.completedErrorPercent = ((service.completedError * 100) / service.getList().length);
+                    service.refreshCounters();
                 });
 
                 all = $q.all(listPromises).finally(function () {
-                    var exists = list.some(function (item) {
+                    var exists = service.list.some(function (item) {
                         return (item.config.loadingEnd === undefined);
                     });
 
                     if (!exists) {
-                        //service.clear();
                         $timeout(service.clear, 1000);
                     }
                 });
 
 
             },
+            refreshCounters: function () {
+                service.totalPercent = (((service.completed + service.completedError) * 100) / service.getList().length);
+                service.completedPercent = ((service.completed * 100) / service.getList().length);
+                service.completedErrorPercent = ((service.completedError * 100) / service.getList().length);
+            },
             getItem: function (id) {
-                return list[id];
+                return service.list[id];
             },
             clear: function () {
-                history.concat(angular.copy(list));
-                list.splice(0,list.length)
+                service.history = service.history.concat(angular.copy(service.list));
+                service.list.splice(0, service.list.length);
                 service.completed = 0;
                 service.completedError = 0;
                 service.completedPercent = 0;
                 service.completedErrorPercent = 0;
                 service.totalPercent = 0;
-                all = null;
+                service.all = null;
             },
             getList: function () {
-                return list;
+                return service.list;
             },
             getHistory: function () {
-                return history;
-            },
-            list: list,
-            history: history,
-            completed: completed,
-            completedError: completedError,
-            completedPercent: completedPercent,
-            completedErrorPercent: completedErrorPercent,
-            totalPercent: totalPercent
+                return service.history;
+            }
         };
 
         return service;
