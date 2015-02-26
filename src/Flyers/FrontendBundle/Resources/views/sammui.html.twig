@@ -29,9 +29,41 @@
                 </div>
             </div>
         </div>
-        {% endverbatim %}
-
         <div class="navbar navbar-app navbar-absolute-bottom">
+
+            <div ng-repeat="r in loadingList.getList()">
+                <div class="animate-hide" ng-hide="(r.config.success == true || r.config.success == false)">
+                    <i class="fa fa-circle-o-notch fa-spin"></i> {{ ::r.config.url }}
+                </div>
+            </div>
+
+            <div style="display: none;" ng-repeat="r in loadingList.getList()">
+                {{ r.config.success }}
+                ({{ r.config.loadingEnd === undefined ?
+                "..." :
+                (r.config.loadingEnd - r.config.loadingStart) + "ms" }}):
+                {{ ::r.config.url }}
+            </div>
+
+            <div ng-hide="loadingList.getList().length == 0"
+                 class="progress" style="margin-bottom: 0"
+                 ng-class="{ false: 'active'}[loadingList.totalPercent == 100]">
+
+                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                     style="width: {{ loadingList.completedPercent }}%;">
+                    <strong>{{ loadingList.completedPercent | number:2 }}%</strong>
+                </div>
+                <div class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar"
+                     style="width: {{ loadingList.completedErrorPercent }}%;">
+                    <strong>{{ loadingList.completedErrorPercent | number:2 }}%</strong>
+                </div>
+                <div
+                     class="progress-bar progress-bar-info" role="progressbar"
+                     style="width: 100%; width: {{ (100 - loadingList.totalPercent) }}%">
+                    <strong><i class="fa fa-circle-o-notch fa-spin"></i></strong>
+                </div>
+            </div>
+
             <div class="btn-group justified">
                 <a href="https://github.com/renatomefidf/sammui" target="_blank" class="btn btn-navbar">
                     <i class="fa fa-github fa-navbar"></i> sammui</a>
@@ -40,6 +72,7 @@
             </div>
         </div>
 
+        {% endverbatim %}
         <!-- Modals -->
         {% verbatim %}
         <div class="app-body" ng-class="{loading: loading}">
@@ -89,6 +122,8 @@
     {#Api Module#}
     <script type="text/javascript"
             src="{{ asset('bundles/api/angular/api/app.module.js') }}"></script>
+    <script type="text/javascript"
+            src="{{ asset('bundles/api/angular/api/services/httpServices.js') }}"></script>
     <script type="text/javascript"
             src="{{ asset('bundles/api/angular/api/services/authServices.js') }}"></script>
     <script type="text/javascript"
