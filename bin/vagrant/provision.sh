@@ -2,7 +2,7 @@
 
 echo "Starting sammui installation: " $(date)
 echo "--------------------------------------------------------"
-export COMPOSER_PROCESS_TIMEOUT=900
+export COMPOSER_PROCESS_TIMEOUT=1200
 composer create-project -n --keep-vcs renatomefidf/sammui /vagrant/sammui dev-master
 echo "Removing old and wrong vhosts:"
 sudo rm -rf /etc/nginx/sites-enabled/vhost-sammui*.conf
