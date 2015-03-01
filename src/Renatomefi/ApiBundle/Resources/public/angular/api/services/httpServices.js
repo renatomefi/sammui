@@ -39,10 +39,11 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
             totalPercent: 0,
 
             append: function (config) {
-                var a = {
+
+                service.list.push({
                     config: config
-                };
-                service.list.push(a);
+                });
+
                 service.refreshCounters();
 
                 var listPromises = [];
@@ -73,9 +74,6 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
                 service.completedPercent = ((service.completed * 100) / service.getList().length);
                 service.completedErrorPercent = ((service.completedError * 100) / service.getList().length);
             },
-            getItem: function (id) {
-                return service.list[id];
-            },
             clear: function () {
                 service.history = service.history.concat(angular.copy(service.list));
                 service.list.splice(0, service.list.length);
@@ -99,7 +97,7 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
 
     .factory('loadingHttpInterceptor', ['$q', 'loadingHttpList', function ($q, loadingHttpList) {
         return {
-            // optional method
+
             'request': function (config) {
                 var deferred = $q.defer();
 
@@ -107,6 +105,11 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
                 config.success = undefined;
                 config.loadingStart = (new Date).getTime();
                 config.loadingEnd = undefined;
+                config.result = {
+                    status: null,
+                    statusText: null,
+                    error: null
+                };
 
                 deferred.promise.then(function () {
                     loadingHttpList.completed++;
@@ -124,18 +127,19 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
                 return config;
             },
 
-            // optional method
             'response': function (response) {
-                //config.deferred.resolve();
-                //var config = loadingHttpList.getItem(response.config.loadingListId);
                 response.config._loadingDefer.resolve();
+                response.config.result.status = response.status;
+                response.config.result.statusText = response.statusText;
                 return response;
             },
 
-            // optional method
-            'responseError': function (rejection) {
-                rejection.config._loadingDefer.reject();
-                return $q.reject(rejection);
+            'responseError': function (response) {
+                response.config._loadingDefer.reject();
+                response.config.result.status = response.status;
+                response.config.result.statusText = response.statusText;
+                response.config.result.error = response.data;
+                return $q.reject(response);
             }
         };
     }])
