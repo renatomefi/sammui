@@ -67,6 +67,7 @@ security:
 
 
     access_control:
+        - { path: ^/api/user/manage/, roles: ROLE_ADMIN }
         - { path: ^/l10n/admin, roles: ROLE_ADMIN }
         - { path: ^/l10n/manage/langs, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/l10n, roles: IS_AUTHENTICATED_FULLY }
