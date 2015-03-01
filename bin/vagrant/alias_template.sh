@@ -15,6 +15,6 @@ sammui_vagrant_ip='www.sammui.dev'; #Your vagrant IP
 sammui_vagrant_port='22'; #If you don't have an IP you can use the vagrant default redirect
 
 alias sammui="
-    ssh -p $sammui_vagrant_port -i $sammui_host_folder/docs/vagrant/id_rsa
+    ssh -p $sammui_vagrant_port -i $sammui_host_folder/docs/vagrant/ssh/id_rsa
     vagrant@$sammui_vagrant_ip
     $sammui_guest_folder/app/console --env=dev"
