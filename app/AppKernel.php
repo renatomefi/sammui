@@ -31,6 +31,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
             new Renatomefi\UserBundle\UserBundle(),
+            new Renatomefi\FormBundle\FormBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
