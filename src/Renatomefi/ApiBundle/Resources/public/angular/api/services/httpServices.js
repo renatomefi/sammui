@@ -2,29 +2,6 @@
 
 angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
 
-    .filter('loadingProgressBar', function () {
-        return function (loadingHttpList, type) {
-
-            var items = loadingHttpList;
-
-            var total = items.length;
-            var completedSuccess = 0;
-            var completedError = 0;
-
-            angular.forEach(items, function (value, key) {
-                if (!angular.isUndefined(value.success)) {
-                    if (value.success === true) {
-                        completedSuccess++;
-                        console.log('completedSuccess');
-                    } else {
-                        completedError++;
-                    }
-                }
-            });
-            return {total: total, completedS: completedSuccess, completedE: completedError};
-        }
-    })
-
     .service('loadingHttpList', function ($q, $timeout) {
         var all;
 

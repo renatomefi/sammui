@@ -1,0 +1,23 @@
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  config.vm.box = "ubuntu/trusty64"
+  config.vm.box_check_update = false
+
+  config.vm.network "private_network", type: "dhcp"
+  config.vm.network :forwarded_port, guest: 80, host: 8365
+
+  config.vm.synced_folder ".", "/vagrant", owner: "www-data", group: "www-data", mount_options: ["dmode=777,fmode=776"]
+
+  config.vm.provider "virtualbox" do |vb|
+     vb.customize ["modifyvm", :id, "--memory", "900"]
+  end
+
+  config.vm.provision "shell",
+    path: "https://raw.githubusercontent.com/renatomefidf/sammui/master/bin/vagrant/provision.sh"
+
+  config.vm.provision "shell",
+    inline: "service nginx restart",
+    run: "always"
+
+end
