@@ -1,29 +1,21 @@
 user:
     resource: "@UserBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /api/user
 
 api:
     resource: "@ApiBundle/Resources/config/routing.yml"
     prefix:   /api
 
-translate_manage:
-    resource: "@TranslateBundle/Controller/ManageController.php"
-    type:     rest
-    prefix:   /l10n/manage
-
 translate:
-    resource: "@TranslateBundle/Controller/LanguageController.php"
-    type:     annotation
+    resource: "@TranslateBundle/Resources/config/routing.yml"
     prefix:   /l10n
 
 frontend:
-    resource: "@FrontendBundle/Controller/"
-    type:     annotation
+    resource: "@FrontendBundle/Resources/config/routing.yml"
     prefix:   /
 
 backend:
-    resource: "@BackendBundle/Controller/"
-    type:     annotation
+    resource: "@BackendBundle/Resources/config/routing.yml"
     prefix:   /
 
 # FOSAuthServerBundle
