@@ -7,35 +7,53 @@
             </div>
             <div class="list-group-item list-group-item-home media">
                 <div class="media-body">
-                    <div class="btn-group">
-                        <div 
-                            class="btn btn-info" 
-                            ng-click="datePredicate = 'config.loadingStart';
-                                dateReverse = !dateReverse">
-                            Date 
-                            <i 
-                                class="glyphicon" 
-                                ng-class="{'glyphicon-chevron-up': dateReverse, 'glyphicon-chevron-down': !dateReverse}">
-                            </i>
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button 
+                                class="btn btn-info" 
+                                ng-click="datePredicate = 'config.loadingStart';
+                                    dateReverse = !dateReverse">
+                                Date 
+                                <i 
+                                    class="glyphicon" 
+                                    ng-class="{'glyphicon-chevron-up': dateReverse, 'glyphicon-chevron-down': !dateReverse}">
+                                </i>
+                            </button>
+                            <button 
+                                class="btn btn-default" 
+                                ng-click="urlPredicate = 'config.url';
+                                    reverse = !reverse">
+                                Url 
+                                <i 
+                                    class="glyphicon" 
+                                    ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}">
+                                </i>
+                            </button>
                         </div>
-                        <div class="btn btn-default" ng-click="urlPredicate = 'config.url';
-                            reverse = !reverse">Url <i class="glyphicon" ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}"></i></div>
-                        <div>
-                            <input type="text">
-                        </div>
+                        <input type="text" class="form-control" ng-model="searchInfo">
+
+                        <div class=" input-group-addon"> S:{{ loadingList.history | counter }} </div>
+                        <div class=" input-group-addon"> E:{{ loadingList.history | counter:false }} </div>
+                        <div class=" input-group-addon"> {{ loadingList.history.length}} </div>
                     </div>
-                    <div ng-repeat="list in loadingList.history| orderBy:datePredicate:dateReverse | orderBy:urlPredicate:reverse" ng-click="opened = (opened) ? false : true">
-                        <span>{{ list.config.loadingStart | date:'mediumTime' }}</span>
-                        <span class="label label-info">{{ ms = list.config.loadingEnd - list.config.loadingStart}}ms</span>
-                        <span  style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" ng-class="{' text-success': list.config.success, 'text-danger': !list.config.success}">{{list.config.url}}</span>
-                        <pre ng-if="opened">
+                </div><hr>
+                <div ng-repeat="list in loadingList.history| orderBy:datePredicate:dateReverse | orderBy:urlPredicate:reverse | filter:searchInfo" ng-click="opened = (opened) ? false : true">
+                    <span>{{ list.config.loadingStart | date:'H:mm:ss sss' }}</span>
+                    <span class="label label-info">{{ ms = list.config.loadingEnd - list.config.loadingStart}}ms</span>
+                    <span 
+                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;" 
+                        ng-class="{' text-success': list.config.success, 'text-danger': !list.config.success}"
+                        ng-bind-html="list.config.url | highlight:searchInfo">
+                        {{list.config.url}}
+                    </span>
+                    <pre ng-if="opened">
                             {{ list | json}}
-                        </pre>
-                    </div>
+                    </pre>
                 </div>
             </div>
-
         </div>
 
     </div>
+
+</div>
 </div>
