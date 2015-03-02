@@ -11,7 +11,7 @@ class ManageController extends FOSRestController
 {
 
     /**
-     * @Get("/all/forms")
+     * @Get("/list/all")
      */
     public function getAllAction()
     {

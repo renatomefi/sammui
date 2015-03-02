@@ -1,6 +1,9 @@
 'use strict';
 
 angular.module('sammui.formServices', ['ngResource'])
+    .factory('formList', function ($resource) {
+        return $resource('/form/manage/list/all');
+    })
     .factory('formManage', function ($resource) {
         return $resource('/form/manage/:formId', {formId: '@id'});
     })
@@ -15,11 +18,11 @@ angular.module('sammui.formServices', ['ngResource'])
         });
 
         // Forcing remove unabled methods on FormProtocol service
-        delete r.prototype.$get;
-        delete r.prototype.$save;
-        delete r.prototype.$query;
-        delete r.prototype.$delete;
-        delete r.prototype.$remove;
+        delete r.prototype.get;
+        delete r.prototype.save;
+        delete r.prototype.query;
+        delete r.prototype.delete;
+        delete r.prototype.remove;
 
         return r;
     })

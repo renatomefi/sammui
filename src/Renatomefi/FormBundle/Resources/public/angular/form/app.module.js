@@ -13,8 +13,3 @@ sammuiApi.config(function ($locationProvider, $routeProvider) {
         reloadOnSearch: false
     });
 });
-
-sammuiForm.run(function(formProtocol){
-    var protocol = formProtocol.generate({formId: '54f49df7eabc883f048b456a'});
-    console.debug('Generated Protocol', protocol);
-});

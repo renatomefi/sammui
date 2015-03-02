@@ -12,13 +12,23 @@
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
                         </div>
-                        <select class="form-control" ng-model="translate.currentLang"
-                                ng-disabled="translate.loading"
-                                ng-options="lang as lang.key for lang in translate.langs">
-                            <option value=""
-                                    ng-if="!translate.currentLang">{{ 'form-select-default' | translate }}
+
+                        <select class="form-control"
+                                ng-model="forms.current"
+                                ng-disabled="forms.loading"
+                                ng-options="f.id as f.name for f in forms.data">
+                            <option value="" ng-if="!forms.current">
+                                {{ 'form-select-default' | translate }}
                             </option>
                         </select>
+
+                        <div class="input-group-btn"
+                             ng-show="forms.current">
+                            <button class="btn btn-success"
+                                    ng-click="generateFormProtocol">
+                                <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
