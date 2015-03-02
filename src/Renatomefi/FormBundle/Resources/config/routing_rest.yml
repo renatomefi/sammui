@@ -1,0 +1,11 @@
+form_manage:
+    type:        rest
+    prefix:      /manage
+    resource:    "@FormBundle/Controller/ManageController.php"
+    name_prefix: form_manage_
+
+form_protocol_manage:
+    type:        rest
+    prefix:      /protocol
+    resource:    "@FormBundle/Controller/ProtocolController.php"
+    name_prefix: form_protocol_

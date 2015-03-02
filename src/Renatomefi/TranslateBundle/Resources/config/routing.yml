@@ -1,9 +1,4 @@
 l10n:
-    prefix:    /
-    resource: "@TranslateBundle/Controller/LanguageController.php"
     type:     annotation
-
-l10n_manage:
-    prefix:    /manage
-    resource: "@TranslateBundle/Controller/ManageController.php"
-    type:     rest
+    prefix:   /
+    resource: "@TranslateBundle/Controller/LanguageController.php"

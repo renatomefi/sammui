@@ -1,0 +1,5 @@
+l10n_manage:
+    type:        rest
+    prefix:      /manage
+    name_prefix: mefi_l10n_manage_
+    resource:    "@TranslateBundle/Controller/ManageController.php"

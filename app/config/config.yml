@@ -11,7 +11,7 @@ framework:
         resource:    "%kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
     form:            ~
-    csrf_protection: ~
+    csrf_protection: false
     validation:      { enable_annotations: true }
     templating:
         engines:     ['twig']
@@ -108,14 +108,16 @@ fos_oauth_server:
             supported_scopes: read
 
 fos_rest:
-    param_fetcher_listener: false
+    param_fetcher_listener: true
     body_listener: true
+    body_converter:
+        enabled: true
     format_listener:
-            rules:
-                - { path: '^/l10n', priorities: [json, xml, html], fallback_format: json, prefer_extension: false }
-                - { path: '^/', priorities: [html, json], fallback_format: html, prefer_extension: false }
+        rules:
+            - { path: '^/l10n', priorities: [json, xml, html], fallback_format: json, prefer_extension: false }
+            - { path: '^/', priorities: [html, json], fallback_format: html, prefer_extension: false }
     view:
-        view_response_listener: true
+        view_response_listener: force
     routing_loader:
         default_format: json
         include_format: false

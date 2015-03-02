@@ -1,24 +1,30 @@
-form:
-    resource: "@FormBundle/Resources/config/routing.yml"
+mefi_form_rest:
+    type:     rest
+    resource: "@FormBundle/Resources/config/routing_rest.yml"
     prefix:   /form
 
-user:
-    resource: "@UserBundle/Resources/config/routing.yml"
+mefi_user:
+    resource: "@UserBundle/Resources/config/routing_rest.yml"
     prefix:   /api/user
 
-api:
+mefi_api:
     resource: "@ApiBundle/Resources/config/routing.yml"
     prefix:   /api
 
-translate:
+mefi_translate:
     resource: "@TranslateBundle/Resources/config/routing.yml"
     prefix:   /l10n
 
-frontend:
+mefi_translate_rest:
+    type:     rest
+    resource: "@TranslateBundle/Resources/config/routing_rest.yml"
+    prefix:   /l10n
+
+flyers_frontend:
     resource: "@FrontendBundle/Resources/config/routing.yml"
     prefix:   /
 
-backend:
+flyers_backend:
     resource: "@BackendBundle/Resources/config/routing.yml"
     prefix:   /
 
