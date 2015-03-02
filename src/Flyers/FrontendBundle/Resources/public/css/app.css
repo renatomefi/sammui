@@ -1,3 +1,15 @@
+/* Input group */
+
+.input-group-addon {
+    background-color: #fff;
+}
+.merged select:first-child {
+    border-right: 0px;
+}
+.merged .input-group-addon + select {
+    border-left: 0px;
+}
+
 /* Background */
 .bg-primary {
     color: #fff;

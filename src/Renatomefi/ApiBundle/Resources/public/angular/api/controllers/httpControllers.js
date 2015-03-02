@@ -1,18 +1,6 @@
 'use strict';
 
 angular.module('sammui.apiHttpControllers', ['ngRoute'])
-    .controller('httpLogs', ['$rootScope', '$scope',
-        function ($rootScope, $scope) {
-
-            $rootScope.loadingList.history.map(function (config) {
-                if (config.success) {
-                    $scope.historySuccess++;
-                } else {
-                    $scope.historyError++;
-                }
-            });
-        }
-    ])
     .filter('counter', function () {
         return function (history, success) {
             var validator = (angular.isUndefined(success)) ? true : false;
@@ -36,4 +24,16 @@ angular.module('sammui.apiHttpControllers', ['ngRoute'])
             }
             return $sce.trustAsHtml(text)
         }
-    });
+    })
+    .controller('httpLogs', ['$rootScope', '$scope',
+        function ($rootScope, $scope) {
+
+            $rootScope.loadingList.history.map(function (config) {
+                if (config.success) {
+                    $scope.historySuccess++;
+                } else {
+                    $scope.historyError++;
+                }
+            });
+        }
+    ]);

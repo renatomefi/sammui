@@ -1,0 +1,27 @@
+<div class="scrollable">
+    <div class="scrollable-content">
+        <div class="list-group">
+            <div class="list-group-item list-group-item-home text-center">
+                <h1><i class="glyphicon glyphicon-file feature-icon text-primary"></i>
+                    {{ 'form-start-choose' | translate }}
+                </h1>
+            </div>
+            <div class="list-group-item list-group-item-home media">
+                <div class="media-body">
+                    <div class="input-group merged">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                        </div>
+                        <select class="form-control" ng-model="translate.currentLang"
+                                ng-disabled="translate.loading"
+                                ng-options="lang as lang.key for lang in translate.langs">
+                            <option value=""
+                                    ng-if="!translate.currentLang">{{ 'form-select-default' | translate }}
+                            </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

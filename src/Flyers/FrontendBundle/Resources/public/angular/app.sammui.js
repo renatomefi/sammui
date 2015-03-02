@@ -5,13 +5,14 @@ var sammui = angular.module('sammui', [
     'ngRoute',
     'ngAnimate',
     'ngCookies',
-    'sammui.api',
-    'sammui.mainServices',
     'xeditable',
     'mobile-angular-ui',
     'mobile-angular-ui.gestures',
+    'sammui.api',
+    'sammui.form',
     'sammui.translate',
     'sammui.mainFilters',
+    'sammui.mainServices',
     'sammui.mainDirectives',
     'sammui.mainControllers'
 ]).config(function ($locationProvider, $routeProvider, $compileProvider) {
