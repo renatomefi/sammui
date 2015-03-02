@@ -1,0 +1,212 @@
+{
+	"id": "02ab1f51-9b8a-99e9-02e8-da08e03cfdc3",
+	"name": "sammui_oauth",
+	"description": "",
+	"order": [
+		"997a943c-4401-a736-afe9-7a1edd492cf6",
+		"9bf265d7-b749-d362-d288-e09704cd5be0",
+		"906d05f3-2826-a5f7-e52d-f4fef8300806",
+		"a0d82eae-cf04-188f-e066-56952fc2a92e",
+		"b60f7d98-b966-b061-82af-31b8d104f565"
+	],
+	"folders": [],
+	"timestamp": 1423049034298,
+	"synced": false,
+	"remoteLink": "",
+	"requests": [
+		{
+			"id": "906d05f3-2826-a5f7-e52d-f4fef8300806",
+			"headers": "Accept: Application/Json\n",
+			"url": "{{hostname}}/oauth/v2/token",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "client_id",
+					"value": "54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "client_secret",
+					"value": "5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "grant_type",
+					"value": "password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "{{oauth.username}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "{{oauth.password}}",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1423143971640,
+			"name": "Oauth Password Auth",
+			"description": "",
+			"collectionId": "02ab1f51-9b8a-99e9-02e8-da08e03cfdc3",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "997a943c-4401-a736-afe9-7a1edd492cf6",
+			"headers": "Accept: Application/Json\n",
+			"url": "{{hostname}}/oauth/v2/token?client_id=54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44&client_secret=5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk&grant_type=client_credentials",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "client_id",
+					"value": "54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "client_secret",
+					"value": "5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "grant_type",
+					"value": "password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "{{oauth.username}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "{{oauth.password}}",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1423763612635,
+			"name": "Oauth Client Credentials",
+			"description": "",
+			"collectionId": "02ab1f51-9b8a-99e9-02e8-da08e03cfdc3",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "9bf265d7-b749-d362-d288-e09704cd5be0",
+			"headers": "Accept: Application/Json\n",
+			"url": "{{hostname}}/oauth/v2/token?client_id=54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44&client_secret=5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk&grant_type=password&username={{oauth.username}}&password={{oauth.password}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1423054056317,
+			"name": "Oauth Password Auth",
+			"description": "",
+			"collectionId": "02ab1f51-9b8a-99e9-02e8-da08e03cfdc3",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "a0d82eae-cf04-188f-e066-56952fc2a92e",
+			"headers": "",
+			"url": "{{hostname}}/api/user/info?access_token=MmY4ZjU1ZDVmYjZhY2ZiOGM4NGUzYTJlNGQxYTE2ZDM1ZTFiN2NiMjg5YTg5YzRkNzcwZTQwNGQ0ZDk3MjEwMg",
+			"pathVariables": {},
+			"preRequestScript": "",
+			"method": "GET",
+			"data": [],
+			"dataMode": "params",
+			"name": "User Info",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1423569331511,
+			"version": 2,
+			"responses": [],
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "02ab1f51-9b8a-99e9-02e8-da08e03cfdc3",
+			"synced": false
+		},
+		{
+			"id": "b60f7d98-b966-b061-82af-31b8d104f565",
+			"headers": "Accept: Application/Json\n",
+			"url": "{{hostname}}/oauth/v2/token",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "client_id",
+					"value": "54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "client_secret",
+					"value": "5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "grant_type",
+					"value": "password",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "username",
+					"value": "{{oauth.username}}",
+					"type": "text",
+					"enabled": true
+				},
+				{
+					"key": "password",
+					"value": "{{oauth.password}}",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1423143971640,
+			"name": "Oauth Password Auth copy",
+			"description": "",
+			"collectionId": "02ab1f51-9b8a-99e9-02e8-da08e03cfdc3",
+			"responses": [],
+			"synced": false
+		}
+	]
+}

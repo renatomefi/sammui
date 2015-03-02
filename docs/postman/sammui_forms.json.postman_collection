@@ -1,0 +1,97 @@
+{
+	"id": "8bf6a9ca-574d-bfcc-49ac-e4ac5e2cbdd1",
+	"name": "sammui_forms",
+	"description": "",
+	"order": [
+		"3b2e4426-bc9c-c5c7-9965-bdcf53250c1e",
+		"5d387fc5-de4b-2960-4468-e012468d1c3b",
+		"d20f7dfc-4412-4e65-6020-23516d407b37"
+	],
+	"folders": [],
+	"timestamp": 1425300799435,
+	"synced": false,
+	"remoteLink": "",
+	"requests": [
+		{
+			"id": "3b2e4426-bc9c-c5c7-9965-bdcf53250c1e",
+			"headers": "Accept: application/json\n",
+			"url": "{{hostname}}/form/manage/all/forms",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "name",
+					"value": "Form Teste 03",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1425305614472,
+			"name": "Form get all",
+			"description": "",
+			"collectionId": "8bf6a9ca-574d-bfcc-49ac-e4ac5e2cbdd1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "5d387fc5-de4b-2960-4468-e012468d1c3b",
+			"headers": "Accept: application/json\n",
+			"url": "{{hostname}}/form/manage",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "name",
+					"value": "Form Teste 04",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1425306108048,
+			"name": "Form post new",
+			"description": "",
+			"collectionId": "8bf6a9ca-574d-bfcc-49ac-e4ac5e2cbdd1",
+			"responses": [],
+			"synced": false
+		},
+		{
+			"id": "d20f7dfc-4412-4e65-6020-23516d407b37",
+			"headers": "Accept: application/json\n",
+			"url": "{{hostname}}/form/manage/54f45edeeabc8809088b4567",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "GET",
+			"data": [
+				{
+					"key": "name",
+					"value": "Form Teste 04",
+					"type": "text",
+					"enabled": true
+				}
+			],
+			"dataMode": "params",
+			"version": 2,
+			"tests": "",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1425306160895,
+			"name": "Form get by id",
+			"description": "",
+			"collectionId": "8bf6a9ca-574d-bfcc-49ac-e4ac5e2cbdd1",
+			"responses": [],
+			"synced": false
+		}
+	]
+}

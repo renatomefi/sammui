@@ -13,7 +13,7 @@ class LanguageController extends Controller
      */
     public function adminAction()
     {
-        return $this->render('TranslateBundle:Default:admin.html.twig');
+        return $this->render('TranslateBundle:Language:admin.html.twig');
     }
 
 }

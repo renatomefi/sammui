@@ -25,7 +25,6 @@ class Form
      */
     protected $creationDate;
 
-
     /**
      * Get id
      *
