@@ -9,10 +9,6 @@ use Symfony\Component\Security\Core\Authentication\Token\AnonymousToken;
 
 class UserController extends Controller
 {
-    public function indexAction($name)
-    {
-        return $this->render('ApiBundle:Default:index.html.twig', array('name' => $name));
-    }
 
     public function logoutAction()
     {

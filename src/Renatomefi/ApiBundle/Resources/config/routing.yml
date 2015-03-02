@@ -1,11 +1,7 @@
-api_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: ApiBundle:User:index }
-
-api_user_info:
+mefi_api_user_info:
     path:   /user/info
     defaults: { _controller: ApiBundle:User:info }
 
-api_user_logout:
+mefi_api_user_logout:
     path:   /user/logout
     defaults: { _controller: ApiBundle:User:logout }
