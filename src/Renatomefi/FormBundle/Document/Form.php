@@ -23,7 +23,7 @@ class Form
     /**
      * @ODM\Date
      */
-    protected $creationDate;
+    protected $createdAt;
 
     /**
      * Get id
@@ -58,24 +58,24 @@ class Form
     }
 
     /**
-     * Set creationDate
+     * Set createdAt
      *
-     * @param date $creationDate
+     * @param \MongoDate $createdAt
      * @return self
      */
-    public function setCreationDate($creationDate)
+    public function setCreatedAt($createdAt)
     {
-        $this->creationDate = $creationDate;
+        $this->createdAt = $createdAt;
         return $this;
     }
 
     /**
-     * Get creationDate
+     * Get createdAt
      *
-     * @return date $creationDate
+     * @return \MongoDate $createdAt
      */
-    public function getCreationDate()
+    public function getCreatedAt()
     {
-        return $this->creationDate;
+        return $this->createdAt;
     }
 }

@@ -30,7 +30,7 @@ class ManageController extends FOSRestController
     {
         $formsDM = $this->get('doctrine_mongodb')->getRepository('FormBundle:Form');
 
-        $result = $formsDM->findById($id);
+        $result = $formsDM->findOneById($id);
 
         if (!$result)
             throw $this->createNotFoundException("No form found with id: \"$id\"");
@@ -45,6 +45,7 @@ class ManageController extends FOSRestController
 
         $form = new Form();
         $form->setName($request->get('name'));
+        $form->setCreatedAt(new \MongoDate());
 
         $dm->persist($form);
         $dm->flush();

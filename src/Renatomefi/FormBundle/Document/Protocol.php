@@ -3,6 +3,7 @@
 namespace Renatomefi\FormBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+use Renatomefi\FormBundle\Document\Form;
 
 /**
  * @ODM\Document
@@ -18,7 +19,7 @@ class Protocol
     /**
      * @ODM\Date
      */
-    protected $creationDate;
+    protected $createdAt;
 
     /**
      * @ODM\Date
@@ -35,7 +36,6 @@ class Protocol
      */
     protected $form;
 
-
     /**
      * Get id
      *
@@ -47,31 +47,31 @@ class Protocol
     }
 
     /**
-     * Set creationDate
+     * Set createdAt
      *
-     * @param date $creationDate
+     * @param \MongoDate $createdAt
      * @return self
      */
-    public function setCreationDate($creationDate)
+    public function setCreatedAt($createdAt)
     {
-        $this->creationDate = $creationDate;
+        $this->createdAt = $createdAt;
         return $this;
     }
 
     /**
-     * Get creationDate
+     * Get createdAt
      *
-     * @return date $creationDate
+     * @return \MongoDate $createdAt
      */
-    public function getCreationDate()
+    public function getCreatedAt()
     {
-        return $this->creationDate;
+        return $this->createdAt;
     }
 
     /**
      * Set firstSaveDate
      *
-     * @param date $firstSaveDate
+     * @param \MongoDate $firstSaveDate
      * @return self
      */
     public function setFirstSaveDate($firstSaveDate)
@@ -83,7 +83,7 @@ class Protocol
     /**
      * Get firstSaveDate
      *
-     * @return date $firstSaveDate
+     * @return \MongoDate $firstSaveDate
      */
     public function getFirstSaveDate()
     {
@@ -93,7 +93,7 @@ class Protocol
     /**
      * Set lastSaveDate
      *
-     * @param date $lastSaveDate
+     * @param \MongoDate $lastSaveDate
      * @return self
      */
     public function setLastSaveDate($lastSaveDate)
@@ -105,7 +105,7 @@ class Protocol
     /**
      * Get lastSaveDate
      *
-     * @return date $lastSaveDate
+     * @return \MongoDate $lastSaveDate
      */
     public function getLastSaveDate()
     {
@@ -118,7 +118,7 @@ class Protocol
      * @param Renatomefi\FormBundle\Document\Form $form
      * @return self
      */
-    public function setForm(\Renatomefi\FormBundle\Document\Form $form)
+    public function setForm(Form $form)
     {
         $this->form = $form;
         return $this;
