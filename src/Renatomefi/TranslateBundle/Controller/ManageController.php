@@ -47,14 +47,10 @@ class ManageController extends FOSRestController
             ->hydrate(false)
             ->sort('key', 'asc')
             ->getQuery()
-            ->execute();
+            ->execute()
+            ->toArray();
 
-        $langs = array();
-        foreach ($result as $lang) {
-            $langs[] = $lang;
-        }
-
-        $view = $this->view($langs);
+        $view = $this->view($result);
         return $this->handleView($view);
     }
 

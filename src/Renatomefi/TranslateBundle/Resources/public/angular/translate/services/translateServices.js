@@ -3,7 +3,12 @@
 angular.module('sammui.translateServices', ['ngResource', 'ngRoute'])
     // Resource factories for Langs API
     .factory('translateLangsInfo', function ($resource) {
-        return $resource('/l10n/manage/langs/info', {lang: '@lang'});
+        return $resource('/l10n/manage/langs/info', {lang: '@lang'}, {
+            'query': {
+                method: 'GET',
+                isArray: false
+            }
+        });
     })
     .factory('translateLangs', function ($resource) {
         return $resource('/l10n/manage/langs/:lang', {lang: '@lang'});
