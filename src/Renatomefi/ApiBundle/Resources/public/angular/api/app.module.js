@@ -4,13 +4,23 @@ var sammuiApi = angular.module('sammui.api', [
     'http-auth-interceptor',
     'sammui.apiHttpServices',
     'sammui.apiAuthServices',
-    'sammui.apiAuthControllers'
+    'sammui.apiAuthControllers',
+    'sammui.apiHttpControllers'
 ]);
 
 sammuiApi.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('loadingHttpInterceptor');
     $httpProvider.interceptors.push('oAuthHttpInjector');
 }]);
+
+sammuiApi.config(function ($locationProvider, $routeProvider, $compileProvider) {
+    $routeProvider.when('/admin/logs', {
+        templateUrl: '/bundles/api/angular/views/http/logs.html',
+        templatePreload: false,
+        controller: 'httpLogs',
+        reloadOnSearch: false
+    });
+});
 
 sammuiApi.run([
     '$rootScope', '$location', 'oAuth', 'oAuthSession', 'loadingHttpList',
