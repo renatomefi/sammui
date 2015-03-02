@@ -11,18 +11,17 @@
 
                         <div class="input-group-btn">
                             <button class="btn btn-info"
-                                    ng-click="datePredicate = 'config.loadingStart'; dateReverse = !dateReverse">
+                                    ng-click="dateReverse = !dateReverse">
                                 Date
                                 <i class="glyphicon"
                                    ng-class="{'glyphicon-chevron-up': dateReverse, 'glyphicon-chevron-down': !dateReverse}">
                                 </i>
                             </button>
                             <button class="btn btn-default"
-                                    ng-click="urlPredicate = 'config.url';
-                                    reverse = !reverse">
+                                    ng-click="urlReverse = !urlReverse">
                                 Url
                                 <i class="glyphicon"
-                                   ng-class="{'glyphicon-chevron-up': reverse, 'glyphicon-chevron-down': !reverse}">
+                                   ng-class="{'glyphicon-chevron-up': urlReverse, 'glyphicon-chevron-down': !urlReverse}">
                                 </i>
                             </button>
                         </div>
@@ -41,11 +40,13 @@
                     </div>
                 </div>
                 <hr>
-                <div ng-repeat="list in loadingList.history| orderBy:datePredicate:dateReverse | orderBy:urlPredicate:reverse | filter:searchInfo"
-                     ng-click="opened = (opened) ? false : true">
+                <div ng-repeat="list in loadingList.history| orderBy:'config.loadingStart':dateReverse | orderBy:'config.url':urlReverse | filter:searchInfo"
+                     ng-click="opened = (opened) ? false : true"
+                     ng-class="{'dropup': opened}">
+                    <span class="caret"></span>
                     <span>{{ list.config.loadingStart | date:'H:mm:ss sss' }}</span>
                     <span class="label label-info">{{ ms = (list.config.loadingEnd - list.config.loadingStart) }}ms</span>
-                    <span ng-class="{' text-success': list.config.success, 'text-danger': !list.config.success}"
+                    <span ng-class="{'text-success': list.config.success, 'text-danger': !list.config.success}"
                           ng-bind-html="list.config.url | highlight:searchInfo">
                         {{list.config.url}}
                     </span>
