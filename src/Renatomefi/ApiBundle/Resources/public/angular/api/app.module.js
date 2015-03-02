@@ -13,10 +13,10 @@ sammuiApi.config(['$httpProvider', function ($httpProvider) {
     $httpProvider.interceptors.push('oAuthHttpInjector');
 }]);
 
-sammuiApi.config(function ($locationProvider, $routeProvider, $compileProvider) {
+sammuiApi.config(function ($locationProvider, $routeProvider) {
     $routeProvider.when('/admin/logs', {
         templateUrl: '/bundles/api/angular/views/http/logs.html',
-        templatePreload: false,
+        templatePreload: true,
         controller: 'httpLogs',
         reloadOnSearch: false
     });
