@@ -4,8 +4,10 @@
         <div form-filling-header></div>
         <hr>
         <form name="pageForm" class="my-form">
-            userType: <input name="input" ng-model="userType" required>
+            userType: <input name="input1" ng-model="userType" required>
+            userType: <input name="input2" ng-model="userType" required>
             <span class="error" ng-show="pageForm.input.$error.required">Required!</span><br>
+            <tt>{{pageForm}}</tt>
             <tt>userType = {{userType}}</tt><br>
             <tt>pageForm.input.$valid = {{pageForm.input.$valid}}</tt><br>
             <tt>pageForm.input.$error = {{pageForm.input.$error}}</tt><br>
