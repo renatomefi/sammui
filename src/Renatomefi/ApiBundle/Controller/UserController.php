@@ -44,9 +44,9 @@ class UserController extends Controller
         }
 
         $info = [
-            'autenticated' => $secToken->isAuthenticated(),
-            'autenticated_fully' => $auth->isGranted('IS_AUTHENTICATED_FULLY'),
-            'autenticated_anonymously' => $auth->isGranted('IS_AUTHENTICATED_ANONYMOUSLY'),
+            'authenticated' => $secToken->isAuthenticated(),
+            'authenticated_fully' => $auth->isGranted('IS_AUTHENTICATED_FULLY'),
+            'authenticated_anonymously' => $auth->isGranted('IS_AUTHENTICATED_ANONYMOUSLY'),
             'role_user' => $auth->isGranted('ROLE_USER'),
             'role_admin' => $auth->isGranted('ROLE_ADMIN'),
             'role_anonymous' => $auth->isGranted('IS_AUTHENTICATED_ANONYMOUSLY'),

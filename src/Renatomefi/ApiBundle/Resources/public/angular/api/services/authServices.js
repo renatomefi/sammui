@@ -20,9 +20,9 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
 
         this.create = function (userInfo) {
             this.access_token = userInfo.access_token;
-            this.autenticated = userInfo.autenticated;
-            this.autenticated_fully = userInfo.autenticated_fully;
-            this.autenticated_anonymously = userInfo.autenticated_anonymously;
+            this.authenticated = userInfo.authenticated;
+            this.authenticated_fully = userInfo.authenticated_fully;
+            this.authenticated_anonymously = userInfo.authenticated_anonymously;
             this.role_user = userInfo.role_user;
             this.role_admin = userInfo.role_admin;
             this.role_anonymous = userInfo.role_anonymous;
@@ -36,9 +36,9 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
 
         this.destroy = function () {
             this.access_token = null;
-            this.autenticated = null;
-            this.autenticated_fully = null;
-            this.autenticated_anonymously = null;
+            this.authenticated = null;
+            this.authenticated_fully = null;
+            this.authenticated_anonymously = null;
             this.role_user = null;
             this.role_admin = null;
             this.role_anonymous = null;
@@ -79,7 +79,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
          * @returns {boolean}
          */
         oAuth.isAnonymous = function () {
-            return !!oAuthSession.autenticated_anonymously;
+            return !!oAuthSession.authenticated_anonymously;
         };
 
         /**
@@ -116,7 +116,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
             };
 
             $http.get('/logout').success(function (data) {
-                if (!data.autenticated_fully) {
+                if (!data.authenticated_fully) {
                     $rootScope.$broadcast('event:auth-logoutSuccess');
                     oAuthSession.destroy();
                 } else {
