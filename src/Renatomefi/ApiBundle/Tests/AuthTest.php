@@ -2,53 +2,14 @@
 
 namespace Renatomefi\ApiBundle\Tests;
 
+use Renatomefi\ApiBundle\Tests\Auth\UserInfo;
+use Renatomefi\ApiBundle\Tests\Auth\ClientCredentials;
 use Renatomefi\Test\RestTestCase;
 
 class AuthTest extends RestTestCase
 {
 
-    protected function assertUserInfoObjStructure($userInfo)
-    {
-        $this->assertObjectHasAttribute('authenticated', $userInfo);
-        $this->assertObjectHasAttribute('authenticated_fully', $userInfo);
-        $this->assertObjectHasAttribute('authenticated_anonymously', $userInfo);
-        $this->assertObjectHasAttribute('role_user', $userInfo);
-        $this->assertObjectHasAttribute('role_admin', $userInfo);
-        $this->assertObjectHasAttribute('role_anonymous', $userInfo);
-        $this->assertObjectHasAttribute('client', $userInfo);
-        $this->assertObjectHasAttribute('user', $userInfo);
-    }
-
-    protected function assertClientCredentialsObjStructure($clientCredentials)
-    {
-        $this->assertObjectHasAttribute('access_token', $clientCredentials);
-        $this->assertObjectHasAttribute('expires_in', $clientCredentials);
-        $this->assertObjectHasAttribute('token_type', $clientCredentials);
-        $this->assertObjectHasAttribute('scope', $clientCredentials);
-    }
-
-    public function testEmptySession()
-    {
-        $client = static::createClient();
-
-        $client->request('GET', '/api/user/info');
-
-        $response = $client->getResponse();
-
-        $userInfo = $this->assertJsonResponse($response, 200, true);
-
-        $this->assertUserInfoObjStructure($userInfo);
-
-        $this->assertTrue($userInfo->authenticated);
-        $this->assertFalse($userInfo->authenticated_fully);
-        $this->assertTrue($userInfo->authenticated_anonymously);
-        $this->assertTrue($userInfo->role_anonymous);
-        $this->assertFalse($userInfo->role_user);
-        $this->assertFalse($userInfo->role_admin);
-        $this->assertEmpty($userInfo->user);
-        $this->assertEmpty($userInfo->client);
-
-    }
+    use UserInfo, ClientCredentials;
 
     public function testAnonymousAuth()
     {
@@ -75,6 +36,54 @@ class AuthTest extends RestTestCase
         $this->assertEquals('bearer', $clientCredentials->token_type);
 
         return [[$clientCredentials]];
+    }
+
+    public function testEmptySession()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/api/user/info');
+
+        $response = $client->getResponse();
+
+        $userInfo = $this->assertJsonResponse($response, 200, true);
+
+        $this->assertUserInfoObjStructure($userInfo);
+        $this->assertUserInfoObjNoAuth($userInfo);
+    }
+
+    public function testLogoutRedirect()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/logout');
+
+        $response = $client->getResponse();
+
+        $this->assertEquals(
+            302, $response->getStatusCode(),
+            $response->getContent()
+        );
+
+        $this->assertTrue($response->headers->has('Location'), $response->headers);
+        $this->assertStringEndsWith('/api/user/logout', $response->headers->get('Location'));
+    }
+
+    /**
+     * @depends testLogoutRedirect
+     */
+    public function testLogout()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/api/user/logout');
+
+        $response = $client->getResponse();
+
+        $userInfo = $this->assertJsonResponse($response, 200, true);
+
+        $this->assertUserInfoObjStructure($userInfo);
+        $this->assertUserInfoObjNoAuth($userInfo);
     }
 
     /**
