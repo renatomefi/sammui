@@ -2,22 +2,10 @@
 
 namespace Renatomefi\ApiBundle\Tests;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Renatomefi\Test\RestTestCase;
 
-class AuthTest extends WebTestCase
+class AuthTest extends RestTestCase
 {
-
-    protected function assertJsonResponse($response, $statusCode = 200)
-    {
-        $this->assertEquals(
-            $statusCode, $response->getStatusCode(),
-            $response->getContent()
-        );
-        $this->assertTrue(
-            $response->headers->contains('Content-Type', 'application/json'),
-            $response->headers
-        );
-    }
 
     protected function assertUserInfoObjStructure($userInfo)
     {
@@ -29,6 +17,37 @@ class AuthTest extends WebTestCase
         $this->assertObjectHasAttribute('role_anonymous', $userInfo);
         $this->assertObjectHasAttribute('client', $userInfo);
         $this->assertObjectHasAttribute('user', $userInfo);
+    }
+
+    protected function assertClientCredentialsObjStructure($clientCredentials)
+    {
+        $this->assertObjectHasAttribute('access_token', $clientCredentials);
+        $this->assertObjectHasAttribute('expires_in', $clientCredentials);
+        $this->assertObjectHasAttribute('token_type', $clientCredentials);
+        $this->assertObjectHasAttribute('scope', $clientCredentials);
+    }
+
+    public function testEmptySession()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/api/user/info');
+
+        $response = $client->getResponse();
+
+        $userInfo = $this->assertJsonResponse($response, 200, true);
+
+        $this->assertUserInfoObjStructure($userInfo);
+
+        $this->assertTrue($userInfo->authenticated);
+        $this->assertFalse($userInfo->authenticated_fully);
+        $this->assertTrue($userInfo->authenticated_anonymously);
+        $this->assertTrue($userInfo->role_anonymous);
+        $this->assertFalse($userInfo->role_user);
+        $this->assertFalse($userInfo->role_admin);
+        $this->assertEmpty($userInfo->user);
+        $this->assertEmpty($userInfo->client);
+
     }
 
     public function testAnonymousAuth()
@@ -47,44 +66,43 @@ class AuthTest extends WebTestCase
 
         $response = $client->getResponse();
 
-        $this->assertJsonResponse($response);
+        $clientCredentials = $this->assertJsonResponse($response, 200, true);
 
-        $this->assertNotEmpty($response->getContent());
+        $this->assertClientCredentialsObjStructure($clientCredentials);
+        $this->assertEquals(86, strlen($clientCredentials->access_token));
+        $this->assertObjectNotHasAttribute('refresh_token', $clientCredentials);
 
-        $contentObj = json_decode($response->getContent());
+        $this->assertEquals('bearer', $clientCredentials->token_type);
 
-        $this->assertTrue(($contentObj instanceof \stdClass));
-
-        $this->assertObjectHasAttribute('access_token', $contentObj);
-        $this->assertObjectHasAttribute('expires_in', $contentObj);
-        $this->assertObjectHasAttribute('token_type', $contentObj);
-        $this->assertObjectHasAttribute('scope', $contentObj);
-        $this->assertObjectNotHasAttribute('refresh_token', $contentObj);
-
-        $this->assertEquals('bearer', $contentObj->token_type);
-
+        return [[$clientCredentials]];
     }
 
     /**
-     * @depends testAnonymousAuth
+     * @depends      testAnonymousAuth
+     * @dataProvider testAnonymousAuth
      */
-    public function testSession()
+    public function testAnonymousSession($clientCredentials)
     {
         $client = static::createClient();
 
-        $client->request('GET', '/api/user/info');
+        $client->request('GET', '/api/user/info',
+            ['access_token' => $clientCredentials->access_token]
+        );
 
         $response = $client->getResponse();
 
-        $this->assertJsonResponse($response);
+        $userInfo = $this->assertJsonResponse($response, 200, true);
 
-        $this->assertNotEmpty($response->getContent());
+        $this->assertUserInfoObjStructure($userInfo);
 
-        $contentObj = json_decode($response->getContent());
-
-        $this->assertTrue(($contentObj instanceof \stdClass), $response->getContent());
-
-        $this->assertUserInfoObjStructure($contentObj);
+        $this->assertTrue($userInfo->authenticated);
+        $this->assertTrue($userInfo->authenticated_fully);
+        $this->assertTrue($userInfo->authenticated_anonymously);
+        $this->assertTrue($userInfo->role_anonymous);
+        $this->assertFalse($userInfo->role_user);
+        $this->assertFalse($userInfo->role_admin);
+        $this->assertEmpty($userInfo->user);
+        $this->assertNotEmpty($userInfo->client);
 
     }
 

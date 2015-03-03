@@ -2,27 +2,14 @@
 
 namespace Renatomefi\TranslateBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Renatomefi\Test\RestTestCase;
 
-class ManageControllerTest extends WebTestCase
+class ManageControllerTest extends RestTestCase
 {
-    protected function assertJsonResponse($response, $statusCode = 200)
-    {
-        $this->assertEquals(
-            $statusCode, $response->getStatusCode(),
-            $response->getContent()
-        );
-        $this->assertTrue(
-            $response->headers->contains('Content-Type', 'application/json'),
-            $response->headers
-        );
-    }
-
     public function testLangs()
     {
-        $client   = static::createClient();
-        $crawler  = $client->request('GET', '/l10n/manage/langs');
-
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/l10n/manage/langs');
         $response = $client->getResponse();
 
         $this->assertJsonResponse($response, 200);
@@ -30,8 +17,8 @@ class ManageControllerTest extends WebTestCase
 
     public function createLang()
     {
-        $client   = static::createClient();
-        $crawler  = $client->request('POST', '/l10n/manage/langs/unit-test');
+        $client = static::createClient();
+        $crawler = $client->request('POST', '/l10n/manage/langs/unit-test');
 
         $response = $client->getResponse();
 
