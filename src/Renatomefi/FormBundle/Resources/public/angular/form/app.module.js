@@ -12,4 +12,10 @@ sammuiApi.config(function ($locationProvider, $routeProvider) {
         controller: 'formStart',
         reloadOnSearch: false
     });
+    $routeProvider.when('/form/start/:protocolId', {
+        templateUrl: '/bundles/form/angular/views/form/filling.html',
+        templatePreload: false,
+        controller: 'formFilling',
+        reloadOnSearch: true
+    });
 });

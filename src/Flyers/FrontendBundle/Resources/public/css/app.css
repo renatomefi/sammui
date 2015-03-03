@@ -3,10 +3,12 @@
 .input-group-addon {
     background-color: #fff;
 }
-.merged select:first-child {
+.merged select:first-child,
+.merged input:first-child{
     border-right: 0px;
 }
-.merged .input-group-addon + select {
+.merged .input-group-addon + select,
+.merged .input-group-addon + input{
     border-left: 0px;
 }
 

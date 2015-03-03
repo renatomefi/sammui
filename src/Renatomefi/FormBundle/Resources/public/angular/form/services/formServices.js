@@ -8,7 +8,11 @@ angular.module('sammui.formServices', ['ngResource'])
         return $resource('/form/manage/:formId', {formId: '@id'});
     })
     .factory('formProtocolManage', function ($resource) {
-        return $resource('/form/protocol/:protocolId', {protocolId: '@id'});
+        return $resource('/form/protocol/:protocolId', {protocolId: '@id'}, {
+            'get' : {
+                cache: true
+            }
+        });
     })
     .factory('formProtocol', function ($resource) {
         var r = $resource('/form/protocol/:formId', {formId: '@formId'}, {
