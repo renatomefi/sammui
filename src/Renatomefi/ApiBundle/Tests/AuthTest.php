@@ -11,14 +11,18 @@ class AuthTest extends RestTestCase
 
     use UserInfo, ClientCredentials;
 
-    public function testAnonymousAuth()
+    protected $_clientId = '54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44';
+    protected $_clientSecret = '5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk';
+
+
+    public function testAnonymousOAuth()
     {
         $client = static::createClient();
 
         $client->request('GET', '/oauth/v2/token',
             [
-                'client_id' => '54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44',
-                'client_secret' => '5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk',
+                'client_id' => $this->_clientId,
+                'client_secret' => $this->_clientSecret,
                 'grant_type' => 'client_credentials'
             ], [], [
                 'Accept' => 'application/json',
@@ -30,12 +34,71 @@ class AuthTest extends RestTestCase
         $clientCredentials = $this->assertJsonResponse($response, 200, true);
 
         $this->assertClientCredentialsObjStructure($clientCredentials);
-        $this->assertEquals(86, strlen($clientCredentials->access_token));
+        $this->assertClientCredentialsToken($clientCredentials);
         $this->assertObjectNotHasAttribute('refresh_token', $clientCredentials);
 
         $this->assertEquals('bearer', $clientCredentials->token_type);
 
         return [[$clientCredentials]];
+    }
+
+    public function testPasswordOAuth()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/oauth/v2/token',
+            [
+                'client_id' => $this->_clientId,
+                'client_secret' => $this->_clientSecret,
+                'grant_type' => 'password',
+                'username' => 'sammui',
+                'password' => 'sammui'
+            ], [], [
+                'Accept' => 'application/json',
+            ]
+        );
+
+        $response = $client->getResponse();
+
+        $clientCredentials = $this->assertJsonResponse($response, 200, true);
+
+        $this->assertClientCredentialsObjStructure($clientCredentials);
+        $this->assertClientCredentialsToken($clientCredentials, 'access_token');
+        $this->assertClientCredentialsToken($clientCredentials, 'refresh_token');
+
+        return [[$clientCredentials]];
+    }
+
+    /**
+     * @depends      testPasswordOAuth
+     * @dataProvider testPasswordOAuth
+     */
+    public function testOAuthRefreshToken($clientCredentials)
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/oauth/v2/token',
+            [
+                'client_id' => $this->_clientId,
+                'client_secret' => $this->_clientSecret,
+                'grant_type' => 'refresh_token',
+                'refresh_token' => $clientCredentials->refresh_token
+            ], [], [
+                'Accept' => 'application/json',
+            ]
+        );
+
+        $response = $client->getResponse();
+
+        $refreshClientCredentials = $this->assertJsonResponse($response, 200, true);
+
+        $this->assertClientCredentialsObjStructure($refreshClientCredentials);
+        $this->assertClientCredentialsToken($refreshClientCredentials, 'access_token');
+        $this->assertClientCredentialsToken($refreshClientCredentials, 'refresh_token');
+
+        // Old and New Tokens should not be the same
+        $this->assertNotEquals($clientCredentials->access_token, $refreshClientCredentials->access_token);
+        $this->assertNotEquals($clientCredentials->refresh_token, $refreshClientCredentials->refresh_token);
     }
 
     public function testEmptySession()
@@ -60,10 +123,7 @@ class AuthTest extends RestTestCase
 
         $response = $client->getResponse();
 
-        $this->assertEquals(
-            302, $response->getStatusCode(),
-            $response->getContent()
-        );
+        $this->assertEquals(302, $response->getStatusCode(), $response->getContent());
 
         $this->assertTrue($response->headers->has('Location'), $response->headers);
         $this->assertStringEndsWith('/api/user/logout', $response->headers->get('Location'));
@@ -87,8 +147,8 @@ class AuthTest extends RestTestCase
     }
 
     /**
-     * @depends      testAnonymousAuth
-     * @dataProvider testAnonymousAuth
+     * @depends      testAnonymousOAuth
+     * @dataProvider testAnonymousOAuth
      */
     public function testAnonymousSession($clientCredentials)
     {
