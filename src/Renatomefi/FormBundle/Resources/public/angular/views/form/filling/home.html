@@ -1,0 +1,42 @@
+<div class="scrollable">
+    <div class="scrollable-content">
+        <div class="list-group">
+            <div class="list-group-item list-group-item-home text-center">
+                <h1><i class="glyphicon glyphicon-file feature-icon text-primary"></i>
+                    {{ protocol.data.form.name }}
+                </h1>
+            </div>
+            <div class="list-group-item list-group-item-home">
+                <div class="alert alert-success text-center" role="alert">
+                    <h2>
+                        <i class="glyphicon glyphicon-barcode"></i>
+                        {{ protocol.data.id}}
+                    </h2>
+                </div>
+                <div class="media-body">
+                    {{ protocol.data | json }}
+                </div>
+            </div>
+            <div class="list-group-item">
+                <div class="center-block">
+                    <nav>
+                        <ul class="pagination pagination-lg">
+                            <li ng-disabled="true">
+                                <a aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="active"><a ng-click="toPage(1)">1</a></li>
+                            <li><a ng-click="toPage(2)">2</a></li>
+                            <li ng-disabled="true">
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

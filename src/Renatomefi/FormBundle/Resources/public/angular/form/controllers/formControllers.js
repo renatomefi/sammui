@@ -34,14 +34,36 @@ angular.module('sammui.formControllers', ['ngRoute'])
             $scope.loadForms();
         }
     ])
-    .controller('formFilling', ['$rootScope', '$scope', '$location', 'formProtocolManage',
-        function ($rootScope, $scope, $location, formProtocolManage) {
+    .controller('formFilling', ['$rootScope', '$scope', '$route', '$routeParams', '$location', 'formProtocolManage',
+        function ($rootScope, $scope, $route, $routeParams, $location, formProtocolManage) {
 
             $scope.protocol = {
                 current: undefined,
                 data: undefined
-            }
+            };
 
+            $scope.loadProtocol = function () {
+
+                $rootScope.loading = true;
+                formProtocolManage.get(
+                    {protocolId: $routeParams.protocolId},
+                    function (data) {
+                        $scope.protocol.data = data;
+                    },
+                    function () {
+                        $location.path('/form/start');
+                    })
+                    .$promise.finally(function () {
+                        $rootScope.loading = false;
+                    });
+            };
+
+            $scope.toPage = function (pageId) {
+                //$route.updateParams({page: pageId});
+                $location.path($location.path() + '/page/' + pageId);
+            };
+
+            $scope.loadProtocol();
 
         }
     ]);

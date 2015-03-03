@@ -5,10 +5,10 @@ angular.module('sammui.formServices', ['ngResource'])
         return $resource('/form/manage/list/all');
     })
     .factory('formManage', function ($resource) {
-        return $resource('/form/manage/:formId', {formId: '@id'});
+        return $resource('/form/manage/:formId', {formId: '@formId'});
     })
     .factory('formProtocolManage', function ($resource) {
-        return $resource('/form/protocol/:protocolId', {protocolId: '@id'}, {
+        return $resource('/form/protocol/:protocolId', {protocolId: '@protocolId'}, {
             'get' : {
                 cache: true
             }
