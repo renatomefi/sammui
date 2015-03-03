@@ -1,1 +1,27 @@
-<pre>{{ protocol.data | json }}</pre>
+<div><strong>{{protocol.data.form.name}}</strong></div>
+<div><strong>{{protocol.data.id}}</strong> {{protocol.data.created_at | date}}, {{protocol.data.created_at | date:'mediumTime'}}</div>
+<div class="center-block">
+    <nav>
+        <ul class="pager">
+            <li><a href="#">Index</a></li>
+            <li><a href="#">Home</a></li>
+            <li class="bg-success"><a href="#">Save</a></li>
+        </ul>
+    </nav>
+    <nav>
+        <ul class="pagination pagination-sm">
+            <li ng-disabled="true">
+                <a aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li><a ng-click="toPage(1)">1</a></li>
+            <li><a ng-click="toPage(2)">2</a></li>
+            <li ng-disabled="true">
+                <a href="#" aria-label="Previous">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

@@ -38,13 +38,15 @@ angular.module('sammui.formControllers', ['ngRoute'])
         function ($rootScope, $scope, $route, $routeParams, $location, formProtocolManage) {
 
             $scope.protocol = {
-                current: undefined,
-                data: undefined
+                data: undefined,
+                currentPage: $routeParams.pageId
             };
 
-            $scope.loadProtocol = function () {
+            //$scope.userType = 'guest';
 
+            $scope.loadProtocol = function () {
                 $rootScope.loading = true;
+
                 formProtocolManage.get(
                     {protocolId: $routeParams.protocolId},
                     function (data) {
@@ -59,8 +61,11 @@ angular.module('sammui.formControllers', ['ngRoute'])
             };
 
             $scope.toPage = function (pageId) {
-                //$route.updateParams({page: pageId});
-                $location.path($location.path() + '/page/' + pageId);
+                if (!angular.isUndefined($routeParams.pageId)) {
+                    $route.updateParams({pageId: pageId});
+                } else {
+                    $location.path($location.path() + '/page/' + pageId);
+                }
             };
 
             $scope.loadProtocol();

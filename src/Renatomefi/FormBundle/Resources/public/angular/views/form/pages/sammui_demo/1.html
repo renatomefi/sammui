@@ -1,3 +1,26 @@
-PAGE 1
-
-<div form-filling-header></div>
+<div class="scrollable">
+    <div class="scrollable-content section">
+        <h2>PAGE 1</h2>
+        <div form-filling-header></div>
+        <hr>
+        <form name="pageForm" class="my-form">
+            userType: <input name="input" ng-model="userType" required>
+            <span class="error" ng-show="pageForm.input.$error.required">Required!</span><br>
+            <tt>userType = {{userType}}</tt><br>
+            <tt>pageForm.input.$valid = {{pageForm.input.$valid}}</tt><br>
+            <tt>pageForm.input.$error = {{pageForm.input.$error}}</tt><br>
+            <tt>pageForm.$valid = {{pageForm.$valid}}</tt><br>
+            <tt>pageForm.$error.required = {{!!pageForm.$error.required}}</tt><br>
+        </form>
+    </div>
+</div>
+<style>
+    .my-form {
+        -webkit-transition:all linear 0.5s;
+        transition:all linear 0.5s;
+        background: transparent;
+    }
+    .my-form.ng-invalid {
+        background: red;
+    }
+</style>
