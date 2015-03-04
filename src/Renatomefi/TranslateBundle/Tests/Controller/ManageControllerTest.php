@@ -6,19 +6,26 @@ use Renatomefi\Test\RestTestCase;
 
 class ManageControllerTest extends RestTestCase
 {
-    public function testLangs()
+    public function testLangsList()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/l10n/manage/langs');
+        $client->request('GET', '/l10n/manage/langs',
+            [], [], [
+                'HTTP_ACCEPT' => 'application/json'
+            ]);
+
         $response = $client->getResponse();
 
-        $this->assertJsonResponse($response, 200);
+        $langs = $this->assertJsonResponse($response, 200, true, true);
     }
 
-    public function createLang()
+    public function testLangCreate()
     {
         $client = static::createClient();
-        $crawler = $client->request('POST', '/l10n/manage/langs/unit-test');
+        $client->request('POST', '/l10n/manage/langs/unit-test',
+            [], [], [
+                'HTTP_ACCEPT' => 'application/json'
+            ]);
 
         $response = $client->getResponse();
 
