@@ -51,7 +51,6 @@ class ManageController extends FOSRestController
         $dm->flush();
 
         $view = $this->view($form);
-
         return $this->handleView($view);
     }
 }

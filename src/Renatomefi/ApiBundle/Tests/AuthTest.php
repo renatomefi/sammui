@@ -25,7 +25,7 @@ class AuthTest extends RestTestCase
                 'client_secret' => $this->_clientSecret,
                 'grant_type' => 'client_credentials'
             ], [], [
-                'Accept' => 'application/json',
+                'HTTP_ACCEPT' => 'application/json',
             ]
         );
 
@@ -54,7 +54,7 @@ class AuthTest extends RestTestCase
                 'username' => 'sammui',
                 'password' => 'sammui'
             ], [], [
-                'Accept' => 'application/json',
+                'HTTP_ACCEPT' => 'application/json',
             ]
         );
 
@@ -84,7 +84,7 @@ class AuthTest extends RestTestCase
                 'grant_type' => 'refresh_token',
                 'refresh_token' => $clientCredentials->refresh_token
             ], [], [
-                'Accept' => 'application/json',
+                'HTTP_ACCEPT' => 'application/json',
             ]
         );
 
