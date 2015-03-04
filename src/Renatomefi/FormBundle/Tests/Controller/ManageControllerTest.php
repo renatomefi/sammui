@@ -3,31 +3,39 @@
 namespace Renatomefi\FormBundle\Tests\Controller;
 
 use Renatomefi\ApiBundle\Tests\AuthTest;
+use Renatomefi\FormBundle\Tests\Form\Form;
+use Renatomefi\Test\MongoDB\Date;
 use Renatomefi\Test\RestTestCase;
 
 class ManageControllerTest extends RestTestCase
 {
 
+    use Date, Form;
+
+    protected $_oAuthCredentials;
+
     protected function setUp()
     {
         $auth = new AuthTest();
 
-        return $auth->testPasswordOAuth()[0][0];
+        $this->_oAuthCredentials = $auth->testPasswordOAuth()[0][0];
     }
 
-    protected function assertFormStructure($form)
+    public function testFormList()
     {
-        $this->assertObjectHasAttribute('id', $form);
-        $this->assertObjectHasAttribute('name', $form);
-        $this->assertObjectHasAttribute('created_at', $form);
+        $this->markTestIncomplete('Need to create a test');
+    }
+
+    public function testFormGet()
+    {
+        $this->markTestIncomplete('Need to create a test');
     }
 
     public function testFormNew()
     {
 
-        $clientCredentials = $this->setUp();
-
-        if(!$clientCredentials) {
+        $clientCredentials = $this->_oAuthCredentials;
+        if (!$clientCredentials) {
             $this->markTestSkipped('No credentials to Login');
         }
 
@@ -49,5 +57,8 @@ class ManageControllerTest extends RestTestCase
         $this->assertFormStructure($form);
         $this->assertNotEmpty($form->id);
         $this->assertStringStartsWith('Form Test PHPUnit: ', $form->name);
+
+        $this->assertMongoDateFormat($form->created_at);
+
     }
 }
