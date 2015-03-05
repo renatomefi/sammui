@@ -4,6 +4,7 @@ namespace Renatomefi\Test;
 
 class RestTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
 {
+
     protected function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false)
     {
         $this->assertEquals(

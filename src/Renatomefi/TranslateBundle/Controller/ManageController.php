@@ -32,7 +32,7 @@ class ManageController extends FOSRestController
             $exception = 'Language not found: ' . $lang;
         }
 
-        if (TRUE == $notFoundException && !$language) {
+        if (TRUE === $notFoundException && $language === null) {
             throw $this->createNotFoundException($exception);
         }
 
@@ -60,7 +60,7 @@ class ManageController extends FOSRestController
 
         $language = new Language();
         $language->setKey($lang);
-        $language->setLastUpdate(time());
+        $language->setLastUpdate(new \MongoDate());
         $dm->persist($language);
 
         try {
@@ -94,6 +94,10 @@ class ManageController extends FOSRestController
             if ($e instanceof \MongoCursorException)
                 throw new ConflictHttpException('Duplicate entry for lang: ' . $lang . ' with key: ' . $key, $e);
         }
+
+        $language->setLastUpdate(new \MongoDate());
+        $dm->getRepository('TranslateBundle:Language');
+        $dm->flush($language);
 
         $view = $this->view($translation);
 
@@ -186,6 +190,24 @@ class ManageController extends FOSRestController
     public function getLangAction($lang)
     {
         $view = $this->view($this->getLang($lang, true));
+
+        return $this->handleView($view);
+    }
+
+    public function deleteLangAction($lang)
+    {
+        $lang = $this->getLang($lang, true);
+
+        $dm = $this->get('doctrine_mongodb');
+        $langRepo = $dm->getRepository('TranslateBundle:Language');
+
+        $delete = $langRepo->createQueryBuilder()
+            ->remove()
+            ->field('key')->equals($lang->getKey())
+            ->getQuery()
+            ->execute();
+
+        $view = $this->view($delete);
 
         return $this->handleView($view);
     }

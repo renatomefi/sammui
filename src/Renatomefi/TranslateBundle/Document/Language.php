@@ -18,12 +18,12 @@ class Language
     protected $id;
 
     /**
-     * @ODM\Timestamp
+     * @ODM\Date
      */
     protected $lastUpdate;
 
     /**
-     * @ODM\String @ODM\UniqueIndex
+     * @ODM\String @ODM\Index(unique=true, order="asc")
      */
     protected $key;
 
@@ -50,7 +50,7 @@ class Language
     /**
      * Set lastUpdate
      *
-     * @param time $lastUpdate
+     * @param \MongoDate $lastUpdate
      * @return self
      */
     public function setLastUpdate($lastUpdate)
@@ -62,7 +62,7 @@ class Language
     /**
      * Get lastUpdate
      *
-     * @return timestamp $lastUpdate
+     * @return \MongoDate $lastUpdate
      */
     public function getLastUpdate()
     {
