@@ -15,21 +15,6 @@ class ManageControllerTest extends RestTestCase
     const TRANSLATION_KEY = 'unit-test-translation-key';
     const TRANSLATION_VALUE = 'unit-test-translation-value';
 
-    protected function assertLangTranslationFormat($translation)
-    {
-        $this->assertObjectHasAttribute('id', $translation);
-        $this->assertObjectHasAttribute('key', $translation);
-        $this->assertObjectHasAttribute('value', $translation);
-        $this->assertObjectHasAttribute('language', $translation);
-    }
-
-    protected function assertLangTranslationData($translation)
-    {
-        $this->assertEquals(static::TRANSLATION_KEY, $translation->key);
-        $this->assertEquals(static::TRANSLATION_VALUE, $translation->value);
-        $this->assertEquals(static::LANG, $translation->language->key);
-    }
-
     protected function queryLangManage($method = 'GET', $assertJson = true)
     {
         $client = static::createClient();

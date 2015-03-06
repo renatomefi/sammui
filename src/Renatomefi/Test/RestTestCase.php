@@ -2,7 +2,9 @@
 
 namespace Renatomefi\Test;
 
-class RestTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
+use \Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+
+class RestTestCase extends WebTestCase
 {
 
     protected function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false)
@@ -18,7 +20,9 @@ class RestTestCase extends \Symfony\Bundle\FrameworkBundle\Test\WebTestCase
 
         if (true === $convert) {
             $this->assertNotEmpty($response->getContent());
+
             $conversion = json_decode($response->getContent());
+
             if (false === $isArray) {
                 $this->assertTrue(($conversion instanceof \stdClass), $response->getContent());
             } else {
