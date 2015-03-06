@@ -9,6 +9,7 @@ parameters:
     mongodb_connection_string: 'mongodb://127.0.0.1:27017'
     mongodb_connection_options: {  }
     mongodb_database: sammui
+    mongodb_database_test: sammui_test
     mailer_transport: smtp
     mailer_host: 127.0.0.1
     mailer_user: null

@@ -2,16 +2,33 @@
 
 namespace Renatomefi\TranslateBundle\Tests\Controller;
 
-use Renatomefi\Test\MongoDB\Date;
+use Renatomefi\Test\MongoDB\Utils;
 use Renatomefi\Test\RestTestCase;
 use Renatomefi\TranslateBundle\Tests\Lang;
 
 class ManageControllerTest extends RestTestCase
 {
 
-    use Date, Lang;
+    use Utils, Lang;
 
     const LANG = 'unit-test';
+    const TRANSLATION_KEY = 'unit-test-translation-key';
+    const TRANSLATION_VALUE = 'unit-test-translation-value';
+
+    protected function assertLangTranslationFormat($translation)
+    {
+        $this->assertObjectHasAttribute('id', $translation);
+        $this->assertObjectHasAttribute('key', $translation);
+        $this->assertObjectHasAttribute('value', $translation);
+        $this->assertObjectHasAttribute('language', $translation);
+    }
+
+    protected function assertLangTranslationData($translation)
+    {
+        $this->assertEquals(static::TRANSLATION_KEY, $translation->key);
+        $this->assertEquals(static::TRANSLATION_VALUE, $translation->value);
+        $this->assertEquals(static::LANG, $translation->language->key);
+    }
 
     protected function queryLangManage($method = 'GET', $assertJson = true)
     {
@@ -39,16 +56,79 @@ class ManageControllerTest extends RestTestCase
     /**
      * @depends      testLangCreate
      */
-    public function testLangDuplicate()
+    public function testLangTranslationCreate()
     {
-        $response = $this->queryLangManage('POST', false);
+        $client = static::createClient();
 
-        $duplicate = $this->assertJsonResponse($response, 409, true);
+        $client->request('POST', '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY,
+            [
+                'value' => static::TRANSLATION_VALUE
+            ], [], [
+                'HTTP_ACCEPT' => 'application/json'
+            ]);
 
-        $this->assertObjectHasAttribute('code', $duplicate);
-        $this->assertObjectHasAttribute('message', $duplicate);
-        $this->assertStringStartsWith('Duplicate entry', $duplicate->message);
-        $this->assertStringEndsWith(self::LANG, $duplicate->message);
+        $response = $client->getResponse();
+        $translation = $this->assertJsonResponse($response, 200, true);
+
+        $this->assertLangTranslationFormat($translation);
+        $this->assertLangTranslationData($translation);
+    }
+
+    /**
+     * @depends      testLangTranslationCreate
+     */
+    public function testLangTranslationCreateDuplicate()
+    {
+        $client = static::createClient();
+
+        $client->request('POST', '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY,
+            [
+                'value' => static::TRANSLATION_VALUE
+            ], [], [
+                'HTTP_ACCEPT' => 'application/json'
+            ]);
+
+        $response = $client->getResponse();
+        $translation = $this->assertJsonResponse($response, 409, true);
+        $this->assertMongoDuplicateEntry($translation, self::TRANSLATION_KEY);
+    }
+
+    /**
+     * @depends      testLangTranslationCreate
+     */
+    public function testLangTranslationGet()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY,
+            [], [], [
+                'HTTP_ACCEPT' => 'application/json'
+            ]);
+
+        $translation = $this->assertJsonResponse($client->getResponse(), 200, true);
+
+        $this->assertLangTranslationFormat($translation);
+        $this->assertLangTranslationData($translation);
+    }
+
+    /**
+     * @depends      testLangTranslationGet
+     * @depends      testLangTranslationCreateDuplicate
+     */
+    public function testLangTranslationDelete()
+    {
+        $client = static::createClient();
+
+        $client->request('DELETE', '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY,
+            [], [], [
+                'HTTP_ACCEPT' => 'application/json'
+            ]);
+
+        $response = $client->getResponse();
+
+        $translationDelete = $this->assertJsonResponse($response, 200, true);
+
+        $this->assertMongoDeleteFormat($translationDelete, true);
     }
 
     /**
@@ -60,6 +140,18 @@ class ManageControllerTest extends RestTestCase
 
         $this->assertLangStructure($langGet);
         $this->assertEquals(self::LANG, $langGet->key);
+    }
+
+    /**
+     * @depends      testLangCreate
+     */
+    public function testLangDuplicate()
+    {
+        $response = $this->queryLangManage('POST', false);
+
+        $duplicate = $this->assertJsonResponse($response, 409, true);
+
+        $this->assertMongoDuplicateEntry($duplicate, self::LANG);
     }
 
     /**
@@ -91,18 +183,13 @@ class ManageControllerTest extends RestTestCase
      * @depends      testLangGet
      * @depends      testLangsList
      * @depends      testLangDuplicate
+     * @depends      testLangTranslationDelete
      */
     public function testLangDelete()
     {
         $langDelete = $this->queryLangManage('DELETE');
 
-        // Generic MongoDB delete response
-        $this->assertObjectHasAttribute('n', $langDelete);
-        $this->assertObjectHasAttribute('connectionId', $langDelete);
-        $this->assertObjectHasAttribute('ok', $langDelete);
-
-        // Success delete
-        $this->assertTrue(($langDelete->n > 0));
+        $this->assertMongoDeleteFormat($langDelete, true);
     }
 
     /**

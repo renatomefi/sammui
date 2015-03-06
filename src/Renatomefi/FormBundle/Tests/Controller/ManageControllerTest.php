@@ -4,13 +4,13 @@ namespace Renatomefi\FormBundle\Tests\Controller;
 
 use Renatomefi\ApiBundle\Tests\AuthTest;
 use Renatomefi\FormBundle\Tests\Form\Form;
-use Renatomefi\Test\MongoDB\Date;
+use Renatomefi\Test\MongoDB\Utils;
 use Renatomefi\Test\RestTestCase;
 
 class ManageControllerTest extends RestTestCase
 {
 
-    use Date, Form;
+    use Utils, Form;
 
     protected $_oAuthCredentials;
 
