@@ -2,6 +2,9 @@
 
 namespace Renatomefi\TranslateBundle\Tests;
 
+/**
+ * @codeCoverageIgnore
+ */
 trait Lang
 {
     protected function assertLangStructure($langObj)

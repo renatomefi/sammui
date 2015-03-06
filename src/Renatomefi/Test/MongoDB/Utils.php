@@ -2,10 +2,20 @@
 
 namespace Renatomefi\Test\MongoDB;
 
+/**
+ * @codeCoverageIgnore
+ */
 trait Utils
 {
+    /**
+     * Validate for \MongoDate format
+     *
+     * @param mixed $dateObj
+     */
     public function assertMongoDateFormat($dateObj)
     {
+        if (is_array($dateObj)) $dateObj = (object)$dateObj;
+
         $this->assertTrue(($dateObj instanceof \stdClass), $dateObj);
         $this->assertNotEmpty($dateObj->sec);
         $this->assertNotEmpty($dateObj->usec);

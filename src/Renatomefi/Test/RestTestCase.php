@@ -4,6 +4,9 @@ namespace Renatomefi\Test;
 
 use \Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * @codeCoverageIgnore
+ */
 class RestTestCase extends WebTestCase
 {
 

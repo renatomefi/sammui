@@ -19,10 +19,30 @@ class ManageControllerTest extends RestTestCase
     {
         $client = static::createClient();
 
-        $client->request($method, '/l10n/manage/langs/' . static::LANG,
-            [], [], [
-                'HTTP_ACCEPT' => 'application/json'
-            ]);
+        $client->request($method, '/l10n/manage/langs/' . static::LANG, [], [], [
+            'HTTP_ACCEPT' => 'application/json'
+        ]);
+
+        $response = $client->getResponse();
+
+        return (TRUE === $assertJson) ? $this->assertJsonResponse($response, 200, true) : $response;
+    }
+
+    protected function queryLangTranslationManage($method = 'GET', $setValue = false, $assertJson = true)
+    {
+        $params = [];
+
+        if (TRUE === $setValue) {
+            $params['value'] = static::TRANSLATION_VALUE;
+        } elseif (is_array($setValue)) {
+            $params = $setValue;
+        }
+
+        $client = static::createClient();
+
+        $client->request($method, '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY, $params, [], [
+            'HTTP_ACCEPT' => 'application/json'
+        ]);
 
         $response = $client->getResponse();
 
@@ -43,17 +63,7 @@ class ManageControllerTest extends RestTestCase
      */
     public function testLangTranslationCreate()
     {
-        $client = static::createClient();
-
-        $client->request('POST', '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY,
-            [
-                'value' => static::TRANSLATION_VALUE
-            ], [], [
-                'HTTP_ACCEPT' => 'application/json'
-            ]);
-
-        $response = $client->getResponse();
-        $translation = $this->assertJsonResponse($response, 200, true);
+        $translation = $this->queryLangTranslationManage('POST', true);
 
         $this->assertLangTranslationFormat($translation);
         $this->assertLangTranslationData($translation);
@@ -64,17 +74,10 @@ class ManageControllerTest extends RestTestCase
      */
     public function testLangTranslationCreateDuplicate()
     {
-        $client = static::createClient();
+        $response = $this->queryLangTranslationManage('POST', true, false);
 
-        $client->request('POST', '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY,
-            [
-                'value' => static::TRANSLATION_VALUE
-            ], [], [
-                'HTTP_ACCEPT' => 'application/json'
-            ]);
-
-        $response = $client->getResponse();
         $translation = $this->assertJsonResponse($response, 409, true);
+
         $this->assertMongoDuplicateEntry($translation, self::TRANSLATION_KEY);
     }
 
@@ -83,14 +86,7 @@ class ManageControllerTest extends RestTestCase
      */
     public function testLangTranslationGet()
     {
-        $client = static::createClient();
-
-        $client->request('GET', '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY,
-            [], [], [
-                'HTTP_ACCEPT' => 'application/json'
-            ]);
-
-        $translation = $this->assertJsonResponse($client->getResponse(), 200, true);
+        $translation = $this->queryLangTranslationManage();
 
         $this->assertLangTranslationFormat($translation);
         $this->assertLangTranslationData($translation);
@@ -102,16 +98,7 @@ class ManageControllerTest extends RestTestCase
      */
     public function testLangTranslationDelete()
     {
-        $client = static::createClient();
-
-        $client->request('DELETE', '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY,
-            [], [], [
-                'HTTP_ACCEPT' => 'application/json'
-            ]);
-
-        $response = $client->getResponse();
-
-        $translationDelete = $this->assertJsonResponse($response, 200, true);
+        $translationDelete = $this->queryLangTranslationManage('DELETE');
 
         $this->assertMongoDeleteFormat($translationDelete, true);
     }
@@ -165,8 +152,32 @@ class ManageControllerTest extends RestTestCase
     }
 
     /**
+     * @depends testLangCreate
+     */
+    public function testLangsInfo()
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/l10n/manage/langs/info',
+            [], [], [
+                'HTTP_ACCEPT' => 'application/json'
+            ]);
+
+        $response = $client->getResponse();
+
+        $langs = $this->assertJsonResponse($response, 200, true);
+
+        $foundLang = false;
+        foreach ($langs as $lang) {
+            if ($lang->key == static::LANG) $foundLang = true;
+        }
+        $this->assertTrue($foundLang, 'Didn\'t find the lang on langs list');
+    }
+
+    /**
      * @depends      testLangGet
      * @depends      testLangsList
+     * @depends      testLangsInfo
      * @depends      testLangDuplicate
      * @depends      testLangTranslationDelete
      */
