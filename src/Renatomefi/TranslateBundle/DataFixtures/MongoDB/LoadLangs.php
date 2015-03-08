@@ -10,27 +10,28 @@ use Renatomefi\TranslateBundle\Document\Language;
 class LoadLangs extends AbstractFixture implements OrderedFixtureInterface
 {
 
+    public static $reference_prefix = 'langs-';
+
     /**
      * {@inheritDoc}
      */
     public function load(ObjectManager $manager)
     {
-        $lang = new Language();
+        // pt-br
+        $langPt = new Language();
+        $langPt->setKey('pt-br');
+        $langPt->setLastUpdate(new \MongoDate());
+        $this->addReference(static::$reference_prefix . 'pt-br', $langPt);
 
-        $lang->setKey('pt-br');
+        // en-us
+        $langEn = new Language();
+        $langEn->setKey('en-us');
+        $langEn->setLastUpdate(new \MongoDate());
+        $this->addReference(static::$reference_prefix . 'en-us', $langEn);
 
-        $manager->persist($lang);
-
-        unset($lang);
-
-        $lang = new Language();
-
-        $lang->setKey('en-us');
-
-        $manager->persist($lang);
+        $manager->persist($langPt);
+        $manager->persist($langEn);
         $manager->flush();
-
-        $this->addReference('langs-default', $lang);
     }
 
     /**
@@ -38,6 +39,7 @@ class LoadLangs extends AbstractFixture implements OrderedFixtureInterface
      */
     public function getOrder()
     {
-        return 2; // the order in which fixtures will be loaded
+        return 2;
     }
+
 }
