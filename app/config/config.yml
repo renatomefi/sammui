@@ -102,6 +102,7 @@ fos_oauth_server:
     access_token_class:  Renatomefi\ApiBundle\Document\AccessToken
     refresh_token_class: Renatomefi\ApiBundle\Document\RefreshToken
     auth_code_class:     Renatomefi\ApiBundle\Document\AuthCode
+    authorize: ~
     service:
         user_provider: fos_user.user_manager
         options:

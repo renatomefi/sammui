@@ -109,9 +109,10 @@ class AuthTest extends WebTestCase
     }
 
     /**
-     * @param \StdClass $clientCredentials
-     *
      * @depends      testPasswordOAuth
+     *
+     * @param \StdClass $clientCredentials
+     * @return \StdClass $refreshClientCredentials
      */
     public function testOAuthRefreshToken($clientCredentials)
     {
@@ -139,6 +140,8 @@ class AuthTest extends WebTestCase
         // Old and New Tokens should not be the same
         $this->assertNotEquals($clientCredentials->access_token, $refreshClientCredentials->access_token);
         $this->assertNotEquals($clientCredentials->refresh_token, $refreshClientCredentials->refresh_token);
+
+        return $refreshClientCredentials;
     }
 
     public function testEmptySession()
