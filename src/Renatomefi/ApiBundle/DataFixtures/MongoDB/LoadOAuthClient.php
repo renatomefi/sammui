@@ -1,6 +1,6 @@
 <?php
 
-namespace Renatomefi\UserBundle\DataFixtures\MongoDB;
+namespace Renatomefi\ApiBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -40,7 +40,8 @@ class LoadOAuthClient implements FixtureInterface, ContainerAwareInterface
             OAuth2::GRANT_TYPE_AUTH_CODE,
             OAuth2::GRANT_TYPE_USER_CREDENTIALS,
             OAuth2::GRANT_TYPE_REFRESH_TOKEN,
-            OAuth2::GRANT_TYPE_AUTH_CODE
+            OAuth2::GRANT_TYPE_IMPLICIT,
+            OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS
         ]);
 
         $clientManager->updateClient($client);

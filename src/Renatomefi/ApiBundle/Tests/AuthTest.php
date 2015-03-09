@@ -5,6 +5,7 @@ namespace Renatomefi\ApiBundle\Tests;
 use Renatomefi\ApiBundle\Tests\Auth\UserInfo;
 use Renatomefi\ApiBundle\Tests\Auth\ClientCredentials;
 use Renatomefi\TestBundle\Rest\RestUtils;
+use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class AuthTest extends WebTestCase
@@ -12,15 +13,25 @@ class AuthTest extends WebTestCase
 
     use UserInfo, ClientCredentials, RestUtils;
 
-    protected $_clientId = '54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44';
-    protected $_clientSecret = '5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk';
+    protected $_clientId;
+    protected $_clientSecret;
 
+    public function setUp()
+    {
+        $kernel = static::createKernel();
+        $kernel->boot();
+        $clientManager = $kernel->getContainer()->get('fos_oauth_server.client_manager.default');
+        $client = $clientManager->findClientBy(['name' => LoadOAuthClient::CLIENT_NAME]);
+
+        $this->_clientId = $client->getPublicId();
+        $this->_clientSecret = $client->getSecret();
+    }
 
     public function testAnonymousOAuth()
     {
         $client = static::createClient();
 
-        $client->request('GET', '/oauth/v2/token',
+        $client->request('POST', '/oauth/v2/token',
             [
                 'client_id' => $this->_clientId,
                 'client_secret' => $this->_clientSecret,
@@ -40,14 +51,14 @@ class AuthTest extends WebTestCase
 
         $this->assertEquals('bearer', $clientCredentials->token_type);
 
-        return [[$clientCredentials]];
+        return $clientCredentials;
     }
 
     public function testPasswordOAuth()
     {
         $client = static::createClient();
 
-        $client->request('GET', '/oauth/v2/token',
+        $client->request('POST', '/oauth/v2/token',
             [
                 'client_id' => $this->_clientId,
                 'client_secret' => $this->_clientSecret,
@@ -67,18 +78,17 @@ class AuthTest extends WebTestCase
         $this->assertClientCredentialsToken($clientCredentials, 'access_token');
         $this->assertClientCredentialsToken($clientCredentials, 'refresh_token');
 
-        return [[$clientCredentials]];
+        return $clientCredentials;
     }
 
     /**
      * @depends      testPasswordOAuth
-     * @dataProvider testPasswordOAuth
      */
     public function testOAuthRefreshToken($clientCredentials)
     {
         $client = static::createClient();
 
-        $client->request('GET', '/oauth/v2/token',
+        $client->request('POST', '/oauth/v2/token',
             [
                 'client_id' => $this->_clientId,
                 'client_secret' => $this->_clientSecret,
@@ -149,7 +159,6 @@ class AuthTest extends WebTestCase
 
     /**
      * @depends      testAnonymousOAuth
-     * @dataProvider testAnonymousOAuth
      */
     public function testAnonymousSession($clientCredentials)
     {
