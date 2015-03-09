@@ -2,11 +2,14 @@
 
 namespace Renatomefi\ApiBundle\Tests;
 
+use OAuth2\OAuth2;
 use Renatomefi\ApiBundle\Tests\Auth\UserInfo;
 use Renatomefi\ApiBundle\Tests\Auth\ClientCredentials;
 use Renatomefi\TestBundle\Rest\RestUtils;
 use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
+use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 
 class AuthTest extends WebTestCase
 {
@@ -23,8 +26,13 @@ class AuthTest extends WebTestCase
         $clientManager = $kernel->getContainer()->get('fos_oauth_server.client_manager.default');
         $client = $clientManager->findClientBy(['name' => LoadOAuthClient::CLIENT_NAME]);
 
+        if (!$client)
+            throw new AuthenticationCredentialsNotFoundException('OAuth2 Client no found, unable to continue the test');
+
         $this->_clientId = $client->getPublicId();
         $this->_clientSecret = $client->getSecret();
+
+        return $client;
     }
 
     public function testAnonymousOAuth()
@@ -62,9 +70,9 @@ class AuthTest extends WebTestCase
             [
                 'client_id' => $this->_clientId,
                 'client_secret' => $this->_clientSecret,
-                'grant_type' => 'password',
-                'username' => 'sammui',
-                'password' => 'sammui'
+                'grant_type' => OAuth2::GRANT_TYPE_USER_CREDENTIALS,
+                'username' => LoadUsers::USER_USERNAME,
+                'password' => LoadUsers::USER_PASSWORD
             ], [], [
                 'HTTP_ACCEPT' => 'application/json',
             ]
@@ -82,6 +90,27 @@ class AuthTest extends WebTestCase
     }
 
     /**
+     * @param \StdClass $clientCredentials
+     *
+     * @depends testPasswordOAuth
+     */
+    public function testUserSession($clientCredentials)
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/api/user/info', ['access_token' => $clientCredentials->access_token]);
+
+        $response = $client->getResponse();
+
+        $userInfo = $this->assertJsonResponse($response, 200, true);
+
+        $this->assertUserInfoObjStructure($userInfo);
+        $this->assertUserInfoObjAdminAuth($userInfo);
+    }
+
+    /**
+     * @param \StdClass $clientCredentials
+     *
      * @depends      testPasswordOAuth
      */
     public function testOAuthRefreshToken($clientCredentials)
@@ -158,7 +187,10 @@ class AuthTest extends WebTestCase
     }
 
     /**
+     * @param \StdClass $clientCredentials
+     *
      * @depends      testAnonymousOAuth
+     * @depends      testLogout
      */
     public function testAnonymousSession($clientCredentials)
     {
@@ -182,7 +214,6 @@ class AuthTest extends WebTestCase
         $this->assertFalse($userInfo->role_admin);
         $this->assertEmpty($userInfo->user);
         $this->assertNotEmpty($userInfo->client);
-
     }
 
 }

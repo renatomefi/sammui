@@ -11,6 +11,10 @@ use Renatomefi\UserBundle\Document\User;
 
 class LoadUsers implements FixtureInterface, ContainerAwareInterface
 {
+
+    const USER_USERNAME = 'sammui';
+    const USER_PASSWORD = 'sammui';
+
     /**
      * @var ContainerInterface
      */

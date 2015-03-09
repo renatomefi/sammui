@@ -27,4 +27,16 @@ trait UserInfo
         $this->assertEmpty($userInfo->user);
         $this->assertEmpty($userInfo->client);
     }
+
+    protected function assertUserInfoObjAdminAuth($userInfo)
+    {
+        $this->assertTrue($userInfo->authenticated);
+        $this->assertTrue($userInfo->authenticated_fully);
+        $this->assertTrue($userInfo->authenticated_anonymously);
+        $this->assertTrue($userInfo->role_anonymous);
+        $this->assertTrue($userInfo->role_user);
+        $this->assertTrue($userInfo->role_admin);
+        $this->assertNotEmpty($userInfo->user);
+        $this->assertNotEmpty($userInfo->client);
+    }
 }

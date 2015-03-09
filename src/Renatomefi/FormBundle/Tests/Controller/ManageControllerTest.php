@@ -19,7 +19,8 @@ class ManageControllerTest extends WebTestCase
     {
         $auth = new AuthTest();
 
-        $this->_oAuthCredentials = $auth->testPasswordOAuth()[0][0];
+        $auth->setUp();
+        $this->_oAuthCredentials = $auth->testPasswordOAuth();
     }
 
     public function testFormList()
