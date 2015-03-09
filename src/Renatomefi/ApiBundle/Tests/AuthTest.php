@@ -4,12 +4,13 @@ namespace Renatomefi\ApiBundle\Tests;
 
 use Renatomefi\ApiBundle\Tests\Auth\UserInfo;
 use Renatomefi\ApiBundle\Tests\Auth\ClientCredentials;
-use Renatomefi\Test\RestTestCase;
+use Renatomefi\TestBundle\Rest\RestUtils;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class AuthTest extends RestTestCase
+class AuthTest extends WebTestCase
 {
 
-    use UserInfo, ClientCredentials;
+    use UserInfo, ClientCredentials, RestUtils;
 
     protected $_clientId = '54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44';
     protected $_clientSecret = '5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk';

@@ -4,13 +4,14 @@ namespace Renatomefi\FormBundle\Tests\Controller;
 
 use Renatomefi\ApiBundle\Tests\AuthTest;
 use Renatomefi\FormBundle\Tests\Form\Form;
-use Renatomefi\Test\MongoDB\Utils;
-use Renatomefi\Test\RestTestCase;
+use Renatomefi\TestBundle\MongoDB\MongoUtils;
+use Renatomefi\TestBundle\Rest\RestUtils;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ManageControllerTest extends RestTestCase
+class ManageControllerTest extends WebTestCase
 {
 
-    use Utils, Form;
+    use MongoUtils, Form, RestUtils;
 
     protected $_oAuthCredentials;
 

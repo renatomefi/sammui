@@ -1,11 +1,11 @@
 <?php
 
-namespace Renatomefi\Test\MongoDB;
+namespace Renatomefi\TestBundle\MongoDB;
 
 /**
  * @codeCoverageIgnore
  */
-trait Utils
+trait MongoUtils
 {
     /**
      * Validate for \MongoDate format

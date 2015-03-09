@@ -1,13 +1,11 @@
 <?php
 
-namespace Renatomefi\Test;
-
-use \Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+namespace Renatomefi\TestBundle\Rest;
 
 /**
  * @codeCoverageIgnore
  */
-class RestTestCase extends WebTestCase
+trait RestUtils
 {
 
     protected function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false)
