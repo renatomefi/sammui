@@ -39,7 +39,7 @@ class LoadUsers implements FixtureInterface, ContainerAwareInterface
         $user->setPlainPassword(static::USER_PASSWORD);
         $user->setEmail('sammui-project@renatomefi.com.br');
         $user->setEnabled(true);
-        $user->setSuperAdmin(true);
+        $user->setSuperAdmin(false);
         $user->addRole('ROLE_ADMIN');
 
         $um->updateUser($user);

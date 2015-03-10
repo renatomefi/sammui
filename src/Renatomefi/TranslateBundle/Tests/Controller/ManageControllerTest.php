@@ -2,15 +2,15 @@
 
 namespace Renatomefi\TranslateBundle\Tests\Controller;
 
-use Renatomefi\TestBundle\MongoDB\MongoUtils;
-use Renatomefi\TestBundle\Rest\RestUtils;
+use Renatomefi\TestBundle\MongoDB\AssertMongoUtils;
+use Renatomefi\TestBundle\Rest\AssertRestUtils;
 use Renatomefi\TranslateBundle\Tests\Lang;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 class ManageControllerTest extends WebTestCase
 {
 
-    use MongoUtils, RestUtils, Lang;
+    use AssertMongoUtils, AssertRestUtils, Lang;
 
     const LANG = 'unit-test';
     const TRANSLATION_KEY = 'unit-test-translation-key';

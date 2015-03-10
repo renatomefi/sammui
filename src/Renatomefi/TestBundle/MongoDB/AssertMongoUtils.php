@@ -5,8 +5,9 @@ namespace Renatomefi\TestBundle\MongoDB;
 /**
  * @codeCoverageIgnore
  */
-trait MongoUtils
+trait AssertMongoUtils
 {
+
     /**
      * Validate for \MongoDate format
      *

@@ -3,31 +3,24 @@
 namespace Renatomefi\ApiBundle\Tests;
 
 use OAuth2\OAuth2;
-use Renatomefi\ApiBundle\Tests\Auth\UserInfo;
-use Renatomefi\ApiBundle\Tests\Auth\ClientCredentials;
-use Renatomefi\TestBundle\Rest\RestUtils;
-use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
+use Renatomefi\ApiBundle\Tests\Auth\AssertUserInfo;
+use Renatomefi\ApiBundle\Tests\Auth\AssertClientCredentials;
+use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
+use Renatomefi\TestBundle\Rest\AssertRestUtils;
 use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 
 class AuthTest extends WebTestCase
 {
 
-    use UserInfo, ClientCredentials, RestUtils;
+    use AssertUserInfo, AssertClientCredentials, AssertRestUtils, OAuthClient;
 
     protected $_clientId;
     protected $_clientSecret;
 
     public function setUp()
     {
-        $kernel = static::createKernel();
-        $kernel->boot();
-        $clientManager = $kernel->getContainer()->get('fos_oauth_server.client_manager.default');
-        $client = $clientManager->findClientBy(['name' => LoadOAuthClient::CLIENT_NAME]);
-
-        if (!$client)
-            throw new AuthenticationCredentialsNotFoundException('OAuth2 Client no found, unable to continue the test');
+        $client = $this->getClient();
 
         $this->_clientId = $client->getPublicId();
         $this->_clientSecret = $client->getSecret();

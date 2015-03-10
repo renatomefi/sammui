@@ -2,7 +2,10 @@
 
 namespace Renatomefi\FormBundle\Tests\Form;
 
-trait Form
+/**
+ * @codeCoverageIgnore
+ */
+trait AssertForm
 {
     protected function assertFormStructure($form)
     {

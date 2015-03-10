@@ -5,7 +5,7 @@ namespace Renatomefi\TestBundle\Rest;
 /**
  * @codeCoverageIgnore
  */
-trait RestUtils
+trait AssertRestUtils
 {
 
     protected function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false)

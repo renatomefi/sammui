@@ -2,7 +2,7 @@
 
 namespace Renatomefi\ApiBundle\Tests\Auth;
 
-trait UserInfo
+trait AssertUserInfo
 {
     protected function assertUserInfoObjStructure($userInfo)
     {

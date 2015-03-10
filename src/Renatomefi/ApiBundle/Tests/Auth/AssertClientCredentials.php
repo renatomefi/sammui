@@ -2,7 +2,10 @@
 
 namespace Renatomefi\ApiBundle\Tests\Auth;
 
-trait ClientCredentials
+/**
+ * @codeCoverageIgnore
+ */
+trait AssertClientCredentials
 {
     protected function assertClientCredentialsObjStructure($clientCredentials)
     {

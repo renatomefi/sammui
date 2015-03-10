@@ -9,9 +9,20 @@
     convertNoticesToExceptions  = "true"
     convertWarningsToExceptions = "true"
     processIsolation            = "false"
+    stopOnError                 = "false"
     stopOnFailure               = "false"
+    stopOnIncomplete            = "false"
+    stopOnSkipped               = "false"
     syntaxCheck                 = "false"
-    bootstrap                   = "bootstrap.php.cache" >
+    bootstrap                   = "bootstrap.php.cache">
+
+    <!--
+    <logging>
+        <log type="coverage-html" target="logs/phpunit/current" lowUpperBound="35" highLowerBound="70"/>
+        <log type="json" target="logs/phpunit/log.json"/>
+        <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
+    </logging>
+    -->
 
     <testsuites>
         <testsuite name="Project Test Suite">
@@ -19,12 +30,6 @@
             <directory>../src/*/Bundle/*Bundle/Tests</directory>
         </testsuite>
     </testsuites>
-
-    <!--
-    <php>
-        <server name="KERNEL_DIR" value="/path/to/your/app/" />
-    </php>
-    -->
 
     <filter>
         <whitelist>
