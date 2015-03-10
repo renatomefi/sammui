@@ -12,6 +12,7 @@ class LoadOAuthClient implements FixtureInterface, ContainerAwareInterface
 {
 
     const CLIENT_NAME = 'sammui-php-unit';
+    const APP_CLIENT_NAME = 'sammui';
 
     /**
      * @var ContainerInterface
@@ -42,6 +43,15 @@ class LoadOAuthClient implements FixtureInterface, ContainerAwareInterface
             OAuth2::GRANT_TYPE_REFRESH_TOKEN,
             OAuth2::GRANT_TYPE_IMPLICIT,
             OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS
+        ]);
+
+        $clientManager->updateClient($client);
+
+        $client = $clientManager->createClient();
+        $client->setName(static::APP_CLIENT_NAME);
+        $client->setRedirectUris(['/']);
+        $client->setAllowedGrantTypes([
+            OAuth2::GRANT_TYPE_AUTH_CODE
         ]);
 
         $clientManager->updateClient($client);

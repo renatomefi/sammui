@@ -23,6 +23,8 @@ framework:
 
 # Twig Configuration
 twig:
+#    globals:
+#        oauth_client_management: "@fos_oauth_server.client_manager.default"
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
     exception_controller: 'FOS\RestBundle\Controller\ExceptionController::showAction'

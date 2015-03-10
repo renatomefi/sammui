@@ -5,10 +5,12 @@
 
     <title>{% block title %}My sammui App!{% endblock %}</title>
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
-    <meta name="apple-mobile-web-app-status-bar-style" content="yes"/>
+    {% block metatags %}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <meta name="apple-mobile-web-app-capable" content="yes"/>
+        <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimal-ui"/>
+        <meta name="apple-mobile-web-app-status-bar-style" content="yes"/>
+    {% endblock %}
 
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset("bundles/frontend/components/bootstrap/dist/css/bootstrap.css") }}"/>

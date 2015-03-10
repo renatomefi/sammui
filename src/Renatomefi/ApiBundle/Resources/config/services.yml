@@ -1,4 +1,7 @@
 services:
-#    api.example:
-#        class: Renatomefi\ApiBundle\Example
+    api.oauth_client_extension:
+        class: Renatomefi\ApiBundle\Twig\OAuthClientExtension
+        arguments: [@fos_oauth_server.client_manager.default]
+        tags:
+            - { name: twig.extension }
 #        arguments: [@service_id, "plain_value", %parameter%]

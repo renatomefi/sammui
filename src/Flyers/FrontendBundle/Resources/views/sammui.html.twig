@@ -1,5 +1,12 @@
 {% extends "::angular.html.twig" %}
 
+{% block metatags %}
+    {{ parent() }}
+
+    <meta name="sammui-oauth2-client-id" content="{{ OAuthClientId }}"/>
+    <meta name="sammui-oauth2-client-secret" content="{{ OAuthClientSecret }}"/>
+{% endblock %}
+
 {% block body %}
 
     <!-- Sidebars -->
