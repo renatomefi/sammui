@@ -4,10 +4,8 @@ namespace Renatomefi\UserBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
-use FOS\UserBundle\Model\UserInterface;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
-use Renatomefi\UserBundle\Document\User;
 
 class LoadUsers implements FixtureInterface, ContainerAwareInterface
 {
@@ -33,24 +31,18 @@ class LoadUsers implements FixtureInterface, ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
-        $user = new User();
-        $user->setUsername('sammui');
-        $user->setUsernameCanonical('sammui');
+        $um = $this->container->get('fos_user.user_manager');
+
+        $user = $um->createUser();
+
+        $user->setUsername(static::USER_USERNAME);
+        $user->setPlainPassword(static::USER_PASSWORD);
         $user->setEmail('sammui-project@renatomefi.com.br');
-        $user->setEmailCanonical('sammui-project@renatomefi.com.br');
-        $user->setSalt(md5(uniqid()));
         $user->setEnabled(true);
-        $user->setLocked(false);
-        $user->addRole(UserInterface::ROLE_SUPER_ADMIN);
+        $user->setSuperAdmin(true);
         $user->addRole('ROLE_ADMIN');
 
-        $encoder = $this->container
-            ->get('security.encoder_factory')
-            ->getEncoder($user);
-        $user->setPassword($encoder->encodePassword('sammui', $user->getSalt()));
-
-        $manager->persist($user);
-        $manager->flush();
+        $um->updateUser($user);
     }
 
     /**
