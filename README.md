@@ -1,9 +1,12 @@
-Build
-===============
-[![Build Status](https://travis-ci.org/renatomefidf/sammui.svg?branch=master)](https://travis-ci.org/renatomefidf/sammui)
-
 sammui
 ===============
+
+[![Build Status](https://travis-ci.org/renatomefidf/sammui.svg?branch=master)](https://travis-ci.org/renatomefidf/sammui)
+[![Latest Stable Version](https://poser.pugx.org/renatomefidf/sammui/v/stable.svg)](https://packagist.org/packages/renatomefidf/sammui)
+[![Total Downloads](https://poser.pugx.org/renatomefidf/sammui/downloads.svg)](https://packagist.org/packages/renatomefidf/sammui)
+[![Latest Unstable Version](https://poser.pugx.org/renatomefidf/sammui/v/unstable.svg)](https://packagist.org/packages/renatomefidf/sammui)
+[![License](https://poser.pugx.org/renatomefidf/sammui/license.svg)](https://packagist.org/packages/renatomefidf/sammui)
+
 
 The Symfony Angular MongoDB Mobile UI Project
 
