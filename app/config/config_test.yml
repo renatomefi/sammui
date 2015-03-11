@@ -17,3 +17,6 @@ swiftmailer:
 
 doctrine_mongodb:
     default_database: %mongodb_database_test%
+
+sp_bower:
+    bin: '%kernel.root_dir%/../bin/bower'
