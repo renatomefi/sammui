@@ -21,40 +21,36 @@ class ManageControllerTest extends WebTestCase
 
         $auth->setUp();
         $this->_oAuthCredentials = $auth->testPasswordOAuth();
+
+        if (!$this->_oAuthCredentials) {
+            $this->markTestSkipped('No credentials to Login');
+        }
     }
 
-    public function testFormList()
+    protected function queryFormManage($method = 'GET', $assertJson = true, $params = array())
     {
-        $this->markTestIncomplete('Need to create a test');
-    }
+        $client = static::createClient();
 
-    public function testFormGet()
-    {
-        $this->markTestIncomplete('Need to create a test');
+        $defaultParams = [
+            'access_token' => $this->_oAuthCredentials->access_token
+        ];
+
+        if (count($params) > 0) $defaultParams = array_merge($params, $defaultParams);
+
+        $client->request($method, '/form/manage', $defaultParams, [], [
+            'HTTP_ACCEPT' => 'application/json'
+        ]);
+
+        $response = $client->getResponse();
+
+        return (TRUE === $assertJson) ? $this->assertJsonResponse($response, 200, true) : $response;
     }
 
     public function testFormNew()
     {
-
-        $clientCredentials = $this->_oAuthCredentials;
-        if (!$clientCredentials) {
-            $this->markTestSkipped('No credentials to Login');
-        }
-
-        $client = static::createClient();
-
-        $client->request('POST', '/form/manage',
-            [
-                'access_token' => $clientCredentials->access_token,
-                'name' => 'Form Test PHPUnit: ' . time()
-            ], [], [
-                'HTTP_ACCEPT' => 'application/json',
-            ]
-        );
-
-        $response = $client->getResponse();
-
-        $form = $this->assertJsonResponse($response, 200, true);
+        $form = $this->queryFormManage('POST', true, [
+            'name' => 'Form Test PHPUnit: ' . time()
+        ]);
 
         $this->assertFormStructure($form);
         $this->assertNotEmpty($form->id);
@@ -62,5 +58,72 @@ class ManageControllerTest extends WebTestCase
 
         $this->assertMongoDateFormat($form->created_at);
 
+        return $form;
     }
+
+    /**
+     * @depends testFormNew
+     *
+     * @param $form
+     */
+    public function testFormDuplicate($form)
+    {
+        $this->markTestIncomplete('There is no constraint in form names');
+    }
+
+    /**
+     * @depends testFormNew
+     *
+     * @param $form
+     */
+    public function testFormGet($form)
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/form/manage/' . $form->id, [], [], [
+            'HTTP_ACCEPT' => 'application/json'
+        ]);
+
+        $formGet = $this->assertJsonResponse($client->getResponse(), 200, true);
+
+        $this->assertFormStructure($formGet);
+        $this->assertEquals($form->name, $formGet->name);
+    }
+
+    /**
+     * @depends testFormNew
+     *
+     * @param $form
+     */
+    public function testFormList($form)
+    {
+        $client = static::createClient();
+
+        $client->request('GET', '/form/manage/list/all', [], [], [
+            'HTTP_ACCEPT' => 'application/json'
+        ]);
+
+        $formList = $this->assertJsonResponse($client->getResponse(), 200, true, true);
+
+        $this->assertTrue((count($formList) >= 1));
+
+        $foundForm = false;
+        foreach ($formList as $f) {
+            if ($f->name == $form->name) $foundForm = true;
+        }
+        $this->assertTrue($foundForm, 'Didn\'t find the form on the list');
+    }
+
+    /**
+     * @depends testFormNew
+     * @depends testFormGet
+     * @depends testFormList
+     *
+     * @param $form
+     */
+    public function testFormDelete($form)
+    {
+        $this->markTestIncomplete('There is not delete in forms API');
+    }
+
 }
