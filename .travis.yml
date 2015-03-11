@@ -10,6 +10,7 @@ services:
 
 before_script:
   - npm install -g bower
+  - which bower
   - ln -s $(which bower) /usr/local/bin/bower
   - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - composer install
