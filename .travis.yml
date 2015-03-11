@@ -10,10 +10,11 @@ services:
 
 before_script:
   - npm install -g bower
-  - echo which bower
   - ln -s $(which bower) bin/bower
   - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - composer self-update
   - composer install
+  - php app/console --env=test doctrine:mongodb:schema:create --index
+  - php app/console --env=test doctrine:mongodb:fixtures:load --append
 
 script: phpunit -c app --coverage-text
