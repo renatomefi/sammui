@@ -51,7 +51,9 @@ class LoadOAuthClient implements FixtureInterface, ContainerAwareInterface
         $client->setName(static::APP_CLIENT_NAME);
         $client->setRedirectUris(['/']);
         $client->setAllowedGrantTypes([
-            OAuth2::GRANT_TYPE_AUTH_CODE
+            OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS,
+            OAuth2::GRANT_TYPE_USER_CREDENTIALS,
+            OAuth2::GRANT_TYPE_REFRESH_TOKEN
         ]);
 
         $clientManager->updateClient($client);

@@ -12,7 +12,7 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertEquals('sammui', $crawler->filterXPath('//body')->attr('ng-app'));
+        $this->assertEquals('sammui', $crawler->filterXPath('//html')->attr('ng-app'));
 
     }
 }

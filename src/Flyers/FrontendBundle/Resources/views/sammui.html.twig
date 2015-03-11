@@ -3,7 +3,7 @@
 {% block metatags %}
     {{ parent() }}
 
-    <meta name="sammui-oauth2-client-id" content="{{ OAuthClientId }}"/>
+    <meta name="sammui-oauth2-client-id" content="{{ OAuthClientId }}" ng-bind="oAuth.test"/>
     <meta name="sammui-oauth2-client-secret" content="{{ OAuthClientSecret }}"/>
 {% endblock %}
 

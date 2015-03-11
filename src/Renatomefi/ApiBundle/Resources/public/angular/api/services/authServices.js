@@ -53,12 +53,17 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
         return this;
     }])
     // Resource factories for OAuth API
-    .factory('oAuth', ['$http', '$rootScope', '$cookieStore', 'authService', 'oAuthSession', function ($http, $rootScope,  $cookieStore, authService, oAuthSession) {
+    .factory('oAuth', ['$http', '$rootScope', '$cookieStore', '$document', 'authService', 'oAuthSession', function ($http, $rootScope, $cookieStore, $document, authService, oAuthSession) {
 
         // Sammui client ID and Secret, you should get one with the client:create command at symfony
         // To-do: Where should I store credentials?
-        var oAuthClientId = '54d2028ceabc88600a8b4567_qss71wwodiosk84gk4gwwk8s40k48wgg0cgkw8wwkwwgkcg44';
-        var oAuthClientSecret = '5o808pbhkw84kcwggocc0ogos8c44socccgc0880koggoc08sk';
+        var oAuthClientId;
+        var oAuthClientSecret;
+
+        angular.forEach($document.find('meta'), function (meta) {
+            if (meta.name == 'sammui-oauth2-client-id') oAuthClientId = meta.content;
+            if (meta.name == 'sammui-oauth2-client-secret') oAuthClientSecret = meta.content;
+        });
 
         var oAuth = {};
 
@@ -124,7 +129,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                 }
             }).error(function () {
                 $rootScope.$broadcast('event:auth-logoutReqError');
-            }).finally(function() {
+            }).finally(function () {
                 if (force) {
                     forceLogout();
                 }
