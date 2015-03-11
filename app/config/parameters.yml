@@ -16,6 +16,6 @@ parameters:
     mailer_password: null
     locale: en
     secret: ThisTokenIsNotSoSecretChangeIt
-    bower_bin: /usr/local/bin/bower
+    bower_bin: %kernel.root_dir%/../bin/bower
     fos_user_db_driver: mongodb
     fos_user_class: Renatomefi\UserBundle\Document\User
