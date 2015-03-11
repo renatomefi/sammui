@@ -13,7 +13,7 @@ before_script:
   - ln -s $(which bower) bin/bower
   - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
   - composer self-update
-  - composer install
+  - composer install --dev --optimize-autoloader --prefer-source
   - php app/console --env=test doctrine:mongodb:schema:create --index
   - php app/console --env=test doctrine:mongodb:fixtures:load --append
 

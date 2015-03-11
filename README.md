@@ -1,3 +1,7 @@
+Build
+===============
+[![Build Status](https://travis-ci.org/renatomefidf/sammui.svg?branch=master)](https://travis-ci.org/renatomefidf/sammui)
+
 sammui
 ===============
 
