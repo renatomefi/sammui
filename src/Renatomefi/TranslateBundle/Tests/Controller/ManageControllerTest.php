@@ -6,8 +6,9 @@ use Renatomefi\TestBundle\MongoDB\AssertMongoUtils;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
 use Renatomefi\TranslateBundle\Tests\Lang;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 
-class ManageControllerTest extends WebTestCase
+class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterface
 {
 
     use AssertMongoUtils, AssertRestUtils, Lang;

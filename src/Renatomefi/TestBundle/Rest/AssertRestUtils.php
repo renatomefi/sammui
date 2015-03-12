@@ -8,7 +8,7 @@ namespace Renatomefi\TestBundle\Rest;
 trait AssertRestUtils
 {
 
-    protected function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false)
+    public function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false)
     {
         $this->assertEquals(
             $statusCode, $response->getStatusCode(),
