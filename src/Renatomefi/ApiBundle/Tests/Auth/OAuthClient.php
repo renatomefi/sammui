@@ -4,6 +4,7 @@ namespace Renatomefi\ApiBundle\Tests\Auth;
 
 use OAuth2\OAuth2;
 use Renatomefi\ApiBundle\Document\Client;
+use Renatomefi\TestBundle\Rest\AssertRestUtils;
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
 use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
@@ -21,7 +22,6 @@ trait OAuthClient
      */
     protected function getOAuthClient()
     {
-
         if ($this->_OAuthClient)
             return $this->_OAuthClient;
 
@@ -38,48 +38,40 @@ trait OAuthClient
         return $client;
     }
 
-    protected function getAnonymousCredentials()
+    protected function queryOAuth2Token($params = [])
     {
+        if (!method_exists($this, 'assertJsonResponse'))
+            throw new \PHPUnit_Framework_Exception('You must to use AssertRestUtils trait in order to use this OAuthClient trait');
+
         $client = static::createClient();
 
-        $client->request('POST', '/oauth/v2/token',
-            [
-                'client_id' => $this->getOAuthClient()->getPublicId(),
-                'client_secret' => $this->getOAuthClient()->getSecret(),
-                'grant_type' => OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS
-            ], [], [
+        $defaultParams = [
+            'client_id' => $this->getOAuthClient()->getPublicId(),
+            'client_secret' => $this->getOAuthClient()->getSecret(),
+        ];
+
+        $client->request('POST', '/oauth/v2/token', array_merge($defaultParams, $params), [], [
                 'HTTP_ACCEPT' => 'application/json',
             ]
         );
 
-        $response = $client->getResponse();
+        return $this->assertJsonResponse($client->getResponse(), 200, true);
+    }
 
-        $clientCredentials = $this->assertJsonResponse($response, 200, true);
-
-        return $clientCredentials;
-
+    protected function getAnonymousCredentials()
+    {
+        return $this->queryOAuth2Token([
+            'grant_type' => OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS
+        ]);
     }
 
     protected function getAdminCredentials()
     {
-        $client = static::createClient();
-
-        $client->request('POST', '/oauth/v2/token',
-            [
-                'client_id' => $this->getOAuthClient()->getPublicId(),
-                'client_secret' => $this->getOAuthClient()->getSecret(),
-                'grant_type' => OAuth2::GRANT_TYPE_USER_CREDENTIALS,
-                'username' => LoadUsers::USER_USERNAME,
-                'password' => LoadUsers::USER_PASSWORD
-            ], [], [
-                'HTTP_ACCEPT' => 'application/json',
-            ]
-        );
-
-        $response = $client->getResponse();
-
-        $clientCredentials = $this->assertJsonResponse($response, 200, true);
-
-        return $clientCredentials;
+        return $this->queryOAuth2Token([
+            'grant_type' => OAuth2::GRANT_TYPE_USER_CREDENTIALS,
+            'username' => LoadUsers::USER_USERNAME,
+            'password' => LoadUsers::USER_PASSWORD
+        ]);
     }
+
 }
