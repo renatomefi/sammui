@@ -20,7 +20,7 @@ class AuthTest extends WebTestCase
 
     public function setUp()
     {
-        $client = $this->getClient();
+        $client = $this->getOAuthClient();
 
         $this->_clientId = $client->getPublicId();
         $this->_clientSecret = $client->getSecret();

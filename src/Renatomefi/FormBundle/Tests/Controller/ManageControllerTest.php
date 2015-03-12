@@ -2,7 +2,7 @@
 
 namespace Renatomefi\FormBundle\Tests\Controller;
 
-use Renatomefi\ApiBundle\Tests\AuthTest;
+use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
 use Renatomefi\FormBundle\Tests\Form\AssertForm;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtils;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
@@ -11,16 +11,13 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 class ManageControllerTest extends WebTestCase
 {
 
-    use AssertMongoUtils, AssertForm, AssertRestUtils;
+    use AssertMongoUtils, AssertForm, AssertRestUtils, OAuthClient;
 
     protected $_oAuthCredentials;
 
     protected function setUp()
     {
-        $auth = new AuthTest();
-
-        $auth->setUp();
-        $this->_oAuthCredentials = $auth->testPasswordOAuth();
+        $this->_oAuthCredentials = $this->getAdminCredentials();
 
         if (!$this->_oAuthCredentials) {
             $this->markTestSkipped('No credentials to Login');
