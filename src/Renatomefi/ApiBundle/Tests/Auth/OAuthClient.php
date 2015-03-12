@@ -3,10 +3,10 @@
 namespace Renatomefi\ApiBundle\Tests\Auth;
 
 use OAuth2\OAuth2;
-use Renatomefi\ApiBundle\Document\Client;
-use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
+use Renatomefi\ApiBundle\Document\Client;
 use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
+use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 
 /**
  * @codeCoverageIgnore

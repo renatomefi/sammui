@@ -10,9 +10,9 @@ use Renatomefi\ApiBundle\Tests\Auth\AssertUserInfoInterface;
 use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
 use Renatomefi\ApiBundle\Tests\Auth\OAuthClientInterface;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
+use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 
 class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertClientCredentialsInterface, OAuthClientInterface, AssertRestUtilsInterface
 {
