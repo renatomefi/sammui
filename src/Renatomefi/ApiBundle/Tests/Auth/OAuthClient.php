@@ -4,7 +4,6 @@ namespace Renatomefi\ApiBundle\Tests\Auth;
 
 use OAuth2\OAuth2;
 use Renatomefi\ApiBundle\Document\Client;
-use Renatomefi\TestBundle\Rest\AssertRestUtils;
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
 use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
@@ -20,7 +19,7 @@ trait OAuthClient
     /**
      * @return Client
      */
-    protected function getOAuthClient()
+    public function getOAuthClient()
     {
         if ($this->_OAuthClient)
             return $this->_OAuthClient;
@@ -38,7 +37,7 @@ trait OAuthClient
         return $client;
     }
 
-    protected function queryOAuth2Token($params = [])
+    public function queryOAuth2Token($params = [])
     {
         if (!method_exists($this, 'assertJsonResponse'))
             throw new \PHPUnit_Framework_Exception('You must to use AssertRestUtils trait in order to use this OAuthClient trait');
@@ -58,14 +57,14 @@ trait OAuthClient
         return $this->assertJsonResponse($client->getResponse(), 200, true);
     }
 
-    protected function getAnonymousCredentials()
+    public function getAnonymousCredentials()
     {
         return $this->queryOAuth2Token([
             'grant_type' => OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS
         ]);
     }
 
-    protected function getAdminCredentials()
+    public function getAdminCredentials()
     {
         return $this->queryOAuth2Token([
             'grant_type' => OAuth2::GRANT_TYPE_USER_CREDENTIALS,
