@@ -2,7 +2,10 @@
 
 namespace Renatomefi\TranslateBundle\Tests;
 
+
 /**
+ * Class AssertLang
+ * @package Renatomefi\TranslateBundle\Tests
  * @codeCoverageIgnore
  */
 trait AssertLang

@@ -7,9 +7,16 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Renatomefi\TranslateBundle\Document\Language;
 
+/**
+ * Class LoadLangs
+ * @package Renatomefi\TranslateBundle\DataFixtures\MongoDB
+ */
 class LoadLangs extends AbstractFixture implements OrderedFixtureInterface
 {
 
+    /**
+     * @var string
+     */
     public static $reference_prefix = 'langs-';
 
     /**

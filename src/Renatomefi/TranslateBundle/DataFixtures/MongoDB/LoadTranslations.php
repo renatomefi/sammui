@@ -7,9 +7,16 @@ use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Renatomefi\TranslateBundle\Document\Translation;
 
+/**
+ * Class LoadTranslations
+ * @package Renatomefi\TranslateBundle\DataFixtures\MongoDB
+ */
 class LoadTranslations extends AbstractFixture implements OrderedFixtureInterface
 {
 
+    /**
+     * @var array Translations to apply into languages
+     */
     protected $_translations = [
         'en-us' => [
             'index-title-sidebar-left' => 'Menu',
@@ -35,6 +42,12 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         ]
     ];
 
+    /**
+     * @param $key
+     * @param $value
+     * @param $reference
+     * @return Translation
+     */
     protected function createTranslateObj($key, $value, $reference)
     {
         $t = new Translation();

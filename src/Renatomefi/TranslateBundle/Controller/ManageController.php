@@ -6,10 +6,13 @@ use FOS\RestBundle\Controller\FOSRestController;
 use FOS\RestBundle\Controller\Annotations as Rest;
 use Renatomefi\TranslateBundle\Document\Language;
 use Renatomefi\TranslateBundle\Document\Translation;
-use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
+/**
+ * Class ManageController
+ * @package Renatomefi\TranslateBundle\Controller
+ */
 class ManageController extends FOSRestController
 {
 
@@ -18,7 +21,6 @@ class ManageController extends FOSRestController
      *
      * @param $lang
      * @param bool $notFoundException Throw an exception if language is not found
-     * @return mixed
      */
     public function getLang($lang = null, $notFoundException = false)
     {
@@ -39,6 +41,9 @@ class ManageController extends FOSRestController
         return $language;
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getLangsInfoAction()
     {
         $languageDM = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
@@ -54,6 +59,10 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $lang
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function postLangAction($lang)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
@@ -75,6 +84,12 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param Request $request
+     * @param $lang
+     * @param $key
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function postLangKeyAction(Request $request, $lang, $key)
     {
         $language = $this->getLang($lang, true);
@@ -104,6 +119,12 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param Request $request
+     * @param $lang
+     * @param $key
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function putLangKeyAction(Request $request, $lang, $key)
     {
         $language = $this->getLang($lang, true);
@@ -128,6 +149,10 @@ class ManageController extends FOSRestController
 
     }
 
+    /**
+     * @param $lang
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getLangKeysAction($lang)
     {
         $language = $this->getLang($lang, true);
@@ -139,6 +164,11 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $lang
+     * @param $key
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getLangKeyAction($lang, $key)
     {
         $language = $this->getLang($lang, true);
@@ -161,6 +191,11 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $lang
+     * @param $key
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function deleteLangKeyAction($lang, $key)
     {
         $language = $this->getLang($lang, true);
@@ -180,6 +215,9 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getLangsAction()
     {
         $view = $this->view($this->getLang(null, true));
@@ -187,6 +225,10 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $lang
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getLangAction($lang)
     {
         $view = $this->view($this->getLang($lang, true));
@@ -194,6 +236,10 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $lang
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function deleteLangAction($lang)
     {
         $lang = $this->getLang($lang, true);

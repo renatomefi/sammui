@@ -1,14 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: renatomefi
- * Date: 13/03/15
- * Time: 16:31
- */
+
 namespace Renatomefi\TranslateBundle\Tests;
 
-
 /**
+ * Interface AssertLangInterface
+ * @package Renatomefi\TranslateBundle\Tests
  * @codeCoverageIgnore
  */
 interface AssertLangInterface

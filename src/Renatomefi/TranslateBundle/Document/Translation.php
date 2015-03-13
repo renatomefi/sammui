@@ -7,8 +7,10 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
+ * Class Translation
  * @ODM\Document
  * @ODM\UniqueIndex(keys={"language"="asc", "key"="asc"})
+ * @package Renatomefi\TranslateBundle\Document
  */
 class Translation
 {
