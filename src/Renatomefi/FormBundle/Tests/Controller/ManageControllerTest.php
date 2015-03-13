@@ -9,16 +9,26 @@ use Renatomefi\FormBundle\Tests\Form\AssertFormInterface;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtils;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtilsInterface;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class ManageControllerTest
+ * @package Renatomefi\FormBundle\Tests\Controller
+ */
 class ManageControllerTest extends WebTestCase implements OAuthClientInterface, AssertRestUtilsInterface, AssertMongoUtilsInterface, AssertFormInterface
 {
 
     use AssertMongoUtils, AssertForm, AssertRestUtils, OAuthClient;
 
+    /**
+     * @var
+     */
     protected $_oAuthCredentials;
 
+    /**
+     * @inheritdoc
+     */
     protected function setUp()
     {
         $this->_oAuthCredentials = $this->getAdminCredentials();
@@ -28,6 +38,12 @@ class ManageControllerTest extends WebTestCase implements OAuthClientInterface, 
         }
     }
 
+    /**
+     * @param string $method
+     * @param bool $assertJson
+     * @param array $params
+     * @return mixed|null|\Symfony\Component\HttpFoundation\Response
+     */
     protected function queryFormManage($method = 'GET', $assertJson = true, $params = array())
     {
         $client = static::createClient();
@@ -47,6 +63,9 @@ class ManageControllerTest extends WebTestCase implements OAuthClientInterface, 
         return (TRUE === $assertJson) ? $this->assertJsonResponse($response, 200, true) : $response;
     }
 
+    /**
+     * @return mixed|null|\Symfony\Component\HttpFoundation\Response
+     */
     public function testFormNew()
     {
         $form = $this->queryFormManage('POST', true, [

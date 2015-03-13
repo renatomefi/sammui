@@ -5,19 +5,40 @@ namespace Renatomefi\TranslateBundle\Tests\Controller;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtils;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtilsInterface;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
-use Renatomefi\TranslateBundle\Tests\AssertLang;
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
+use Renatomefi\TranslateBundle\Tests\AssertLang;
+use Renatomefi\TranslateBundle\Tests\AssertLangInterface;
+use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterface, AssertMongoUtilsInterface
+/**
+ * Class ManageControllerTest
+ * @package Renatomefi\TranslateBundle\Tests\Controller
+ */
+class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterface, AssertMongoUtilsInterface, AssertLangInterface
 {
 
     use AssertMongoUtils, AssertRestUtils, AssertLang;
 
+    /**
+     * Default Language name
+     */
     const LANG = 'unit-test';
+
+    /**
+     * Default translate key
+     */
     const TRANSLATION_KEY = 'unit-test-translation-key';
+
+    /**
+     * Default translate value
+     */
     const TRANSLATION_VALUE = 'unit-test-translation-value';
 
+    /**
+     * @param string $method
+     * @param bool $assertJson
+     * @return mixed|null|\Symfony\Component\HttpFoundation\Response
+     */
     protected function queryLangManage($method = 'GET', $assertJson = true)
     {
         $client = static::createClient();
@@ -31,6 +52,12 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
         return (TRUE === $assertJson) ? $this->assertJsonResponse($response, 200, true) : $response;
     }
 
+    /**
+     * @param string $method
+     * @param bool $setValue
+     * @param bool $assertJson
+     * @return mixed|null|\Symfony\Component\HttpFoundation\Response
+     */
     protected function queryLangTranslationManage($method = 'GET', $setValue = false, $assertJson = true)
     {
         $params = [];
@@ -52,6 +79,9 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
         return (TRUE === $assertJson) ? $this->assertJsonResponse($response, 200, true) : $response;
     }
 
+    /**
+     *
+     */
     public function testLangCreate()
     {
         $lang = $this->queryLangManage('POST');
