@@ -7,7 +7,7 @@ namespace Renatomefi\FormBundle\Tests\Form;
  */
 trait AssertForm
 {
-    protected function assertFormStructure($form)
+    public function assertFormStructure($form)
     {
         $this->assertObjectHasAttribute('id', $form);
         $this->assertObjectHasAttribute('name', $form);

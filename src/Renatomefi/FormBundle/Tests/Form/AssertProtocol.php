@@ -4,7 +4,7 @@ namespace Renatomefi\FormBundle\Tests\Form;
 
 trait AssertProtocol
 {
-    protected function assertFormProtocolStructure($form)
+    public function assertFormProtocolStructure($form)
     {
         $this->assertObjectHasAttribute('id', $form);
         $this->assertObjectHasAttribute('created_at', $form);
