@@ -1,13 +1,17 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: renatomefi
- * Date: 13/03/15
- * Time: 11:21
- */
+
 namespace Renatomefi\FormBundle\Tests\Form;
 
+/**
+ * Interface AssertProtocolInterface
+ * @package Renatomefi\FormBundle\Tests\Form
+ * @codeCoverageIgnore
+ */
 interface AssertProtocolInterface
 {
+    /**
+     * @param $form
+     * @return mixed
+     */
     public function assertFormProtocolStructure($form);
 }

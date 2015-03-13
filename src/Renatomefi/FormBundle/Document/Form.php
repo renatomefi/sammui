@@ -5,6 +5,8 @@ namespace Renatomefi\FormBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
+ * Class Form
+ * @package Renatomefi\FormBundle\Document
  * @ODM\Document
  */
 class Form

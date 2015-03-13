@@ -7,6 +7,10 @@ use FOS\RestBundle\Controller\Annotations\Get;
 use Renatomefi\FormBundle\Document\Form;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class ManageController
+ * @package Renatomefi\FormBundle\Controller
+ */
 class ManageController extends FOSRestController
 {
 
@@ -26,6 +30,10 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getAction($id)
     {
         $formsDM = $this->get('doctrine_mongodb')->getRepository('FormBundle:Form');
@@ -39,6 +47,10 @@ class ManageController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function postAction(Request $request)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();

@@ -7,9 +7,18 @@ use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\Protocol;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * Class ProtocolController
+ * @package Renatomefi\FormBundle\Controller
+ */
 class ProtocolController extends FOSRestController
 {
 
+    /**
+     * @param null $id
+     * @param bool $notFoundException
+     * @return mixed
+     */
     public function getForm($id = null, $notFoundException = false)
     {
         $formsDM = $this->get('doctrine_mongodb')->getRepository('FormBundle:Form');
@@ -29,6 +38,10 @@ class ProtocolController extends FOSRestController
         return $form;
     }
 
+    /**
+     * @param $formId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getFormAction($formId)
     {
         $form = $this->getForm($formId, true);
@@ -44,7 +57,6 @@ class ProtocolController extends FOSRestController
             ->execute()
             ->toArray();
 
-//        var_dump(get_class($protocolDM->createQueryBuilder())); exit();
         if (!$result)
             throw $this->createNotFoundException("No protocols found for form: \"$formId\"");
 
@@ -52,6 +64,10 @@ class ProtocolController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function getAction($id)
     {
         $formsDM = $this->get('doctrine_mongodb')->getRepository('FormBundle:Protocol');
@@ -65,6 +81,10 @@ class ProtocolController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $formId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function postAction($formId)
     {
         $form = $this->getForm($formId, true

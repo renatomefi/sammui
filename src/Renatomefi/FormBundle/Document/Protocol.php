@@ -6,6 +6,8 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Renatomefi\FormBundle\Document\Form;
 
 /**
+ * Class Protocol
+ * @package Renatomefi\FormBundle\Document
  * @ODM\Document
  */
 class Protocol
