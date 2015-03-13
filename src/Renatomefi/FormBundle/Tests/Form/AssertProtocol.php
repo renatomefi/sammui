@@ -2,7 +2,7 @@
 
 namespace Renatomefi\FormBundle\Tests\Form;
 
-trait Protocol
+trait AssertProtocol
 {
     protected function assertFormProtocolStructure($form)
     {

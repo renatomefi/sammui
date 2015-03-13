@@ -6,11 +6,12 @@ use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
 use Renatomefi\ApiBundle\Tests\Auth\OAuthClientInterface;
 use Renatomefi\FormBundle\Tests\Form\AssertForm;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtils;
+use Renatomefi\TestBundle\MongoDB\AssertMongoUtilsInterface;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 
-class ManageControllerTest extends WebTestCase implements OAuthClientInterface, AssertRestUtilsInterface
+class ManageControllerTest extends WebTestCase implements OAuthClientInterface, AssertRestUtilsInterface, AssertMongoUtilsInterface
 {
 
     use AssertMongoUtils, AssertForm, AssertRestUtils, OAuthClient;

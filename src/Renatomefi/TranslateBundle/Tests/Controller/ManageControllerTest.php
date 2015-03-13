@@ -3,15 +3,16 @@
 namespace Renatomefi\TranslateBundle\Tests\Controller;
 
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtils;
+use Renatomefi\TestBundle\MongoDB\AssertMongoUtilsInterface;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
-use Renatomefi\TranslateBundle\Tests\Lang;
+use Renatomefi\TranslateBundle\Tests\AssertLang;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 
-class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterface
+class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterface, AssertMongoUtilsInterface
 {
 
-    use AssertMongoUtils, AssertRestUtils, Lang;
+    use AssertMongoUtils, AssertRestUtils, AssertLang;
 
     const LANG = 'unit-test';
     const TRANSLATION_KEY = 'unit-test-translation-key';
