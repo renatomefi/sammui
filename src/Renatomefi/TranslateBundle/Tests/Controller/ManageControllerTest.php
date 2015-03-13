@@ -80,7 +80,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
-     *
+     * Test creating a new Lang
      */
     public function testLangCreate()
     {
@@ -92,6 +92,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test creating a new Translation for Lang
      * @depends      testLangCreate
      */
     public function testLangTranslationCreate()
@@ -103,6 +104,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test Translation duplication for Lang
      * @depends      testLangTranslationCreate
      */
     public function testLangTranslationCreateDuplicate()
@@ -115,6 +117,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test Getting the Translation
      * @depends      testLangTranslationCreate
      */
     public function testLangTranslationGet()
@@ -126,6 +129,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test deleting the Translation
      * @depends      testLangTranslationGet
      * @depends      testLangTranslationCreateDuplicate
      */
@@ -137,6 +141,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Testing getting the Lang
      * @depends      testLangCreate
      */
     public function testLangGet()
@@ -148,6 +153,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test duplicating the Lang
      * @depends      testLangCreate
      */
     public function testLangDuplicate()
@@ -160,6 +166,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test the entire Lang list
      * @depends testLangCreate
      */
     public function testLangsList()
@@ -185,6 +192,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test all Langs info
      * @depends testLangCreate
      */
     public function testLangsInfo()
@@ -208,6 +216,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test delete the Lang
      * @depends      testLangGet
      * @depends      testLangsList
      * @depends      testLangsInfo
@@ -222,6 +231,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test retrieving a non existent Lang
      * @depends      testLangDelete
      */
     public function testLangNotFound()

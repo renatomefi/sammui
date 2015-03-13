@@ -1,7 +1,10 @@
 <?php
+
 namespace Renatomefi\TestBundle\MongoDB;
 
 /**
+ * Interface AssertMongoUtilsInterface
+ * @package Renatomefi\TestBundle\MongoDB
  * @codeCoverageIgnore
  */
 interface AssertMongoUtilsInterface

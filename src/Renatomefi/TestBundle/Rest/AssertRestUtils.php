@@ -3,11 +3,16 @@
 namespace Renatomefi\TestBundle\Rest;
 
 /**
+ * Class AssertRestUtils
+ * @package Renatomefi\TestBundle\Rest
  * @codeCoverageIgnore
  */
 trait AssertRestUtils
 {
 
+    /**
+     * @inheritdoc
+     */
     public function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false)
     {
         $this->assertEquals(

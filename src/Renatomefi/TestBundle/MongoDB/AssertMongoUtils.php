@@ -2,7 +2,10 @@
 
 namespace Renatomefi\TestBundle\MongoDB;
 
+
 /**
+ * Class AssertMongoUtils
+ * @package Renatomefi\TestBundle\MongoDB
  * @codeCoverageIgnore
  */
 trait AssertMongoUtils
