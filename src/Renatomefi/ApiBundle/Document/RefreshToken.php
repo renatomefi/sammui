@@ -8,6 +8,8 @@ use FOS\OAuthServerBundle\Model\ClientInterface;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
+ * Class RefreshToken
+ * @package Renatomefi\ApiBundle\Document
  * @ODM\Document
  */
 class RefreshToken extends BaseRefreshToken

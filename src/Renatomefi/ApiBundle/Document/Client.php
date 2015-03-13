@@ -5,8 +5,9 @@ namespace Renatomefi\ApiBundle\Document;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use FOS\OAuthServerBundle\Document\Client as BaseClient;
 
-
 /**
+ * Class Client
+ * @package Renatomefi\ApiBundle\Document
  * @ODM\Document
  */
 class Client extends BaseClient

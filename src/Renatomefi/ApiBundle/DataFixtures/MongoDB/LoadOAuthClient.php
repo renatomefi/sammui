@@ -8,10 +8,21 @@ use OAuth2\OAuth2;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * Class LoadOAuthClient
+ * @package Renatomefi\ApiBundle\DataFixtures\MongoDB
+ */
 class LoadOAuthClient implements FixtureInterface, ContainerAwareInterface
 {
 
+    /**
+     * PHPUnit OAuth Client Name
+     */
     const CLIENT_NAME = 'sammui-php-unit';
+
+    /**
+     * Application OAuth Client Name
+     */
     const APP_CLIENT_NAME = 'sammui';
 
     /**

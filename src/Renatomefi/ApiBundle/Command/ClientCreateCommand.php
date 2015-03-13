@@ -8,8 +8,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
+/**
+ * Class ClientCreateCommand
+ * @package Renatomefi\ApiBundle\Command
+ */
 class ClientCreateCommand extends Command
 {
+    /**
+     * @inheritdoc
+     */
     protected function configure()
     {
         $this
@@ -20,6 +27,9 @@ class ClientCreateCommand extends Command
             ->addOption('grant-type', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Sets allowed grant type for client. Use this option multiple times to set multiple grant types.', null);
     }
 
+    /**
+     * @inheritdoc
+     */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $clientManager = $this->getApplication()->getKernel()->getContainer()->get('fos_oauth_server.client_manager.default');

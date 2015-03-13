@@ -2,15 +2,24 @@
 
 namespace Renatomefi\ApiBundle\Twig;
 
-
 use FOS\OAuthServerBundle\Document\ClientManager;
 use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
 
+/**
+ * Class OAuthClientExtension
+ * @package Renatomefi\ApiBundle\Twig
+ */
 class OAuthClientExtension extends \Twig_Extension
 {
 
+    /**
+     * @var ClientManager
+     */
     protected $clientManager;
 
+    /**
+     * @param ClientManager $clientManager
+     */
     public function __construct(ClientManager $clientManager)
     {
         $this->clientManager = $clientManager;
