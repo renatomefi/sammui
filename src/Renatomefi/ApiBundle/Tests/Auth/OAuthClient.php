@@ -9,11 +9,16 @@ use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 
 /**
+ * Class OAuthClient
+ * @package Renatomefi\ApiBundle\Tests\Auth
  * @codeCoverageIgnore
  */
 trait OAuthClient
 {
 
+    /**
+     * @var
+     */
     protected $_OAuthClient;
 
     /**
@@ -37,6 +42,10 @@ trait OAuthClient
         return $client;
     }
 
+    /**
+     * @param array $params
+     * @return mixed
+     */
     public function queryOAuth2Token($params = [])
     {
         if (!method_exists($this, 'assertJsonResponse'))
@@ -57,6 +66,9 @@ trait OAuthClient
         return $this->assertJsonResponse($client->getResponse(), 200, true);
     }
 
+    /**
+     * @return mixed
+     */
     public function getAnonymousCredentials()
     {
         return $this->queryOAuth2Token([
@@ -64,6 +76,9 @@ trait OAuthClient
         ]);
     }
 
+    /**
+     * @return mixed
+     */
     public function getAdminCredentials()
     {
         return $this->queryOAuth2Token([

@@ -2,8 +2,15 @@
 
 namespace Renatomefi\ApiBundle\Tests\Auth;
 
+/**
+ * Class AssertUserInfo
+ * @package Renatomefi\ApiBundle\Tests\Auth
+ */
 trait AssertUserInfo
 {
+    /**
+     * @inheritdoc
+     */
     protected function assertUserInfoObjStructure($userInfo)
     {
         $this->assertObjectHasAttribute('authenticated', $userInfo);
@@ -16,6 +23,9 @@ trait AssertUserInfo
         $this->assertObjectHasAttribute('user', $userInfo);
     }
 
+    /**
+     * @inheritdoc
+     */
     protected function assertUserInfoObjNoAuth($userInfo)
     {
         $this->assertTrue($userInfo->authenticated);
@@ -28,6 +38,9 @@ trait AssertUserInfo
         $this->assertEmpty($userInfo->client);
     }
 
+    /**
+     * @inheritdoc
+     */
     protected function assertUserInfoObjAdminAuth($userInfo)
     {
         $this->assertTrue($userInfo->authenticated);

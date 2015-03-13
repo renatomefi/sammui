@@ -14,14 +14,29 @@ use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class AuthTest
+ * @package Renatomefi\ApiBundle\Tests
+ */
 class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertClientCredentialsInterface, OAuthClientInterface, AssertRestUtilsInterface
 {
 
     use AssertUserInfo, AssertClientCredentials, AssertRestUtils, OAuthClient;
 
+    /**
+     * OAuth2 Client ID
+     * @var
+     */
     protected $_clientId;
+    /**
+     * OAuth2 Client Secret
+     * @var
+     */
     protected $_clientSecret;
 
+    /**
+     * @return \Renatomefi\ApiBundle\Document\Client
+     */
     public function setUp()
     {
         $client = $this->getOAuthClient();
@@ -32,6 +47,9 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
         return $client;
     }
 
+    /**
+     * @return mixed
+     */
     public function testAnonymousOAuth()
     {
         $client = static::createClient();
@@ -59,6 +77,9 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
         return $clientCredentials;
     }
 
+    /**
+     * @return mixed
+     */
     public function testPasswordOAuth()
     {
         $client = static::createClient();
@@ -141,6 +162,9 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
         return $refreshClientCredentials;
     }
 
+    /**
+     *
+     */
     public function testEmptySession()
     {
         $client = static::createClient();
@@ -155,6 +179,9 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
         $this->assertUserInfoObjNoAuth($userInfo);
     }
 
+    /**
+     *
+     */
     public function testLogoutRedirect()
     {
         $client = static::createClient();

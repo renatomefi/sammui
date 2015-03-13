@@ -7,6 +7,9 @@ namespace Renatomefi\ApiBundle\Tests\Auth;
  */
 trait AssertClientCredentials
 {
+    /**
+     * @inheritdoc
+     */
     public function assertClientCredentialsObjStructure($clientCredentials)
     {
         $this->assertObjectHasAttribute('access_token', $clientCredentials);
@@ -15,6 +18,9 @@ trait AssertClientCredentials
         $this->assertObjectHasAttribute('scope', $clientCredentials);
     }
 
+    /**
+     * @inheritdoc
+     */
     public function assertClientCredentialsToken($clientCredentials, $tokenName = 'access_token')
     {
         $this->assertObjectHasAttribute($tokenName, $clientCredentials);
