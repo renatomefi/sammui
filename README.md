@@ -14,6 +14,8 @@ Original project by @flyers: https://github.com/FlyersWeb/angular-symfony
 
 Mirror: http://gitlab.renatomefi.com.br/renatomefi/sammui/commits/master 
 
+Mirror clone URL: git@gitlab.renatomefi.com.br:renatomefi/sammui.git
+
 Introduction
 ------------
 
