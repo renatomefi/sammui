@@ -1,6 +1,7 @@
 <?php
 
 namespace Renatomefi\TranslateBundle\Tests;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Interface AssertLangInterface
@@ -26,4 +27,11 @@ interface AssertLangInterface
      * @param $translation
      */
     public function assertLangTranslationData($translation);
+
+    /**
+     * Assert a typical Lang Translation not found
+     * @param Response $response
+     * @return mixed
+     */
+    public function assertLangTranslationNotFound(Response $response);
 }

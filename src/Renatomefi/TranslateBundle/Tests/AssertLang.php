@@ -1,6 +1,7 @@
 <?php
 
 namespace Renatomefi\TranslateBundle\Tests;
+use Symfony\Component\HttpFoundation\Response;
 
 
 /**
@@ -41,5 +42,17 @@ trait AssertLang
         $this->assertEquals(static::LANG, $translation->language->key);
         if (FALSE === $skipValue) $this->assertEquals(static::TRANSLATION_VALUE, $translation->value);
 
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function assertLangTranslationNotFound(Response $response)
+    {
+        $notFound = $this->assertJsonResponse($response, 404, true);
+
+        $baseFormat = 'No key "%s" found for lang "%s"';
+        $this->assertStringMatchesFormat($baseFormat, $notFound->message);
+        $this->assertSame(sprintf($baseFormat, static::TRANSLATION_KEY, static::LANG), $notFound->message);
     }
 }
