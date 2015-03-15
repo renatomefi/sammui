@@ -181,6 +181,21 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test Getting the Translation
+     * @depends      testLangTranslationDelete
+     */
+    public function testLangTranslationNotFound()
+    {
+        $response = $this->queryLangTranslationManage('GET', false, false, false);
+
+        $notFound = $this->assertJsonResponse($response, 404, true);
+
+        $baseFormat = 'No key "%s" found for lang "%s"';
+        $this->assertStringMatchesFormat($baseFormat, $notFound->message);
+        $this->assertSame(sprintf($baseFormat, static::TRANSLATION_KEY, static::LANG), $notFound->message);
+    }
+
+    /**
      * Testing getting the Lang
      * @depends      testLangCreate
      */
