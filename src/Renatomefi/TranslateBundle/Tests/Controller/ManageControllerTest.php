@@ -55,12 +55,15 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     /**
      * @param string $method
      * @param bool $params
+     * @param bool $noKey
      * @param bool $assertJson
      * @return mixed|null|\Symfony\Component\HttpFoundation\Response
      */
-    protected function queryLangTranslationManage($method = 'GET', $params = false, $assertJson = true)
+    protected function queryLangTranslationManage($method = 'GET', $params = false, $noKey = false, $assertJson = true)
     {
         $requestParams = [];
+
+        $keyString = (TRUE === $noKey) ? '/keys' : '/keys/' . static::TRANSLATION_KEY;
 
         if (TRUE === $params) {
             $requestParams['value'] = static::TRANSLATION_VALUE;
@@ -72,7 +75,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
 
         $client = static::createClient();
 
-        $client->request($method, '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY, $requestParams, [], [
+        $client->request($method, '/l10n/manage/langs/' . static::LANG . $keyString, $requestParams, [], [
             'HTTP_ACCEPT' => 'application/json'
         ]);
 
@@ -111,7 +114,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function testLangTranslationCreateDuplicate()
     {
-        $response = $this->queryLangTranslationManage('POST', true, false);
+        $response = $this->queryLangTranslationManage('POST', true, false, false);
 
         $translation = $this->assertJsonResponse($response, 409, true);
 
@@ -131,12 +134,33 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
+     * Test Lang list in array format
+     * @depends      testLangTranslationCreate
+     */
+    public function testLangKeys()
+    {
+        $translations = $this->queryLangTranslationManage('GET', false, true, false);
+
+        $ts = json_decode($translations->getContent());
+
+        $foundTranslation = false;
+        foreach ($ts as $t) {
+            if ($t->key == static::TRANSLATION_KEY) $foundTranslation = $t;
+        }
+        $this->assertNotEmpty($foundTranslation, 'Didn\'t find the translation on list');
+
+        $this->assertLangTranslationFormat($foundTranslation);
+        $this->assertLangTranslationData($foundTranslation);
+    }
+
+    /**
      * Test Editing the Translation
+     * @depends      testLangKeys
      * @depends      testLangTranslationGet
      */
     public function testLangTranslationEdit()
     {
-        $translation = $this->queryLangTranslationManage('PUT', self::TRANSLATION_VALUE . '-edited', true);
+        $translation = $this->queryLangTranslationManage('PUT', self::TRANSLATION_VALUE . '-edited');
 
         $this->assertLangTranslationFormat($translation);
         $this->assertLangTranslationData($translation, true);
