@@ -11,6 +11,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 /**
  * Class LoadOAuthClient
  * @package Renatomefi\ApiBundle\DataFixtures\MongoDB
+ * @codeCoverageIgnore
  */
 class LoadOAuthClient implements FixtureInterface, ContainerAwareInterface
 {

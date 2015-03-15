@@ -7,10 +7,21 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
+/**
+ * Class LoadUsers
+ * @package Renatomefi\UserBundle\DataFixtures\MongoDB
+ * @codeCoverageIgnore
+ */
 class LoadUsers implements FixtureInterface, ContainerAwareInterface
 {
 
+    /**
+     * Default username
+     */
     const USER_USERNAME = 'sammui';
+    /**
+     * Default password
+     */
     const USER_PASSWORD = 'sammui';
 
     /**

@@ -10,6 +10,7 @@ use Renatomefi\TranslateBundle\Document\Language;
 /**
  * Class LoadLangs
  * @package Renatomefi\TranslateBundle\DataFixtures\MongoDB
+ * @codeCoverageIgnore
  */
 class LoadLangs extends AbstractFixture implements OrderedFixtureInterface
 {
