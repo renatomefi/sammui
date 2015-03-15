@@ -35,10 +35,11 @@ trait AssertLang
     /**
      * @inheritdoc
      */
-    public function assertLangTranslationData($translation)
+    public function assertLangTranslationData($translation, $skipValue = false)
     {
         $this->assertEquals(static::TRANSLATION_KEY, $translation->key);
-        $this->assertEquals(static::TRANSLATION_VALUE, $translation->value);
         $this->assertEquals(static::LANG, $translation->language->key);
+        if (FALSE === $skipValue) $this->assertEquals(static::TRANSLATION_VALUE, $translation->value);
+
     }
 }

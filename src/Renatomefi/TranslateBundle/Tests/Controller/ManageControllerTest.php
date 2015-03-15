@@ -54,23 +54,25 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
 
     /**
      * @param string $method
-     * @param bool $setValue
+     * @param bool $params
      * @param bool $assertJson
      * @return mixed|null|\Symfony\Component\HttpFoundation\Response
      */
-    protected function queryLangTranslationManage($method = 'GET', $setValue = false, $assertJson = true)
+    protected function queryLangTranslationManage($method = 'GET', $params = false, $assertJson = true)
     {
-        $params = [];
+        $requestParams = [];
 
-        if (TRUE === $setValue) {
-            $params['value'] = static::TRANSLATION_VALUE;
-        } elseif (is_array($setValue)) {
-            $params = $setValue;
+        if (TRUE === $params) {
+            $requestParams['value'] = static::TRANSLATION_VALUE;
+        } elseif (is_array($params)) {
+            $requestParams = $params;
+        } elseif (is_string($params)) {
+            $requestParams['value'] = $params;
         }
 
         $client = static::createClient();
 
-        $client->request($method, '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY, $params, [], [
+        $client->request($method, '/l10n/manage/langs/' . static::LANG . '/keys/' . static::TRANSLATION_KEY, $requestParams, [], [
             'HTTP_ACCEPT' => 'application/json'
         ]);
 
@@ -129,8 +131,22 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     }
 
     /**
-     * Test deleting the Translation
+     * Test Editing the Translation
      * @depends      testLangTranslationGet
+     */
+    public function testLangTranslationEdit()
+    {
+        $translation = $this->queryLangTranslationManage('PUT', self::TRANSLATION_VALUE . '-edited', true);
+
+        $this->assertLangTranslationFormat($translation);
+        $this->assertLangTranslationData($translation, true);
+        $this->assertNotEquals(static::TRANSLATION_VALUE, $translation->value);
+        $this->assertEquals(static::TRANSLATION_VALUE . '-edited', $translation->value);
+    }
+
+    /**
+     * Test deleting the Translation
+     * @depends      testLangTranslationEdit
      * @depends      testLangTranslationCreateDuplicate
      */
     public function testLangTranslationDelete()
