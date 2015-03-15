@@ -28,4 +28,5 @@ trait AssertOAuth
         $this->assertEquals('access_denied', $response->error);
         $this->assertEquals('OAuth2 authentication required', $response->error_description);
     }
+
 }

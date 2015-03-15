@@ -194,6 +194,7 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
 
         $this->assertTrue($response->headers->has('Location'), $response->headers);
         $this->assertStringEndsWith('/api/user/logout', $response->headers->get('Location'));
+        $this->assertTrue($response->isRedirect());
     }
 
     /**

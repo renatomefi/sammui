@@ -6,15 +6,17 @@ use Renatomefi\ApiBundle\Tests\Auth\AssertOAuth;
 use Renatomefi\ApiBundle\Tests\Auth\AssertOAuthInterface;
 use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
 use Renatomefi\ApiBundle\Tests\Auth\OAuthClientInterface;
+use Renatomefi\TestBundle\Rest\AssertRestUtils;
+use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Class LanguageControllerTest
  * @package Renatomefi\TranslateBundle\Tests\Controller
  */
-class LanguageControllerTest extends WebTestCase implements OAuthClientInterface, AssertOAuthInterface
+class LanguageControllerTest extends WebTestCase implements OAuthClientInterface, AssertOAuthInterface, AssertRestUtilsInterface
 {
-    use OAuthClient, AssertOAuth;
+    use OAuthClient, AssertOAuth, AssertRestUtils;
 
     /**
      * Test the need of a OAuth Authentication
@@ -32,7 +34,16 @@ class LanguageControllerTest extends WebTestCase implements OAuthClientInterface
      */
     public function testAdminActionRoleWrong()
     {
-        $this->markTestIncomplete('Todo');
+        $credentials = $this->getAnonymousCredentials();
+
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/l10n/admin', ['access_token' => $credentials->access_token]);
+
+        $response = $client->getResponse();
+
+        $this->assertSame(403, $response->getStatusCode());
+        $this->assertTrue($response->isForbidden());
+        $this->assertGreaterThan(0, $crawler->filter('head')->filter('title:contains("Access Denied")')->count());
     }
 
     /**
