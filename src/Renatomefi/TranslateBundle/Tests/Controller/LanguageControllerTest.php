@@ -51,7 +51,15 @@ class LanguageControllerTest extends WebTestCase implements OAuthClientInterface
      */
     public function testAdminAction()
     {
-        $this->markTestIncomplete('Todo functional test');
+        $credentials = $this->getAdminCredentials();
+
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/l10n/admin', ['access_token' => $credentials->access_token]);
+
+        $response = $client->getResponse();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertContains('translate-admin-index', $crawler->filterXPath("//div[@ui-content-for='title']/span")->html());
     }
 
 }
