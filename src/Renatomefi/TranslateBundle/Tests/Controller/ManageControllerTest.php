@@ -2,6 +2,8 @@
 
 namespace Renatomefi\TranslateBundle\Tests\Controller;
 
+use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
+use Renatomefi\ApiBundle\Tests\Auth\OAuthClientInterface;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtils;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtilsInterface;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
@@ -9,15 +11,16 @@ use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 use Renatomefi\TranslateBundle\Tests\AssertLang;
 use Renatomefi\TranslateBundle\Tests\AssertLangInterface;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter;
 
 /**
  * Class ManageControllerTest
  * @package Renatomefi\TranslateBundle\Tests\Controller
  */
-class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterface, AssertMongoUtilsInterface, AssertLangInterface
+class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterface, AssertMongoUtilsInterface, AssertLangInterface, OAuthClientInterface
 {
 
-    use AssertMongoUtils, AssertRestUtils, AssertLang;
+    use AssertMongoUtils, AssertRestUtils, AssertLang, OAuthClient;
 
     /**
      * Default Language name
@@ -37,15 +40,22 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     /**
      * @param string $method
      * @param bool $assertJson
+     * @param string $authRole
      * @return mixed|null|\Symfony\Component\HttpFoundation\Response
      */
-    protected function queryLangManage($method = 'GET', $assertJson = true)
+    protected function queryLangManage($method = 'GET', $assertJson = true, $authRole = null)
     {
         $client = static::createClient();
 
-        $client->request($method, '/l10n/manage/langs/' . static::LANG, [], [], [
+        $requestHeaders = [
             'HTTP_ACCEPT' => 'application/json'
-        ]);
+        ];
+
+        if ($authRole) {
+            $requestHeaders['HTTP_AUTHORIZATION'] = 'Bearer ' . $this->getCredentialsByRole($authRole)->access_token;
+        }
+
+        $client->request($method, '/l10n/manage/langs/' . static::LANG, [], [], $requestHeaders);
 
         $response = $client->getResponse();
 
@@ -57,11 +67,20 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      * @param bool $params
      * @param bool $noKey
      * @param bool $assertJson
+     * @param string $authRole
      * @return mixed|null|\Symfony\Component\HttpFoundation\Response
      */
-    protected function queryLangTranslationManage($method = 'GET', $params = false, $noKey = false, $assertJson = true)
+    protected function queryLangTranslationManage($method = 'GET', $params = false, $noKey = false, $assertJson = true, $authRole = null)
     {
         $requestParams = [];
+
+        $requestHeaders = [
+            'HTTP_ACCEPT' => 'application/json'
+        ];
+
+        if ($authRole) {
+            $requestHeaders['HTTP_AUTHORIZATION'] = 'Bearer ' . $this->getCredentialsByRole($authRole)->access_token;
+        }
 
         $keyString = (TRUE === $noKey) ? '/keys' : '/keys/' . static::TRANSLATION_KEY;
 
@@ -75,9 +94,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
 
         $client = static::createClient();
 
-        $client->request($method, '/l10n/manage/langs/' . static::LANG . $keyString, $requestParams, [], [
-            'HTTP_ACCEPT' => 'application/json'
-        ]);
+        $client->request($method, '/l10n/manage/langs/' . static::LANG . $keyString, $requestParams, [], $requestHeaders);
 
         $response = $client->getResponse();
 
@@ -89,7 +106,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function testLangCreate()
     {
-        $lang = $this->queryLangManage('POST');
+        $lang = $this->queryLangManage('POST', true, 'ROLE_ADMIN');
 
         $this->assertLangStructure($lang);
         $this->assertEquals(static::LANG, $lang->key);
@@ -102,7 +119,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function testLangTranslationCreate()
     {
-        $translation = $this->queryLangTranslationManage('POST', true);
+        $translation = $this->queryLangTranslationManage('POST', true, false, true, 'ROLE_ADMIN');
 
         $this->assertLangTranslationFormat($translation);
         $this->assertLangTranslationData($translation);
@@ -114,7 +131,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function testLangTranslationCreateDuplicate()
     {
-        $response = $this->queryLangTranslationManage('POST', true, false, false);
+        $response = $this->queryLangTranslationManage('POST', true, false, false, 'ROLE_ADMIN');
 
         $translation = $this->assertJsonResponse($response, 409, true);
 
@@ -160,7 +177,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function testLangTranslationEdit()
     {
-        $translation = $this->queryLangTranslationManage('PUT', self::TRANSLATION_VALUE . '-edited');
+        $translation = $this->queryLangTranslationManage('PUT', self::TRANSLATION_VALUE . '-edited', false, true, 'ROLE_ADMIN');
 
         $this->assertLangTranslationFormat($translation);
         $this->assertLangTranslationData($translation, true);
@@ -175,7 +192,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function testLangTranslationDelete()
     {
-        $translationDelete = $this->queryLangTranslationManage('DELETE');
+        $translationDelete = $this->queryLangTranslationManage('DELETE', false, false, true, 'ROLE_ADMIN');
 
         $this->assertMongoDeleteFormat($translationDelete, true);
     }
@@ -197,7 +214,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function testLangTranslationEditNotFound()
     {
-        $response = $this->queryLangTranslationManage('PUT', self::TRANSLATION_VALUE . '-edited', false, false);
+        $response = $this->queryLangTranslationManage('PUT', self::TRANSLATION_VALUE . '-edited', false, false, 'ROLE_ADMIN');
 
         $this->assertLangTranslationNotFound($response);
     }
@@ -220,7 +237,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function testLangDuplicate()
     {
-        $response = $this->queryLangManage('POST', false);
+        $response = $this->queryLangManage('POST', false, 'ROLE_ADMIN');
 
         $duplicate = $this->assertJsonResponse($response, 409, true);
 
@@ -287,7 +304,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function testLangDelete()
     {
-        $langDelete = $this->queryLangManage('DELETE');
+        $langDelete = $this->queryLangManage('DELETE', true, 'ROLE_ADMIN');
 
         $this->assertMongoDeleteFormat($langDelete, true);
     }
