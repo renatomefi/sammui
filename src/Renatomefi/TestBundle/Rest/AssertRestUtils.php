@@ -15,10 +15,13 @@ trait AssertRestUtils
      */
     public function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false)
     {
-        $this->assertEquals(
-            $statusCode, $response->getStatusCode(),
-            $response->getContent()
-        );
+
+        if (is_array($statusCode)) {
+            $this->assertTrue(in_array($response->getStatusCode(), $statusCode));
+        } else {
+            $this->assertEquals($statusCode, $response->getStatusCode(), $response->getContent());
+        }
+
         $this->assertTrue(
             $response->headers->contains('Content-Type', 'application/json'),
             $response->headers

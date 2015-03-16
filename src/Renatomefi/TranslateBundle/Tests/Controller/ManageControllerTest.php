@@ -11,7 +11,8 @@ use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 use Renatomefi\TranslateBundle\Tests\AssertLang;
 use Renatomefi\TranslateBundle\Tests\AssertLangInterface;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
-use Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class ManageControllerTest
@@ -99,6 +100,60 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
         $response = $client->getResponse();
 
         return (TRUE === $assertJson) ? $this->assertJsonResponse($response, 200, true) : $response;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLangHTTPMethods()
+    {
+        return [
+            [Request::METHOD_POST, Response::HTTP_UNAUTHORIZED],
+            [Request::METHOD_PUT, Response::HTTP_METHOD_NOT_ALLOWED],
+            [Request::METHOD_PATCH, Response::HTTP_METHOD_NOT_ALLOWED],
+            [Request::METHOD_DELETE, Response::HTTP_UNAUTHORIZED],
+            [Request::METHOD_GET, [Response::HTTP_NOT_FOUND, Response::HTTP_OK]]
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public function getLangTranslationHTTPMethods()
+    {
+        return [
+            [Request::METHOD_POST, Response::HTTP_UNAUTHORIZED],
+            [Request::METHOD_PUT, Response::HTTP_UNAUTHORIZED],
+            [Request::METHOD_PATCH, Response::HTTP_METHOD_NOT_ALLOWED],
+            [Request::METHOD_DELETE, Response::HTTP_UNAUTHORIZED],
+            [Request::METHOD_GET, [Response::HTTP_NOT_FOUND, Response::HTTP_OK]]
+        ];
+    }
+
+    /**
+     * Test Lang Firewall
+     * @dataProvider getLangHTTPMethods
+     * @param string $method HTTP Method to test
+     * @param mixed $statusCode Expected HTTP Status Code resulted from test
+     */
+    public function testLangFirewall($method, $statusCode)
+    {
+        $response = $this->queryLangManage($method, false);
+
+        $this->assertJsonResponse($response, $statusCode);
+    }
+
+    /**
+     * Test Lang Translation Firewall
+     * @dataProvider getLangTranslationHTTPMethods
+     * @param string $method HTTP Method to test
+     * @param mixed $statusCode Expected HTTP Status Code resulted from test
+     */
+    public function testLangTranslationFirewall($method, $statusCode)
+    {
+        $response = $this->queryLangTranslationManage($method, false, false, false);
+
+        $this->assertJsonResponse($response, $statusCode);
     }
 
     /**
