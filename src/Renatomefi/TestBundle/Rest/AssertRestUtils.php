@@ -1,6 +1,7 @@
 <?php
 
 namespace Renatomefi\TestBundle\Rest;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class AssertRestUtils
@@ -13,13 +14,15 @@ trait AssertRestUtils
     /**
      * @inheritdoc
      */
-    public function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false)
+    public function assertJsonResponse($response, $statusCode = Response::HTTP_OK, $convert = false, $isArray = false)
     {
 
         if (is_array($statusCode)) {
-            $this->assertTrue(in_array($response->getStatusCode(), $statusCode));
+            $this->assertTrue(in_array($response->getStatusCode(), $statusCode),
+                'Excepted HTTP Status: ' . implode(',', $statusCode) . ' and Received: ' . $response->getStatusCode());
         } else {
-            $this->assertEquals($statusCode, $response->getStatusCode(), $response->getContent());
+            $this->assertEquals($statusCode, $response->getStatusCode(),
+                'Excepted HTTP Status: ' . $statusCode . ' and Received: ' . $response->getStatusCode());
         }
 
         $this->assertTrue(

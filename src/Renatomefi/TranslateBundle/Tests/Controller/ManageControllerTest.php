@@ -60,7 +60,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
 
         $response = $client->getResponse();
 
-        return (TRUE === $assertJson) ? $this->assertJsonResponse($response, 200, true) : $response;
+        return (TRUE === $assertJson) ? $this->assertJsonResponse($response, Response::HTTP_OK, true) : $response;
     }
 
     /**
@@ -99,7 +99,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
 
         $response = $client->getResponse();
 
-        return (TRUE === $assertJson) ? $this->assertJsonResponse($response, 200, true) : $response;
+        return (TRUE === $assertJson) ? $this->assertJsonResponse($response, Response::HTTP_OK, true) : $response;
     }
 
     /**
@@ -188,7 +188,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     {
         $response = $this->queryLangTranslationManage('POST', true, false, false, 'ROLE_ADMIN');
 
-        $translation = $this->assertJsonResponse($response, 409, true);
+        $translation = $this->assertJsonResponse($response, Response::HTTP_CONFLICT, true);
 
         $this->assertMongoDuplicateEntry($translation, self::TRANSLATION_KEY);
     }
@@ -294,7 +294,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     {
         $response = $this->queryLangManage('POST', false, 'ROLE_ADMIN');
 
-        $duplicate = $this->assertJsonResponse($response, 409, true);
+        $duplicate = $this->assertJsonResponse($response, Response::HTTP_CONFLICT, true);
 
         $this->assertMongoDuplicateEntry($duplicate, self::LANG);
     }
@@ -314,7 +314,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
 
         $response = $client->getResponse();
 
-        $langs = $this->assertJsonResponse($response, 200, true, true);
+        $langs = $this->assertJsonResponse($response, Response::HTTP_OK, true, true);
 
         $this->assertTrue((count($langs) >= 1));
 
@@ -340,7 +340,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
 
         $response = $client->getResponse();
 
-        $langs = $this->assertJsonResponse($response, 200, true);
+        $langs = $this->assertJsonResponse($response, Response::HTTP_OK, true);
 
         $foundLang = false;
         foreach ($langs as $lang) {
@@ -372,7 +372,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     {
         $response = $this->queryLangManage('GET', false);
 
-        $langGet = $this->assertJsonResponse($response, 404, true);
+        $langGet = $this->assertJsonResponse($response, Response::HTTP_NOT_FOUND, true);
 
         $this->assertObjectHasAttribute('message', $langGet);
         $this->assertObjectHasAttribute('code', $langGet);
