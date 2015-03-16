@@ -2,6 +2,8 @@ sammui
 ===============
 
 [![Build Status](https://travis-ci.org/renatomefidf/sammui.svg?branch=master)](https://travis-ci.org/renatomefidf/sammui)
+[![Code Climate](https://codeclimate.com/github/renatomefidf/sammui/badges/gpa.svg)](https://codeclimate.com/github/renatomefidf/sammui)
+[![Test Coverage](https://codeclimate.com/github/renatomefidf/sammui/badges/coverage.svg)](https://codeclimate.com/github/renatomefidf/sammui)
 [![Latest Stable Version](https://poser.pugx.org/renatomefidf/sammui/v/stable.svg)](https://packagist.org/packages/renatomefidf/sammui)
 [![Total Downloads](https://poser.pugx.org/renatomefidf/sammui/downloads.svg)](https://packagist.org/packages/renatomefidf/sammui)
 [![Latest Unstable Version](https://poser.pugx.org/renatomefidf/sammui/v/unstable.svg)](https://packagist.org/packages/renatomefidf/sammui)

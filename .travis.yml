@@ -19,7 +19,11 @@ before_script:
   - php app/console --env=test doctrine:mongodb:schema:create --index
   - php app/console --env=test doctrine:mongodb:fixtures:load --append
 
-script: phpunit --repeat=3 -c app --coverage-text
+script: phpunit --repeat=3 -c app --coverage-text --coverage-clover build/logs/clover.xml
+
+after_script:
+  - CODECLIMATE_REPO_TOKEN="7c5ee913b1deff0f89031388f37bac8d6c61077536e2367a1ed5345e37fd96fa" bin/test-reporter --stdout > codeclimate.json
+  - "curl -X POST -d @codeclimate.json -H 'Content-Type: application/json' -H 'User-Agent: Code Climate (PHP Test Reporter v0.1.1)' https://codeclimate.com/test_reports"
 
 #matrix:
 #  allow_failures:

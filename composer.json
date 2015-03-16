@@ -36,7 +36,8 @@
   "require-dev": {
     "doctrine/doctrine-fixtures-bundle": "2.2.*",
     "phpunit/phpunit": "4.5.*",
-    "sensio/generator-bundle": "~2.3"
+    "sensio/generator-bundle": "~2.3",
+    "codeclimate/php-test-reporter": "dev-master"
   },
   "scripts": {
     "post-install-cmd": [
