@@ -8,7 +8,7 @@ class DefaultControllerTest extends WebTestCase
 {
     public function testHello()
     {
-        $this->markTestSkipped('Legacy, I\'ll look at it later');
+        $this->markTestIncomplete('Legacy, I\'ll look at it later');
 
         $_GET['debug'] = 1;
 
