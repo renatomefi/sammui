@@ -6,6 +6,7 @@ use OAuth2\OAuth2;
 use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
 use Renatomefi\ApiBundle\Document\Client;
 use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
+use Symfony\Component\Security\Core\Authorization\Voter\AuthenticatedVoter;
 use Symfony\Component\Security\Core\Exception\AuthenticationCredentialsNotFoundException;
 
 /**
@@ -88,4 +89,18 @@ trait OAuthClient
         ]);
     }
 
+    public function getCredentialsByRole($role)
+    {
+        switch ($role) {
+            case 'ROLE_ADMIN':
+                return $this->getAdminCredentials();
+                break;
+            case 'ROLE_USER':
+                throw new \Exception('ROLE_USER not implemented yet');
+                break;
+            default:
+                return $this->getAnonymousCredentials();
+                break;
+        }
+    }
 }

@@ -31,4 +31,10 @@ interface OAuthClientInterface
      * @return mixed
      */
     public function getAdminCredentials();
+
+    /**
+     * @param $role ROLE
+     * @return mixed
+     */
+    public function getCredentialsByRole($role);
 }
