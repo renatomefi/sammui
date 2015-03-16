@@ -51,6 +51,7 @@ security:
         l10n:
             pattern: ^/l10n
             fos_oauth: true
+            security: true
 
         api:
             pattern:    ^/api
@@ -69,8 +70,8 @@ security:
     access_control:
         - { path: ^/api/user/manage/, roles: ROLE_ADMIN }
         - { path: ^/l10n/admin, roles: ROLE_ADMIN }
-        - { path: ^/l10n/manage/langs, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/l10n, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/l10n/manage/langs, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET]}
+        - { path: ^/l10n/manage/langs, roles: ROLE_ADMIN, methods: [POST, PUT, DELETE]}
         - { path: ^/api/user/info, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/logout$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
