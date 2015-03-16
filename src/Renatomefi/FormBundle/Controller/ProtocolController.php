@@ -31,7 +31,7 @@ class ProtocolController extends FOSRestController
             $exception = 'Form not found: ' . $id;
         }
 
-        if (TRUE == $notFoundException && !$form) {
+        if (TRUE === $notFoundException && !$form) {
             throw $this->createNotFoundException($exception);
         }
 

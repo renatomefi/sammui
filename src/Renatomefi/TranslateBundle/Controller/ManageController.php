@@ -139,7 +139,7 @@ class ManageController extends FOSRestController
             ->getQuery()
             ->execute();
 
-        if ($result['updatedExisting'] == false) {
+        if (FALSE === $result['updatedExisting']) {
             throw $this->createNotFoundException("No key \"$key\" found for lang \"$lang\"");
         }
 
