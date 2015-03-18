@@ -14,7 +14,7 @@ trait AssertOAuth
     /**
      * @inheritdoc
      */
-    public function assertOAuthRequired(Response $responseObj)
+    protected function assertOAuthRequired(Response $responseObj)
     {
         $response = json_decode($responseObj->getContent());
 

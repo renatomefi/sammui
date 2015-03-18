@@ -10,7 +10,7 @@ trait AssertClientCredentials
     /**
      * @inheritdoc
      */
-    public function assertClientCredentialsObjStructure($clientCredentials)
+    protected function assertClientCredentialsObjStructure($clientCredentials)
     {
         $this->assertObjectHasAttribute('access_token', $clientCredentials);
         $this->assertObjectHasAttribute('expires_in', $clientCredentials);
@@ -21,7 +21,7 @@ trait AssertClientCredentials
     /**
      * @inheritdoc
      */
-    public function assertClientCredentialsToken($clientCredentials, $tokenName = 'access_token')
+    protected function assertClientCredentialsToken($clientCredentials, $tokenName = 'access_token')
     {
         $this->assertObjectHasAttribute($tokenName, $clientCredentials);
         $this->assertNotEmpty($clientCredentials->{$tokenName}, $clientCredentials->{$tokenName});

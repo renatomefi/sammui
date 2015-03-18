@@ -12,7 +12,7 @@ trait AssertProtocol
     /**
      * @inheritdoc
      */
-    public function assertFormProtocolStructure($form)
+    protected function assertFormProtocolStructure($form)
     {
         $this->assertObjectHasAttribute('id', $form);
         $this->assertObjectHasAttribute('created_at', $form);

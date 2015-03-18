@@ -105,7 +105,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     /**
      * @return array
      */
-    public function getLangHTTPMethods()
+    protected function getLangHTTPMethods()
     {
         return [
             [Request::METHOD_POST, Response::HTTP_UNAUTHORIZED],
@@ -119,7 +119,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     /**
      * @return array
      */
-    public function getLangTranslationHTTPMethods()
+    protected function getLangTranslationHTTPMethods()
     {
         return [
             [Request::METHOD_POST, Response::HTTP_UNAUTHORIZED],
@@ -213,10 +213,10 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     {
         $translations = $this->queryLangTranslationManage('GET', false, true, false);
 
-        $ts = json_decode($translations->getContent());
+        $translationsArray = json_decode($translations->getContent());
 
         $foundTranslation = false;
-        foreach ($ts as $t) {
+        foreach ($translationsArray as $t) {
             if ($t->key == static::TRANSLATION_KEY) $foundTranslation = $t;
         }
         $this->assertNotEmpty($foundTranslation, 'Didn\'t find the translation on list');

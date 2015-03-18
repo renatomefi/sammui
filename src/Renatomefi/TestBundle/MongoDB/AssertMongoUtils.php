@@ -14,7 +14,7 @@ trait AssertMongoUtils
     /**
      * @inheritdoc
      */
-    public function assertMongoDateFormat($dateObj)
+    protected function assertMongoDateFormat($dateObj)
     {
         if (is_array($dateObj)) $dateObj = (object)$dateObj;
 
@@ -29,7 +29,7 @@ trait AssertMongoUtils
     /**
      * @inheritdoc
      */
-    public function assertMongoDuplicateEntry(\StdClass $response, $duplicateKey = null)
+    protected function assertMongoDuplicateEntry(\StdClass $response, $duplicateKey = null)
     {
         $this->assertObjectHasAttribute('code', $response);
         $this->assertEquals(409, $response->code);
@@ -44,7 +44,7 @@ trait AssertMongoUtils
     /**
      * @inheritdoc
      */
-    public function assertMongoDeleteFormat($deleteResponse, $assertDeleteQty = true)
+    protected function assertMongoDeleteFormat($deleteResponse, $assertDeleteQty = true)
     {
         if (is_array($deleteResponse)) $deleteResponse = (object)$deleteResponse;
 

@@ -1,6 +1,6 @@
 {
   "name": "renatomefidf/sammui",
-  "description": "The Symfony AngularJS MongoDB Mobile UI Project - sammui, Based on FlyersWeb/angular-symfony",
+  "description": "The Symfony AngularJS MongoDB Mobile UI Project - sammui",
   "license": "MIT",
   "type": "project",
   "autoload": {
@@ -36,6 +36,7 @@
   "require-dev": {
     "doctrine/doctrine-fixtures-bundle": "2.2.*",
     "phpunit/phpunit": "4.5.*",
+    "ext-xdebug": "*",
     "sensio/generator-bundle": "~2.3",
     "codeclimate/php-test-reporter": "dev-master"
   },

@@ -14,7 +14,7 @@ trait AssertRestUtils
     /**
      * @inheritdoc
      */
-    public function assertJsonResponse($response, $statusCode = Response::HTTP_OK, $convert = false, $isArray = false)
+    protected function assertJsonResponse($response, $statusCode = Response::HTTP_OK, $convert = false, $isArray = false)
     {
 
         if (is_array($statusCode)) {
