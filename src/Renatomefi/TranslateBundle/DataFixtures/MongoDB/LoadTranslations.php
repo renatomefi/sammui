@@ -18,29 +18,24 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
     /**
      * @var array Translations to apply into languages
      */
-    protected $_translations = [
-        'en-us' => [
-            'index-title-sidebar-left' => 'Menu',
-            'index-title-sidebar-right' => 'Admin',
-            'sidebar-menu-languages' => 'Choose a Lang',
-            'sidebar-menu-form' => 'Fill a Form',
-            'login-index' => 'Login',
-            'login-form-legend' => 'Enter a valid Symfony 2 User',
-            'login-form-username' => 'Username',
-            'login-form-password' => 'Password',
-            'login-logout-force' => 'Having trouble? Force your logout and clean your session'
-        ],
-        'pt-br' => [
-            'index-title-sidebar-left' => 'Menu',
-            'index-title-sidebar-right' => 'Admin',
-            'sidebar-menu-languages' => 'Escolha uma Língua',
-            'sidebar-menu-form' => 'Formulários',
-            'login-index' => 'Login',
-            'login-form-legend' => 'Utilize um usuário válido do Symfony 2',
-            'login-form-username' => 'Username',
-            'login-form-password' => 'Password',
-            'login-logout-force' => 'Problemas? Limpe sua sessão e acessos'
-        ]
+    protected $_newTranslations = [
+        'index-title-sidebar-left' => 'Menu',
+        'index-title-sidebar-right' => 'Admin',
+        'sidebar-menu-languages' => [
+            'en-us' => 'Choose a Lang',
+            'pt-br' => 'Escolha uma Língua'],
+        'sidebar-menu-form' => [
+            'en-us' => 'Fill a Form',
+            'pt-br' => 'Formulários'],
+        'login-index' => 'Login',
+        'login-form-legend' => [
+            'en-us' => 'Enter a valid Symfony 2 User',
+            'pt-br' => 'Utilize um usuário válido do Symfony 2'],
+        'login-form-username' => 'Username',
+        'login-form-password' => 'Password',
+        'login-logout-force' => [
+            'en-us' => 'Having trouble? Force your logout and clean your session',
+            'pt-br' => 'Problemas? Limpe sua sessão e acessos']
     ];
 
     /**
@@ -51,13 +46,13 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
      */
     protected function createTranslateObj($key, $value, $reference)
     {
-        $t = new Translation();
+        $translation = new Translation();
 
-        $t->setLanguage($reference);
-        $t->setKey($key);
-        $t->setValue($value);
+        $translation->setLanguage($reference);
+        $translation->setKey($key);
+        $translation->setValue($value);
 
-        return $t;
+        return $translation;
     }
 
     /**
@@ -65,10 +60,15 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
      */
     public function load(ObjectManager $manager)
     {
-        foreach ($this->_translations as $lang => $t) {
-            foreach ($t as $k => $v) {
+
+        foreach ($this->_newTranslations as $k => $v) {
+            foreach (LoadLangs::$default_langs as $lang) {
                 $manager->persist(
-                    $this->createTranslateObj($k, $v, $this->getReference(LoadLangs::$reference_prefix . $lang))
+                    $this->createTranslateObj(
+                        $k,
+                        (is_array($v) ? $v[$lang] : $v),
+                        $this->getReference(LoadLangs::$reference_prefix . $lang)
+                    )
                 );
             }
         }

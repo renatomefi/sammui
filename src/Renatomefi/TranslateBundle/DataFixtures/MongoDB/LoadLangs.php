@@ -21,24 +21,24 @@ class LoadLangs extends AbstractFixture implements OrderedFixtureInterface
     public static $reference_prefix = 'langs-';
 
     /**
+     * @var array
+     */
+    public static $default_langs = ['en-us', 'pt-br'];
+
+    /**
      * {@inheritDoc}
      */
     public function load(ObjectManager $manager)
     {
-        // pt-br
-        $langPt = new Language();
-        $langPt->setKey('pt-br');
-        $langPt->setLastUpdate(new \MongoDate());
-        $this->addReference(static::$reference_prefix . 'pt-br', $langPt);
 
-        // en-us
-        $langEn = new Language();
-        $langEn->setKey('en-us');
-        $langEn->setLastUpdate(new \MongoDate());
-        $this->addReference(static::$reference_prefix . 'en-us', $langEn);
+        foreach (static::$default_langs as $lang) {
+            $language = new Language();
+            $language->setKey($lang);
+            $language->setLastUpdate(new \MongoDate());
+            $manager->persist($language);
+            $this->addReference(static::$reference_prefix . $lang, $language);
+        }
 
-        $manager->persist($langPt);
-        $manager->persist($langEn);
         $manager->flush();
     }
 
