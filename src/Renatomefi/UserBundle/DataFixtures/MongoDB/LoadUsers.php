@@ -42,9 +42,9 @@ class LoadUsers implements FixtureInterface, ContainerAwareInterface
      */
     public function load(ObjectManager $manager)
     {
-        $um = $this->container->get('fos_user.user_manager');
+        $userManager = $this->container->get('fos_user.user_manager');
 
-        $user = $um->createUser();
+        $user = $userManager->createUser();
 
         $user->setUsername(static::USER_USERNAME);
         $user->setPlainPassword(static::USER_PASSWORD);
@@ -53,7 +53,7 @@ class LoadUsers implements FixtureInterface, ContainerAwareInterface
         $user->setSuperAdmin(false);
         $user->addRole('ROLE_ADMIN');
 
-        $um->updateUser($user);
+        $userManager->updateUser($user);
     }
 
     /**

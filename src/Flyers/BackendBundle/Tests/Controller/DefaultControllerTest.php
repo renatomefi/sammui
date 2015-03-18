@@ -10,8 +10,6 @@ class DefaultControllerTest extends WebTestCase
     {
         $this->markTestIncomplete('Legacy, I\'ll look at it later');
 
-        $_GET['debug'] = 1;
-
         $client = static::createClient();
 
         $crawler = $client->request('GET', '/api/hello');

@@ -105,7 +105,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     /**
      * @return array
      */
-    protected function getLangHTTPMethods()
+    public function getLangHTTPMethods()
     {
         return [
             [Request::METHOD_POST, Response::HTTP_UNAUTHORIZED],
@@ -119,7 +119,7 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
     /**
      * @return array
      */
-    protected function getLangTranslationHTTPMethods()
+    public function getLangTranslationHTTPMethods()
     {
         return [
             [Request::METHOD_POST, Response::HTTP_UNAUTHORIZED],
