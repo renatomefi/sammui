@@ -94,25 +94,25 @@ class ManageController extends FOSRestController
     {
         $language = $this->getLang($lang, true);
 
-        $dm = $this->get('doctrine_mongodb')->getManager();
+        $documentManager = $this->get('doctrine_mongodb')->getManager();
 
         $translation = new Translation();
         $translation->setLanguage($language);
         $translation->setKey($key);
         $translation->setValue($request->get('value'));
 
-        $dm->persist($translation);
+        $documentManager->persist($translation);
 
         try {
-            $dm->flush();
+            $documentManager->flush();
         } catch (\Exception $e) {
             if ($e instanceof \MongoCursorException)
                 throw new ConflictHttpException('Duplicate entry for lang: ' . $lang . ' with key: ' . $key, $e);
         }
 
         $language->setLastUpdate(new \MongoDate());
-        $dm->getRepository('TranslateBundle:Language');
-        $dm->flush($language);
+        $documentManager->getRepository('TranslateBundle:Language');
+        $documentManager->flush($language);
 
         $view = $this->view($translation);
 
@@ -244,8 +244,7 @@ class ManageController extends FOSRestController
     {
         $lang = $this->getLang($lang, true);
 
-        $dm = $this->get('doctrine_mongodb');
-        $langRepo = $dm->getRepository('TranslateBundle:Language');
+        $langRepo = $this->get('doctrine_mongodb')->getRepository('TranslateBundle:Language');
 
         $delete = $langRepo->createQueryBuilder()
             ->remove()

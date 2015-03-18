@@ -11,6 +11,8 @@ use Renatomefi\TestBundle\MongoDB\AssertMongoUtilsInterface;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
 use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class ManageControllerTest
@@ -44,7 +46,7 @@ class ManageControllerTest extends WebTestCase implements OAuthClientInterface, 
      * @param array $params
      * @return mixed|null|\Symfony\Component\HttpFoundation\Response
      */
-    protected function queryFormManage($method = 'GET', $assertJson = true, $params = array())
+    protected function queryFormManage($method = Request::METHOD_GET, $assertJson = true, $params = [])
     {
         $client = static::createClient();
 
@@ -60,7 +62,26 @@ class ManageControllerTest extends WebTestCase implements OAuthClientInterface, 
 
         $response = $client->getResponse();
 
-        return (TRUE === $assertJson) ? $this->assertJsonResponse($response, 200, true) : $response;
+        return (TRUE === $assertJson) ? $this->assertJsonResponse($response, Response::HTTP_OK, true) : $response;
+    }
+
+    /**
+     * @param null $urlSuffix
+     * @param array $params
+     * @param int $httpCode
+     * @return mixed
+     */
+    protected function queryFormManageGet($urlSuffix = null, $params = [], $httpCode = Response::HTTP_OK)
+    {
+        $client = static::createClient();
+
+        $urlSuffix = ($urlSuffix !== null) ? '/' . $urlSuffix : '';
+
+        $client->request(Request::METHOD_GET, '/form/manage' . $urlSuffix, $params, [], [
+            'HTTP_ACCEPT' => 'application/json'
+        ]);
+
+        return $this->assertJsonResponse($client->getResponse(), $httpCode, true);
     }
 
     /**
@@ -68,7 +89,7 @@ class ManageControllerTest extends WebTestCase implements OAuthClientInterface, 
      */
     public function testFormNew()
     {
-        $form = $this->queryFormManage('POST', true, [
+        $form = $this->queryFormManage(Request::METHOD_POST, true, [
             'name' => 'Form Test PHPUnit: ' . time()
         ]);
 
@@ -86,25 +107,9 @@ class ManageControllerTest extends WebTestCase implements OAuthClientInterface, 
      *
      * @param $form
      */
-    public function testFormDuplicate($form)
-    {
-        $this->markTestIncomplete('There is no constraint in form names');
-    }
-
-    /**
-     * @depends testFormNew
-     *
-     * @param $form
-     */
     public function testFormGet($form)
     {
-        $client = static::createClient();
-
-        $client->request('GET', '/form/manage/' . $form->id, [], [], [
-            'HTTP_ACCEPT' => 'application/json'
-        ]);
-
-        $formGet = $this->assertJsonResponse($client->getResponse(), 200, true);
+        $formGet = $this->queryFormManageGet($form->id);
 
         $this->assertFormStructure($formGet);
         $this->assertEquals($form->name, $formGet->name);
@@ -143,7 +148,33 @@ class ManageControllerTest extends WebTestCase implements OAuthClientInterface, 
      */
     public function testFormDelete($form)
     {
-        $this->markTestIncomplete('There is not delete in forms API');
+        $kernel = static::createKernel();
+        $kernel->boot();
+
+        $formRepo = $kernel->getContainer()->get('doctrine_mongodb')->getRepository('FormBundle:Form');
+
+        $delete = $formRepo->createQueryBuilder()
+            ->remove()
+            ->field('id')->equals($form->id)
+            ->getQuery()
+            ->execute();
+
+        $this->assertMongoDeleteFormat($delete);
+    }
+
+    /**
+     * @depends testFormNew
+     * @depends testFormDelete
+     *
+     * @param $form
+     */
+    public function testFormNotFound($form)
+    {
+        $notFound = $this->queryFormManageGet($form->id, [], Response::HTTP_NOT_FOUND);
+
+        $baseFormat = 'No form found with id: "%s"';
+        $this->assertStringMatchesFormat($baseFormat, $notFound->message);
+        $this->assertSame(sprintf($baseFormat, $form->id), $notFound->message);
     }
 
 }
