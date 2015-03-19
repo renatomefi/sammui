@@ -1,3 +1,7 @@
+<div ui-content-for="title">
+    {{ 'form-start-title' | translate }}
+</div>
+
 <div class="scrollable">
     <div class="scrollable-content">
         <div class="list-group">
@@ -8,20 +12,21 @@
             </div>
             <div class="list-group-item list-group-item-home media">
                 <div class="media-body">
+                    <div class="alert alert-info" ng-show="!forms.data && !forms.loading">
+                        {{ 'form-no-forms' | translate }}
+                    </div>
                     <div class="input-group merged">
                         <div class="input-group-addon">
                             <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
                         </div>
-
                         <select class="form-control"
                                 ng-model="forms.current"
-                                ng-disabled="forms.loading"
+                                ng-disabled="forms.loading || !forms.data"
                                 ng-options="f.id as f.name for f in forms.data">
                             <option value="" ng-if="!forms.current">
                                 {{ 'form-select-default' | translate }}
                             </option>
                         </select>
-
                         <div class="input-group-btn">
                             <button class="btn btn-success"
                                     ng-click="startForm(forms.current)"

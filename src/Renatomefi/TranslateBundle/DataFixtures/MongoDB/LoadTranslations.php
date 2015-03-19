@@ -19,14 +19,17 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
      * @var array Translations to apply into languages
      */
     protected $_newTranslations = [
+        // Title
         'index-title-sidebar-left' => 'Menu',
         'index-title-sidebar-right' => 'Admin',
+        // Sidebar Left
         'sidebar-menu-languages' => [
             'en-us' => 'Choose a Lang',
             'pt-br' => 'Escolha uma Língua'],
         'sidebar-menu-form' => [
             'en-us' => 'Fill a Form',
             'pt-br' => 'Formulários'],
+        // Page: Login
         'login-index' => 'Login',
         'login-form-legend' => [
             'en-us' => 'Enter a valid Symfony 2 User',
@@ -35,7 +38,21 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'login-form-password' => 'Password',
         'login-logout-force' => [
             'en-us' => 'Having trouble? Force your logout and clean your session',
-            'pt-br' => 'Problemas? Limpe sua sessão e acessos']
+            'pt-br' => 'Problemas? Limpe sua sessão e acessos'],
+        // Page: Forms
+        'form-start-title' => [
+            'en-us' => 'Forms',
+            'pt-br' => 'Formulários'
+        ],
+        'form-start-choose' => [
+            'en-us' => 'Form filling',
+            'pt-br' => 'Preenchimento de formulários'],
+        'form-select-default' => [
+            'en-us' => 'Choose a form',
+            'pt-br' => 'Escolha um formulário'],
+        'form-no-forms' => [
+            'en-us' => 'No forms found',
+            'pt-br' => 'Nenhum formulário disponível']
     ];
 
     /**

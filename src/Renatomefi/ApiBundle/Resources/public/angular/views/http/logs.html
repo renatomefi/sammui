@@ -44,13 +44,13 @@
                      ng-click="opened = (opened) ? false : true"
                      ng-class="{'dropup': opened}">
                     <span class="caret"></span>
-                    <span>{{ list.config.loadingStart | date:'H:mm:ss sss' }}</span>
+                    <span>{{ ::list.config.loadingStart | date:'H:mm:ss sss' }}</span>
                     <span class="label label-info">{{ ms = (list.config.loadingEnd - list.config.loadingStart) }}ms</span>
                     <span ng-class="{'text-success': list.config.success, 'text-danger': !list.config.success}"
                           ng-bind-html="list.config.url | highlight:searchInfo">
-                        {{list.config.url}}
+                        {{ ::list.config.url}}
                     </span>
-                    <pre ng-if="opened">{{ list | json}}</pre>
+                    <pre ng-if="opened">{{ ::list | json}}</pre>
                 </div>
             </div>
         </div>
