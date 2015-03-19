@@ -16,6 +16,7 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
 {
 
     /**
+     * If you want a new Lang, look into LoadLangs references, or else it will crash!
      * @var array Translations to apply into languages
      */
     protected $_newTranslations = [
@@ -42,8 +43,7 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         // Page: Forms
         'form-start-title' => [
             'en-us' => 'Forms',
-            'pt-br' => 'Formulários'
-        ],
+            'pt-br' => 'Formulários'],
         'form-start-choose' => [
             'en-us' => 'Form filling',
             'pt-br' => 'Preenchimento de formulários'],

@@ -5,10 +5,8 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
     .factory('oAuthHttpInjector', ['oAuthSession', function (oAuthSession) {
         var sessionInjector = {
             request: function (config) {
-                if (oAuthSession.access_token) {
-                    config.params = {
-                        access_token: oAuthSession.access_token
-                    };
+                if (oAuthSession.access_token && !config.headers.Authorization) {
+                    config.headers.Authorization = 'Bearer ' + oAuthSession.access_token;
                 }
                 return config;
             }
@@ -56,7 +54,6 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
     .factory('oAuth', ['$http', '$rootScope', '$cookieStore', '$document', 'authService', 'oAuthSession', function ($http, $rootScope, $cookieStore, $document, authService, oAuthSession) {
 
         // Sammui client ID and Secret, you should get one with the client:create command at symfony
-        // To-do: Where should I store credentials?
         var oAuthClientId;
         var oAuthClientSecret;
 
@@ -96,11 +93,13 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
             var userInfo = null;
             createSession = createSession || false;
 
+            var getInfoHeaders = {};
+
+            if (accessToken) getInfoHeaders.Authorization = 'Bearer ' + accessToken;
+
             $http.get('/api/user/info',
                 {
-                    params: {
-                        access_token: accessToken
-                    }
+                    headers: getInfoHeaders
                 })
                 .success(function (data) {
                     userInfo = data;
@@ -148,7 +147,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                     oAuth.getInfo(data.access_token, true);
 
                     authService.loginConfirmed('success', function (config) {
-                        config.params = {access_token: data.access_token};
+                        config.headers.Authorization = 'Bearer ' + data.access_token;
                         return config;
                     });
                 })
@@ -170,7 +169,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                     oAuth.getInfo(data.access_token, true);
 
                     authService.loginConfirmed('success', function (config) {
-                        config.params = {access_token: data.access_token};
+                        config.headers.Authorization = 'Bearer ' + data.access_token;
                         return config;
                     });
                 })
