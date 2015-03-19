@@ -4,4 +4,6 @@ services:
         arguments: [@fos_oauth_server.client_manager.default]
         tags:
             - { name: twig.extension }
-#        arguments: [@service_id, "plain_value", %parameter%]
+    api.oauth_logout_success:
+        class: Renatomefi\ApiBundle\OAuth\LogoutSuccess
+        arguments: [@fos_oauth_server.access_token_manager, @fos_oauth_server.refresh_token_manager, @security.http_utils]

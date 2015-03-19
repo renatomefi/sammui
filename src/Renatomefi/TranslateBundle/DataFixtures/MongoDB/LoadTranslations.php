@@ -38,7 +38,7 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'login-form-username' => 'Username',
         'login-form-password' => 'Password',
         'login-logout-force' => [
-            'en-us' => 'Having trouble? Force your logout and clean your session',
+            'en-us' => 'Having trouble? Force your logout and clear your session',
             'pt-br' => 'Problemas? Limpe sua sessão e acessos'],
         // Page: Forms
         'form-start-title' => [

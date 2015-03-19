@@ -28,16 +28,14 @@ security:
             switch_user:    false
             fos_oauth:      true
             anonymous:      true
-#            form_login:
-#                provider:   fos_userbundle
-#                csrf_provider: form.csrf_provider
-#                login_path: /login
             logout:
                 path:   /logout
                 target: /api/user/logout
                 invalidate_session: true
-#                handlers: [some.service.id, another.service.id]
-#                success_handler: some.service.id
+                delete_cookies:
+                  access_token: ~
+                  refresh_token: ~
+                success_handler: api.oauth_logout_success
             anonymous:      false
 
         oauth_token:
@@ -52,6 +50,11 @@ security:
             pattern: ^/l10n
             fos_oauth: true
             security: true
+
+        api:
+            pattern:    ^/api/user/logout
+            fos_oauth: false
+            anonymous:  true
 
         api:
             pattern:    ^/api
@@ -73,9 +76,9 @@ security:
         - { path: ^/l10n/manage/langs, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET]}
         - { path: ^/l10n/manage/langs, roles: ROLE_ADMIN, methods: [POST, PUT, DELETE]}
         - { path: ^/api/user/info, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/logout$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/profile, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }

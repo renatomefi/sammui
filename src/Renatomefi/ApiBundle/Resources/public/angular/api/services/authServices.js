@@ -14,10 +14,17 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
         return sessionInjector;
     }])
 
-    .service('oAuthSession', ['$rootScope', function ($rootScope) {
+    .service('oAuthSession', ['$rootScope', '$cookies', '$cookies', function ($rootScope, $cookies) {
 
         this.create = function (userInfo) {
-            this.access_token = userInfo.access_token;
+            if (userInfo.access_token) {
+                $cookies.access_token = userInfo.access_token;
+            }
+            if (userInfo.refresh_token) {
+                $cookies.refresh_token = userInfo.refresh_token;
+            }
+            this.access_token = $cookies.access_token;
+            this.refresh_token = $cookies.refresh_token;
             this.authenticated = userInfo.authenticated;
             this.authenticated_fully = userInfo.authenticated_fully;
             this.authenticated_anonymously = userInfo.authenticated_anonymously;
@@ -33,7 +40,10 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
         };
 
         this.destroy = function () {
+            delete $cookies.access_token;
+            delete $cookies.refresh_token;
             this.access_token = null;
+            this.refresh_token = null;
             this.authenticated = null;
             this.authenticated_fully = null;
             this.authenticated_anonymously = null;
@@ -58,8 +68,12 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
         var oAuthClientSecret;
 
         angular.forEach($document.find('meta'), function (meta) {
-            if (meta.name == 'sammui-oauth2-client-id') oAuthClientId = meta.content;
-            if (meta.name == 'sammui-oauth2-client-secret') oAuthClientSecret = meta.content;
+            if (meta.name === 'sammui-oauth2-client-id') {
+                oAuthClientId = meta.content;
+            }
+            if (meta.name === 'sammui-oauth2-client-secret') {
+                oAuthClientSecret = meta.content;
+            }
         });
 
         var oAuth = {};
@@ -85,17 +99,19 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
         };
 
         /**
-         * @param {accessToken}
-         * @param {createSession} Want to already register it at oAuthSession?
+         * @param oAuthResponse
+         * @param createSession Want to already register it at oAuthSession?
          * @returns {*}
          */
-        oAuth.getInfo = function (accessToken, createSession) {
+        oAuth.getInfo = function (oAuthResponse, createSession) {
             var userInfo = null;
             createSession = createSession || false;
 
             var getInfoHeaders = {};
 
-            if (accessToken) getInfoHeaders.Authorization = 'Bearer ' + accessToken;
+            if (oAuthResponse && oAuthResponse.access_token) {
+                getInfoHeaders.Authorization = 'Bearer ' + oAuthResponse.access_token;
+            }
 
             $http.get('/api/user/info',
                 {
@@ -103,9 +119,13 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                 })
                 .success(function (data) {
                     userInfo = data;
-                    userInfo.access_token = accessToken;
+                    userInfo.access_token = (oAuthResponse) ? oAuthResponse.access_token : null;
+                    userInfo.refresh_token = (oAuthResponse) ? oAuthResponse.refresh_token : null;
+                    userInfo.user = data.user || null;
 
-                    if (true === createSession) oAuthSession.create(userInfo);
+                    if (true === createSession) {
+                        oAuthSession.create(userInfo);
+                    }
                 });
 
             return userInfo;
@@ -114,18 +134,18 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
         oAuth.logout = function (force) {
 
             var forceLogout = function () {
-                $cookieStore.remove('PHPSESSID');
+                $cookieStore.remove('SMSESSID');
                 oAuthSession.destroy();
                 $rootScope.$broadcast('event:auth-logoutForced');
             };
 
             $http.get('/logout').success(function (data) {
-                if (!data.authenticated_fully) {
-                    $rootScope.$broadcast('event:auth-logoutSuccess');
-                    oAuthSession.destroy();
-                } else {
-                    $rootScope.$broadcast('event:auth-logoutError');
-                }
+                //if (!data.user) {
+                oAuthSession.destroy();
+                $rootScope.$broadcast('event:auth-logoutSuccess');
+                //} else {
+                //    $rootScope.$broadcast('event:auth-logoutError');
+                //}
             }).error(function () {
                 $rootScope.$broadcast('event:auth-logoutReqError');
             }).finally(function () {
@@ -144,7 +164,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                     grant_type: 'client_credentials'
                 })
                 .success(function (data) {
-                    oAuth.getInfo(data.access_token, true);
+                    oAuth.getInfo(data, true);
 
                     authService.loginConfirmed('success', function (config) {
                         config.headers.Authorization = 'Bearer ' + data.access_token;
@@ -166,7 +186,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                     grant_type: 'password'
                 })
                 .success(function (data) {
-                    oAuth.getInfo(data.access_token, true);
+                    oAuth.getInfo(data, true);
 
                     authService.loginConfirmed('success', function (config) {
                         config.headers.Authorization = 'Bearer ' + data.access_token;

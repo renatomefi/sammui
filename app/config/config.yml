@@ -10,8 +10,9 @@ framework:
     router:
         resource:    "%kernel.root_dir%/config/routing.yml"
         strict_requirements: %kernel.debug%
-    form:            ~
-    csrf_protection: false
+    form:
+        csrf_protection:
+            enabled: false
     validation:      { enable_annotations: true }
     templating:
         engines:     ['twig']
@@ -53,25 +54,6 @@ sp_bower:
         TranslateBundle: ~
         ApiBundle: ~
 
-# Doctrine Configuration
-#doctrine:
-#    dbal:
-#        driver:   %database_driver%
-#        host:     %database_host%
-#        port:     %database_port%
-#        dbname:   %database_name%
-#        user:     %database_user%
-#        password: %database_password%
-#        charset:  UTF8
-#        # if using pdo_sqlite as your database driver, add the path in parameters.yml
-#        # e.g. database_path: %kernel.root_dir%/data/data.db3
-#        # path:     %database_path%
-#
-#    orm:
-#        auto_generate_proxy_classes: %kernel.debug%
-#        auto_mapping: true
-
-# Doctrine MongoDB Bundle Configuration
 doctrine_mongodb:
     connections:
         default:
@@ -83,10 +65,6 @@ doctrine_mongodb:
             auto_mapping: true
             mappings:
                 FOSUserBundle: ~
-#                AppBundle:
-#                    type: annotation
-#                    dir: %kernel.root_dir%/../src/AppBundle/Document
-#                    prefix: AppBundle\Document
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -137,10 +115,6 @@ services:
     tags:
       - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }
 
-# FOS User Bundle for ORM
-# In order to use ORM change the parameters.yml to
-# fos_user_db_driver: orm
-# fos_user_class: Flyers\BackendBundle\Entity\User
 fos_user:
     db_driver: %fos_user_db_driver%
     firewall_name: main
