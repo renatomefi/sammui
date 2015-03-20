@@ -27,7 +27,7 @@ var sammui = angular.module('sammui', [
     $routeProvider.when('/login', {
         templateUrl: '/bundles/frontend/angular/views/login.html',
         templatePreload: true,
-        controller: 'Login',
+        controller: 'oAuthLogin',
         reloadOnSearch: false
     });
 
