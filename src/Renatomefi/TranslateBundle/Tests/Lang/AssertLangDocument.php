@@ -1,6 +1,7 @@
 <?php
 
 namespace Renatomefi\TranslateBundle\Tests\Lang;
+
 use Renatomefi\TranslateBundle\Document\Language;
 use Renatomefi\TranslateBundle\Document\Translation;
 

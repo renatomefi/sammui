@@ -1,6 +1,7 @@
 <?php
 
 namespace Renatomefi\TranslateBundle\Tests\Lang;
+
 use Symfony\Component\HttpFoundation\Response;
 
 /**

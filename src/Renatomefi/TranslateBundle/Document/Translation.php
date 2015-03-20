@@ -49,7 +49,7 @@ class Translation
     /**
      * Set language
      *
-     * @param Renatomefi\TranslateBundle\Document\Language $language
+     * @param \Renatomefi\TranslateBundle\Document\Language $language
      * @return self
      */
     public function setLanguage(\Renatomefi\TranslateBundle\Document\Language $language)
@@ -61,7 +61,7 @@ class Translation
     /**
      * Get language
      *
-     * @return Renatomefi\TranslateBundle\Document\Language $language
+     * @return \Renatomefi\TranslateBundle\Document\Language $language
      */
     public function getLanguage()
     {

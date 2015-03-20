@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 /**
  * Class AssertFirewall
  * @package Renatomefi\TestBundle\Rest
+ * @codeCoverageIgnore
  */
 class AssertFirewall
 {

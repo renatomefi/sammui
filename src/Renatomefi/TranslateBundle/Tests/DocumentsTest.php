@@ -8,9 +8,14 @@ use Renatomefi\TestBundle\MongoDB\AssertMongoIdInterface;
 use Renatomefi\TranslateBundle\Document\Language;
 use Renatomefi\TranslateBundle\Document\Translation;
 use Renatomefi\TranslateBundle\Tests\Lang\AssertLangDocument;
+use Renatomefi\TranslateBundle\Tests\Lang\AssertLangDocumentInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
-class DocumentsTest extends KernelTestCase implements AssertMongoIdInterface
+/**
+ * Class DocumentsTest
+ * @package Renatomefi\TranslateBundle\Tests
+ */
+class DocumentsTest extends KernelTestCase implements AssertMongoIdInterface, AssertLangDocumentInterface
 {
 
     use AssertLangDocument, AssertMongoId;
@@ -35,6 +40,9 @@ class DocumentsTest extends KernelTestCase implements AssertMongoIdInterface
      */
     protected $documentManager;
 
+    /**
+     * @inheritdoc
+     */
     public function setUp()
     {
         $kernel = static::createKernel();
@@ -43,6 +51,9 @@ class DocumentsTest extends KernelTestCase implements AssertMongoIdInterface
         $this->documentManager = $kernel->getContainer()->get('doctrine_mongodb')->getManager();
     }
 
+    /**
+     * @return object
+     */
     public function testLang()
     {
         $language = new Language();
@@ -66,12 +77,10 @@ class DocumentsTest extends KernelTestCase implements AssertMongoIdInterface
         $this->assertLangTranslationDocumentData($translation);
         $this->assertLangTranslationDocumentData($language->getTranslations()->getIterator()[0]);
 
-        $return = [
+        return (object)[
             'language' => $language,
             'translation' => $translation
         ];
-
-        return (object)$return;
 
     }
 
