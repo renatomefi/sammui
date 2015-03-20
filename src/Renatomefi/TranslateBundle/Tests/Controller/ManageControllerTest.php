@@ -6,6 +6,7 @@ use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
 use Renatomefi\ApiBundle\Tests\Auth\OAuthClientInterface;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtils;
 use Renatomefi\TestBundle\MongoDB\AssertMongoUtilsInterface;
+use Renatomefi\TestBundle\Rest\AssertFirewall;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
 use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 use Renatomefi\TranslateBundle\Tests\AssertLang;
@@ -107,13 +108,9 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function getLangHTTPMethods()
     {
-        return [
-            [Request::METHOD_POST, Response::HTTP_UNAUTHORIZED],
-            [Request::METHOD_PUT, Response::HTTP_METHOD_NOT_ALLOWED],
-            [Request::METHOD_PATCH, Response::HTTP_METHOD_NOT_ALLOWED],
-            [Request::METHOD_DELETE, Response::HTTP_UNAUTHORIZED],
-            [Request::METHOD_GET, [Response::HTTP_NOT_FOUND, Response::HTTP_OK]]
-        ];
+        $assertFirewall = new AssertFirewall();
+
+        return $assertFirewall->getAsDataProvider();
     }
 
     /**
@@ -121,13 +118,11 @@ class ManageControllerTest extends WebTestCase implements AssertRestUtilsInterfa
      */
     public function getLangTranslationHTTPMethods()
     {
-        return [
-            [Request::METHOD_POST, Response::HTTP_UNAUTHORIZED],
-            [Request::METHOD_PUT, Response::HTTP_UNAUTHORIZED],
-            [Request::METHOD_PATCH, Response::HTTP_METHOD_NOT_ALLOWED],
-            [Request::METHOD_DELETE, Response::HTTP_UNAUTHORIZED],
-            [Request::METHOD_GET, [Response::HTTP_NOT_FOUND, Response::HTTP_OK]]
-        ];
+        $assertFirewall = new AssertFirewall(
+            [Request::METHOD_PUT => Response::HTTP_UNAUTHORIZED]
+        );
+
+        return $assertFirewall->getAsDataProvider();
     }
 
     /**

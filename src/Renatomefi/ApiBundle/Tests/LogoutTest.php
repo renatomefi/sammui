@@ -70,6 +70,10 @@ class LogoutTest extends WebTestCase implements AssertClientCredentialsInterface
     {
         $clientCredentials = $this->getAdminCredentials();
 
+        $adminRespone = $this->getUserInfo($clientCredentials->access_token);
+
+//        $this->assertClientCredentialsObjStructure($adminRespone);
+
         $logoutResponse = $this->getLogout([
             'access_token' => $clientCredentials->access_token
         ]);
