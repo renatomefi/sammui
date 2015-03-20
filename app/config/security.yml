@@ -30,11 +30,8 @@ security:
             anonymous:      true
             logout:
                 path:   /logout
-                target: /api/user/logout
+                delete_cookies: ~
                 invalidate_session: true
-                delete_cookies:
-                  access_token: ~
-                  refresh_token: ~
                 success_handler: api.oauth_logout_success
             anonymous:      false
 

@@ -69,8 +69,14 @@ class LogoutSuccess extends DefaultLogoutSuccessHandler
         $request->headers->remove('Authorization');
         $request->server->remove('HTTP_AUTHORIZATION');
 
+        $request->cookies->remove('access_token');
+        $request->cookies->remove('refresh_token');
 
-        return Response::create();
+        $response = Response::create();
+        $response->headers->clearCookie('access_token');
+        $response->headers->clearCookie('refresh_token');
+
+        return $response;
 //        return parent::onLogoutSuccess($request);
 
     }

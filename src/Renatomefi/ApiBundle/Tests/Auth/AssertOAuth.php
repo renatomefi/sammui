@@ -18,7 +18,7 @@ trait AssertOAuth
     {
         $response = json_decode($responseObj->getContent());
 
-        $this->assertSame(401, $responseObj->getStatusCode());
+        $this->assertSame(Response::HTTP_UNAUTHORIZED, $responseObj->getStatusCode());
 
         $this->assertTrue(($response instanceof \stdClass));
 
