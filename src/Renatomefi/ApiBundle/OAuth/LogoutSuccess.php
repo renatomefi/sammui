@@ -47,7 +47,6 @@ class LogoutSuccess extends DefaultLogoutSuccessHandler
      */
     public function onLogoutSuccess(Request $request)
     {
-
         if ($accessToken = $this->accessTokenManager->findTokenByToken($request->get('access_token'))) {
             $this->accessTokenManager->deleteToken($accessToken);
         }
@@ -77,7 +76,5 @@ class LogoutSuccess extends DefaultLogoutSuccessHandler
         $response->headers->clearCookie('refresh_token');
 
         return $response;
-//        return parent::onLogoutSuccess($request);
-
     }
 }
