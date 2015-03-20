@@ -11,5 +11,6 @@
   "globalstrict" : true,
   "undef"    : true,
   "unused"   : true,
+  "curly"    : true,
   "predef": ["angular"]
 }

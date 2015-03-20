@@ -57,8 +57,9 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                 lang = lang || $location.search().lang;
                 reload = reload || false;
 
-                if (angular.isUndefined(lang))
+                if (angular.isUndefined(lang)) {
                     return;
+                }
 
                 var language = $filter('getByKey')($scope.translate.langs, lang);
 
@@ -76,7 +77,9 @@ angular.module('sammui.translateControllers', ['ngRoute'])
 
                 var langFrom = translateLangs.get({lang: lang},
                     function () {
-                        if (!language) $scope.translate.langs.push(langFrom);
+                        if (!language) {
+                            $scope.translate.langs.push(langFrom);
+                        }
                         $scope.langKeysTable(lang);
                         $rootScope.loading = false;
                     },
@@ -98,7 +101,7 @@ angular.module('sammui.translateControllers', ['ngRoute'])
                 $scope.translateLangKeyFormEditableKey = (translation.id) ? true : false;
             };
             $scope.saveLang = function (data) {
-                
+
                 var post = $q.defer();
 
                 translateLangs.save({
