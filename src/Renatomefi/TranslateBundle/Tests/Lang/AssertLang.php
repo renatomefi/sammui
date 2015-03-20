@@ -1,8 +1,8 @@
 <?php
 
-namespace Renatomefi\TranslateBundle\Tests;
-use Symfony\Component\HttpFoundation\Response;
+namespace Renatomefi\TranslateBundle\Tests\Lang;
 
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class AssertLang

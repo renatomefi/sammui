@@ -37,7 +37,7 @@ class Language
 
     public function __construct()
     {
-        $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->translations = new ArrayCollection();
     }
 
     /**
@@ -97,9 +97,9 @@ class Language
     /**
      * Add translation
      *
-     * @param Renatomefi\TranslateBundle\Document\Translation $translation
+     * @param \Renatomefi\TranslateBundle\Document\Translation $translation
      */
-    public function addTranslation(\Renatomefi\TranslateBundle\Document\Translation $translation)
+    public function addTranslation(Translation $translation)
     {
         $this->translations[] = $translation;
     }
@@ -107,9 +107,9 @@ class Language
     /**
      * Remove translation
      *
-     * @param Renatomefi\TranslateBundle\Document\Translation $translation
+     * @param \Renatomefi\TranslateBundle\Document\Translation $translation
      */
-    public function removeTranslation(\Renatomefi\TranslateBundle\Document\Translation $translation)
+    public function removeTranslation(Translation $translation)
     {
         $this->translations->removeElement($translation);
     }
@@ -117,7 +117,7 @@ class Language
     /**
      * Get translations
      *
-     * @return Doctrine\Common\Collections\Collection $translations
+     * @return \Doctrine\Common\Collections\Collection $translations
      */
     public function getTranslations()
     {
