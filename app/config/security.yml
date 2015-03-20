@@ -49,11 +49,6 @@ security:
             security: true
 
         api:
-            pattern:    ^/api/user/logout
-            fos_oauth: false
-            anonymous:  true
-
-        api:
             pattern:    ^/api
             fos_oauth: true
             anonymous:  true
