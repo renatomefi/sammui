@@ -10,10 +10,25 @@ use Symfony\Component\HttpFoundation\Response;
  */
 interface AssertOAuthInterface
 {
+
+    /**
+     * Validates the structure of an OAuth error Response
+     * @param Response $responseObj
+     * @return mixed
+     */
+    public function assertOAuthError(Response $responseObj);
+
     /**
      * Validates a default response for a Required OAuth protected action
      * @param Response $responseObj
      * @return mixed
      */
     public function assertOAuthRequired(Response $responseObj);
+
+    /**
+     * Validates a default response for a Invalid Token OAuth protected action
+     * @param Response $responseObj
+     * @return mixed
+     */
+    public function assertOAuthInvalidToken(Response $responseObj);
 }

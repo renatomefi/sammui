@@ -13,6 +13,7 @@ use Renatomefi\TestBundle\Rest\AssertRestUtils;
 use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 use Renatomefi\UserBundle\DataFixtures\MongoDB\LoadUsers;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Class AuthTest
@@ -66,7 +67,7 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
 
         $response = $client->getResponse();
 
-        $clientCredentials = $this->assertJsonResponse($response, 200, true);
+        $clientCredentials = $this->assertJsonResponse($response, Response::HTTP_OK, true);
 
         $this->assertClientCredentialsObjStructure($clientCredentials);
         $this->assertClientCredentialsToken($clientCredentials);
@@ -98,7 +99,7 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
 
         $response = $client->getResponse();
 
-        $clientCredentials = $this->assertJsonResponse($response, 200, true);
+        $clientCredentials = $this->assertJsonResponse($response, Response::HTTP_OK, true);
 
         $this->assertClientCredentialsObjStructure($clientCredentials);
         $this->assertClientCredentialsToken($clientCredentials, 'access_token');
@@ -120,7 +121,7 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
 
         $response = $client->getResponse();
 
-        $userInfo = $this->assertJsonResponse($response, 200, true);
+        $userInfo = $this->assertJsonResponse($response, Response::HTTP_OK, true);
 
         $this->assertUserInfoObjStructure($userInfo);
         $this->assertUserInfoObjAdminAuth($userInfo);
@@ -149,7 +150,7 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
 
         $response = $client->getResponse();
 
-        $refreshClientCredentials = $this->assertJsonResponse($response, 200, true);
+        $refreshClientCredentials = $this->assertJsonResponse($response, Response::HTTP_OK, true);
 
         $this->assertClientCredentialsObjStructure($refreshClientCredentials);
         $this->assertClientCredentialsToken($refreshClientCredentials, 'access_token');
@@ -173,42 +174,7 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
 
         $response = $client->getResponse();
 
-        $userInfo = $this->assertJsonResponse($response, 200, true);
-
-        $this->assertUserInfoObjStructure($userInfo);
-        $this->assertUserInfoObjNoAuth($userInfo);
-    }
-
-    /**
-     *
-     */
-    public function testLogoutRedirect()
-    {
-        $client = static::createClient();
-
-        $client->request('GET', '/logout');
-
-        $response = $client->getResponse();
-
-        $this->assertEquals(302, $response->getStatusCode(), $response->getContent());
-
-        $this->assertTrue($response->headers->has('Location'), $response->headers);
-        $this->assertStringEndsWith('/api/user/logout', $response->headers->get('Location'));
-        $this->assertTrue($response->isRedirect());
-    }
-
-    /**
-     * @depends testLogoutRedirect
-     */
-    public function testLogout()
-    {
-        $client = static::createClient();
-
-        $client->request('GET', '/api/user/logout');
-
-        $response = $client->getResponse();
-
-        $userInfo = $this->assertJsonResponse($response, 200, true);
+        $userInfo = $this->assertJsonResponse($response, Response::HTTP_OK, true);
 
         $this->assertUserInfoObjStructure($userInfo);
         $this->assertUserInfoObjNoAuth($userInfo);
@@ -218,7 +184,6 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
      * @param \StdClass $clientCredentials
      *
      * @depends      testAnonymousOAuth
-     * @depends      testLogout
      */
     public function testAnonymousSession($clientCredentials)
     {
@@ -230,7 +195,7 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
 
         $response = $client->getResponse();
 
-        $userInfo = $this->assertJsonResponse($response, 200, true);
+        $userInfo = $this->assertJsonResponse($response, Response::HTTP_OK, true);
 
         $this->assertUserInfoObjStructure($userInfo);
 
