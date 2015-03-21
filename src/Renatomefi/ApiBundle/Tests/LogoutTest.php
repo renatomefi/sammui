@@ -6,6 +6,7 @@ use Renatomefi\ApiBundle\Tests\Auth\AssertClientCredentials;
 use Renatomefi\ApiBundle\Tests\Auth\AssertClientCredentialsInterface;
 use Renatomefi\ApiBundle\Tests\Auth\AssertOAuth;
 use Renatomefi\ApiBundle\Tests\Auth\AssertOAuthInterface;
+use Renatomefi\ApiBundle\Tests\Auth\AssertUserInfo;
 use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
 use Renatomefi\ApiBundle\Tests\Auth\OAuthClientInterface;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
@@ -20,7 +21,7 @@ use Symfony\Component\HttpFoundation\Response;
  */
 class LogoutTest extends WebTestCase implements AssertClientCredentialsInterface, OAuthClientInterface, AssertRestUtilsInterface, AssertOAuthInterface
 {
-    use AssertClientCredentials, OAuthClient, AssertRestUtils, AssertOAuth;
+    use AssertClientCredentials, OAuthClient, AssertRestUtils, AssertOAuth, AssertUserInfo;
 
     /**
      * @param array $params
@@ -115,9 +116,12 @@ class LogoutTest extends WebTestCase implements AssertClientCredentialsInterface
     {
         $clientCredentials = $this->getAdminCredentials();
 
-        $adminRespone = $this->getUserInfo($clientCredentials->access_token);
+        $adminResponse = $this->getUserInfo($clientCredentials->access_token);
 
-//        $this->assertClientCredentialsObjStructure($adminRespone);
+        $adminData = json_decode($adminResponse->getContent());
+
+        $this->assertUserInfoObjStructure($adminData);
+        $this->assertUserInfoObjAdminAuth($adminData);
 
         $logoutResponse = $this->getLogout([
             'access_token' => $clientCredentials->access_token

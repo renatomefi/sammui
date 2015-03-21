@@ -3,19 +3,19 @@
 namespace Renatomefi\ApiBundle\Tests;
 
 use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
-use Renatomefi\ApiBundle\Document\Client;
 use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
+use Renatomefi\ApiBundle\Tests\Auth\OAuthClientInterface;
 use Renatomefi\TestBundle\MongoDB\AssertMongoId;
 use Renatomefi\TestBundle\MongoDB\AssertMongoIdInterface;
 use Renatomefi\TestBundle\Rest\AssertRestUtils;
-use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
+use Renatomefi\TestBundle\Rest\AssertRestUtilsInterface;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
  * Class DocumentsTest
  * @package Renatomefi\TranslateBundle\Tests
  */
-class DocumentsTest extends WebTestCase implements AssertMongoIdInterface
+class DocumentsTest extends WebTestCase implements AssertMongoIdInterface, OAuthClientInterface, AssertRestUtilsInterface
 {
 
     use AssertMongoId, OAuthClient, AssertRestUtils;
@@ -36,8 +36,6 @@ class DocumentsTest extends WebTestCase implements AssertMongoIdInterface
         $this->assertEquals(LoadOAuthClient::CLIENT_NAME, $client->getName());
         $client->setName(LoadOAuthClient::CLIENT_NAME . '-updated');
         $this->assertEquals(LoadOAuthClient::CLIENT_NAME . '-updated', $client->getName());
-
-        $client->setName(LoadOAuthClient::CLIENT_NAME);
     }
 
     /**
