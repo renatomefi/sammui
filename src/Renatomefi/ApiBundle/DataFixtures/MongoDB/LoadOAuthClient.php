@@ -24,7 +24,7 @@ class LoadOAuthClient implements FixtureInterface, ContainerAwareInterface
     /**
      * Application OAuth Client Name
      */
-    const APP_CLIENT_NAME = 'sammui';
+    public static $appClientName = 'sammui';
 
     /**
      * @var ContainerInterface
@@ -60,7 +60,7 @@ class LoadOAuthClient implements FixtureInterface, ContainerAwareInterface
         $clientManager->updateClient($client);
 
         $client = $clientManager->createClient();
-        $client->setName(static::APP_CLIENT_NAME);
+        $client->setName(static::$appClientName);
         $client->setRedirectUris(['/']);
         $client->setAllowedGrantTypes([
             OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS,

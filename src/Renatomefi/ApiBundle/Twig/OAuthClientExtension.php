@@ -39,10 +39,10 @@ class OAuthClientExtension extends \Twig_Extension
     public function getGlobals()
     {
 
-        $client = $this->clientManager->findClientBy(['name' => LoadOAuthClient::APP_CLIENT_NAME]);
+        $client = $this->clientManager->findClientBy(['name' => LoadOAuthClient::$appClientName]);
 
         if (!$client) {
-            $err = 'no-client-found-for-' . LoadOAuthClient::APP_CLIENT_NAME;
+            $err = 'no-client-found-for-' . LoadOAuthClient::$appClientName;
             return [
                 'OAuthClientId' => $err,
                 'OAuthClientSecret' => $err

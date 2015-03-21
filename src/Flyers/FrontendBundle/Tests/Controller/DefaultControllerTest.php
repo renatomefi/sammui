@@ -2,6 +2,7 @@
 
 namespace Flyers\FrontendBundle\Tests\Controller;
 
+use Renatomefi\ApiBundle\DataFixtures\MongoDB\LoadOAuthClient;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DomCrawler\Crawler;
 
@@ -39,5 +40,27 @@ class DefaultControllerTest extends WebTestCase
         $this->assertNotNull($clientSecret);
         $this->assertTrue((is_string($clientId)), $clientId);
         $this->assertTrue((is_string($clientSecret)), $clientSecret);
+        $this->assertStringStartsNotWith('no-client-found-for', $clientId);
+        $this->assertStringStartsNotWith('no-client-found-for', $clientSecret);
     }
+
+    /**
+     * Test invalid Client at meta tags (OAuthClientExtension for Twig)
+     */
+    public function testSammuiClientInvalid()
+    {
+        LoadOAuthClient::$appClientName = 'sammui-wrong';
+
+        $client = static::createClient();
+        $crawler = $client->request('GET', '/');
+
+        $clientId = $crawler->filterXPath('//html/head/meta[@name="sammui-oauth2-client-id"]')->attr('content');
+        $clientSecret = $crawler->filterXPath('//html/head/meta[@name="sammui-oauth2-client-secret"]')->attr('content');
+
+        $this->assertNotNull($clientId);
+        $this->assertNotNull($clientSecret);
+        $this->assertSame('no-client-found-for-' . LoadOAuthClient::$appClientName, $clientId);
+        $this->assertSame('no-client-found-for-' . LoadOAuthClient::$appClientName, $clientSecret);
+    }
+
 }
