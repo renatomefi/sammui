@@ -49,18 +49,21 @@ class DefaultControllerTest extends WebTestCase
      */
     public function testSammuiClientInvalid()
     {
-        LoadOAuthClient::$appClientName = 'sammui-wrong';
+        $originalName = LoadOAuthClient::$appClientName;
+        LoadOAuthClient::$appClientName = LoadOAuthClient::$appClientName . '-wrong';
 
         $client = static::createClient();
         $crawler = $client->request('GET', '/');
+
+        LoadOAuthClient::$appClientName = $originalName;
 
         $clientId = $crawler->filterXPath('//html/head/meta[@name="sammui-oauth2-client-id"]')->attr('content');
         $clientSecret = $crawler->filterXPath('//html/head/meta[@name="sammui-oauth2-client-secret"]')->attr('content');
 
         $this->assertNotNull($clientId);
         $this->assertNotNull($clientSecret);
-        $this->assertSame('no-client-found-for-' . LoadOAuthClient::$appClientName, $clientId);
-        $this->assertSame('no-client-found-for-' . LoadOAuthClient::$appClientName, $clientSecret);
+        $this->assertSame('no-client-found-for-' . LoadOAuthClient::$appClientName . '-wrong', $clientId);
+        $this->assertSame('no-client-found-for-' . LoadOAuthClient::$appClientName . '-wrong', $clientSecret);
     }
 
 }
