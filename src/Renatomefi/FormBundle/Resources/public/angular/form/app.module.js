@@ -31,5 +31,5 @@ sammuiForm.config(function ($locationProvider, $routeProvider) {
 sammuiForm.directive('formFillingHeader', function() {
     return {
         templateUrl: '/bundles/form/angular/views/form/filling/partials/header.html'
-    }
+    };
 });

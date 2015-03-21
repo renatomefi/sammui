@@ -12,7 +12,7 @@ angular.module('sammui.apiHttpControllers', ['ngRoute'])
             });
 
             return counter;
-        }
+        };
     })
     .filter('highlight', function ($sce) {
         return function (text, phrase) {
@@ -20,10 +20,10 @@ angular.module('sammui.apiHttpControllers', ['ngRoute'])
                 text = text.replace(
                     new RegExp('(' + phrase + ')', 'gi'),
                     '<span class="highlighted">$1</span>'
-                )
+                );
             }
-            return $sce.trustAsHtml(text)
-        }
+            return $sce.trustAsHtml(text);
+        };
     })
     .controller('httpLogs', ['$rootScope', '$scope',
         function ($rootScope, $scope) {

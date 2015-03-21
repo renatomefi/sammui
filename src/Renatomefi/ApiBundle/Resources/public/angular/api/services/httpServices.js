@@ -80,7 +80,7 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
 
                 config._loadingDefer = deferred;
                 config.success = undefined;
-                config.loadingStart = (new Date).getTime();
+                config.loadingStart = (new Date()).getTime();
                 config.loadingEnd = undefined;
                 config.result = {
                     status: null,
@@ -97,7 +97,7 @@ angular.module('sammui.apiHttpServices', ['ngResource', 'ngRoute'])
                 });
 
                 deferred.promise.finally(function () {
-                    config.loadingEnd = (new Date).getTime();
+                    config.loadingEnd = (new Date()).getTime();
                 });
 
                 loadingHttpList.append(config);
