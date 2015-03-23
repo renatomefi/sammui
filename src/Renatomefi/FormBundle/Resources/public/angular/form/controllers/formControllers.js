@@ -71,4 +71,16 @@ angular.module('sammui.formControllers', ['ngRoute'])
             $scope.loadProtocol();
 
         }
-    ]);
+    ])
+    .controller('formFillingUser', ['$scope', function ($scope) {
+
+        $scope.newUser = undefined;
+
+        $scope.addUser = function (userName) {
+            alert('adding: ' + userName);
+        };
+
+        $scope.removeUser = function (userName) {
+            alert('removing: ' + userName);
+        };
+    }]);

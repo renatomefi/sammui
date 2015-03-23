@@ -21,13 +21,6 @@ class User extends BaseUser
      */
     protected $name;
 
-    public function __construct()
-    {
-        parent::__construct();
-
-        //to
-    }
-
     /**
      * Get id
      *

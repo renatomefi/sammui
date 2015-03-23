@@ -2,8 +2,9 @@
 
 namespace Renatomefi\FormBundle\Document;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
-use Renatomefi\FormBundle\Document\Form;
+use Renatomefi\UserBundle\Document\User;
 
 /**
  * Class Protocol
@@ -12,6 +13,13 @@ use Renatomefi\FormBundle\Document\Form;
  */
 class Protocol
 {
+    /**
+     * Setting up ODM Document
+     */
+    public function __construct()
+    {
+        $this->user = new ArrayCollection();
+    }
 
     /**
      * @ODM\Id(strategy="auto")
@@ -34,6 +42,12 @@ class Protocol
     protected $lastSaveDate;
 
     /**
+     * @ODM\ReferenceMany(targetDocument="Renatomefi\UserBundle\Document\User")
+     * @var ArrayCollection
+     */
+    protected $user;
+
+    /**
      * @ODM\ReferenceOne(targetDocument="Form")
      */
     protected $form;
@@ -41,7 +55,7 @@ class Protocol
     /**
      * Get id
      *
-     * @return id $id
+     * @return $id
      */
     public function getId()
     {
@@ -117,7 +131,7 @@ class Protocol
     /**
      * Set form
      *
-     * @param Renatomefi\FormBundle\Document\Form $form
+     * @param \Renatomefi\FormBundle\Document\Form $form
      * @return self
      */
     public function setForm(Form $form)
@@ -129,10 +143,40 @@ class Protocol
     /**
      * Get form
      *
-     * @return Renatomefi\FormBundle\Document\Form $form
+     * @return \Renatomefi\FormBundle\Document\Form $form
      */
     public function getForm()
     {
         return $this->form;
+    }
+
+    /**
+     * Add user
+     *
+     * @param \Renatomefi\UserBundle\Document\User $user
+     */
+    public function addUser(User $user)
+    {
+        $this->user[] = $user;
+    }
+
+    /**
+     * Remove user
+     *
+     * @param \Renatomefi\UserBundle\Document\User $user
+     */
+    public function removeUser(User $user)
+    {
+        $this->user->removeElement($user);
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Doctrine\Common\Collections\Collection $user
+     */
+    public function getUser()
+    {
+        return $this->user;
     }
 }

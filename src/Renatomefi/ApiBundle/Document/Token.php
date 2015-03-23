@@ -1,5 +1,21 @@
 <?php
 
+/*
+ * This file is part of sammui project.
+ *
+ * For the full copyright and license information, please
+ * view the LICENSE file that was distributed with this
+ * source code.
+ *
+ * Este arquivo faz parte do projeto sammui.
+ *
+ * Para acesso completo à licença e copyright, acesse o
+ * arquivo LICENSE na raiz do projeto.
+ *
+ * (c) PensandooDireito SAL/MJ <https://github.com/pensandoodireito>
+ * (c) Renato Mendes Figueiredo <renato@renatomefi.com.br>
+ */
+
 namespace Renatomefi\ApiBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
@@ -11,7 +27,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  * Class AccessToken
  * @package Renatomefi\ApiBundle\Document
  */
-class Token extends BaseAccessToken
+abstract class Token extends BaseAccessToken
 {
     /**
      * @ODM\Id(strategy="auto")

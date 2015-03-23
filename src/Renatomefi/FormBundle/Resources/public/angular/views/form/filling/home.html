@@ -12,9 +12,35 @@
                         <i class="glyphicon glyphicon-barcode"></i>
                         {{ protocol.data.id}}
                     </h2>
+
+                    <p class="label label-info">{{ protocol.data.created_at | date : 'short' }}</p>
                 </div>
-                <div class="media-body">
-                    <pre>{{ protocol | json }}</pre>
+                <div ng-controller="formFillingUser">
+                    <div class="input-group merged">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        </div>
+
+                        <input type="text" class="form-control"
+                               required
+                               ng-model="newUser">
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-info"
+                                    ng-disabled=""
+                                    ng-click="addUser(newUser)">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div>
+                        <ul>
+                            <li ng-repeat="user in protocol.data.user">
+                                {{user.username}} <a ng-click="removeUser(user.username)"><i
+                                    class="glyphicon glyphicon-remove"></i></a>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <div class="list-group-item">

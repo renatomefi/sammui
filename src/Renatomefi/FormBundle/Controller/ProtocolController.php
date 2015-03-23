@@ -2,6 +2,7 @@
 
 namespace Renatomefi\FormBundle\Controller;
 
+use Doctrine\ODM\MongoDB\DocumentManager;
 use FOS\RestBundle\Controller\FOSRestController;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\Protocol;
@@ -87,8 +88,7 @@ class ProtocolController extends FOSRestController
      */
     public function postAction($formId)
     {
-        $form = $this->getForm($formId, true
-        );
+        $form = $this->getForm($formId, true);
 
         $dm = $this->get('doctrine_mongodb')->getManager();
 
@@ -100,6 +100,30 @@ class ProtocolController extends FOSRestController
         $dm->flush();
 
         $view = $this->view($protocol);
+
+        return $this->handleView($view);
+    }
+
+    public function patchAddUserAction($protocolId, $userName)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
+        $protocolDM =$dm->getRepository('FormBundle:Protocol');
+
+        /** @var Protocol $protocol */
+        $protocol = $protocolDM->findOneById($protocolId);
+
+        $userDm = $dm->getRepository('UserBundle:User');
+        $user = $userDm->findOneByUsername($userName);
+
+        // TODO Check if user exists, if not create a userMock document and save on it
+        if (!$protocol->getUser()->contains($user))
+            $protocol->addUser($user);
+
+        $view = $this->view($protocol);
+
+        $dm->persist($protocol);
+        $dm->flush();
 
         return $this->handleView($view);
     }
