@@ -217,4 +217,38 @@ class Protocol
     {
         return $this->nonUser;
     }
+
+    /**
+     * @param $userName
+     * @return \Renatomefi\FormBundle\Document\ProtocolUser
+     */
+    public function getOneNonUser($userName)
+    {
+        if (is_numeric($userName)) {
+            return $this->nonUser[$userName];
+        }
+        foreach ($this->nonUser as $nonUser) {
+            if ($nonUser->getUsername() === $userName) {
+                return $nonUser;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @param $userName
+     * @return \Renatomefi\UserBundle\Document\User
+     */
+    public function getOneUser($userName)
+    {
+        if (is_numeric($userName)) {
+            return $this->user[$userName];
+        }
+        foreach ($this->user as $user) {
+            if ($user->getUsernameCanonical() === $userName) {
+                return $user;
+            }
+        }
+        return null;
+    }
 }

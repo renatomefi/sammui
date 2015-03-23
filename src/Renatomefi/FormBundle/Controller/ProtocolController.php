@@ -118,42 +118,51 @@ class ProtocolController extends FOSRestController
         return $this->handleView($view);
     }
 
+    /**
+     * @param $protocolId
+     * @param $userName
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function patchRemoveUserAction($protocolId, $userName)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
-        $protocolDm = $dm->getRepository('FormBundle:Protocol');
 
         $protocol = $this->getProtocol($protocolId);
 
-        $result = $protocolDm
-            ->createQueryBuilder()
-            ->update()
-            ->field('id')->equals($protocolId)
-            ->field('user')->pull(array('username' => $userName))
-            ->field('nonUser')->pull(array('username' => $userName))
-            ->multiple(true)
-            ->getQuery()
-            ->execute();
+        if ($nonUser = $protocol->getOneNonUser($userName))
+            $protocol->removeNonUser($nonUser);
 
-        $view = $this->view($result);
+        if ($user = $protocol->getOneUser($userName))
+            $protocol->removeUser($user);
+
+        $dm->persist($protocol);
+        $dm->flush();
+
+        $view = $this->view($protocol);
 
         return $this->handleView($view);
     }
 
+    /**
+     * @param $protocolId
+     * @param $userName
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function patchAddUserAction($protocolId, $userName)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
 
-        $protocolDm = $dm->getRepository('FormBundle:Protocol');
         $protocol = $this->getProtocol($protocolId);
 
         $userDm = $dm->getRepository('UserBundle:User');
         $user = $userDm->findOneByUsername($userName);
 
         if (null === $user) {
-            $nonUser = new ProtocolUser();
-            $nonUser->setUsername($userName);
-            $protocol->addNonUser($nonUser);
+            if (!$protocol->getOneNonUser($userName)) {
+                $nonUser = new ProtocolUser();
+                $nonUser->setUsername($userName);
+                $protocol->addNonUser($nonUser);
+            }
         } else {
             if (!$protocol->getUser()->contains($user))
                 $protocol->addUser($user);
