@@ -72,15 +72,40 @@ angular.module('sammui.formControllers', ['ngRoute'])
 
         }
     ])
-    .controller('formFillingUser', ['$scope', function ($scope) {
+    .controller('formFillingUser', ['$rootScope', '$scope', 'formProtocolUser', function ($rootScope, $scope, formProtocolUser) {
 
         $scope.newUser = undefined;
+        $scope.loading = false;
 
         $scope.addUser = function (userName) {
-            alert('adding: ' + userName);
+            $scope.loading = true;
+
+            formProtocolUser
+                .add({
+                    protocolId: $scope.$parent.protocol.data.id,
+                    userName: userName
+                }, function (data) {
+                    $scope.newUser = null;
+                    $scope.$parent.protocol.data = data;
+                    $scope.loading = false;
+                }, function () {
+                    $scope.loading = false;
+                });
         };
 
         $scope.removeUser = function (userName) {
-            alert('removing: ' + userName);
+            $scope.loading = true;
+
+            formProtocolUser
+                .remove({
+                    protocolId: $scope.$parent.protocol.data.id,
+                    userName: userName
+                }, function (data) {
+                    $scope.newUser = null;
+                    $scope.$parent.protocol.data = data;
+                    $scope.loading = false;
+                }, function () {
+                    $scope.loading = false;
+                });
         };
     }]);

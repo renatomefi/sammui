@@ -224,9 +224,6 @@ class Protocol
      */
     public function getOneNonUser($userName)
     {
-        if (is_numeric($userName)) {
-            return $this->nonUser[$userName];
-        }
         foreach ($this->nonUser as $nonUser) {
             if ($nonUser->getUsername() === $userName) {
                 return $nonUser;
@@ -241,9 +238,6 @@ class Protocol
      */
     public function getOneUser($userName)
     {
-        if (is_numeric($userName)) {
-            return $this->user[$userName];
-        }
         foreach ($this->user as $user) {
             if ($user->getUsernameCanonical() === $userName) {
                 return $user;

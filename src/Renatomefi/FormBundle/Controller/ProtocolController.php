@@ -30,7 +30,7 @@ class ProtocolController extends FOSRestController
 
         $result = $formsDM->findOneById($id);
 
-        if (!$result)
+        if (!$result && true === $notFoundException)
             throw $this->createNotFoundException("No Protocol found with id: \"$id\"");
 
         return $result;

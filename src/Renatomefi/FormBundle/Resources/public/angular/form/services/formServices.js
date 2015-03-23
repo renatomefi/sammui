@@ -9,10 +9,28 @@ angular.module('sammui.formServices', ['ngResource'])
     })
     .factory('formProtocolManage', function ($resource) {
         return $resource('/form/protocol/:protocolId', {protocolId: '@protocolId'}, {
-            'get' : {
+            'get': {
                 cache: true
             }
         });
+    })
+    .factory('formProtocolUser', function ($resource) {
+        return $resource('/form/protocol/:action/:protocolId/users/:userName',
+            {
+                action: '@action',
+                protocolId: '@protocolId',
+                userName: '@userName'
+            },
+            {
+                'add': {
+                    method: 'PATCH',
+                    params: {action: 'adds'}
+                },
+                'remove': {
+                    method: 'PATCH',
+                    params: {action: 'removes'}
+                }
+            });
     })
     .factory('formProtocol', function ($resource) {
         var r = $resource('/form/protocol/:formId', {formId: '@formId'}, {
