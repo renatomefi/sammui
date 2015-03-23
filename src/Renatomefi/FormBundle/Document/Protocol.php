@@ -5,7 +5,7 @@ namespace Renatomefi\FormBundle\Document;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Renatomefi\UserBundle\Document\User;
-use Renatomefi\FormBundle\Document\User as NonUser;
+use Renatomefi\FormBundle\Document\ProtocolUser as NonUser;
 
 /**
  * Class Protocol
@@ -50,7 +50,7 @@ class Protocol
     protected $user;
 
     /**
-     * @ODM\EmbedMany(targetDocument="User")
+     * @ODM\EmbedMany(targetDocument="ProtocolUser")
      * @var ArrayCollection
      */
     protected $nonUser;
@@ -191,7 +191,7 @@ class Protocol
     /**
      * Add nonUser
      *
-     * @param \Renatomefi\FormBundle\Document\User $nonUser
+     * @param \Renatomefi\FormBundle\Document\ProtocolUser $nonUser
      */
     public function addNonUser(NonUser $nonUser)
     {
@@ -201,7 +201,7 @@ class Protocol
     /**
      * Remove nonUser
      *
-     * @param \Renatomefi\FormBundle\Document\User $nonUser
+     * @param \Renatomefi\FormBundle\Document\ProtocolUser $nonUser
      */
     public function removeNonUser(NonUser $nonUser)
     {

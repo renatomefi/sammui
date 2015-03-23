@@ -9,7 +9,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
  * @package Renatomefi\FormBundle\Document
  * @ODM\EmbeddedDocument
  */
-class User
+class ProtocolUser
 {
 
     /**
@@ -26,7 +26,7 @@ class User
     protected $id;
 
     /**
-     * @ODM\String @ODM\Index(unique=true, order="asc")
+     * @ODM\String
      */
     protected $username;
 

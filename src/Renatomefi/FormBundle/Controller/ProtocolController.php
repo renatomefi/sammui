@@ -3,10 +3,11 @@
 namespace Renatomefi\FormBundle\Controller;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Doctrine\ODM\MongoDB\Query\Query;
 use FOS\RestBundle\Controller\FOSRestController;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\Protocol;
-use Renatomefi\FormBundle\Document\User;
+use Renatomefi\FormBundle\Document\ProtocolUser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -117,6 +118,28 @@ class ProtocolController extends FOSRestController
         return $this->handleView($view);
     }
 
+    public function patchRemoveUserAction($protocolId, $userName)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+        $protocolDm = $dm->getRepository('FormBundle:Protocol');
+
+        $protocol = $this->getProtocol($protocolId);
+
+        $result = $protocolDm
+            ->createQueryBuilder()
+            ->update()
+            ->field('id')->equals($protocolId)
+            ->field('user')->pull(array('username' => $userName))
+            ->field('nonUser')->pull(array('username' => $userName))
+            ->multiple(true)
+            ->getQuery()
+            ->execute();
+
+        $view = $this->view($result);
+
+        return $this->handleView($view);
+    }
+
     public function patchAddUserAction($protocolId, $userName)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
@@ -128,7 +151,7 @@ class ProtocolController extends FOSRestController
         $user = $userDm->findOneByUsername($userName);
 
         if (null === $user) {
-            $nonUser = new User();
+            $nonUser = new ProtocolUser();
             $nonUser->setUsername($userName);
             $protocol->addNonUser($nonUser);
         } else {
