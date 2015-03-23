@@ -3,15 +3,14 @@
 angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
 
     .factory('oAuthHttpInjector', ['oAuthSession', function (oAuthSession) {
-        var sessionInjector = {
+        return {
             request: function (config) {
-                if (oAuthSession.access_token && !config.headers.Authorization) {
+                if (oAuthSession.access_token && !config.headers.Authorization && !config.ignoreAuthModule) {
                     config.headers.Authorization = 'Bearer ' + oAuthSession.access_token;
                 }
                 return config;
             }
         };
-        return sessionInjector;
     }])
 
     .service('oAuthSession', ['$rootScope', '$cookies', '$cookies', function ($rootScope, $cookies) {
@@ -61,7 +60,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
         return this;
     }])
     // Resource factories for OAuth API
-    .factory('oAuth', ['$http', '$rootScope', '$cookieStore', '$document', 'authService', 'oAuthSession', function ($http, $rootScope, $cookieStore, $document, authService, oAuthSession) {
+    .factory('oAuth', ['$http', '$rootScope', '$cookies', '$document', 'authService', 'oAuthSession', function ($http, $rootScope, $cookies, $document, authService, oAuthSession) {
 
         // Sammui client ID and Secret, you should get one with the client:create command at symfony
         var oAuthClientId;
@@ -134,7 +133,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
         oAuth.logout = function (force) {
 
             var forceLogout = function () {
-                $cookieStore.remove('SMSESSID');
+                $cookies.remove('SMSESSID');
                 oAuthSession.destroy();
                 $rootScope.$broadcast('event:auth-logoutForced');
             };
@@ -156,16 +155,43 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
 
         };
 
+        oAuth.refreshToken = function (refreshToken) {
+            return $http.post('/oauth/v2/token',
+                {
+                    client_id: oAuthClientId,
+                    client_secret: oAuthClientSecret,
+                    refresh_token: refreshToken,
+                    grant_type: 'refresh_token'
+                }, {
+                    ignoreAuthModule: true
+                })
+                .success(function (data) {
+                    oAuth.getInfo(data, true);
+
+                    authService.loginConfirmed('success', function (config) {
+                        config.headers.Authorization = 'Bearer ' + data.access_token;
+                        return config;
+                    });
+                })
+                .error(function (data, status) {
+                    $rootScope.$broadcast('event:auth-loginFail', data, status);
+                    return data;
+                });
+        };
+
         oAuth.beAnonymous = function () {
             $http.post('/oauth/v2/token',
                 {
                     client_id: oAuthClientId,
                     client_secret: oAuthClientSecret,
                     grant_type: 'client_credentials'
+                }, {
+                    ignoreAuthModule: true
                 })
                 .success(function (data) {
                     oAuth.getInfo(data, true);
 
+                    console.log('New token?? ', data);
                     authService.loginConfirmed('success', function (config) {
                         config.headers.Authorization = 'Bearer ' + data.access_token;
                         return config;
@@ -184,6 +210,8 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                     username: data.username,
                     password: data.password,
                     grant_type: 'password'
+                }, {
+                    ignoreAuthModule: true
                 })
                 .success(function (data) {
                     oAuth.getInfo(data, true);
@@ -197,6 +225,14 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                     $rootScope.$broadcast('event:auth-loginFail', data, status);
                     return data;
                 });
+        };
+
+        oAuth.requireAuthentication = function () {
+            if (oAuthSession.refresh_token) {
+                oAuth.refreshToken();
+            } else {
+                oAuth.beAnonymous();
+            }
         };
 
         return oAuth;

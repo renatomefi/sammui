@@ -1,8 +1,17 @@
 {
   "name": "renatomefidf/sammui",
-  "description": "The Symfony AngularJS MongoDB Mobile UI Project - sammui",
-  "license": "MIT",
   "type": "project",
+  "description": "The Symfony AngularJS MongoDB Mobile UI Project - sammui",
+  "homepage": "https://github.com/renatomefidf/sammui",
+  "keywords": ["symfony2", "AngularJS", "MongoDB", "mobile"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Renato Mendes Figueiredo",
+      "email": "gh@renatomefi.com.br",
+      "homepage": "http://www.renatomefi.com.br"
+    }
+  ],
   "autoload": {
     "psr-0": {
       "": "src/"

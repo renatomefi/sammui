@@ -9,8 +9,8 @@ var sammuiApi = angular.module('sammui.api', [
 ]);
 
 sammuiApi.config(['$httpProvider', function ($httpProvider) {
-    $httpProvider.interceptors.push('loadingHttpInterceptor');
     $httpProvider.interceptors.push('oAuthHttpInjector');
+    $httpProvider.interceptors.push('loadingHttpInterceptor');
 }]);
 
 sammuiApi.config(function ($locationProvider, $routeProvider) {
@@ -33,7 +33,7 @@ sammuiApi.run([
         $rootScope.loadingList = loadingHttpList;
 
         $rootScope.$on('event:auth-loginRequired', function () {
-            oAuth.beAnonymous();
+            oAuth.requireAuthentication();
         });
         $rootScope.$on('event:auth-forbidden', function () {
             $location.path("/login");
