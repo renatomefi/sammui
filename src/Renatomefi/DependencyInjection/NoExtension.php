@@ -10,6 +10,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 /**
  * Class NoExtension
  * @package Renatomefi\DependencyInjection
+ * @codeCoverageIgnore
  */
 class NoExtension extends Extension
 {

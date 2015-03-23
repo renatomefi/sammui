@@ -26,3 +26,5 @@ nbproject
 .settings
 .idea/
 .puppet/
+app/check.php
+app/SymfonyRequirements.php
