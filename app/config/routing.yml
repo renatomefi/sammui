@@ -24,10 +24,6 @@ flyers_frontend:
     resource: "@FrontendBundle/Resources/config/routing.yml"
     prefix:   /
 
-flyers_backend:
-    resource: "@BackendBundle/Resources/config/routing.yml"
-    prefix:   /
-
 # FOSAuthServerBundle
 fos_oauth_server_token:
     resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"

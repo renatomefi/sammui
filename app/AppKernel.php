@@ -26,7 +26,7 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
-            new Flyers\BackendBundle\BackendBundle(),
+//            new Flyers\BackendBundle\BackendBundle(),
             new Flyers\FrontendBundle\FrontendBundle(),
             new Renatomefi\TranslateBundle\TranslateBundle(),
             new Renatomefi\ApiBundle\ApiBundle(),

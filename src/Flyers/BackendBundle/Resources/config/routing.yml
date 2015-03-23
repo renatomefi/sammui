@@ -1,5 +1,0 @@
-backend:
-    prefix:    /
-    resource: "@BackendBundle/Controller/"
-    type:     annotation
-
