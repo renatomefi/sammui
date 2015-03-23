@@ -6,7 +6,9 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use FOS\RestBundle\Controller\FOSRestController;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\Protocol;
+use Renatomefi\FormBundle\Document\User;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class ProtocolController
@@ -14,6 +16,24 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class ProtocolController extends FOSRestController
 {
+
+    /**
+     * @param $id
+     * @param bool $notFoundException
+     * @throws NotFoundHttpException
+     * @return Protocol
+     */
+    protected function getProtocol($id, $notFoundException = true)
+    {
+        $formsDM = $this->get('doctrine_mongodb')->getRepository('FormBundle:Protocol');
+
+        $result = $formsDM->findOneById($id);
+
+        if (!$result)
+            throw $this->createNotFoundException("No Protocol found with id: \"$id\"");
+
+        return $result;
+    }
 
     /**
      * @param null $id
@@ -71,14 +91,7 @@ class ProtocolController extends FOSRestController
      */
     public function getAction($id)
     {
-        $formsDM = $this->get('doctrine_mongodb')->getRepository('FormBundle:Protocol');
-
-        $result = $formsDM->findOneById($id);
-
-        if (!$result)
-            throw $this->createNotFoundException("No Protocol found with id: \"$id\"");
-
-        $view = $this->view($result);
+        $view = $this->view($this->getProtocol($id));
         return $this->handleView($view);
     }
 
@@ -108,22 +121,25 @@ class ProtocolController extends FOSRestController
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
 
-        $protocolDM =$dm->getRepository('FormBundle:Protocol');
-
-        /** @var Protocol $protocol */
-        $protocol = $protocolDM->findOneById($protocolId);
+        $protocolDm = $dm->getRepository('FormBundle:Protocol');
+        $protocol = $this->getProtocol($protocolId);
 
         $userDm = $dm->getRepository('UserBundle:User');
         $user = $userDm->findOneByUsername($userName);
 
-        // TODO Check if user exists, if not create a userMock document and save on it
-        if (!$protocol->getUser()->contains($user))
-            $protocol->addUser($user);
-
-        $view = $this->view($protocol);
+        if (null === $user) {
+            $nonUser = new User();
+            $nonUser->setUsername($userName);
+            $protocol->addNonUser($nonUser);
+        } else {
+            if (!$protocol->getUser()->contains($user))
+                $protocol->addUser($user);
+        }
 
         $dm->persist($protocol);
         $dm->flush();
+
+        $view = $this->view($protocol);
 
         return $this->handleView($view);
     }

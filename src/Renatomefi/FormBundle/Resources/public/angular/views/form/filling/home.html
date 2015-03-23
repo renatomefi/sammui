@@ -34,10 +34,24 @@
                         </div>
                     </div>
                     <div>
-                        <ul>
+                        <ul class="list-unstyled">
                             <li ng-repeat="user in protocol.data.user">
-                                {{user.username}} <a ng-click="removeUser(user.username)"><i
-                                    class="glyphicon glyphicon-remove"></i></a>
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button type="button" class="btn btn-warning"
+                                            ng-click="removeUser(user.username)">
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-primary">{{user.username}}</button>
+                                </div>
+                            </li>
+                            <li ng-repeat="user in protocol.data.non_user">
+                                <div class="btn-group btn-group-sm" role="group">
+                                    <button type="button" class="btn btn-warning"
+                                            ng-click="removeUser(user.username)">
+                                        <i class="glyphicon glyphicon-remove"></i>
+                                    </button>
+                                    <button type="button" class="btn btn-default">{{user.username}}</button>
+                                </div>
                             </li>
                         </ul>
                     </div>

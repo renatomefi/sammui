@@ -5,6 +5,7 @@ namespace Renatomefi\FormBundle\Document;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 use Renatomefi\UserBundle\Document\User;
+use Renatomefi\FormBundle\Document\User as NonUser;
 
 /**
  * Class Protocol
@@ -19,6 +20,7 @@ class Protocol
     public function __construct()
     {
         $this->user = new ArrayCollection();
+        $this->nonUser = new ArrayCollection();
     }
 
     /**
@@ -46,6 +48,12 @@ class Protocol
      * @var ArrayCollection
      */
     protected $user;
+
+    /**
+     * @ODM\EmbedMany(targetDocument="User")
+     * @var ArrayCollection
+     */
+    protected $nonUser;
 
     /**
      * @ODM\ReferenceOne(targetDocument="Form")
@@ -178,5 +186,35 @@ class Protocol
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Add nonUser
+     *
+     * @param \Renatomefi\FormBundle\Document\User $nonUser
+     */
+    public function addNonUser(NonUser $nonUser)
+    {
+        $this->nonUser[] = $nonUser;
+    }
+
+    /**
+     * Remove nonUser
+     *
+     * @param \Renatomefi\FormBundle\Document\User $nonUser
+     */
+    public function removeNonUser(NonUser $nonUser)
+    {
+        $this->nonUser->removeElement($nonUser);
+    }
+
+    /**
+     * Get nonUser
+     *
+     * @return \Doctrine\Common\Collections\Collection $nonUser
+     */
+    public function getNonUser()
+    {
+        return $this->nonUser;
     }
 }
