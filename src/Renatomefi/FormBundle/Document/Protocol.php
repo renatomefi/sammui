@@ -57,7 +57,7 @@ class Protocol
     protected $nonUser;
 
     /**
-     * @ODM\ReferenceMany(targetDocument="ProtocolComment")
+     * @ODM\EmbedMany(targetDocument="ProtocolComment")
      * @var ArrayCollection
      */
     protected $comment;
@@ -248,6 +248,20 @@ class Protocol
         foreach ($this->user as $user) {
             if ($user->getUsernameCanonical() === $userName) {
                 return $user;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * @param $commentId
+     * @return \Renatomefi\FormBundle\Document\ProtocolComment
+     */
+    public function getOneComment($commentId)
+    {
+        foreach ($this->comment as $comment) {
+            if ($comment->getId() === $commentId) {
+                return $comment;
             }
         }
         return null;

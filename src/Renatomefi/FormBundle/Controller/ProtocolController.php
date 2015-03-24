@@ -2,11 +2,9 @@
 
 namespace Renatomefi\FormBundle\Controller;
 
-use Doctrine\ODM\MongoDB\DocumentManager;
-use Doctrine\ODM\MongoDB\Query\Query;
 use FOS\RestBundle\Controller\FOSRestController;
-use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\Protocol;
+use Renatomefi\FormBundle\Document\ProtocolComment;
 use Renatomefi\FormBundle\Document\ProtocolUser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -167,6 +165,54 @@ class ProtocolController extends FOSRestController
             if (!$protocol->getUser()->contains($user))
                 $protocol->addUser($user);
         }
+
+        $dm->persist($protocol);
+        $dm->flush();
+
+        $view = $this->view($protocol);
+
+        return $this->handleView($view);
+    }
+
+    /**
+     * @param Request $request
+     * @param $protocolId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function patchAddCommentAction(Request $request, $protocolId)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
+        $protocol = $this->getProtocol($protocolId);
+
+        $comment = new ProtocolComment();
+        $comment->setBody($request->get('body'));
+
+        $protocol->addComment($comment);
+
+        $dm->persist($protocol);
+        $dm->flush();
+
+        $view = $this->view($protocol);
+
+        return $this->handleView($view);
+    }
+
+    /**
+     * @param Request $request
+     * @param $protocolId
+     * @param $commentId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function patchRemoveCommentAction(Request $request, $protocolId, $commentId)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
+        $protocol = $this->getProtocol($protocolId);
+
+        $comment = $protocol->getOneComment($commentId);
+
+        $protocol->removeComment($comment);
 
         $dm->persist($protocol);
         $dm->flush();

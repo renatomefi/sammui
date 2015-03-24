@@ -102,7 +102,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr ng-repeat="user in protocol.data.comment">
+                            <tr ng-repeat="comment in protocol.data.comment | orderBy:'-created_at'  ">
                                 <th scope="row">
                                     <button type="button" class="btn btn-sm btn-warning"
                                             ng-click="removeComment(comment.id)">
