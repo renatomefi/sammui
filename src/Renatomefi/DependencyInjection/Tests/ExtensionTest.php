@@ -30,6 +30,7 @@ use Renatomefi\UserBundle\DependencyInjection\UserExtension;
 /**
  * Class ExtensionTest
  * @package Renatomefi\DependencyInjection\Tests
+ * @codeCoverageIgnore
  */
 class ExtensionTest extends AbstractExtensionTestCase
 {

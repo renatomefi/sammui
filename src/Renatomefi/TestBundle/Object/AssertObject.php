@@ -5,6 +5,7 @@ namespace Renatomefi\TestBundle\Object;
 /**
  * Class AssertObject
  * @package Renatomefi\TestBundle\Object
+ * @codeCoverageIgnore
  */
 trait AssertObject
 {

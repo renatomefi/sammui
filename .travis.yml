@@ -26,11 +26,10 @@ before_script:
 script: phpunit --repeat=3 -c app/phpunitTravis.xml
 
 after_script:
-  - CODECLIMATE_REPO_TOKEN="7c5ee913b1deff0f89031388f37bac8d6c61077536e2367a1ed5345e37fd96fa" bin/test-reporter --stdout > codeclimate.json
-  - cat codeclimate.json
-  - "curl -X POST -d @codeclimate.json -H 'Content-Type: application/json' -H 'User-Agent: Code Climate (PHP Test Reporter v0.1.1)' https://codeclimate.com/test_reports"
+  - bin/test-reporter -t 7c5ee913b1deff0f89031388f37bac8d6c61077536e2367a1ed5345e37fd96fa
 
 notifications:
+  email: false
   webhooks:
     urls:
       - https://webhooks.gitter.im/e/162920b9399e54be89a4

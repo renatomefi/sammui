@@ -2,8 +2,16 @@
 
 namespace Renatomefi\TestBundle\MongoDB;
 
+/**
+ * Class AssertMongoId
+ * @package Renatomefi\TestBundle\MongoDB
+ * @codeCoverageIgnore
+ */
 trait AssertMongoId
 {
+    /**
+     * @param $mongoId
+     */
     public function assertMongoId($mongoId)
     {
         if (is_string($mongoId)) {
