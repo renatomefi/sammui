@@ -32,6 +32,24 @@ angular.module('sammui.formServices', ['ngResource'])
                 }
             });
     })
+    .factory('formProtocolComment', function ($resource) {
+        return $resource('/form/protocol/:action/:protocolId/comment/:commentId',
+            {
+                action: '@action',
+                protocolId: '@protocolId',
+                commentId: '@commendId'
+            },
+            {
+                'add': {
+                    method: 'PATCH',
+                    params: {action: 'adds'}
+                },
+                'remove': {
+                    method: 'PATCH',
+                    params: {action: 'removes'}
+                }
+            });
+    })
     .factory('formProtocol', function ($resource) {
         var r = $resource('/form/protocol/:formId', {formId: '@formId'}, {
             'generate': {

@@ -106,4 +106,45 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     $scope.loading = false;
                 });
         };
+    }])
+    .controller('formFillingComment', ['$rootScope', '$scope', 'formProtocolUser', function ($rootScope, $scope, formProtocolUser) {
+
+        $scope.newComment = undefined;
+        $scope.loading = false;
+
+        $scope.addComment = function () {
+            $scope.loading = true;
+
+            console.debug($scope.newComment);
+            $scope.newComment = null;
+            alert('ok');
+            return;
+            formProtocolUser
+                .add({
+                    protocolId: $scope.$parent.protocol.data.id,
+                    userName: userName
+                }, function (data) {
+                    $scope.newUser = null;
+                    $scope.$parent.protocol.data = data;
+                })
+                .$promise.finally(function () {
+                    $scope.loading = false;
+                });
+        };
+
+        $scope.removeUser = function (userName) {
+            $scope.loading = true;
+
+            formProtocolUser
+                .remove({
+                    protocolId: $scope.$parent.protocol.data.id,
+                    userName: userName
+                }, function (data) {
+                    $scope.newUser = null;
+                    $scope.$parent.protocol.data = data;
+                })
+                .$promise.finally(function () {
+                    $scope.loading = false;
+                });
+        };
     }]);
