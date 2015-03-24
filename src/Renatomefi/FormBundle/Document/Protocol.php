@@ -19,6 +19,7 @@ class Protocol
      */
     public function __construct()
     {
+        $this->setCreatedAt(new \MongoDate());
         $this->user = new ArrayCollection();
         $this->nonUser = new ArrayCollection();
         $this->comment = new ArrayCollection();
@@ -254,20 +255,6 @@ class Protocol
     }
 
     /**
-     * @param $commentId
-     * @return \Renatomefi\FormBundle\Document\ProtocolComment
-     */
-    public function getOneComment($commentId)
-    {
-        foreach ($this->comment as $comment) {
-            if ($comment->getId() === $commentId) {
-                return $comment;
-            }
-        }
-        return null;
-    }
-
-    /**
      * Add comment
      *
      * @param \Renatomefi\FormBundle\Document\ProtocolComment $comment
@@ -295,5 +282,21 @@ class Protocol
     public function getComment()
     {
         return $this->comment;
+    }
+
+    /**
+     * Get comment by Id
+     *
+     * @param $commentId
+     * @return \Renatomefi\FormBundle\Document\ProtocolComment
+     */
+    public function getOneComment($commentId)
+    {
+        foreach ($this->comment as $comment) {
+            if ($comment->getId() === $commentId) {
+                return $comment;
+            }
+        }
+        return null;
     }
 }

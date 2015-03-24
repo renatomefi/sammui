@@ -98,7 +98,7 @@ fos_rest:
             - { path: '^/l10n', priorities: [json, xml, html], fallback_format: json, prefer_extension: false }
             - { path: '^/', priorities: [html, json], fallback_format: html, prefer_extension: false }
     view:
-        view_response_listener: force
+        view_response_listener: 'force'
     routing_loader:
         default_format: json
         include_format: false
@@ -109,11 +109,14 @@ fos_rest:
         messages:
             'Symfony\Component\Routing\Exception\ResourceNotFoundException': true
 
-services:
-  kernel.event_listener.json_request_transformer:
-    class: Qandidate\Common\Symfony\HttpKernel\EventListener\JsonRequestTransformerListener
-    tags:
-      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }
+sensio_framework_extra:
+    view:    { annotations: false }
+
+#services:
+#  kernel.event_listener.json_request_transformer:
+#    class: Qandidate\Common\Symfony\HttpKernel\EventListener\JsonRequestTransformerListener
+#    tags:
+#      - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest, priority: 100 }
 
 fos_user:
     db_driver: %fos_user_db_driver%

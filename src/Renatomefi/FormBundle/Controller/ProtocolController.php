@@ -104,7 +104,6 @@ class ProtocolController extends FOSRestController
 
         $protocol = new Protocol();
         $protocol->setForm($form);
-        $protocol->setCreatedAt(new \MongoDate());
 
         $dm->persist($protocol);
         $dm->flush();
@@ -184,8 +183,9 @@ class ProtocolController extends FOSRestController
 
         $dm->persist($protocol);
         $dm->flush();
+        $dm->clear();
 
-        return $protocol->getComment()->toArray();
+        return $this->getProtocol($protocolId)->getComment()->toArray();
     }
 
     /**
@@ -208,7 +208,8 @@ class ProtocolController extends FOSRestController
 
         $dm->persist($protocol);
         $dm->flush();
+        $dm->clear();
 
-        return $protocol->getComment()->toArray();
+        return $this->getProtocol($protocolId)->getComment()->toArray();
     }
 }
