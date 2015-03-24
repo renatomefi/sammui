@@ -229,7 +229,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
 
         oAuth.requireAuthentication = function () {
             if (oAuthSession.refresh_token) {
-                oAuth.refreshToken();
+                oAuth.refreshToken(oAuthSession.refresh_token);
             } else {
                 oAuth.beAnonymous();
             }
