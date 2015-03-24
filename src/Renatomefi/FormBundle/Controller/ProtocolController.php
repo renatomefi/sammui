@@ -116,29 +116,6 @@ class ProtocolController extends FOSRestController
      * @param $userName
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function patchRemoveUserAction($protocolId, $userName)
-    {
-        $dm = $this->get('doctrine_mongodb')->getManager();
-
-        $protocol = $this->getProtocol($protocolId);
-
-        if ($nonUser = $protocol->getOneNonUser($userName))
-            $protocol->removeNonUser($nonUser);
-
-        if ($user = $protocol->getOneUser($userName))
-            $protocol->removeUser($user);
-
-        $dm->persist($protocol);
-        $dm->flush();
-
-        return $protocol;
-    }
-
-    /**
-     * @param $protocolId
-     * @param $userName
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function patchAddUserAction($protocolId, $userName)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
@@ -161,8 +138,39 @@ class ProtocolController extends FOSRestController
 
         $dm->persist($protocol);
         $dm->flush();
+        $dm->clear();
+        unset($protocol);
 
-        return $protocol;
+        $protocol = $this->getProtocol($protocolId);
+
+        return ['user' => $protocol->getUser(), 'nonUser' => $protocol->getNonUser()];
+    }
+
+    /**
+     * @param $protocolId
+     * @param $userName
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function patchRemoveUserAction($protocolId, $userName)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
+        $protocol = $this->getProtocol($protocolId);
+
+        if ($nonUser = $protocol->getOneNonUser($userName))
+            $protocol->removeNonUser($nonUser);
+
+        if ($user = $protocol->getOneUser($userName))
+            $protocol->removeUser($user);
+
+        $dm->persist($protocol);
+        $dm->flush();
+        $dm->clear();
+        unset($protocol);
+
+        $protocol = $this->getProtocol($protocolId);
+
+        return ['user' => $protocol->getUser(), 'nonUser' => $protocol->getNonUser()];
     }
 
     /**

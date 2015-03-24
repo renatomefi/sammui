@@ -48,7 +48,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
                 formProtocolManage.get(
                     {protocolId: $routeParams.protocolId},
                     function (data) {
-                        $scope.protocol.data = data;
+                        $scope.protocol.data = angular.copy(data);
                     },
                     function () {
                         $location.path('/form/start');
@@ -84,7 +84,8 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     userName: userName
                 }, function (data) {
                     $scope.newUser = null;
-                    $scope.$parent.protocol.data = data;
+                    $scope.$parent.protocol.data.user = angular.copy(data.user);
+                    $scope.$parent.protocol.data.non_user = angular.copy(data.nonUser);
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;
@@ -99,7 +100,8 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     protocolId: $scope.$parent.protocol.data.id,
                     userName: userName
                 }, function (data) {
-                    $scope.$parent.protocol.data = data;
+                    $scope.$parent.protocol.data.user = angular.copy(data.user);
+                    $scope.$parent.protocol.data.non_user = angular.copy(data.nonUser);
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;
@@ -120,7 +122,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     body: $scope.newComment
                 }, function (data) {
                     $scope.newComment = null;
-                    $scope.$parent.protocol.data.comment = data;
+                    $scope.$parent.protocol.data.comment = angular.copy(data);
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;
@@ -135,7 +137,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     protocolId: $scope.$parent.protocol.data.id,
                     commentId: commentId
                 }, function (data) {
-                    $scope.$parent.protocol.data.comment = data;
+                    $scope.$parent.protocol.data.comment = angular.copy(data);
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;

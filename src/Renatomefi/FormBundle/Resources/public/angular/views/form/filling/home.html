@@ -56,8 +56,8 @@
                                         <i class="glyphicon glyphicon-remove"></i>
                                     </button>
                                 </th>
-                                <td><strong>{{user.username}}</strong></td>
-                                <td>{{user.created_at | date:'short'}}</td>
+                                <td><strong>{{::user.username}}</strong></td>
+                                <td>{{::user.created_at | date:'short'}}</td>
                             </tr>
                             <tr ng-repeat="user in protocol.data.non_user">
                                 <th scope="row">
@@ -66,8 +66,8 @@
                                         <i class="glyphicon glyphicon-remove"></i>
                                     </button>
                                 </th>
-                                <td>{{user.username}}</td>
-                                <td>{{user.created_at | date : 'short'}}</td>
+                                <td>{{::user.username}}</td>
+                                <td>{{::user.created_at | date : 'short'}}</td>
                             </tr>
                             </tbody>
                         </table>
@@ -109,8 +109,8 @@
                                         <i class="glyphicon glyphicon-remove"></i>
                                     </button>
                                 </th>
-                                <td>{{comment.body}}</td>
-                                <td>{{comment.created_at | date : 'short'}}</td>
+                                <td>{{::comment.body}}</td>
+                                <td>{{::comment.created_at | date : 'short'}}</td>
                             </tr>
                             </tbody>
                         </table>
