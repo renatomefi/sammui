@@ -10,6 +10,14 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as MongoDB;
  */
 class User extends BaseUser
 {
+    /**
+     * Document startup
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        $this->setCreatedAt(new \MongoDate());
+    }
 
     /**
      * @MongoDB\Id(strategy="auto")
@@ -20,6 +28,11 @@ class User extends BaseUser
      * @MongoDB\String
      */
     protected $name;
+
+    /**
+     * @MongoDB\Date
+     */
+    protected $createdAt;
 
     /**
      * Get id
@@ -51,5 +64,27 @@ class User extends BaseUser
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param \MongoDate $createdAt
+     * @return self
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \MongoDate $createdAt
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }

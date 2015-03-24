@@ -42,8 +42,6 @@ angular.module('sammui.formControllers', ['ngRoute'])
                 currentPage: $routeParams.pageId
             };
 
-            //$scope.userType = 'guest';
-
             $scope.loadProtocol = function () {
                 $rootScope.loading = true;
 
@@ -87,8 +85,8 @@ angular.module('sammui.formControllers', ['ngRoute'])
                 }, function (data) {
                     $scope.newUser = null;
                     $scope.$parent.protocol.data = data;
-                    $scope.loading = false;
-                }, function () {
+                })
+                .$promise.finally(function () {
                     $scope.loading = false;
                 });
         };
@@ -103,8 +101,8 @@ angular.module('sammui.formControllers', ['ngRoute'])
                 }, function (data) {
                     $scope.newUser = null;
                     $scope.$parent.protocol.data = data;
-                    $scope.loading = false;
-                }, function () {
+                })
+                .$promise.finally(function () {
                     $scope.loading = false;
                 });
         };

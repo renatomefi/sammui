@@ -16,45 +16,61 @@
                     <p class="label label-info">{{ protocol.data.created_at | date : 'short' }}</p>
                 </div>
                 <div ng-controller="formFillingUser">
-                    <div class="input-group merged">
-                        <div class="input-group-addon">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                        </div>
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <form name="formProtocolNewUser" ng-submit="addUser(newUser)">
+                                <div class="input-group merged">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    </div>
+                                    <input type="text" class="form-control"
+                                           tabindex="1"
+                                           required
+                                           ng-disabled="loading"
+                                           ng-model="newUser">
 
-                        <input type="text" class="form-control"
-                               required
-                               ng-disabled="loading"
-                               ng-model="newUser">
-
-                        <div class="input-group-btn">
-                            <button class="btn btn-info"
-                                    ng-disabled=""
-                                    ng-click="addUser(newUser)">
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </button>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-info"
+                                                tabindex="2"
+                                                ng-disabled=""
+                                                type="submit">
+                                            <span class="glyphicon glyphicon-plus"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </div>
-                    <div>
-                        <ul class="list-unstyled">
-                            <li ng-repeat="user in protocol.data.user">
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <button type="button" class="btn btn-warning"
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th></th>
+                                <th>{{'protocol-table-name' | translate}}</th>
+                                <th>{{'protocol-table-created-at' | translate}}</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="user in protocol.data.user">
+                                <th scope="row">
+                                    <button type="button" class="btn btn-sm btn-warning"
                                             ng-click="removeUser(user.username)">
                                         <i class="glyphicon glyphicon-remove"></i>
                                     </button>
-                                    <button type="button" class="btn btn-primary">{{user.username}}</button>
-                                </div>
-                            </li>
-                            <li ng-repeat="user in protocol.data.non_user">
-                                <div class="btn-group btn-group-sm" role="group">
-                                    <button type="button" class="btn btn-warning"
+                                </th>
+                                <td><strong>{{user.username}}</strong></td>
+                                <td>{{user.created_at | date:'short'}}</td>
+                            </tr>
+                            <tr ng-repeat="user in protocol.data.non_user">
+                                <th scope="row">
+                                    <button type="button" class="btn btn-sm btn-warning"
                                             ng-click="removeUser(user.username)">
                                         <i class="glyphicon glyphicon-remove"></i>
                                     </button>
-                                    <button type="button" class="btn btn-default">{{user.username}}</button>
-                                </div>
-                            </li>
-                        </ul>
+                                </th>
+                                <td>{{user.username}}</td>
+                                <td>{{user.created_at | date:'short'}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
