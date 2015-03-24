@@ -99,7 +99,6 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     protocolId: $scope.$parent.protocol.data.id,
                     userName: userName
                 }, function (data) {
-                    $scope.newUser = null;
                     $scope.$parent.protocol.data = data;
                 })
                 .$promise.finally(function () {
@@ -107,7 +106,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
                 });
         };
     }])
-    .controller('formFillingComment', ['$rootScope', '$scope', 'formProtocolUser', function ($rootScope, $scope, formProtocolUser) {
+    .controller('formFillingComment', ['$rootScope', '$scope', 'formProtocolComment', function ($rootScope, $scope, formProtocolComment) {
 
         $scope.newComment = undefined;
         $scope.loading = false;
@@ -115,33 +114,28 @@ angular.module('sammui.formControllers', ['ngRoute'])
         $scope.addComment = function () {
             $scope.loading = true;
 
-            console.debug($scope.newComment);
-            $scope.newComment = null;
-            alert('ok');
-            return;
-            formProtocolUser
+            formProtocolComment
                 .add({
                     protocolId: $scope.$parent.protocol.data.id,
-                    userName: userName
+                    body: $scope.newComment
                 }, function (data) {
-                    $scope.newUser = null;
-                    $scope.$parent.protocol.data = data;
+                    $scope.newComment = null;
+                    $scope.$parent.protocol.data.comment = data;
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;
                 });
         };
 
-        $scope.removeUser = function (userName) {
+        $scope.removeComment = function (commentId) {
             $scope.loading = true;
 
-            formProtocolUser
+            formProtocolComment
                 .remove({
                     protocolId: $scope.$parent.protocol.data.id,
-                    userName: userName
+                    commentId: commentId
                 }, function (data) {
-                    $scope.newUser = null;
-                    $scope.$parent.protocol.data = data;
+                    $scope.$parent.protocol.data.comment = data;
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;

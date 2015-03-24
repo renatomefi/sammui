@@ -33,20 +33,23 @@ angular.module('sammui.formServices', ['ngResource'])
             });
     })
     .factory('formProtocolComment', function ($resource) {
-        return $resource('/form/protocol/:action/:protocolId/comment/:commentId',
+        return $resource('/form/protocol/:action/:protocolId/:var/:commentId',
             {
                 action: '@action',
                 protocolId: '@protocolId',
-                commentId: '@commendId'
+                commentId: '@commentId',
+                var: '@var'
             },
             {
                 'add': {
                     method: 'PATCH',
-                    params: {action: 'adds'}
+                    isArray: true,
+                    params: {action: 'adds', var: 'comment'}
                 },
                 'remove': {
                     method: 'PATCH',
-                    params: {action: 'removes'}
+                    isArray: true,
+                    params: {action: 'removes', var: 'comments'}
                 }
             });
     })

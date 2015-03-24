@@ -80,8 +80,7 @@ class ProtocolController extends FOSRestController
         if (!$result)
             throw $this->createNotFoundException("No protocols found for form: \"$formId\"");
 
-        $view = $this->view($result);
-        return $this->handleView($view);
+        return $result;
     }
 
     /**
@@ -90,8 +89,7 @@ class ProtocolController extends FOSRestController
      */
     public function getAction($id)
     {
-        $view = $this->view($this->getProtocol($id));
-        return $this->handleView($view);
+        return $this->getProtocol($id);
     }
 
     /**
@@ -111,9 +109,7 @@ class ProtocolController extends FOSRestController
         $dm->persist($protocol);
         $dm->flush();
 
-        $view = $this->view($protocol);
-
-        return $this->handleView($view);
+        return $protocol;
     }
 
     /**
@@ -136,9 +132,7 @@ class ProtocolController extends FOSRestController
         $dm->persist($protocol);
         $dm->flush();
 
-        $view = $this->view($protocol);
-
-        return $this->handleView($view);
+        return $protocol;
     }
 
     /**
@@ -169,9 +163,7 @@ class ProtocolController extends FOSRestController
         $dm->persist($protocol);
         $dm->flush();
 
-        $view = $this->view($protocol);
-
-        return $this->handleView($view);
+        return $protocol;
     }
 
     /**
@@ -193,18 +185,15 @@ class ProtocolController extends FOSRestController
         $dm->persist($protocol);
         $dm->flush();
 
-        $view = $this->view($protocol);
-
-        return $this->handleView($view);
+        return $protocol->getComment()->toArray();
     }
 
     /**
-     * @param Request $request
      * @param $protocolId
      * @param $commentId
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function patchRemoveCommentAction(Request $request, $protocolId, $commentId)
+    public function patchRemoveCommentAction($protocolId, $commentId)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
 
@@ -212,13 +201,14 @@ class ProtocolController extends FOSRestController
 
         $comment = $protocol->getOneComment($commentId);
 
+        if (!$comment)
+            throw $this->createNotFoundException("Comment '$commentId' not found in protocol '$protocolId'");
+
         $protocol->removeComment($comment);
 
         $dm->persist($protocol);
         $dm->flush();
 
-        $view = $this->view($protocol);
-
-        return $this->handleView($view);
+        return $protocol->getComment()->toArray();
     }
 }
