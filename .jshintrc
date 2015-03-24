@@ -1,4 +1,5 @@
 {
+  "indent": 4,
   "asi"      : false,
   "devel"    : true,
   "browser"  : true,
