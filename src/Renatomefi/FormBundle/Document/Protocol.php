@@ -21,6 +21,7 @@ class Protocol
     {
         $this->user = new ArrayCollection();
         $this->nonUser = new ArrayCollection();
+        $this->comment = new ArrayCollection();
     }
 
     /**
@@ -54,6 +55,12 @@ class Protocol
      * @var ArrayCollection
      */
     protected $nonUser;
+
+    /**
+     * @ODM\ReferenceMany(targetDocument="ProtocolComment")
+     * @var ArrayCollection
+     */
+    protected $comment;
 
     /**
      * @ODM\ReferenceOne(targetDocument="Form")
@@ -244,5 +251,35 @@ class Protocol
             }
         }
         return null;
+    }
+
+    /**
+     * Add comment
+     *
+     * @param \Renatomefi\FormBundle\Document\ProtocolComment $comment
+     */
+    public function addComment(ProtocolComment $comment)
+    {
+        $this->comment[] = $comment;
+    }
+
+    /**
+     * Remove comment
+     *
+     * @param \Renatomefi\FormBundle\Document\ProtocolComment $comment
+     */
+    public function removeComment(ProtocolComment $comment)
+    {
+        $this->comment->removeElement($comment);
+    }
+
+    /**
+     * Get comment
+     *
+     * @return \Doctrine\Common\Collections\Collection $comment
+     */
+    public function getComment()
+    {
+        return $this->comment;
     }
 }
