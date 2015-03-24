@@ -70,9 +70,8 @@ class ProtocolController extends FOSRestController
 
         $result = $protocolDM
             ->createQueryBuilder()
-            ->hydrate(false)
             ->field('form')->references($form)
-            ->field('id')->hydrate(true)
+            ->hydrate(true)
             ->getQuery()
             ->execute()
             ->toArray();
