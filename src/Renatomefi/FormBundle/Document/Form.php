@@ -13,6 +13,14 @@ class Form
 {
 
     /**
+     * Setup document
+     */
+    public function __construct()
+    {
+        $this->setCreatedAt(new \MongoDate());
+    }
+
+    /**
      * @ODM\Id(strategy="auto")
      */
     protected $id;

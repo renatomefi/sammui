@@ -29,6 +29,7 @@ class ManageControllerTest extends WebTestCase implements OAuthClientInterface, 
     protected $_oAuthCredentials;
 
     /**
+     * Setup Credentials
      * @inheritdoc
      */
     protected function setUp()

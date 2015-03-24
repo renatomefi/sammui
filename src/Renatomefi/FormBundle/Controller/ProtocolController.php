@@ -39,7 +39,7 @@ class ProtocolController extends FOSRestController
      * @param bool $notFoundException
      * @return mixed
      */
-    public function getForm($id = null, $notFoundException = false)
+    protected function getForm($id = null, $notFoundException = false)
     {
         $formsDM = $this->get('doctrine_mongodb')->getRepository('FormBundle:Form');
 
