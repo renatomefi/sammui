@@ -146,8 +146,8 @@ angular.module('sammui.formControllers', ['ngRoute'])
     }])
     .controller('formFillingPagination', ['$scope', function ($scope) {
         $scope.templates = [
-            {name: 'form-filling-page-users', url: '/bundles/form/angular/views/form/filling/partials/formFillingUser.html'},
-            {name: 'form-filling-page-comments', url: '/bundles/form/angular/views/form/filling/partials/formFillingComment.html'},
+            {name: 'users', url: '/bundles/form/angular/views/form/filling/partials/formFillingUser.html'},
+            {name: 'comments', url: '/bundles/form/angular/views/form/filling/partials/formFillingComment.html'},
             {name: 'Page 1', url: '/bundles/form/angular/views/form/pages/sammui_demo/1.html'},
             {name: 'Page 2', url: '/bundles/form/angular/views/form/pages/sammui_demo/2.html'}
         ];

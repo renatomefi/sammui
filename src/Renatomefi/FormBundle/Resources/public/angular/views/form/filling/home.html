@@ -6,15 +6,16 @@
                     {{ ::protocol.data.form.name }}
                 </h1>
             </div>
-            <div class="list-group-item list-group-item-home">
-                <div class="alert alert-success text-center" role="alert">
-                    <h2>
-                        <i class="glyphicon glyphicon-barcode"></i>
-                        {{ ::protocol.data.id}}
-                    </h2>
-
-                    <p class="label label-info">{{ ::protocol.data.created_at | date : 'short' }}</p>
-                </div>
+            <div class="list-group-item media bg-success text-center">
+                <h3>
+                    <i class="glyphicon glyphicon-barcode"></i>
+                    {{ ::protocol.data.id }}
+                </h3>
+            </div>
+            <div class="list-group-item media bg-info text-center">
+                <i class="glyphicon glyphicon-time"></i> {{ ::protocol.data.created_at | date : 'short' }}
+            </div>
+            <div class="list-group-item media text-center">
                 <nav>
                     <ul class="pagination pagination-small">
                         <li><a href="#">Home</a></li>
@@ -22,7 +23,7 @@
                     </ul>
                     <ul class="pagination pagination-small">
                         <li><a href="#">&laquo;</a></li>
-                        <li><a href="#">1</a></li>
+                        <li><a ng-click="toPage(1)">1</a></li>
                         <li><a href="#">2</a></li>
                         <li><a href="#">3</a></li>
                         <li><a href="#">4</a></li>
@@ -30,6 +31,9 @@
                         <li><a href="#">&raquo;</a></li>
                     </ul>
                 </nav>
+            </div>
+            <div class="list-group-item list-group-item-home">
+
                 <div ng-controller="formFillingPagination">
                     <select class="form-control"
                             ng-model="template"
@@ -40,32 +44,6 @@
                     <div class="slide-animate-container">
                         <div class="slide-animate" ng-include="template.url"></div>
                     </div>
-                </div>
-            </div>
-            <div class="list-group-item">
-                <div class="center-block">
-                    <nav>
-                        <ul class="pagination pagination-lg">
-                            <li ng-disabled="true">
-                                <a aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li><a ng-click="toPage(1)">1</a></li>
-                            <li><a ng-click="toPage(2)">2</a></li>
-                            <li ng-disabled="true">
-                                <a href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <nav>
-                        <ul class="pager">
-                            <li><a href="#">Index</a></li>
-                            <li><a href="#">Home</a></li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
