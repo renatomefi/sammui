@@ -1,0 +1,43 @@
+<div ng-controller="formFillingComment">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <form name="formProtocolNewComment" ng-submit="addComment()">
+                <textarea class="form-control"
+                          rows="3"
+                          tabindex="3"
+                          required
+                          ng-disabled="loading"
+                          ng-model="newComment">
+                </textarea>
+                <span class="btn btn-info btn-block"
+                      tabindex="4"
+                      ng-disabled="loading"
+                      ng-click="addComment()"
+                      type="submit">
+                    <span class="glyphicon glyphicon-comment"></span>
+                </span>
+            </form>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>{{'protocol-comment-created-at' | translate}}</th>
+                <th>{{'protocol-comment' | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="comment in protocol.data.comment | orderBy:'-created_at'  ">
+                <th scope="row">
+                    <button type="button" class="btn btn-sm btn-warning"
+                            ng-click="removeComment(comment.id)">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </button>
+                </th>
+                <td>{{::comment.body}}</td>
+                <td>{{::comment.created_at | date : 'short'}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

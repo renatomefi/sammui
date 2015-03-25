@@ -1,0 +1,58 @@
+<div ng-controller="formFillingUser">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <form name="formProtocolNewUser" ng-submit="addUser(newUser)">
+                <div class="input-group merged has-feedback">
+                    <div class="input-group-addon">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                    </div>
+                    <input type="text" class="form-control"
+                           tabindex="1"
+                           required
+                           ng-disabled="loading"
+                           ng-model="newUser">
+
+                    <div class="input-group-btn">
+                        <button class="btn btn-info"
+                                tabindex="2"
+                                ng-disabled="loading"
+                                type="submit">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th></th>
+                <th>{{'protocol-table-name' | translate}}</th>
+                <th>{{'protocol-table-created-at' | translate}}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="user in protocol.data.user">
+                <th scope="row">
+                    <button type="button" class="btn btn-sm btn-warning"
+                            ng-click="removeUser(user.username)">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </button>
+                </th>
+                <td><strong>{{::user.username}}</strong></td>
+                <td>{{::user.created_at | date:'short'}}</td>
+            </tr>
+            <tr ng-repeat="user in protocol.data.non_user">
+                <th scope="row">
+                    <button type="button" class="btn btn-sm btn-warning"
+                            ng-click="removeUser(user.username)">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </button>
+                </th>
+                <td>{{::user.username}}</td>
+                <td>{{::user.created_at | date : 'short'}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

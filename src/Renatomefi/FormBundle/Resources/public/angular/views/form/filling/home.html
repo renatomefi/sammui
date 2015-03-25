@@ -15,105 +15,30 @@
 
                     <p class="label label-info">{{ ::protocol.data.created_at | date : 'short' }}</p>
                 </div>
-                <div ng-controller="formFillingUser">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <form name="formProtocolNewUser" ng-submit="addUser(newUser)">
-                                <div class="input-group merged has-feedback">
-                                    <div class="input-group-addon">
-                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                                    </div>
-                                    <input type="text" class="form-control"
-                                           tabindex="1"
-                                           required
-                                           ng-disabled="loading"
-                                           ng-model="newUser">
-
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-info"
-                                                tabindex="2"
-                                                ng-disabled="loading"
-                                                type="submit">
-                                            <span class="glyphicon glyphicon-plus"></span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>{{'protocol-table-name' | translate}}</th>
-                                <th>{{'protocol-table-created-at' | translate}}</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="user in protocol.data.user">
-                                <th scope="row">
-                                    <button type="button" class="btn btn-sm btn-warning"
-                                            ng-click="removeUser(user.username)">
-                                        <i class="glyphicon glyphicon-remove"></i>
-                                    </button>
-                                </th>
-                                <td><strong>{{::user.username}}</strong></td>
-                                <td>{{::user.created_at | date:'short'}}</td>
-                            </tr>
-                            <tr ng-repeat="user in protocol.data.non_user">
-                                <th scope="row">
-                                    <button type="button" class="btn btn-sm btn-warning"
-                                            ng-click="removeUser(user.username)">
-                                        <i class="glyphicon glyphicon-remove"></i>
-                                    </button>
-                                </th>
-                                <td>{{::user.username}}</td>
-                                <td>{{::user.created_at | date : 'short'}}</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div ng-controller="formFillingComment">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <form name="formProtocolNewComment" ng-submit="addComment()">
-                                <textarea class="form-control"
-                                          rows="3"
-                                          tabindex="3"
-                                          required
-                                          ng-disabled="loading"
-                                          ng-model="newComment">
-                                </textarea>
-                                <span class="btn btn-info btn-block"
-                                      tabindex="4"
-                                      ng-disabled="loading"
-                                      ng-click="addComment()"
-                                      type="submit">
-                                    <span class="glyphicon glyphicon-comment"></span>
-                                </span>
-                            </form>
-                        </div>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>{{'protocol-comment-created-at' | translate}}</th>
-                                <th>{{'protocol-comment' | translate}}</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr ng-repeat="comment in protocol.data.comment | orderBy:'-created_at'  ">
-                                <th scope="row">
-                                    <button type="button" class="btn btn-sm btn-warning"
-                                            ng-click="removeComment(comment.id)">
-                                        <i class="glyphicon glyphicon-remove"></i>
-                                    </button>
-                                </th>
-                                <td>{{::comment.body}}</td>
-                                <td>{{::comment.created_at | date : 'short'}}</td>
-                            </tr>
-                            </tbody>
-                        </table>
+                <nav>
+                    <ul class="pagination pagination-small">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Conclusion</a></li>
+                    </ul>
+                    <ul class="pagination pagination-small">
+                        <li><a href="#">&laquo;</a></li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li><a href="#">&raquo;</a></li>
+                    </ul>
+                </nav>
+                <div ng-controller="formFillingPagination">
+                    <select class="form-control"
+                            ng-model="template"
+                            ng-options="t.name for t in templates">
+                    </select>
+                    <code>{{template.url}}</code>
+                    <hr/>
+                    <div class="slide-animate-container">
+                        <div class="slide-animate" ng-include="template.url"></div>
                     </div>
                 </div>
             </div>

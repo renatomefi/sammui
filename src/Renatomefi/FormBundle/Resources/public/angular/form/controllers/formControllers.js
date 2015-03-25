@@ -28,7 +28,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
             };
 
             $scope.continueForm = function (protocolId) {
-                $location.path('/form/start/' + protocolId);
+                $location.path('/form/' + protocolId);
             };
 
             $scope.loadForms();
@@ -51,7 +51,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
                         $scope.protocol.data = angular.copy(data);
                     },
                     function () {
-                        $location.path('/form/start');
+                        $location.path('/form');
                     })
                     .$promise.finally(function () {
                         $rootScope.loading = false;
@@ -143,4 +143,13 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     $scope.loading = false;
                 });
         };
+    }])
+    .controller('formFillingPagination', ['$scope', function ($scope) {
+        $scope.templates = [
+            {name: 'form-filling-page-users', url: '/bundles/form/angular/views/form/filling/partials/formFillingUser.html'},
+            {name: 'form-filling-page-comments', url: '/bundles/form/angular/views/form/filling/partials/formFillingComment.html'},
+            {name: 'Page 1', url: '/bundles/form/angular/views/form/pages/sammui_demo/1.html'},
+            {name: 'Page 2', url: '/bundles/form/angular/views/form/pages/sammui_demo/2.html'}
+        ];
+        $scope.template = $scope.templates[0];
     }]);

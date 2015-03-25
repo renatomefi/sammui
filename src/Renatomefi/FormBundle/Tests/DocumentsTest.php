@@ -24,6 +24,10 @@ use Renatomefi\FormBundle\Document\Protocol;
 use Renatomefi\FormBundle\Document\ProtocolComment;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
+/**
+ * Class DocumentsTest
+ * @package Renatomefi\FormBundle\Tests
+ */
 class DocumentsTest extends WebTestCase
 {
 
@@ -32,6 +36,9 @@ class DocumentsTest extends WebTestCase
      */
     protected $documentManager;
 
+    /**
+     * Setup MongoDB DocumentManager
+     */
     public function setUp()
     {
         $kernel = static::createKernel();
@@ -40,6 +47,10 @@ class DocumentsTest extends WebTestCase
         $this->documentManager = $kernel->getContainer()->get('doctrine_mongodb')->getManager();
     }
 
+    /**
+     * Create a form in order to continue the tests
+     * @return Form
+     */
     public function testForm()
     {
         $form = new Form();
@@ -56,6 +67,7 @@ class DocumentsTest extends WebTestCase
     }
 
     /**
+     * Test Protocol Document
      * @depends testForm
      * @param Form $form
      */
@@ -86,6 +98,9 @@ class DocumentsTest extends WebTestCase
         $this->documentManager->flush();
     }
 
+    /**
+     * Test Protocol Comment embed Document
+     */
     public function testProtocolComment()
     {
         $protocolComment = new ProtocolComment();
