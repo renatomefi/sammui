@@ -59,7 +59,7 @@ class AuthTest extends WebTestCase implements AssertUserInfoInterface, AssertCli
             [
                 'client_id' => $this->_clientId,
                 'client_secret' => $this->_clientSecret,
-                'grant_type' => 'client_credentials'
+                'grant_type' => OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS
             ], [], [
                 'HTTP_ACCEPT' => 'application/json',
             ]

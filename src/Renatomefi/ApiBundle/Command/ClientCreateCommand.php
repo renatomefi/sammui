@@ -2,7 +2,7 @@
 
 namespace Renatomefi\ApiBundle\Command;
 
-use Symfony\Component\Console\Command\Command;
+use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -12,15 +12,18 @@ use Symfony\Component\Console\Output\OutputInterface;
  * Class ClientCreateCommand
  * @package Renatomefi\ApiBundle\Command
  */
-class ClientCreateCommand extends Command
+class ClientCreateCommand extends ContainerAwareCommand
 {
+    public static $commandName = 'renatomefi:oauth-server:client:create';
+
     /**
      * @inheritdoc
+     * Configuring clientcreate command
      */
     protected function configure()
     {
         $this
-            ->setName('renatomefi:oauth-server:client:create')
+            ->setName(static::$commandName)
             ->setDescription('Create a new client')
             ->addArgument('name', InputArgument::REQUIRED, 'Sets the client name', null)
             ->addOption('redirect-uri', null, InputOption::VALUE_REQUIRED | InputOption::VALUE_IS_ARRAY, 'Sets redirect uri for client. Use this option multiple times to set multiple redirect URIs.', null)
@@ -32,7 +35,7 @@ class ClientCreateCommand extends Command
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $clientManager = $this->getApplication()->getKernel()->getContainer()->get('fos_oauth_server.client_manager.default');
+        $clientManager = $this->getContainer()->get('fos_oauth_server.client_manager.default');
 
         $client = $clientManager->createClient();
         $client->setName($input->getArgument('name'));
