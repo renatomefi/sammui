@@ -3,18 +3,15 @@
     <div class="scrollable-content">
         <div class="list-group">
             <form-filling-header type="index"></form-filling-header>
-            <div class="list-group-item list-group-item-home">
-                <div ng-controller="formFillingPagination">
+            <div ng-controller="formFillingPagination">
+                <div class="list-group-item list-group-item-home">
                     <select class="form-control"
                             ng-model="template"
                             ng-options="t.name for t in templates">
                     </select>
                     <code>{{template.url}}</code>
-                    <hr/>
-                    <div class="slide-animate-container">
-                        <div class="slide-animate" ng-include="template.url"></div>
-                    </div>
                 </div>
+                <div class="list-group-item" ng-include="template.url"></div>
             </div>
         </div>
     </div>
