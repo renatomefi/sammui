@@ -46,7 +46,7 @@ class DocumentsTest extends WebTestCase implements AssertMongoIdInterface, OAuth
         $kernel = static::createKernel();
         $kernel->boot();
 
-        $tokenManager = $kernel->getContainer()->get('fos_oauth_server.access_token_manager');
+        $tokenManager = $kernel->getContainer()->get('fos_oauth_server.access_token_manager.default');
 
         $credentials = $this->getAnonymousCredentials();
 
