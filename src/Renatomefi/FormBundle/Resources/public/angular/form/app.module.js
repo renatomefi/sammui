@@ -2,7 +2,8 @@
 
 var sammuiForm = angular.module('sammui.form', [
     'sammui.formServices',
-    'sammui.formControllers'
+    'sammui.formControllers',
+    'sammui.formDirectives'
 ]);
 
 sammuiForm.config(function ($locationProvider, $routeProvider) {
@@ -27,10 +28,4 @@ sammuiForm.config(function ($locationProvider, $routeProvider) {
         controller: 'formFilling',
         reloadOnSearch: false
     });
-});
-
-sammuiForm.directive('formFillingHeader', function() {
-    return {
-        templateUrl: '/bundles/form/angular/views/form/filling/partials/header.html'
-    };
 });
