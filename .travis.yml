@@ -19,7 +19,7 @@ services:
   - mongodb
 
 before_script:
-  - sh -c "Testing env, php is now $php"
+  - echo "Testing env, php is now $php"
   - npm install -g bower
   - ln -s $(which bower) bin/bower
   - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
@@ -31,9 +31,9 @@ before_script:
 script: phpunit --repeat=3 -c app/phpunitTravis.xml
 
 after_script: >
-  bin/test-reporter -t 7c5ee913b1deff0f89031388f37bac8d6c61077536e2367a1ed5345e37fd96fa
-  && curl -d message="[CodeClimate]($CODECLIMATE_URL) updated" https://webhooks.gitter.im/e/5b3b4bde928dc1451089
-  || curl -d message="CodeClimate failed to update" -d level=error https://webhooks.gitter.im/e/5b3b4bde928dc1451089
+  bin/test-reporter
+  && curl -d message="[CodeClimate]($CODECLIMATE_URL) updated" $CODECLIMATE_GITTER_URL
+  || curl -d message="CodeClimate failed to update" -d level=error $CODECLIMATE_GITTER_URL
 
 notifications:
   webhooks:
