@@ -9,7 +9,6 @@ php:
 env:
   global:
     - SYMFONY_ENV=test
-    - CODECLIMATE_URL="https://codeclimate.com/github/renatomefidf/sammui"
 
 #matrix:
 #  allow_failures:
@@ -19,7 +18,7 @@ services:
   - mongodb
 
 before_script:
-  - echo "Testing env, php is now $php"
+  - echo "PHP: $(phpenv version-name)"
   - npm install -g bower
   - ln -s $(which bower) bin/bower
   - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
