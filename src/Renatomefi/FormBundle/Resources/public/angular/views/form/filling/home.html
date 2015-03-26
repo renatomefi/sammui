@@ -2,8 +2,8 @@
 <div class="scrollable">
     <div class="scrollable-content">
         <div class="list-group">
-            <form-filling-header type="index"></form-filling-header>
             <div ng-controller="formFillingPagination">
+                <form-filling-header protocol="protocol" type="{{template.headerType}}"></form-filling-header>
                 <div class="list-group-item list-group-item-home">
                     <select class="form-control"
                             ng-model="template"

@@ -29,7 +29,6 @@ after_script:
   - bin/test-reporter -t 7c5ee913b1deff0f89031388f37bac8d6c61077536e2367a1ed5345e37fd96fa
 
 notifications:
-  email: false
   webhooks:
     urls:
       - https://webhooks.gitter.im/e/162920b9399e54be89a4
