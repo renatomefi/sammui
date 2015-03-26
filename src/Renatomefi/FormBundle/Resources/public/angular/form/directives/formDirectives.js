@@ -5,7 +5,7 @@ angular.module('sammui.formDirectives', [])
         return {
             restrict: 'E',
             scope: {
-                headerType: "@type",
+                headerType: "@headerType",
                 protocol: '=protocol'
             },
             templateUrl: '/bundles/form/angular/views/form/filling/partials/header.html'

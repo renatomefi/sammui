@@ -38,8 +38,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
         function ($rootScope, $scope, $route, $routeParams, $location, formProtocolManage) {
 
             $scope.protocol = {
-                data: undefined,
-                currentPage: $routeParams.pageId
+                data: undefined
             };
 
             $scope.loadProtocol = function () {
@@ -56,14 +55,6 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     .$promise.finally(function () {
                         $rootScope.loading = false;
                     });
-            };
-
-            $scope.toPage = function (pageId) {
-                if (!angular.isUndefined($routeParams.pageId)) {
-                    $route.updateParams({pageId: pageId});
-                } else {
-                    $location.path($location.path() + '/page/' + pageId);
-                }
             };
 
             $scope.loadProtocol();
@@ -144,13 +135,38 @@ angular.module('sammui.formControllers', ['ngRoute'])
                 });
         };
     }])
-    .controller('formFillingPagination', ['$scope', function ($scope) {
+    .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', function ($scope, $routeParams, $location, $route) {
+
+        var partialPath = '/bundles/form/angular/views/form/filling/partials/';
+        var templatePath = '/bundles/form/angular/views/form/pages/sammui_demo/';
+
         $scope.templates = [
-            {name: 'index', headerType: 'index', url: '/bundles/form/angular/views/form/filling/partials/index.html'},
-            {name: 'users', url: '/bundles/form/angular/views/form/filling/partials/user.html'},
-            {name: 'comments', url: '/bundles/form/angular/views/form/filling/partials/comment.html'},
-            {name: 'Page 1', url: '/bundles/form/angular/views/form/pages/sammui_demo/1.html'},
-            {name: 'Page 2', url: '/bundles/form/angular/views/form/pages/sammui_demo/2.html'}
+            {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
+            {name: 'users', url: partialPath + 'user.html'},
+            {name: 'comments', url: partialPath + 'comment.html'},
+            {name: 'Page 1', url: templatePath + '1.html'},
+            {name: 'Page 2', url: templatePath + '2.html'}
         ];
-        $scope.template = $scope.templates[0];
+        $scope.pages = [
+            {name: 'Page 1', url: templatePath + '1.html'},
+            {name: 'Page 2', url: templatePath + '2.html'}
+        ];
+
+        $scope.toPage = function (pageId) {
+            if (!angular.isUndefined($routeParams.pageId)) {
+                $route.updateParams({pageId: pageId});
+            } else {
+                $location.path($location.path() + '/page/' + pageId);
+            }
+            for (var i = 0, len = $scope.templates.length; i < len; i++) {
+                if (pageId === $scope.templates[i].name) {
+                    $scope.selectedTemplate = $scope.currentTemplate = $scope.templates[i];
+                    break;
+                }
+            }
+        };
+
+        //Get page from url
+        $scope.toPage(($routeParams.pageId) ? $routeParams.pageId : 'index');
+
     }]);

@@ -1,1 +1,13 @@
-<h2>index</h2>
+<ul class="list-group">
+    <li class="list-group-item"
+        ng-repeat="item in templates"
+        ng-class="{'list-group-item-info': (item.name === 'index')}">
+        <a ng-click="toPage(item.name)">{{item.name}}</a>
+    </li>
+</ul>
+<ul class="list-group">
+    <li class="list-group-item"
+        ng-repeat="item in pages">
+        <a ng-click="toPage(item.name)">{{item.name}}</a>
+    </li>
+</ul>

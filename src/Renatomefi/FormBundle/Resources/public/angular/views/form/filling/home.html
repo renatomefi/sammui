@@ -3,15 +3,17 @@
     <div class="scrollable-content">
         <div class="list-group">
             <div ng-controller="formFillingPagination">
-                <form-filling-header protocol="protocol" type="{{template.headerType}}"></form-filling-header>
+                <form-filling-header protocol="protocol"
+                                     header-type="{{currentTemplate.headerType}}"></form-filling-header>
                 <div class="list-group-item list-group-item-home">
                     <select class="form-control"
-                            ng-model="template"
-                            ng-options="t.name for t in templates">
+                            ng-options="t.name for t in templates"
+                            ng-model="selectedTemplate"
+                            ng-change="toPage(selectedTemplate.name)">
                     </select>
-                    <code>{{template.url}}</code>
+                    <code>{{selectedTemplate.url}}</code>
                 </div>
-                <div class="list-group-item" ng-include="template.url"></div>
+                <div class="list-group-item" ng-include="currentTemplate.url"></div>
             </div>
         </div>
     </div>
