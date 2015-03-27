@@ -138,9 +138,11 @@ angular.module('sammui.formControllers', ['ngRoute'])
     }])
     .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', function ($scope, $routeParams, $location, $route) {
 
+        //TODO configuration file??
         var partialPath = '/bundles/form/angular/views/form/filling/partials/';
         var templatePath = '/bundles/form/angular/views/form/pages/sammui_demo/';
 
+        //Default templates to all forms
         $scope.templates = [
             {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
             {name: 'users', url: partialPath + 'user.html'},

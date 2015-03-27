@@ -22,6 +22,8 @@
               href="{{ asset("bundles/frontend/components/mobile-angular-ui/dist/css/mobile-angular-ui-desktop.css") }}"/>
         <link rel="stylesheet"
               href="{{ asset("bundles/frontend/components/angular-xeditable/dist/css/xeditable.css") }}"/>
+        <link rel="stylesheet"
+              href="{{ asset("bundles/frontend/components/textAngular/src/textAngular.css") }}"/>
     {% endblock %}
 
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
@@ -62,6 +64,13 @@
             src="{{ asset("bundles/frontend/components/mobile-angular-ui/dist/js/mobile-angular-ui.js") }}"></script>
     <script type="text/javascript"
             src="{{ asset("bundles/frontend/components/mobile-angular-ui/dist/js/mobile-angular-ui.gestures.js") }}"></script>
+
+    <script type="text/javascript"
+            src="{{ asset("bundles/frontend/components/textAngular/dist/textAngular-rangy.min.js") }}"></script>
+    <script type="text/javascript"
+            src="{{ asset("bundles/frontend/components/textAngular/dist/textAngular-sanitize.min.js") }}"></script>
+    <script type="text/javascript"
+            src="{{ asset("bundles/frontend/components/textAngular/dist/textAngular.min.js") }}"></script>
 
 {% endblock %}
 

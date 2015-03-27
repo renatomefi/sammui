@@ -1,0 +1,17 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <text-angular-toolbar
+                name="textFormat"
+                ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough']]"></text-angular-toolbar>
+        <text-angular-toolbar
+                name="textTools"
+                ta-toolbar="[['ul', 'ol'],['justifyLeft', 'justifyCenter', 'justifyRight'],['html', 'insertLink']]"></text-angular-toolbar>
+    </div>
+    <div class="panel-body">
+        <text-angular
+                name="protocol"
+                ng-model="protocol.conclusion"
+                ta-target-toolbars='textFormat,textTools'>
+        </text-angular>
+    </div>
+</div>
