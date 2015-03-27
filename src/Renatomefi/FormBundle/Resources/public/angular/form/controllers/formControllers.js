@@ -155,7 +155,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
             }
 
             if (isFinite(parseInt(pageId))) {
-                $scope.currentTemplate = {name: 'Page' + pageId, url: templatePath + pageId + '.html'};
+                $scope.currentTemplate = {name: pageId, url: templatePath + pageId + '.html', headerType: 'form'};
             } else {
                 for (var i = 0, len = $scope.templates.length; i < len; i++) {
                     if (pageId === $scope.templates[i].name) {
@@ -164,7 +164,6 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     }
                 }
             }
-
         };
 
         //Get page from url

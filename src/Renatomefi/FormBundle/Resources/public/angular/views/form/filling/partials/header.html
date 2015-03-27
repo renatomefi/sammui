@@ -14,21 +14,27 @@
     <div class="list-group-item media bg-info text-center">
         <i class="glyphicon glyphicon-time"></i> {{ ::protocol.data.created_at | date : 'short' }}
     </div>
-    <div class="list-group-item media text-center"
-         ng-hide="headerType === 'index'">
-        <nav>
-            <ul class="pagination pagination-small">
-                <li ng-repeat="t in templates" ng-class="{active: (t.name == currentPage)}">
-                    <a ng-click="toPage()(t.name)">{{'form-filling-page-' + t.name | translate}}</a>
+    <div ng-hide="headerType === 'index'">
+        <div class="list-group-item media text-center">
+            <ul class="nav nav-pills">
+                <li ng-repeat="t in templates"
+                    ng-class="{active: (t.name == currentPage)}">
+                    <a ng-click="toPage()(t.name)">{{'page-' + t.name | translate}}</a>
+                </li>
+                <li ng-class="{active: (headerType === 'form')}">
+                    <a ng-click="toPage()(1)">{{'page-form' | translate}}</a>
                 </li>
             </ul>
-            <ul class="pagination pagination-small">
+        </div>
+        <div class="list-group-item media text-center"
+             ng-show="(headerType === 'form')">
+            <ul class="pagination">
                 <li><a href="#">&laquo;</a></li>
                 <li><a ng-click="toPage()(1)">1</a></li>
                 <li><a ng-click="toPage()(2)">2</a></li>
                 <li><a ng-click="toPage()(3)">3</a></li>
                 <li><a href="#">&raquo;</a></li>
             </ul>
-        </nav>
+        </div>
     </div>
 </div>
