@@ -144,7 +144,8 @@ angular.module('sammui.formControllers', ['ngRoute'])
         $scope.templates = [
             {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
             {name: 'users', url: partialPath + 'user.html'},
-            {name: 'comments', url: partialPath + 'comment.html'}
+            {name: 'comments', url: partialPath + 'comment.html'},
+            {name: 'conclusion', url: partialPath + 'conclusion.html'},
         ];
 
         $scope.toPage = function (pageId) {

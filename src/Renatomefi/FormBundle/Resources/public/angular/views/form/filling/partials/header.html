@@ -19,10 +19,10 @@
             <ul class="nav nav-pills">
                 <li ng-repeat="t in templates"
                     ng-class="{active: (t.name == currentPage)}">
-                    <a ng-click="toPage()(t.name)">{{'page-' + t.name | translate}}</a>
+                    <a ng-click="toPage()(t.name)">{{'form-filling-page-' + t.name | translate}}</a>
                 </li>
                 <li ng-class="{active: (headerType === 'form')}">
-                    <a ng-click="toPage()(1)">{{'page-form' | translate}}</a>
+                    <a ng-click="toPage()(1)">{{'form-filling-page-form' | translate}}</a>
                 </li>
             </ul>
         </div>

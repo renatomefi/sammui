@@ -52,7 +52,22 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
             'pt-br' => 'Escolha um formulário'],
         'form-no-forms' => [
             'en-us' => 'No forms found',
-            'pt-br' => 'Nenhum formulário disponível']
+            'pt-br' => 'Nenhum formulário disponível'],
+        'form-filling-page-index' => [
+            'en-us' => 'Index',
+            'pt-br' => 'Índice'],
+        'form-filling-page-users' => [
+            'en-us' => 'Users',
+            'pt-br' => 'Usuários'],
+        'form-filling-page-comments' => [
+            'en-us' => 'Obs',
+            'pt-br' => 'Comentários'],
+        'form-filling-page-conclusion' => [
+            'en-us' => 'Conclusion',
+            'pt-br' => 'Conclusão'],
+        'form-filling-page-form' => [
+            'en-us' => 'Form',
+            'pt-br' => 'Formulário']
     ];
 
     /**
