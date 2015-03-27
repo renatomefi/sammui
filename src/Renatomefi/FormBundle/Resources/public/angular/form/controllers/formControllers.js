@@ -148,6 +148,12 @@ angular.module('sammui.formControllers', ['ngRoute'])
             {name: 'conclusion', url: partialPath + 'conclusion.html'},
         ];
 
+        //TODO bring form server
+        $scope.formPages = {
+            1: {title: 'Título página Um', period: 6},
+            2: {title: 'Título página Dois'}
+        };
+
         $scope.toPage = function (pageId) {
             if (!angular.isUndefined($routeParams.pageId)) {
                 $route.updateParams({pageId: pageId});
