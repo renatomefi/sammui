@@ -30,9 +30,13 @@ before_script:
 script: phpunit --verbose --repeat=3 -c app/phpunitTravis.xml
 
 after_script: >
-  bin/test-reporter
-  && curl -d message="[CodeClimate]($CODECLIMATE_URL) updated" $CODECLIMATE_GITTER_URL
-  || curl -d message="CodeClimate failed to update" -d level=error $CODECLIMATE_GITTER_URL
+  if [ $(phpenv version-name) = 'version 5.6' ];
+  then curl -d message="I am 5.6" $CODECLIMATE_GITTER_URL;
+  else curl -d message="I am not 5.6"; fi
+#  bin/test-reporter
+#  && curl -d message="[CodeClimate]($CODECLIMATE_URL) updated" $CODECLIMATE_GITTER_URL
+#  || curl -d message="CodeClimate failed to update" -d level=error $CODECLIMATE_GITTER_URL;
+
 
 notifications:
   webhooks:
