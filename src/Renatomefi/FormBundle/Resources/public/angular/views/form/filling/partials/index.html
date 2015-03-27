@@ -5,3 +5,12 @@
         <a ng-click="toPage(item.name)">{{item.name}}</a>
     </li>
 </ul>
+<div class="text-center">
+    <h3>{{'form-filling-index-pages-title' | translate}}</h3>
+</div>
+<ul class="nav nav-pills nav-justified">
+    <li role="presentation"
+        ng-repeat="(number, page) in formPages">
+        <a ng-click="toPage(number)">{{page.title}}</a>
+    </li>
+</ul>

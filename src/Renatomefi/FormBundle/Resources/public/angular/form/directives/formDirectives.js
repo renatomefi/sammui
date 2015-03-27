@@ -9,6 +9,7 @@ angular.module('sammui.formDirectives', [])
                 headerType: "@",
                 templates: '=',
                 protocol: '=',
+                pages: '=',
                 toPage: '&',
                 currentPage: '='
             },

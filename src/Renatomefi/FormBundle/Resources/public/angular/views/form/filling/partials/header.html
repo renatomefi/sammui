@@ -30,9 +30,11 @@
              ng-show="(headerType === 'form')">
             <ul class="pagination" style="margin: 0;">
                 <li><a href="#">&laquo;</a></li>
-                <li><a ng-click="toPage()(1)">1</a></li>
-                <li><a ng-click="toPage()(2)">2</a></li>
-                <li><a ng-click="toPage()(3)">3</a></li>
+                <li role="presentation"
+                    ng-repeat="(number, page) in pages"
+                    ng-class="{active: (number == currentPage)}">
+                    <a ng-click="toPage()(number)">{{number}}</a>
+                </li>
                 <li><a href="#">&raquo;</a></li>
             </ul>
         </div>
