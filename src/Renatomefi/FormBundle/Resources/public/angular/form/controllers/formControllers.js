@@ -14,9 +14,10 @@ angular.module('sammui.formControllers', ['ngRoute'])
             $scope.loadForms = function () {
                 $scope.forms.loading = true;
 
-                formList.query({}, function (data) {
-                    $scope.forms.data = data;
-                }).$promise.finally(function () {
+                formList.query({},
+                    function (data) {
+                        $scope.forms.data = data;
+                    }).$promise.finally(function () {
                         $scope.forms.loading = false;
                     });
             };
@@ -143,13 +144,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
         $scope.templates = [
             {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
             {name: 'users', url: partialPath + 'user.html'},
-            {name: 'comments', url: partialPath + 'comment.html'},
-            {name: 'Page 1', url: templatePath + '1.html'},
-            {name: 'Page 2', url: templatePath + '2.html'}
-        ];
-        $scope.pages = [
-            {name: 'Page 1', url: templatePath + '1.html'},
-            {name: 'Page 2', url: templatePath + '2.html'}
+            {name: 'comments', url: partialPath + 'comment.html'}
         ];
 
         $scope.toPage = function (pageId) {
@@ -158,12 +153,18 @@ angular.module('sammui.formControllers', ['ngRoute'])
             } else {
                 $location.path($location.path() + '/page/' + pageId);
             }
-            for (var i = 0, len = $scope.templates.length; i < len; i++) {
-                if (pageId === $scope.templates[i].name) {
-                    $scope.selectedTemplate = $scope.currentTemplate = $scope.templates[i];
-                    break;
+
+            if (isFinite(parseInt(pageId))) {
+                $scope.currentTemplate = {name: 'Page' + pageId, url: templatePath + pageId + '.html'};
+            } else {
+                for (var i = 0, len = $scope.templates.length; i < len; i++) {
+                    if (pageId === $scope.templates[i].name) {
+                        $scope.selectedTemplate = $scope.currentTemplate = $scope.templates[i];
+                        break;
+                    }
                 }
             }
+
         };
 
         //Get page from url
