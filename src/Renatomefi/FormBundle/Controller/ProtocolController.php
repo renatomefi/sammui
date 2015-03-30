@@ -2,6 +2,7 @@
 
 namespace Renatomefi\FormBundle\Controller;
 
+use Doctrine\ODM\MongoDB\Query\Expr;
 use FOS\RestBundle\Controller\FOSRestController;
 use Renatomefi\FormBundle\Document\Protocol;
 use Renatomefi\FormBundle\Document\ProtocolComment;
@@ -164,6 +165,22 @@ class ProtocolController extends FOSRestController
         $protocol = $this->getProtocol($protocolId);
 
         return ['user' => $protocol->getUser(), 'nonUser' => $protocol->getNonUser()];
+    }
+
+    /**
+     * @param Request $request
+     * @param $protocolId
+     */
+    public function patchConclusionAction(Request $request, $protocolId)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
+        $protocol = $this->getProtocol($protocolId);
+        $protocol->setConclusion($request->get('conclusion'));
+
+        $dm->persist($protocol);
+        $dm->flush();
+        $dm->clear();
     }
 
     /**

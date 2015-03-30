@@ -20,8 +20,7 @@ angular.module('sammui.formServices', ['ngResource'])
                 action: '@action',
                 protocolId: '@protocolId',
                 userName: '@userName'
-            },
-            {
+            }, {
                 'add': {
                     method: 'PATCH',
                     params: {action: 'adds'}
@@ -39,8 +38,7 @@ angular.module('sammui.formServices', ['ngResource'])
                 protocolId: '@protocolId',
                 commentId: '@commentId',
                 var: '@var'
-            },
-            {
+            }, {
                 'add': {
                     method: 'PATCH',
                     isArray: true,
@@ -50,6 +48,16 @@ angular.module('sammui.formServices', ['ngResource'])
                     method: 'PATCH',
                     isArray: true,
                     params: {action: 'removes', var: 'comments'}
+                }
+            });
+    })
+    .factory('formProtocolConclusion', function ($resource) {
+        return $resource('/form/protocol/conclusions/:protocolId',
+            {
+                protocolId: '@protocolId'
+            }, {
+                'save': {
+                    method: 'PATCH'
                 }
             });
     })

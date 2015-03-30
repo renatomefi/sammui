@@ -64,6 +64,11 @@ class Protocol
     protected $comment;
 
     /**
+     * @ODM\String
+     */
+    protected $conclusion;
+
+    /**
      * @ODM\ReferenceOne(targetDocument="Form")
      */
     protected $form;
@@ -298,5 +303,27 @@ class Protocol
             }
         }
         return null;
+    }
+
+    /**
+     * Set conclusion
+     *
+     * @param string $conclusion
+     * @return self
+     */
+    public function setConclusion($conclusion)
+    {
+        $this->conclusion = $conclusion;
+        return $this;
+    }
+
+    /**
+     * Get conclusion
+     *
+     * @return string $conclusion
+     */
+    public function getConclusion()
+    {
+        return $this->conclusion;
     }
 }
