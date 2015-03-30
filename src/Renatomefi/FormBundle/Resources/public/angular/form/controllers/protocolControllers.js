@@ -4,13 +4,12 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
     .controller('formFilling', ['$rootScope', '$scope', '$route', '$routeParams', '$location', 'formProtocolManage', 'protocolData',
         function ($rootScope, $scope, $route, $routeParams, $location, formProtocolManage, protocolData) {
 
-            console.debug('form-filling');
-
             $scope.currentTemplate = undefined;
 
             // TODO it should be a service to store all changes!
             $scope.protocol = {
-                data: protocolData.getData($routeParams.protocolId)
+                data: protocolData.getData($routeParams.protocolId),
+                original: protocolData.getOriginalData($routeParams.protocolId)
             };
 
             $scope.loadProtocol = function () {
@@ -27,7 +26,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         $scope.newUser = undefined;
         $scope.loading = false;
-        console.debug('form-filling User');
+
         $scope.addUser = function (userName) {
             $scope.loading = true;
 
@@ -102,8 +101,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         $scope.savedConclusion = undefined;
 
-        $scope.$parent.protocol.data.$promise.then(function (data) {
-            console.debug('Success: ', data);
+        $scope.$parent.protocol.data.$promise.then(function () {
             $scope.savedConclusion = angular.copy($scope.$parent.protocol.data.conclusion);
         });
 
@@ -148,9 +146,15 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             } else {
                 $location.path($location.path() + '/page/' + pageId);
             }
+        };
 
+        $scope.loadTemplate = function (pageId) {
             if (isFinite(parseInt(pageId))) {
-                $scope.$parent.currentTemplate = {name: pageId, url: templatePath + pageId + '.html', headerType: 'form'};
+                $scope.$parent.currentTemplate = {
+                    name: pageId,
+                    url: templatePath + pageId + '.html',
+                    headerType: 'form'
+                };
             } else {
                 for (var i = 0, len = $scope.templates.length; i < len; i++) {
                     if (pageId === $scope.templates[i].name) {
@@ -161,8 +165,21 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             }
         };
 
-        console.debug('form-filling Pagination');
-        //Get page from url
-        $scope.toPage(($routeParams.pageId) ? $routeParams.pageId : 'index');
+        $scope.onLoad = function () {
+            var pageId = $routeParams.pageId;
+
+            if (pageId === undefined) {
+                $scope.toPage('index');
+                return;
+            }
+
+            if ($scope.selectedTemplate && pageId === $scope.selectedTemplate.name) {
+                return;
+            }
+
+            $scope.loadTemplate(pageId);
+        };
+
+        $scope.onLoad();
 
     }]);

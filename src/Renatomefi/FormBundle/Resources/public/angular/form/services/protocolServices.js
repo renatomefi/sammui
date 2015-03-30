@@ -8,10 +8,20 @@ angular.module('sammui.protocolServices', ['ngResource'])
         this.getData = function (protocolId) {
             if (!currentData[protocolId]) {
                 currentData[protocolId] = formProtocolManage.get({protocolId: protocolId});
-                originalData[protocolId] = formProtocolManage.get({protocolId: protocolId});
+                currentData[protocolId].$promise.then(function(data) {
+                    originalData[protocolId] = angular.copy(data);
+                });
             }
 
             return currentData[protocolId];
+        };
+
+        this.getOriginalData = function (protocolId) {
+            if (!currentData[protocolId]) {
+                this.getData(protocolId);
+            }
+
+            return originalData[protocolId];
         };
 
         this.reloadOriginalData = function (protocolId) {
