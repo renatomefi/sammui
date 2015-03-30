@@ -14,11 +14,11 @@
         </text-angular-toolbar>
         <div class="btn btn-warning"
              ng-click="saveConclusion()"
-             ng-hide="savedConclusion === protocol.data.conclusion">
+             ng-hide="savedConclusion === currentConclusion">
             <i class="glyphicon glyphicon-floppy-remove"></i> {{'not-saved' | translate}}
         </div>
         <text-angular
-                ng-model="protocol.data.conclusion"
+                ng-model="currentConclusion"
                 ng-model-options="{ debounce: 300 }"
                 ta-target-toolbars='textFormat,textTools'>
         </text-angular>
