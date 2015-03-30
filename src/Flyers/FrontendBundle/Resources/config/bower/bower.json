@@ -13,6 +13,7 @@
     "bootstrap": "~3.3.1",
     "mobile-angular-ui": "master",
     "ng-file-upload ": "3.2.x",
+    "angular-local-storage": "0.1.5",
     "textAngular": "1.3.x"
   }
 }

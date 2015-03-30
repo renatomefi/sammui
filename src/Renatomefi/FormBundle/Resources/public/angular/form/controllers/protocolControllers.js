@@ -1,28 +1,22 @@
 'use strict';
 
 angular.module('sammui.protocolControllers', ['ngRoute'])
-    .controller('formFilling', ['$rootScope', '$scope', '$route', '$routeParams', '$location', 'formProtocolManage',
-        function ($rootScope, $scope, $route, $routeParams, $location, formProtocolManage) {
+    .controller('formFilling', ['$rootScope', '$scope', '$route', '$routeParams', '$location', 'formProtocolManage', 'protocolData',
+        function ($rootScope, $scope, $route, $routeParams, $location, formProtocolManage, protocolData) {
+
+            console.debug('form-filling');
+
+            $scope.currentTemplate = undefined;
 
             // TODO it should be a service to store all changes!
             $scope.protocol = {
-                data: undefined
+                data: protocolData.getData($routeParams.protocolId)
             };
 
             $scope.loadProtocol = function () {
-                $rootScope.loading = true;
-                formProtocolManage.get(
-                    {protocolId: $routeParams.protocolId},
-                    function (data) {
-                        $scope.protocol.data = angular.copy(data);
-                        $scope.$broadcast('formEvent:form-protocol-loaded');
-                    },
-                    function () {
-                        $location.path('/form');
-                    })
-                    .$promise.finally(function () {
-                        $rootScope.loading = false;
-                    });
+                if (!$scope.protocol.data) {
+                    $location.path('/form');
+                }
             };
 
             $scope.loadProtocol();
@@ -33,7 +27,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         $scope.newUser = undefined;
         $scope.loading = false;
-
+        console.debug('form-filling User');
         $scope.addUser = function (userName) {
             $scope.loading = true;
 
@@ -106,13 +100,10 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
     .controller('formFillingConclusion', ['$scope', 'formProtocolConclusion', function ($scope, formProtocolConclusion) {
         $scope.loading = false;
 
-        if (!$scope.$parent.protocol.data) {
-            $scope.savedConclusion = undefined;
-        } else {
-            $scope.savedConclusion = angular.copy($scope.$parent.protocol.data.conclusion);
-        }
+        $scope.savedConclusion = undefined;
 
-        $scope.$on('formEvent:form-protocol-loaded', function () {
+        $scope.$parent.protocol.data.$promise.then(function (data) {
+            console.debug('Success: ', data);
             $scope.savedConclusion = angular.copy($scope.$parent.protocol.data.conclusion);
         });
 
@@ -129,6 +120,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                     $scope.loading = false;
                 });
         };
+
     }])
     .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', function ($scope, $routeParams, $location, $route) {
 
@@ -158,17 +150,18 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             }
 
             if (isFinite(parseInt(pageId))) {
-                $scope.currentTemplate = {name: pageId, url: templatePath + pageId + '.html', headerType: 'form'};
+                $scope.$parent.currentTemplate = {name: pageId, url: templatePath + pageId + '.html', headerType: 'form'};
             } else {
                 for (var i = 0, len = $scope.templates.length; i < len; i++) {
                     if (pageId === $scope.templates[i].name) {
-                        $scope.selectedTemplate = $scope.currentTemplate = $scope.templates[i];
+                        $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates[i];
                         break;
                     }
                 }
             }
         };
 
+        console.debug('form-filling Pagination');
         //Get page from url
         $scope.toPage(($routeParams.pageId) ? $routeParams.pageId : 'index');
 

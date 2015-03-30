@@ -1,7 +1,6 @@
 'use strict';
 
 angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
-
     .factory('oAuthHttpInjector', ['oAuthSession', function (oAuthSession) {
         return {
             request: function (config) {
@@ -12,7 +11,6 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
             }
         };
     }])
-
     .service('oAuthSession', ['$rootScope', '$cookies', '$cookies', function ($rootScope, $cookies) {
 
         this.create = function (userInfo) {

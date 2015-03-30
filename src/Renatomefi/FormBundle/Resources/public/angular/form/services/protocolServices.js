@@ -1,6 +1,33 @@
 'use strict';
 
 angular.module('sammui.protocolServices', ['ngResource'])
+    .service('protocolData', ['formProtocolManage', function (formProtocolManage) {
+        var originalData = {};
+        var currentData = {};
+
+        this.getData = function (protocolId) {
+            if (!currentData[protocolId]) {
+                currentData[protocolId] = formProtocolManage.get({protocolId: protocolId});
+                originalData[protocolId] = formProtocolManage.get({protocolId: protocolId});
+            }
+
+            return currentData[protocolId];
+        };
+
+        this.reloadOriginalData = function (protocolId) {
+            originalData[protocolId] = formProtocolManage.get({protocolId: protocolId});
+        };
+
+        this.replaceDataByOriginal = function (protocolId, reload) {
+            reload = reload || false;
+
+            if (reload === true) {
+                this.reloadOriginalData(protocolId);
+            }
+
+            currentData[protocolId] = angular.copy(originalData[protocolId]);
+        };
+    }])
     .factory('formProtocolManage', function ($resource) {
         return $resource('/form/protocol/:protocolId', {protocolId: '@protocolId'}, {
             'get': {

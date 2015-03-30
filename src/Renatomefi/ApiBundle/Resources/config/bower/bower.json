@@ -1,7 +1,6 @@
 {
   "name": "RenatomefiApiBundle",
   "dependencies": {
-    "angular-http-auth": "~1.2.2",
-    "angular-local-storage": "0.1.5"
+    "angular-http-auth": "~1.2.2"
   }
 }
