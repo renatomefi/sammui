@@ -3,9 +3,9 @@
 var sammuiForm = angular.module('sammui.form', [
     'sammui.formServices',
     'sammui.formControllers',
+    'sammui.formDirectives',
     'sammui.protocolServices',
-    'sammui.protocolControllers',
-    'sammui.formDirectives'
+    'sammui.protocolControllers'
 ]);
 
 sammuiForm.config(function ($locationProvider, $routeProvider) {
@@ -15,13 +15,7 @@ sammuiForm.config(function ($locationProvider, $routeProvider) {
         controller: 'formStart',
         reloadOnSearch: false
     });
-    $routeProvider.when('/form/:protocolId', {
-        templateUrl: '/bundles/form/angular/views/form/filling/home.html',
-        templatePreload: false,
-        controller: 'formFilling',
-        reloadOnSearch: false
-    });
-    $routeProvider.when('/form/:protocolId/page/:pageId', {
+    $routeProvider.when('/form/:protocolId/:page?/:pageId?', {
         templateUrl: '/bundles/form/angular/views/form/filling/home.html',
         templatePreload: false,
         controller: 'formFilling',
