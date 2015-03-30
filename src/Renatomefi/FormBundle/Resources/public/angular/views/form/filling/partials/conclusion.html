@@ -1,4 +1,4 @@
-<div class="panel panel-info">
+<div class="panel panel-info" ng-controller="formFillingConclusion">
     <div class="panel-heading">
         <text-angular-toolbar
                 name="textFormat"
@@ -9,8 +9,15 @@
     </div>
     <div class="panel-body">
         <text-angular
-                ng-model="protocol.conclusion"
+                ng-model="protocol.data.conclusion"
                 ta-target-toolbars='textFormat,textTools'>
         </text-angular>
+        <div class="btn btn-success btn-block"
+             tabindex="4"
+             ng-disabled="loading"
+             ng-click="saveConclusion()"
+             type="submit">
+            <span class="glyphicon glyphicon-ok"></span>
+        </div>
     </div>
 </div>

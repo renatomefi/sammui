@@ -6,13 +6,13 @@
                         ng-model="newComment"
                         ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],['quote','insertLink']]">
                 </text-angular>
-                <span class="btn btn-info btn-block"
+                <div class="btn btn-info btn-block"
                       tabindex="4"
                       ng-disabled="loading"
                       ng-click="addComment()"
                       type="submit">
                     <span class="glyphicon glyphicon-comment"></span>
-                </span>
+                </div>
             </form>
         </div>
         <table class="table">
@@ -24,7 +24,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="comment in protocol.data.comment | orderBy:'-created_at'  ">
+            <tr ng-repeat="comment in protocol.data.comment | orderBy:'-created_at'">
                 <th scope="row">
                     <button type="button" class="btn btn-sm btn-warning"
                             ng-click="removeComment(comment.id)">

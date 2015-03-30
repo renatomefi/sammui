@@ -136,6 +136,22 @@ angular.module('sammui.formControllers', ['ngRoute'])
                 });
         };
     }])
+    .controller('formFillingConclusion', ['$scope', 'formProtocolConclusion', function ($scope, formProtocolConclusion) {
+        $scope.loading = false;
+
+        console.debug($scope.$parent.protocol);
+
+        $scope.saveConclusion = function () {
+            $scope.loading = true;
+            formProtocolConclusion.save({
+                protocolId: $scope.$parent.protocol.data.id,
+                conclusion: $scope.$parent.protocol.data.conclusion
+            })
+                .$promise.finally(function () {
+                    $scope.loading = false;
+                });
+        };
+    }])
     .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', function ($scope, $routeParams, $location, $route) {
 
         //TODO configuration file??
