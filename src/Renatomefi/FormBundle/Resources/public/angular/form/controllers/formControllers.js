@@ -49,6 +49,7 @@ angular.module('sammui.formControllers', ['ngRoute'])
                     {protocolId: $routeParams.protocolId},
                     function (data) {
                         $scope.protocol.data = angular.copy(data);
+                        $scope.$broadcast('formEvent:form-protocol-loaded');
                     },
                     function () {
                         $location.path('/form');
@@ -138,15 +139,21 @@ angular.module('sammui.formControllers', ['ngRoute'])
     }])
     .controller('formFillingConclusion', ['$scope', 'formProtocolConclusion', function ($scope, formProtocolConclusion) {
         $scope.loading = false;
+        $scope.savedConclusion = undefined;
 
-        console.debug($scope.$parent.protocol);
+        $scope.$on('formEvent:form-protocol-loaded', function () {
+            $scope.savedConclusion = angular.copy($scope.$parent.protocol.data.conclusion);
+        });
 
         $scope.saveConclusion = function () {
             $scope.loading = true;
-            formProtocolConclusion.save({
-                protocolId: $scope.$parent.protocol.data.id,
-                conclusion: $scope.$parent.protocol.data.conclusion
-            })
+            formProtocolConclusion
+                .save({
+                    protocolId: $scope.$parent.protocol.data.id,
+                    conclusion: $scope.$parent.protocol.data.conclusion
+                }, function () {
+                    $scope.savedConclusion = angular.copy($scope.$parent.protocol.data.conclusion);
+                })
                 .$promise.finally(function () {
                     $scope.loading = false;
                 });

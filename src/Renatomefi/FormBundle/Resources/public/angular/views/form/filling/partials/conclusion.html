@@ -1,15 +1,25 @@
 <div class="panel panel-info" ng-controller="formFillingConclusion">
-    <div class="panel-heading">
+    <div class="panel-body">
         <text-angular-toolbar
                 name="textFormat"
-                ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough']]"></text-angular-toolbar>
+                ta-toolbar-class="none"
+                ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough']]">
+
+        </text-angular-toolbar>
+        <br>
         <text-angular-toolbar
                 name="textTools"
-                ta-toolbar="[['ul', 'ol'],['justifyLeft', 'justifyCenter', 'justifyRight'],['html', 'insertLink']]"></text-angular-toolbar>
-    </div>
-    <div class="panel-body">
+                ta-toolbar-class="none"
+                ta-toolbar="[['ul', 'ol'],['justifyLeft', 'justifyCenter', 'justifyRight'],['html', 'insertLink']]">
+        </text-angular-toolbar>
+        <div class="btn btn-warning"
+             ng-click="saveConclusion()"
+             ng-hide="savedConclusion === protocol.data.conclusion">
+            <i class="glyphicon glyphicon-floppy-remove"></i> {{'not-saved' | translate}}
+        </div>
         <text-angular
                 ng-model="protocol.data.conclusion"
+                ng-model-options="{ debounce: 300 }"
                 ta-target-toolbars='textFormat,textTools'>
         </text-angular>
         <div class="btn btn-success btn-block"

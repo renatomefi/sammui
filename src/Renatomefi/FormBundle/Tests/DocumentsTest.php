@@ -80,6 +80,7 @@ class DocumentsTest extends WebTestCase
         $protocol->setForm($formObj);
         $protocol->setFirstSaveDate(new \MongoDate());
         $protocol->setLastSaveDate(new \MongoDate());
+        $protocol->setConclusion('Conclusion');
         // Comment, User and NonUser are tested on ProtocolControllerTest
 
         $this->documentManager->persist($protocol);
@@ -90,6 +91,7 @@ class DocumentsTest extends WebTestCase
         $this->assertNotEmpty($protocol->getFirstSaveDate());
         $this->assertNotEmpty($protocol->getLastSaveDate());
         $this->assertNotEmpty($protocol->getForm());
+        $this->assertEquals('Conclusion', $protocol->getConclusion());
         $this->assertTrue(($protocol->getForm() instanceof Form));
         $this->assertEmpty($protocol->getOneComment('fake_123'));
 
