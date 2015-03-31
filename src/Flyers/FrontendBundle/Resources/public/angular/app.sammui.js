@@ -5,6 +5,7 @@ var sammui = angular.module('sammui', [
     'ngRoute',
     'ngAnimate',
     'ngCookies',
+    'LocalStorageModule',
     'xeditable',
     'mobile-angular-ui',
     'mobile-angular-ui.gestures',
@@ -16,9 +17,11 @@ var sammui = angular.module('sammui', [
     'sammui.mainServices',
     'sammui.mainDirectives',
     'sammui.mainControllers'
-]).config(function ($locationProvider, $routeProvider, $compileProvider) {
+]).config(function ($locationProvider, $routeProvider, $compileProvider, localStorageServiceProvider) {
 
     $compileProvider.debugInfoEnabled(true);
+
+    localStorageServiceProvider.setPrefix('sammuiStorage');
 
     $locationProvider.html5Mode({
         enabled: false,
@@ -41,7 +44,6 @@ var sammui = angular.module('sammui', [
 
     $routeProvider.otherwise({redirectTo: '/login'});
 });
-
 
 sammui.run([
     '$rootScope', function ($rootScope) {

@@ -1,15 +1,23 @@
 'use strict';
 
 angular.module('sammui.protocolServices', ['ngResource'])
-    .service('protocolData', ['formProtocolManage', function (formProtocolManage) {
+    .service('protocolData', ['localStorageService', 'formProtocolManage', function (localStorageService, formProtocolManage) {
         var originalData = {};
         var currentData = {};
 
+        var storagePrefix = 'protocol.';
+
         this.getData = function (protocolId) {
+
             if (!currentData[protocolId]) {
                 currentData[protocolId] = formProtocolManage.get({protocolId: protocolId});
-                currentData[protocolId].$promise.then(function(data) {
+                currentData[protocolId].$promise.then(function (data) {
                     originalData[protocolId] = angular.copy(data);
+                    localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
+                    Object.observe(currentData[protocolId], function (changes) {
+                        localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
+                        console.debug('Local storage for "' + protocolId + '" has been updated');
+                    });
                 });
             }
 
