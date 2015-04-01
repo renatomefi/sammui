@@ -24,9 +24,9 @@ class ProtocolFilesController extends FOSRestController
     {
         $document = null;
 
-        if ($request->files->get('upload')) {
+        if ($request->files->get('file')) {
             /** @var $upload \Symfony\Component\HttpFoundation\File\UploadedFile */
-            $upload = $request->files->get('upload');
+            $upload = $request->files->get('file');
 
             $document = new ProtocolFile();
             $document->setFile($upload->getPathname());
@@ -38,7 +38,7 @@ class ProtocolFilesController extends FOSRestController
             $dm->flush();
         } else {
             $view = $this->view(
-                ['code' => Response::HTTP_BAD_REQUEST, 'message' => 'You must provide an "upload".'],
+                ['code' => Response::HTTP_BAD_REQUEST, 'message' => 'You must provide a "file".'],
                 Response::HTTP_BAD_REQUEST);
             return $this->handleView($view);
         }

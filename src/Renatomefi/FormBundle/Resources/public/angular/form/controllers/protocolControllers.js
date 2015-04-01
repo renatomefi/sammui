@@ -134,10 +134,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 for (var i = 0; i < files.length; i++) {
                     var file = files[i];
                     $upload.upload({
-                        url: 'https://angular-file-upload-cors-srv.appspot.com/upload',
-                        fields: {
-                            'username': $scope.username
-                        },
+                        url: '/form/protocol/files/upload',
                         file: file
                     }).progress(function (evt) {
                         var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);

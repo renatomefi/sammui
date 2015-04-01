@@ -1,0 +1,21 @@
+<div ng-controller="formFillingUpload">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{'form-filling-upload-title' | translate}}</h3>
+        </div>
+        <div class="panel-body">
+            <div ng-file-drop ng-file-select ng-model="files" class="upload-drop-box"
+                 drag-over-class="dragover" ng-multiple="true" allow-dir="true"
+                 accept="image/*,application/pdf">{{'form-filling-upload-drop' | translate}}
+            </div>
+            <div ng-no-file-drop>
+                <div class="btn btn-primary" ng-file-select ng-model="files" ng-multiple="true">Select File</div>
+            </div>
+        </div>
+        <div class="panel-footer">
+            <ul>
+                <li ng-repeat="f in files">{{f.name}} : {{f | json}}</li>
+            </ul>
+        </div>
+    </div>
+</div>
