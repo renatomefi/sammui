@@ -6,6 +6,7 @@ var sammui = angular.module('sammui', [
     'ngAnimate',
     'ngCookies',
     'LocalStorageModule',
+    'angularFileUpload',
     'xeditable',
     'mobile-angular-ui',
     'mobile-angular-ui.gestures',

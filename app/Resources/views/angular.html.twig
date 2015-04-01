@@ -39,7 +39,8 @@
 {% block javascripts %}
 
     {#Angular JS resources#}
-    <script type="text/javascript" src="{{ asset("bundles/frontend/components/angular/angular.js") }}"></script>
+    <script type="text/javascript"
+            src="{{ asset("bundles/frontend/components/angular/angular.js") }}"></script>
     <script type="text/javascript"
             src="{{ asset("bundles/frontend/components/angular-i18n/angular-locale_en-us.js") }}"></script>
     <script type="text/javascript"
@@ -52,12 +53,24 @@
             src="{{ asset("bundles/frontend/components/angular-cookies/angular-cookies.js") }}"></script>
     <script type="text/javascript"
             src="{{ asset("bundles/frontend/components/angular-resource/angular-resource.js") }}"></script>
+
+    {#Angular Local Storage#}
     <script type="text/javascript"
             src="{{ asset("bundles/frontend/components/angular-local-storage/dist/angular-local-storage.js") }}"></script>
+
+    {#Angular File Upload#}
+    <script type="text/javascript"
+            src="{{ asset("bundles/frontend/components/ng-file-upload/angular-file-upload.js") }}"></script>
+
+    {#Angular HTTP Auth Interceptor#}
     <script type="text/javascript"
             src="{{ asset("bundles/api/components/angular-http-auth/src/http-auth-interceptor.js") }}"></script>
+
+    {#Angular Translate#}
     <script type="text/javascript"
             src="{{ asset("bundles/translate/components/angular-translate/angular-translate.js") }}"></script>
+
+    {#Angular XEditable#}
     <script type="text/javascript"
             src="{{ asset("bundles/frontend/components/angular-xeditable/dist/js/xeditable.js") }}"></script>
 

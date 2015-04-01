@@ -1,3 +1,7 @@
+mefi_form:
+    resource: "@FormBundle/Resources/config/routing.yml"
+    prefix:   /form
+
 mefi_form_rest:
     type:     rest
     resource: "@FormBundle/Resources/config/routing_rest.yml"
