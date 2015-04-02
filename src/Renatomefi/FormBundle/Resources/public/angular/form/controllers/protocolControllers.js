@@ -139,11 +139,29 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         };
 
         $scope.deleteFile = function (fileId) {
-            $http.delete(
+            return $http.delete(
                 '/form/protocol/files/delete/protocol/' +
                 $scope.$parent.protocol.data.id +
                 '/file/' +
                 fileId).success(uploadSuccess);
+        };
+
+        $scope.updateFile = function (file, type) {
+            var params = {};
+
+            if (type === 'title') {
+                params.title = file.title;
+            }
+            if (type === 'desc') {
+                params.description = file.description;
+            }
+
+            return $http.patch(
+                '/form/protocol/files/protocol/' +
+                $scope.$parent.protocol.data.id +
+                '/file/' +
+                file.id, params);
+
         };
 
         var uploadProgress = function (evt) {

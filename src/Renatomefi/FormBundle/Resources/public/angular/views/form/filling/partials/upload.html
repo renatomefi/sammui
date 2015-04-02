@@ -31,7 +31,8 @@
                              class="progress-bar progress-bar-info"
                              ng-class="{'progress-bar-danger': f.error}"
                              style="width: {{f.progress}}%">
-                            {{((f.error) ? 'upload-try-again' : 'upload-success') | translate}} {{f.name}} ({{f.size | bytes}})
+                            {{((f.error) ? 'upload-try-again' : 'upload-success') | translate}} {{f.name}} ({{f.size |
+                            bytes}})
                             <span class="sr-only">{{f.progress}}%</span>
                         </div>
                     </div>
@@ -55,6 +56,18 @@
                         {{file.filename}} : ({{file.length | bytes}})
                     </h4>
                     <p class="list-group-item-text">{{file.upload_date | date:'short'}} : {{file.mime_type}}</p>
+
+                    <h4 class="list-group-item-text">
+                        <a href="#" editable-text="file.title" onaftersave="updateFile(file, 'title')">
+                            {{ file.title || 'empty title' }}
+                        </a>
+                    </h4>
+
+                    <p class="list-group-item-text">
+                        <a href="#" editable-textarea="file.description" onaftersave="updateFile(file, 'desc')">
+                            <pre>{{ file.description || 'empty desc' }}</pre>
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>

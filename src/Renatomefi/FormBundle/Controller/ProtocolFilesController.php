@@ -5,6 +5,7 @@ namespace Renatomefi\FormBundle\Controller;
 use FOS\RestBundle\Controller\FOSRestController;
 use Renatomefi\FormBundle\Document\ProtocolFile;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
@@ -16,7 +17,25 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 class ProtocolFilesController extends FOSRestController
 {
     /**
+     * @param $protocolId
+     * @param $fileId
+     * @return ProtocolFile
+     */
+    protected function getFile($protocolId, $fileId)
+    {
+        $documentManager = $this->get('doctrine_mongodb')->getManager();
+        $upload = $documentManager->getRepository('FormBundle:ProtocolFile')->find($fileId);
+
+        if ($upload && $upload->getProtocol()->getId() === $protocolId) {
+            return $upload;
+        }
+
+        throw $this->createNotFoundException("No file with id '$fileId' found for protocol '$protocolId'");
+    }
+
+    /**
      * @Route("/delete/protocol/{protocolId}/file/{fileId}")
+     * @Method({"DELETE"})
      * @param $protocolId
      * @param $fileId
      * @return \Doctrine\Common\Collections\Collection
@@ -24,21 +43,47 @@ class ProtocolFilesController extends FOSRestController
     public function deleteUploadAction($protocolId, $fileId)
     {
         $documentManager = $this->get('doctrine_mongodb')->getManager();
-        $upload = $documentManager->getRepository('FormBundle:ProtocolFile')->find($fileId);
 
-        if ($upload && $upload->getProtocol()->getId() === $protocolId) {
-            $documentManager->remove($upload);
-            $documentManager->flush();
-            $documentManager->clear();
+        $upload = $this->getFile($protocolId, $fileId);
 
-            return $documentManager->getRepository('FormBundle:Protocol')->find($protocolId)->getFile();
-        } else {
-            throw $this->createNotFoundException("No file with id '$fileId' found for protocol '$protocolId'");
+        $documentManager->remove($upload);
+        $documentManager->flush();
+        $documentManager->clear();
+
+        return $documentManager->getRepository('FormBundle:Protocol')->find($protocolId)->getFile();
+    }
+
+    /**
+     * @Route("/protocol/{protocolId}/file/{fileId}")
+     * @Method({"PATCH"})
+     * @param Request $request
+     * @param $protocolId
+     * @param $fileId
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function patchUploadAction(Request $request, $protocolId, $fileId)
+    {
+        $documentManager = $this->get('doctrine_mongodb')->getManager();
+
+        $upload = $this->getFile($protocolId, $fileId);
+
+        if ($request->get('title')) {
+            $upload->setTitle($request->get('title'));
         }
+        if ($request->get('description')) {
+            $upload->setDescription($request->get('description'));
+        }
+
+        $documentManager->persist($upload);
+        $documentManager->flush();
+        $documentManager->clear();
+
+        return $upload;
     }
 
     /**
      * @Route("/upload/{protocolId}")
+     * @Method({"POST"})
      * @param Request $request
      * @param $protocolId
      * @return null|ProtocolFile
@@ -79,8 +124,8 @@ class ProtocolFilesController extends FOSRestController
 
     /**
      * @Route("/get/{id}")
+     * @Method({"GET"})
      * @param $id
-     *
      * @return Response
      */
     public function getAction($id)
