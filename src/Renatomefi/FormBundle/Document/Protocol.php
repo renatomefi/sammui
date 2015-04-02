@@ -23,6 +23,7 @@ class Protocol
         $this->user = new ArrayCollection();
         $this->nonUser = new ArrayCollection();
         $this->comment = new ArrayCollection();
+        $this->file = new ArrayCollection();
     }
 
     /**
@@ -50,6 +51,12 @@ class Protocol
      * @var ArrayCollection
      */
     protected $user;
+
+    /**
+     * @ODM\ReferenceMany(targetDocument="ProtocolFile")
+     * @var ArrayCollection
+     */
+    protected $file;
 
     /**
      * @ODM\EmbedMany(targetDocument="ProtocolUser")
@@ -325,5 +332,35 @@ class Protocol
     public function getConclusion()
     {
         return $this->conclusion;
+    }
+
+    /**
+     * Add file
+     *
+     * @param \Renatomefi\FormBundle\Document\ProtocolFile $file
+     */
+    public function addFile(ProtocolFile $file)
+    {
+        $this->file[] = $file;
+    }
+
+    /**
+     * Remove file
+     *
+     * @param \Renatomefi\FormBundle\Document\ProtocolFile $file
+     */
+    public function removeFile(ProtocolFile $file)
+    {
+        $this->file->removeElement($file);
+    }
+
+    /**
+     * Get file
+     *
+     * @return \Doctrine\Common\Collections\Collection $file
+     */
+    public function getFile()
+    {
+        return $this->file;
     }
 }

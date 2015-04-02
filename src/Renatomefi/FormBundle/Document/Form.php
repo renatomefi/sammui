@@ -38,7 +38,7 @@ class Form
     /**
      * Get id
      *
-     * @return id $id
+     * @return $id
      */
     public function getId()
     {

@@ -23,193 +23,86 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 /**
  * @ODM\Document
  */
-class ProtocolFile
+class ProtocolFile extends File
 {
-    /** @ODM\Id */
-    private $id;
-
-    /** @ODM\File */
-    private $file;
-
-    /** @ODM\String */
-    private $filename;
-
-    /** @ODM\String */
-    private $mimeType;
-
-    /** @ODM\Date */
-    private $uploadDate;
-
-    /** @ODM\Int */
-    private $length;
-
-    /** @ODM\Int */
-    private $chunkSize;
-
-    /** @ODM\String */
-    private $md5;
-
     /**
-     * Get id
-     *
-     * @return $id
+     * @ODM\String
      */
-    public function getId()
-    {
-        return $this->id;
-    }
+    protected $title;
 
     /**
-     * Set file
+     * @ODM\String
+     */
+    protected $description;
+
+    /**
+     * @ODM\ReferenceOne(targetDocument="Protocol")
+     */
+    protected $protocol;
+
+    /**
+     * Set title
      *
-     * @param $file
+     * @param string $title
      * @return self
      */
-    public function setFile($file)
+    public function setTitle($title)
     {
-        $this->file = $file;
+        $this->title = $title;
         return $this;
     }
 
     /**
-     * Get file
+     * Get title
      *
-     * @return $file
+     * @return string $title
      */
-    public function getFile()
+    public function getTitle()
     {
-        return $this->file;
+        return $this->title;
     }
 
     /**
-     * Set filename
+     * Set description
      *
-     * @param string $filename
+     * @param string $description
      * @return self
      */
-    public function setFilename($filename)
+    public function setDescription($description)
     {
-        $this->filename = $filename;
+        $this->description = $description;
         return $this;
     }
 
     /**
-     * Get filename
+     * Get description
      *
-     * @return string $filename
+     * @return string $description
      */
-    public function getFilename()
+    public function getDescription()
     {
-        return $this->filename;
+        return $this->description;
     }
 
     /**
-     * Set mimeType
+     * Set protocol
      *
-     * @param string $mimeType
+     * @param \Renatomefi\FormBundle\Document\Protocol $protocol
      * @return self
      */
-    public function setMimeType($mimeType)
+    public function setProtocol(Protocol $protocol)
     {
-        $this->mimeType = $mimeType;
+        $this->protocol = $protocol;
         return $this;
     }
 
     /**
-     * Get mimeType
+     * Get protocol
      *
-     * @return string $mimeType
+     * @return \Renatomefi\FormBundle\Document\Protocol $protocol
      */
-    public function getMimeType()
+    public function getProtocol()
     {
-        return $this->mimeType;
-    }
-
-    /**
-     * Set uploadDate
-     *
-     * @param \MongoDate $uploadDate
-     * @return self
-     */
-    public function setUploadDate($uploadDate)
-    {
-        $this->uploadDate = $uploadDate;
-        return $this;
-    }
-
-    /**
-     * Get uploadDate
-     *
-     * @return \MongoDate $uploadDate
-     */
-    public function getUploadDate()
-    {
-        return $this->uploadDate;
-    }
-
-    /**
-     * Set length
-     *
-     * @param int $length
-     * @return self
-     */
-    public function setLength($length)
-    {
-        $this->length = $length;
-        return $this;
-    }
-
-    /**
-     * Get length
-     *
-     * @return int $length
-     */
-    public function getLength()
-    {
-        return $this->length;
-    }
-
-    /**
-     * Set chunkSize
-     *
-     * @param int $chunkSize
-     * @return self
-     */
-    public function setChunkSize($chunkSize)
-    {
-        $this->chunkSize = $chunkSize;
-        return $this;
-    }
-
-    /**
-     * Get chunkSize
-     *
-     * @return int $chunkSize
-     */
-    public function getChunkSize()
-    {
-        return $this->chunkSize;
-    }
-
-    /**
-     * Set md5
-     *
-     * @param string $md5
-     * @return self
-     */
-    public function setMd5($md5)
-    {
-        $this->md5 = $md5;
-        return $this;
-    }
-
-    /**
-     * Get md5
-     *
-     * @return string $md5
-     */
-    public function getMd5()
-    {
-        return $this->md5;
+        return $this->protocol;
     }
 }
