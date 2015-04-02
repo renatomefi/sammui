@@ -53,7 +53,7 @@ class Protocol
     protected $user;
 
     /**
-     * @ODM\ReferenceMany(targetDocument="ProtocolFile")
+     * @ODM\ReferenceMany(targetDocument="ProtocolFile", mappedBy="protocol")
      * @var ArrayCollection
      */
     protected $file;

@@ -11,7 +11,6 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
  */
 class ProtocolComment extends ProtocolEmbed
 {
-
     /**
      * @ODM\String
      */

@@ -139,14 +139,19 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         };
 
         var uploadSuccess = function (data, status, headers, config) {
-            console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
+            $scope.$parent.protocol.data.file = angular.copy(data);
+            //console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
+        };
+
+        $scope.deleteFile = function (fileId) {
+            alert("delete " + fileId);
         };
 
         $scope.upload = function (files) {
             if (files && files.length) {
                 angular.forEach(files, function (file) {
                     $upload.upload({
-                        url: uploadPath,
+                        url: uploadPath + '/' + $scope.$parent.protocol.data.id,
                         file: file
                     }).progress(uploadProgress).success(uploadSuccess);
                 });

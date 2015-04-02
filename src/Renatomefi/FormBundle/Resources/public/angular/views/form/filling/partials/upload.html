@@ -38,4 +38,20 @@
             </ul>
         </div>
     </div>
+    <div class="panel panel-default">
+    	<div class="panel-body">
+            <div class="list-group" ng-repeat="file in protocol.data.file | orderBy:'-upload_date'">
+            	<div class="list-group-item">
+            		<h4 class="list-group-item-heading">
+                        <button class="btn btn-danger"
+                                ng-click="deleteFile(file.id)">
+                            <i class="glyphicon glyphicon-remove"></i>
+                        </button>
+                        {{file.filename}} : ({{file.length | bytes}})
+                    </h4>
+            		<p class="list-group-item-text">{{file.upload_date | date:'short'}} : {{file.mime_type}}</p>
+            	</div>
+            </div>
+    	</div>
+    </div>
 </div>

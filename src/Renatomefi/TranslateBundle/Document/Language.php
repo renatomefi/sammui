@@ -31,7 +31,7 @@ class Language
     protected $key;
 
     /**
-     * @ODM\ReferenceMany(targetDocument="Translation" , mappedBy="language")
+     * @ODM\ReferenceMany(targetDocument="Translation", mappedBy="language")
      */
     protected $translations;
 

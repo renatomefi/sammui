@@ -16,13 +16,19 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 class ProtocolFilesController extends FOSRestController
 {
     /**
-     * @Route("/upload")
+     * @Route("/upload/{protocolId}")
      * @param Request $request
+     * @param $protocolId
      * @return null|ProtocolFile
      */
-    public function postUploadAction(Request $request)
+    public function postUploadAction(Request $request, $protocolId)
     {
-        $document = null;
+        $protocolDM = $this->get('doctrine_mongodb')->getRepository('FormBundle:Protocol');
+        $protocol = $protocolDM->find($protocolId);
+
+        if (!$protocol) {
+            throw $this->createNotFoundException("No Protocol found with id: \"$protocolId\"");
+        }
 
         if ($request->files->get('file')) {
             /** @var $upload \Symfony\Component\HttpFoundation\File\UploadedFile */
@@ -32,10 +38,14 @@ class ProtocolFilesController extends FOSRestController
             $document->setFile($upload->getPathname());
             $document->setFilename($upload->getClientOriginalName());
             $document->setMimeType($upload->getClientMimeType());
+            $document->setProtocol($protocol);
 
             $dm = $this->get('doctrine.odm.mongodb.document_manager');
             $dm->persist($document);
             $dm->flush();
+            $dm->clear();
+
+            return $protocolDM->find($protocol->getId())->getFile();
         } else {
             $view = $this->view(
                 ['code' => Response::HTTP_BAD_REQUEST, 'message' => 'You must provide a "file".'],
@@ -43,7 +53,6 @@ class ProtocolFilesController extends FOSRestController
             return $this->handleView($view);
         }
 
-        return $document;
     }
 
     /**

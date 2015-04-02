@@ -36,7 +36,7 @@ class ProtocolFile extends File
     protected $description;
 
     /**
-     * @ODM\ReferenceOne(targetDocument="Protocol")
+     * @ODM\ReferenceOne(targetDocument="Protocol", inversedBy="file")
      */
     protected $protocol;
 

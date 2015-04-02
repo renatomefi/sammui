@@ -27,28 +27,28 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 abstract class File
 {
     /** @ODM\Id */
-    private $id;
+    protected $id;
 
     /** @ODM\File */
-    private $file;
+    protected $file;
 
     /** @ODM\String */
-    private $filename;
+    protected $filename;
 
     /** @ODM\String */
-    private $mimeType;
+    protected $mimeType;
 
     /** @ODM\Date */
-    private $uploadDate;
+    protected $uploadDate;
 
     /** @ODM\Int */
-    private $length;
+    protected $length;
 
     /** @ODM\Int */
-    private $chunkSize;
+    protected $chunkSize;
 
     /** @ODM\String */
-    private $md5;
+    protected $md5;
 
     /**
      * Get id
