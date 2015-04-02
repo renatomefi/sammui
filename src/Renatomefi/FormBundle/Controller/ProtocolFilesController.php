@@ -16,6 +16,28 @@ use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 class ProtocolFilesController extends FOSRestController
 {
     /**
+     * @Route("/delete/protocol/{protocolId}/file/{fileId}")
+     * @param $protocolId
+     * @param $fileId
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function deleteUploadAction($protocolId, $fileId)
+    {
+        $documentManager = $this->get('doctrine_mongodb')->getManager();
+        $upload = $documentManager->getRepository('FormBundle:ProtocolFile')->find($fileId);
+
+        if ($upload && $upload->getProtocol()->getId() === $protocolId) {
+            $documentManager->remove($upload);
+            $documentManager->flush();
+            $documentManager->clear();
+
+            return $documentManager->getRepository('FormBundle:Protocol')->find($protocolId)->getFile();
+        } else {
+            throw $this->createNotFoundException("No file with id '$fileId' found for protocol '$protocolId'");
+        }
+    }
+
+    /**
      * @Route("/upload/{protocolId}")
      * @param Request $request
      * @param $protocolId

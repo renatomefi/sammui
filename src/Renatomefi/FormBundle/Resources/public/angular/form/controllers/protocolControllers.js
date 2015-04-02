@@ -124,7 +124,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         };
 
     }])
-    .controller('formFillingUpload', ['$scope', '$upload', function ($scope, $upload) {
+    .controller('formFillingUpload', ['$scope', '$upload', '$http', function ($scope, $upload, $http) {
 
         //TODO configuration file??
         var uploadPath = '/form/protocol/files/upload';
@@ -139,7 +139,11 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         };
 
         $scope.deleteFile = function (fileId) {
-            alert("delete " + fileId);
+            $http.delete(
+                '/form/protocol/files/delete/protocol/' +
+                $scope.$parent.protocol.data.id +
+                '/file/' +
+                fileId).success(uploadSuccess);
         };
 
         var uploadProgress = function (evt) {
