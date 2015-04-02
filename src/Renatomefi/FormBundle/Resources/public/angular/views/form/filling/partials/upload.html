@@ -11,10 +11,30 @@
             <div ng-no-file-drop>
                 <div class="btn btn-primary" ng-file-select ng-model="files" ng-multiple="true">Select File</div>
             </div>
+            <hr>
+            <div class="text-center">
+                <button ng-file-select
+                        class="btn btn-success btn-lg"
+                        ng-model="files"
+                        ng-capture="'camera'"
+                        accept="'image/*'"
+                        ng-accept="'image/*'">
+                    <i class="glyphicon glyphicon-camera"></i>
+                </button>
+            </div>
         </div>
         <div class="panel-footer">
-            <ul>
-                <li ng-repeat="f in files">{{f.name}} : {{f | json}}</li>
+            <ul class="list-unstyled">
+                <li ng-repeat="f in files">
+                    <div class="progress">
+                        <div class="progress-bar progress-bar-info"
+                             role="progressbar"
+                             style="width: {{f.progress}}%">
+                            {{f.name}} ({{f.size | bytes}})
+                            <span class="sr-only">{{f.progress}}%</span>
+                        </div>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

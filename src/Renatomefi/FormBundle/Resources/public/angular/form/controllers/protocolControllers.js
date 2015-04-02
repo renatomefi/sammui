@@ -6,12 +6,12 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             $scope.currentTemplate = undefined;
 
-            // TODO it should be a service to store all changes!
             $scope.protocol = {
                 data: protocolData.getData($routeParams.protocolId),
                 original: protocolData.getOriginalData($routeParams.protocolId)
             };
 
+            //TODO Review this process, it should be more complete, probably check the promise when it's done and have a mongoId
             $scope.loadProtocol = function () {
                 if (!$scope.protocol.data) {
                     $location.path('/form');
@@ -125,26 +125,31 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
     }])
     .controller('formFillingUpload', ['$scope', '$upload', function ($scope, $upload) {
+
+        //TODO configuration file??
+        var uploadPath = '/form/protocol/files/upload';
+        var downloadPath = '/form/protocol/files/get';
+
         $scope.$watch('files', function () {
             $scope.upload($scope.files);
         });
 
+        var uploadProgress = function (evt) {
+            evt.config.file.progress = parseInt(100.0 * evt.loaded / evt.total);
+        };
+
+        var uploadSuccess = function (data, status, headers, config) {
+            console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
+        };
+
         $scope.upload = function (files) {
             if (files && files.length) {
-                for (var i = 0; i < files.length; i++) {
-                    var file = files[i];
+                angular.forEach(files, function (file) {
                     $upload.upload({
-                        url: '/form/protocol/files/upload',
+                        url: uploadPath,
                         file: file
-                    }).progress(function (evt) {
-                        var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
-                        console.log('progress: ' + progressPercentage + '% ' +
-                        evt.config.file.name);
-                    }).success(function (data, status, headers, config) {
-                        console.log('file ' + config.file.name + 'uploaded. Response: ' +
-                        JSON.stringify(data));
-                    });
-                }
+                    }).progress(uploadProgress).success(uploadSuccess);
+                });
             }
         };
     }])
