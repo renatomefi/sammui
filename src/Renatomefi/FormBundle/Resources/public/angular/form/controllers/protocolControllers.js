@@ -128,32 +128,44 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         //TODO configuration file??
         var uploadPath = '/form/protocol/files/upload';
-        var downloadPath = '/form/protocol/files/get';
+        var downloadPath = '/form/protocol/files/get/';
 
         $scope.$watch('files', function () {
             $scope.upload($scope.files);
         });
 
-        var uploadProgress = function (evt) {
-            evt.config.file.progress = parseInt(100.0 * evt.loaded / evt.total);
-        };
-
-        var uploadSuccess = function (data, status, headers, config) {
-            $scope.$parent.protocol.data.file = angular.copy(data);
-            //console.log('file ' + config.file.name + 'uploaded. Response: ' + JSON.stringify(data));
+        $scope.downloadUrl = function (fileId) {
+            return downloadPath + fileId;
         };
 
         $scope.deleteFile = function (fileId) {
             alert("delete " + fileId);
         };
 
+        var uploadProgress = function (evt) {
+            evt.config.file.progress = parseInt(100.0 * evt.loaded / evt.total);
+        };
+
+        var uploadSuccess = function (data) {
+            $scope.$parent.protocol.data.file = angular.copy(data);
+        };
+
+        var uploadError = function (data, status, headers, config) {
+            config.file.error = true;
+            config.file.progress = 100;
+        };
+
         $scope.upload = function (files) {
             if (files && files.length) {
                 angular.forEach(files, function (file) {
-                    $upload.upload({
-                        url: uploadPath + '/' + $scope.$parent.protocol.data.id,
-                        file: file
-                    }).progress(uploadProgress).success(uploadSuccess);
+                    $upload
+                        .upload({
+                            url: uploadPath + '/' + $scope.$parent.protocol.data.id,
+                            file: file
+                        })
+                        .progress(uploadProgress)
+                        .success(uploadSuccess)
+                        .error(uploadError);
                 });
             }
         };

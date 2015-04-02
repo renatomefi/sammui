@@ -27,10 +27,11 @@
             <ul class="list-unstyled">
                 <li ng-repeat="f in files">
                     <div class="progress">
-                        <div class="progress-bar progress-bar-info"
-                             role="progressbar"
+                        <div role="progressbar"
+                             class="progress-bar progress-bar-info"
+                             ng-class="{'progress-bar-danger': f.error}"
                              style="width: {{f.progress}}%">
-                            {{f.name}} ({{f.size | bytes}})
+                            {{((f.error) ? 'upload-try-again' : 'upload-success') | translate}} {{f.name}} ({{f.size | bytes}})
                             <span class="sr-only">{{f.progress}}%</span>
                         </div>
                     </div>
@@ -38,20 +39,24 @@
             </ul>
         </div>
     </div>
-    <div class="panel panel-default">
-    	<div class="panel-body">
+    <div class="panel panel-default" ng-hide="protocol.data.file.length == 0">
+        <div class="panel-body">
             <div class="list-group" ng-repeat="file in protocol.data.file | orderBy:'-upload_date'">
-            	<div class="list-group-item">
-            		<h4 class="list-group-item-heading">
-                        <button class="btn btn-danger"
+                <div class="list-group-item">
+                    <h4 class="list-group-item-heading">
+                        <button class="btn btn-danger btn-sm"
                                 ng-click="deleteFile(file.id)">
                             <i class="glyphicon glyphicon-remove"></i>
                         </button>
+                        <a class="btn btn-primary btn-sm"
+                           ng-href="{{downloadUrl(file.id)}}" target="_blank">
+                            <i class="glyphicon glyphicon-download-alt"></i>
+                        </a>
                         {{file.filename}} : ({{file.length | bytes}})
                     </h4>
-            		<p class="list-group-item-text">{{file.upload_date | date:'short'}} : {{file.mime_type}}</p>
-            	</div>
+                    <p class="list-group-item-text">{{file.upload_date | date:'short'}} : {{file.mime_type}}</p>
+                </div>
             </div>
-    	</div>
+        </div>
     </div>
 </div>
