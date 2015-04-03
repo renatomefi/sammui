@@ -7,6 +7,10 @@ use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
 
+/**
+ * Class ManageController
+ * @package Renatomefi\UserBundle\Controller
+ */
 class ManageController extends FOSRestController
 {
 
@@ -14,10 +18,7 @@ class ManageController extends FOSRestController
     {
         $user = $this->get('doctrine_mongodb')->getRepository('UserBundle:User');
 
-        $result = $user->findAll();
-
-        $view = $this->view($result);
-        return $this->handleView($view);
+        return $user->findAll();
     }
 
     public function getUserAction($username)
@@ -26,8 +27,11 @@ class ManageController extends FOSRestController
 
         $result = $user->findOneByUsername($username);
 
-        $view = $this->view($result);
-        return $this->handleView($view);
+        if (!$result) {
+            throw $this->createNotFoundException("No user found with username '$username'");
+        }
+
+        return $result;
     }
 
 }
