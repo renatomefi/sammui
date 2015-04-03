@@ -257,6 +257,26 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
 
     /**
      * @depends testPostProtocol
+     * @param $protocol
+     * @return array
+     */
+    public function testProtocolConclusion($protocol)
+    {
+        $client = static::createClient();
+        $url = '/form/protocol/conclusions/' . $protocol->id;
+
+        $client->request(Request::METHOD_PATCH, $url, [
+            'conclusion' => 'conclusion'
+        ], [], [
+            'HTTP_ACCEPT' => 'application/json'
+        ]);
+
+        $response = $client->getResponse();
+        $this->assertEquals(Response::HTTP_NO_CONTENT, $response->getStatusCode());
+    }
+
+    /**
+     * @depends testPostProtocol
      * @depends testProtocolAddComment
      * @param $protocol
      * @param array $protocolComments
@@ -296,6 +316,7 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
      * @depends testGetProtocolsByForm
      * @depends testProtocolAddComment
      * @depends testProtocolRemoveComment
+     * @depends testProtocolConclusion
      */
     public function testDeleteForm()
     {

@@ -66,6 +66,29 @@ class ProtocolFilesControllerTest extends WebTestCase implements AssertRestUtils
     }
 
     /**
+     * @param $protocolId
+     * @param $fileId
+     * @param Array $params
+     * @return null|Response
+     */
+    protected function queryFilePatch($protocolId, $fileId, $params = [])
+    {
+        $client = static::createClient();
+
+        $uri = static::$kernel->getContainer()
+            ->get('router')->generate('renatomefi_form_protocolfiles_patchupload', [
+                'protocolId' => $protocolId,
+                'fileId' => $fileId,
+            ]);
+
+        $client->request(Request::METHOD_PATCH, $uri, $params, [], [
+            'HTTP_ACCEPT' => 'application/json'
+        ]);
+
+        return $client->getResponse();
+    }
+
+    /**
      * @return Protocol
      */
     public function testCreateProtocol()
@@ -147,9 +170,9 @@ class ProtocolFilesControllerTest extends WebTestCase implements AssertRestUtils
         $client = static::createClient();
 
         $uri = static::$kernel->getContainer()
-            ->get('router')->generate('renatomefi_form_protocolfiles_get', array(
+            ->get('router')->generate('renatomefi_form_protocolfiles_get', [
                 'id' => $file->getId()
-            ));
+            ]);
 
         $client->request(Request::METHOD_GET, $uri, [], [], [
             'HTTP_ACCEPT' => 'application/json'
@@ -167,6 +190,43 @@ class ProtocolFilesControllerTest extends WebTestCase implements AssertRestUtils
 
     /**
      * @depends testUpload
+     */
+    public function testFilePatchNotFound()
+    {
+        $response = $this->queryFilePatch('123', '123');
+
+        $result = $this->assertJsonResponse($response, Response::HTTP_NOT_FOUND, true);
+
+        $this->assertErrorResult($result);
+
+        $this->assertEquals(sprintf("No file with id '%s' found for protocol '%s'", '123', '123'), $result->message);
+    }
+
+    /**
+     * @depends testUpload
+     * @param ProtocolFile $file
+     */
+    public function testFilePatch(ProtocolFile $file)
+    {
+        $title = 'file_title';
+        $description = 'file_description';
+
+        $response = $this->queryFilePatch($file->getProtocol()->getId(), $file->getId(),
+            [
+                'title' => $title,
+                'description' => $description
+            ]);
+
+        $result = $this->assertJsonResponse($response, Response::HTTP_OK, true);
+
+        $this->assertEquals($title, $result->title);
+        $this->assertEquals($description, $result->description);
+    }
+
+    /**
+     * @depends testUpload
+     * @depends testGetFile
+     * @depends testFilePatch
      * @param ProtocolFile $file
      */
     public function testDeleteUpload(ProtocolFile $file)
