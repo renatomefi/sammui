@@ -22,7 +22,9 @@ use Doctrine\ODM\MongoDB\DocumentManager;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\Protocol;
 use Renatomefi\FormBundle\Document\ProtocolComment;
+use Renatomefi\FormBundle\Document\ProtocolFile;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class DocumentsTest
@@ -81,10 +83,29 @@ class DocumentsTest extends WebTestCase
         $protocol->setFirstSaveDate(new \MongoDate());
         $protocol->setLastSaveDate(new \MongoDate());
         $protocol->setConclusion('Conclusion');
-        // Comment, User and NonUser are tested on ProtocolControllerTest
 
+        $file = new ProtocolFile();
+        $upload = new UploadedFile(__FILE__, get_class());
+        $file->setFile($upload);
+        $file->setTitle('file_title');
+        $file->setDescription('file_description');
+        $file->setFilename($upload->getClientOriginalName());
+        $file->setMimeType($upload->getClientMimeType());
+        $file->setUploadDate(new \MongoDate());
+        $file->setLength($upload->getSize());
+        $file->setMd5('123');
+        $file->setChunkSize(123);
+        $file->setProtocol($protocol);
+
+        $protocol->addFile($file);
+
+        // Comment, User and NonUser are tested on ProtocolControllerTest
+        $this->documentManager->persist($file);
         $this->documentManager->persist($protocol);
         $this->documentManager->flush();
+//        $this->documentManager->clear();
+
+        $protocol = $this->documentManager->getRepository('FormBundle:Protocol')->find($protocol->getId());
 
         $this->assertNotEmpty($protocol->getId());
         $this->assertNotEmpty($protocol->getCreatedAt());
@@ -95,8 +116,21 @@ class DocumentsTest extends WebTestCase
         $this->assertTrue(($protocol->getForm() instanceof Form));
         $this->assertEmpty($protocol->getOneComment('fake_123'));
 
-        $this->documentManager->remove($formObj);
+        // Testing ProtocolFile
+//        $this->assertInstanceOf(get_class(new ArrayCollection()), $protocol->getFile());
+
+        /** @var ProtocolFile $protocolFile */
+        $protocolFile = $protocol->getFile()->first();
+        $this->assertEquals('file_title', $protocolFile->getTitle());
+        $this->assertEquals('file_description', $protocolFile->getDescription());
+        $this->assertNotNull($protocolFile->getUploadDate());
+        $this->assertNotNull($protocolFile->getLength());
+        $this->assertNotNull($protocolFile->getChunkSize());
+        $this->assertNotNull($protocolFile->getMd5());
+
+        $protocol->removeFile($file);
         $this->documentManager->remove($protocol);
+        $this->documentManager->remove($formObj);
         $this->documentManager->flush();
     }
 

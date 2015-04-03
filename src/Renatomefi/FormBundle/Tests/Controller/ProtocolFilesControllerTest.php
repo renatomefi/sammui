@@ -174,9 +174,7 @@ class ProtocolFilesControllerTest extends WebTestCase implements AssertRestUtils
                 'id' => $file->getId()
             ]);
 
-        $client->request(Request::METHOD_GET, $uri, [], [], [
-            'HTTP_ACCEPT' => 'application/json'
-        ]);
+        $client->request(Request::METHOD_GET, $uri);
 
         $response = $client->getResponse();
 
@@ -186,6 +184,29 @@ class ProtocolFilesControllerTest extends WebTestCase implements AssertRestUtils
         );
 
         $this->assertEquals($response->getStatusCode(), Response::HTTP_OK);
+    }
+
+    /**
+     * @depends testUpload
+     */
+    public function testGetFileNotFound()
+    {
+        $client = static::createClient();
+
+        $uri = static::$kernel->getContainer()
+            ->get('router')->generate('renatomefi_form_protocolfiles_get', [
+                'id' => '123'
+            ]);
+
+        $client->request(Request::METHOD_GET, $uri, [], [], [
+            'HTTP_ACCEPT' => 'application/json'
+        ]);
+
+        $result = $this->assertJsonResponse($client->getResponse(), Response::HTTP_NOT_FOUND, true);
+
+        $this->assertErrorResult($result);
+
+        $this->assertEquals(sprintf('Upload with id "%s" could not be found', '123'), $result->message);
     }
 
     /**
