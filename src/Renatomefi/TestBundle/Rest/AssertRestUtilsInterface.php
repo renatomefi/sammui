@@ -18,4 +18,10 @@ interface AssertRestUtilsInterface
      * @return mixed
      */
     public function assertJsonResponse($response, $statusCode = 200, $convert = false, $isArray = false);
+
+    /**
+     * @param $result
+     * @return mixed
+     */
+    public function assertErrorResult($result);
 }

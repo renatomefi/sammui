@@ -44,4 +44,15 @@ trait AssertRestUtils
             return $conversion;
         }
     }
+
+    /**
+     * @inheritdoc
+     */
+    protected function assertErrorResult($result)
+    {
+        $this->assertObjectHasAttribute('code', $result);
+        $this->assertObjectHasAttribute('message', $result);
+        $this->assertTrue(is_numeric($result->code));
+        $this->assertNotEmpty($result->message);
+    }
 }
