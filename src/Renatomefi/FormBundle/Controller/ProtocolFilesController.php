@@ -144,7 +144,7 @@ class ProtocolFilesController extends FOSRestController
         );
 
         $dispositionHeader = $response->headers->makeDisposition(
-            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            ResponseHeaderBag::DISPOSITION_INLINE,
             $upload->getFilename(),
             $upload->getId()
         );

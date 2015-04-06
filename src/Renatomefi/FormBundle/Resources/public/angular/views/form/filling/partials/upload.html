@@ -53,21 +53,28 @@
                            ng-href="{{downloadUrl(file.id)}}" target="_blank">
                             <i class="glyphicon glyphicon-download-alt"></i>
                         </a>
-                        {{file.filename}} : ({{file.length | bytes}})
+                        {{::file.filename}}
                     </h4>
-                    <p class="list-group-item-text">{{file.upload_date | date:'short'}} : {{file.mime_type}}</p>
+                    <p class="list-group-item-text">{{file.upload_date | date:'short'}} : {{file.mime_type}}  : <strong>{{::file.length | bytes}}</strong></p>
 
-                    <h4 class="list-group-item-text">
-                        <a href="#" editable-text="file.title" onaftersave="updateFile(file, 'title')">
-                            {{ file.title || 'empty title' }}
-                        </a>
-                    </h4>
-
-                    <p class="list-group-item-text">
-                        <a href="#" editable-textarea="file.description" onaftersave="updateFile(file, 'desc')">
-                            <pre>{{ file.description || 'empty desc' }}</pre>
-                        </a>
-                    </p>
+                    <div class="media">
+                        <div class="pull-left" ng-if="file.mime_type.startsWith('image')">
+                            <img class="media-object" ng-src="/form/protocol/files/get/{{::file.id}}"
+                                 style="width: 64px; height: 64px;">
+                            <a href="#">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            <h4 class="media-heading">
+                                <a href="#" editable-text="file.title" onaftersave="updateFile(file, 'title')">
+                                    {{ file.title || 'empty title' }}
+                                </a>
+                            </h4>
+                            <a href="#" editable-textarea="file.description" onaftersave="updateFile(file, 'desc')">
+                                <pre>{{ file.description || 'click-to-edit' | translate }}</pre>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
