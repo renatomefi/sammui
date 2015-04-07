@@ -198,6 +198,10 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         var partialPath = '/bundles/form/angular/views/form/filling/partials/';
         var templatePath = '/bundles/form/angular/views/form/pages/sammui_demo/';
 
+        $scope.modal = {
+            data: undefined
+        };
+
         //Default templates to all forms
         $scope.templates = [
             {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
@@ -211,6 +215,11 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         $scope.formPages = {
             1: {title: 'Título página Um', period: 6},
             2: {title: 'Título página Dois'}
+        };
+
+        $scope.showImage = function (image) {
+            $scope.modal.data = image;
+            $scope.Ui.turnOn('modalImage');
         };
 
         $scope.toPage = function (pageId) {

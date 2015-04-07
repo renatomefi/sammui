@@ -55,13 +55,14 @@
                         </a>
                         {{::file.filename}}
                     </h4>
-                    <p class="list-group-item-text">{{file.upload_date | date:'short'}} : {{file.mime_type}}  : <strong>{{::file.length | bytes}}</strong></p>
+                    <p class="list-group-item-text">{{file.upload_date | date:'short'}} : {{file.mime_type}} : <strong>{{::file.length
+                        | bytes}}</strong></p>
 
                     <div class="media">
                         <div class="pull-left" ng-if="file.mime_type.startsWith('image')">
-                            <img class="media-object" ng-src="/form/protocol/files/get/{{::file.id}}"
-                                 style="width: 64px; height: 64px;">
-                            <a href="#">
+                            <a ng-click='showImage(file)'>
+                                <img class="media-object" ng-src="/form/protocol/files/get/{{::file.id}}"
+                                     style="width: 64px; height: 64px;">
                             </a>
                         </div>
                         <div class="media-body">
@@ -74,6 +75,27 @@
                                 <pre>{{ file.description || 'click-to-edit' | translate }}</pre>
                             </a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ui-content-for="modals">
+        <div class="modal modal-overlay" ui-if='modalImage' ui-state='modalImage'>
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+                            <span>{{ ::modal.data.title || 'form-protocol-image' | translate }}</span>
+                            <button ui-turn-off="modalImage"
+                                    class="btn btn-default pull-right">{{ 'modal-close' | translate }}
+                            </button>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <pre ng-show="modal.data.description">{{::modal.data.description}}</pre>
+                        <img class="media-object" ng-src="/form/protocol/files/get/{{::modal.data.id}}">
                     </div>
                 </div>
             </div>
