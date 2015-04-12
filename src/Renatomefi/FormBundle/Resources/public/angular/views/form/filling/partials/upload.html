@@ -41,7 +41,11 @@
         </div>
     </div>
     <div class="panel panel-default" ng-hide="protocol.data.file.length == 0">
+        <div>
+
+        </div>
         <div class="panel-body">
+            <ui-switch ng-model='showThumbs'></ui-switch>
             <div class="list-group" ng-repeat="file in protocol.data.file | orderBy:'-upload_date'">
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">
@@ -59,7 +63,7 @@
                         | bytes}}</strong></p>
 
                     <div class="media">
-                        <div class="pull-left" ng-if="file.mime_type.startsWith('image')">
+                        <div class="pull-left" ng-if="showThumbs && file.mime_type.startsWith('image')">
                             <a ng-click='showImage(file)'>
                                 <img class="media-object" ng-src="/form/protocol/files/get/{{::file.id}}"
                                      style="width: 64px; height: 64px;">

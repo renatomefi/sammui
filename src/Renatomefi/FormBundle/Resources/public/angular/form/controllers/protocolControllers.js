@@ -126,6 +126,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
     }])
     .controller('formFillingUpload', ['$scope', '$upload', '$http', function ($scope, $upload, $http) {
 
+        $scope.showThumbs = false;
+
         //TODO configuration file??
         var uploadPath = '/form/protocol/files/upload';
         var downloadPath = '/form/protocol/files/get/';
