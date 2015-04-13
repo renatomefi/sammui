@@ -234,10 +234,10 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             if (isFinite(parseInt(pageId))) {
                 $scope.$parent.protocol.data.$promise.then(
                     function () {
-                        $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function(page) {
+                        $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
                             return page.number === parseInt(pageId);
                         }).pop();
-                        $scope.currentPage.url = templatePath +  $scope.$parent.protocol.data.form.template + '/' + pageId + '.html';
+                        $scope.currentPage.url = templatePath + $scope.$parent.protocol.data.form.template + '/' + pageId + '.html';
                         $scope.$parent.currentTemplate = {
                             name: pageId,
                             url: templatePath + 'base.html',
@@ -246,7 +246,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                     }
                 );
             } else {
-                $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates.filter(function(template) {
+                $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates.filter(function (template) {
                     return pageId === template.name;
                 }).pop();
             }

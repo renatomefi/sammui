@@ -268,4 +268,19 @@ class ProtocolFilesControllerTest extends WebTestCase implements AssertRestUtils
         $this->assertEmpty($result);
     }
 
+    /**
+     * @depends testCreateProtocol
+     * @depends testDeleteUpload
+     */
+    public function testDeleteProtocol(Protocol $protocol)
+    {
+        $forms = $this->dm->getRepository('FormBundle:Form')
+            ->findByName($protocol->getForm()->getName());
+
+        foreach ($forms as $form) {
+            $this->dm->remove($form);
+        }
+
+        $this->dm->flush();
+    }
 }
