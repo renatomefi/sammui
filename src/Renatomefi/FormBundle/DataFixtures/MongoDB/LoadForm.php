@@ -20,7 +20,7 @@ class LoadForm implements FixtureInterface, ContainerAwareInterface
     /**
      * Form name
      */
-    const NAME = 'sammui-form-dev';
+    const NAME = 'sammui-form-demo';
 
     /**
      * @var ContainerInterface
@@ -44,6 +44,7 @@ class LoadForm implements FixtureInterface, ContainerAwareInterface
 
         $form = new Form();
         $form->setName(static::NAME);
+        $form->setTemplate(static::NAME);
 
         $page = new FormPage();
         $page->setNumber(1);

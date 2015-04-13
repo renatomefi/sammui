@@ -198,9 +198,10 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         //TODO configuration file??
         var partialPath = '/bundles/form/angular/views/form/filling/partials/';
-        var templatePath = '/bundles/form/angular/views/form/pages/sammui_demo/';
+        var templatePath;
 
         $scope.$parent.protocol.data.$promise.then(function () {
+            templatePath = '/bundles/form/angular/views/form/pages/' + $scope.$parent.protocol.data.form.template + '/';
             $scope.formPages = $scope.$parent.protocol.data.form.pages;
         });
 
@@ -232,11 +233,15 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         $scope.loadTemplate = function (pageId) {
             if (isFinite(parseInt(pageId))) {
-                $scope.$parent.currentTemplate = {
-                    name: pageId,
-                    url: templatePath + pageId + '.html',
-                    headerType: 'form'
-                };
+                $scope.$parent.protocol.data.$promise.then(
+                    function() {
+                        $scope.$parent.currentTemplate = {
+                            name: pageId,
+                            url: templatePath + pageId + '.html',
+                            headerType: 'form'
+                        };
+                    }
+                );
             } else {
                 for (var i = 0, len = $scope.templates.length; i < len; i++) {
                     if (pageId === $scope.templates[i].name) {

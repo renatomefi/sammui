@@ -44,6 +44,11 @@ class Form
     protected $pages;
 
     /**
+     * @ODM\String
+     */
+    protected $template;
+
+    /**
      * Get id
      *
      * @return $id
@@ -51,6 +56,30 @@ class Form
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set template
+     *
+     * This template should match a path inside Resources/public/angular/views/form/pages/{{template}}
+     * in order to provide the page's views
+     * @param string $template
+     * @return self
+     */
+    public function setTemplate($template)
+    {
+        $this->template = $template;
+        return $this;
+    }
+
+    /**
+     * Get template
+     *
+     * @return string $name
+     */
+    public function getTemplate()
+    {
+        return $this->template;
     }
 
     /**
