@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('sammui.protocolControllers', ['ngRoute'])
-    .controller('formFilling', ['$rootScope', '$scope', '$route', '$routeParams', '$location', 'formProtocolManage', 'protocolData',
+    .controller('formFillingMain', ['$rootScope', '$scope', '$route', '$routeParams', '$location', 'formProtocolManage', 'protocolData',
         function ($rootScope, $scope, $route, $routeParams, $location, formProtocolManage, protocolData) {
 
             $scope.currentTemplate = undefined;

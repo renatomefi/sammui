@@ -65,6 +65,9 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-filling-page-conclusion' => [
             'en-us' => 'Conclusion',
             'pt-br' => 'Conclusão'],
+        'form-filling-page-upload' => [
+            'en-us' => 'Files',
+            'pt-br' => 'Arquivos'],
         'form-filling-page-form' => [
             'en-us' => 'Form',
             'pt-br' => 'Formulário']

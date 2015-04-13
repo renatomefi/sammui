@@ -18,7 +18,7 @@ sammuiForm.config(function ($locationProvider, $routeProvider) {
     $routeProvider.when('/form/:protocolId/:page?/:pageId?', {
         templateUrl: '/bundles/form/angular/views/form/filling/home.html',
         templatePreload: true,
-        controller: 'formFilling',
+        controller: 'formFillingMain',
         reloadOnSearch: false
     });
 });
