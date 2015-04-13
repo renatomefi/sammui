@@ -10,7 +10,7 @@
 </div>
 <ul class="nav nav-pills nav-justified">
     <li role="presentation"
-        ng-repeat="(number, page) in formPages">
-        <a ng-click="toPage(number)">{{page.title}}</a>
+        ng-repeat="page in formPages | orderBy: 'number'">
+        <a ng-click="toPage(page.number)">{{page.title}}</a>
     </li>
 </ul>

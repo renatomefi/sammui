@@ -31,9 +31,9 @@
             <ul class="pagination" style="margin: 0;">
                 <li><a href="#">&laquo;</a></li>
                 <li role="presentation"
-                    ng-repeat="(number, page) in pages"
-                    ng-class="{active: (number == currentPage)}">
-                    <a ng-click="toPage()(number)">{{number}}</a>
+                    ng-repeat="page in pages | orderBy: 'number'"
+                    ng-class="{active: (page.number == currentPage)}">
+                    <a ng-click="toPage()(page.number)">{{page.number}}</a>
                 </li>
                 <li><a href="#">&raquo;</a></li>
             </ul>

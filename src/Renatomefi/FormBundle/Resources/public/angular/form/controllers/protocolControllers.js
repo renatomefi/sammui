@@ -200,6 +200,10 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         var partialPath = '/bundles/form/angular/views/form/filling/partials/';
         var templatePath = '/bundles/form/angular/views/form/pages/sammui_demo/';
 
+        $scope.$parent.protocol.data.$promise.then(function () {
+            $scope.formPages = $scope.$parent.protocol.data.form.pages;
+        });
+
         $scope.modal = {
             data: undefined
         };
@@ -212,12 +216,6 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             {name: 'conclusion', url: partialPath + 'conclusion.html'},
             {name: 'upload', url: partialPath + 'upload.html'}
         ];
-
-        //TODO bring form server
-        $scope.formPages = {
-            1: {title: 'Título página Um', period: 6},
-            2: {title: 'Título página Dois'}
-        };
 
         $scope.showImage = function (image) {
             $scope.modal.data = image;
