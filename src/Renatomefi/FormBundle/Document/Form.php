@@ -2,6 +2,7 @@
 
 namespace Renatomefi\FormBundle\Document;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
@@ -18,6 +19,7 @@ class Form
     public function __construct()
     {
         $this->setCreatedAt(new \MongoDate());
+        $this->pages = new ArrayCollection();
     }
 
     /**
@@ -34,6 +36,12 @@ class Form
      * @ODM\Date
      */
     protected $createdAt;
+
+    /**
+     * @ODM\EmbedMany(targetDocument="FormPage")
+     * @var ArrayCollection
+     */
+    protected $pages;
 
     /**
      * Get id
@@ -87,5 +95,35 @@ class Form
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Add page
+     *
+     * @param \Renatomefi\FormBundle\Document\FormPage $page
+     */
+    public function addPage(FormPage $page)
+    {
+        $this->pages[] = $page;
+    }
+
+    /**
+     * Remove page
+     *
+     * @param \Renatomefi\FormBundle\Document\FormPage $page
+     */
+    public function removePage(FormPage $page)
+    {
+        $this->pages->removeElement($page);
+    }
+
+    /**
+     * Get pages
+     *
+     * @return \Doctrine\Common\Collections\Collection $pages
+     */
+    public function getPages()
+    {
+        return $this->pages;
     }
 }
