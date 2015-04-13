@@ -1,7 +1,6 @@
 <!-- Controller: formFilling -->
 <div ng-controller="formFillingPage">
+    <h2><i class="glyphicon glyphicon-blackboard"></i> <small>{{currentPage.number}}</small> {{currentPage.title}}</h2>
     <pre>{{currentPage | json}}</pre>
-    <code>{{currentPage.url}}</code>
-    <div ng-include="currentPage.url">
-    </div>
+    <div ng-include="currentPage.url"></div>
 </div>

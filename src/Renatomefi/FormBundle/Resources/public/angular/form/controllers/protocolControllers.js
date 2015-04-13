@@ -246,12 +246,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                     }
                 );
             } else {
-                for (var i = 0, len = $scope.templates.length; i < len; i++) {
-                    if (pageId === $scope.templates[i].name) {
-                        $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates[i];
-                        break;
-                    }
-                }
+                $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates.filter(function(template) {
+                    return pageId === template.name;
+                }).pop();
             }
         };
 
