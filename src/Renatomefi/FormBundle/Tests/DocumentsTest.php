@@ -20,6 +20,7 @@ namespace Renatomefi\FormBundle\Tests;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Renatomefi\FormBundle\Document\Form;
+use Renatomefi\FormBundle\Document\FormPage;
 use Renatomefi\FormBundle\Document\Protocol;
 use Renatomefi\FormBundle\Document\ProtocolComment;
 use Renatomefi\FormBundle\Document\ProtocolFile;
@@ -57,6 +58,13 @@ class DocumentsTest extends WebTestCase
     {
         $form = new Form();
         $form->setName('test');
+        $form->setTemplate('test-template');
+
+        $formPage = new FormPage();
+        $formPage->setNumber(1);
+        $formPage->setTitle('test-page-title');
+
+        $form->addPage($formPage);
 
         $this->documentManager->persist($form);
         $this->documentManager->flush();
@@ -64,6 +72,12 @@ class DocumentsTest extends WebTestCase
         $this->assertNotEmpty($form->getId());
         $this->assertNotEmpty($form->getCreatedAt());
         $this->assertNotEmpty($form->getName());
+        $this->assertNotEmpty($form->getTemplate());
+        $this->assertNotEmpty($form->getPages());
+        $this->assertNotEmpty($form->getPages()[0]->getTitle());
+        $this->assertNotEmpty($form->getPages()[0]->getNumber());
+
+        $form->removePage($formPage);
 
         return $form;
     }
