@@ -1,0 +1,7 @@
+<!-- Controller: formFilling -->
+<div ng-controller="formFillingPage">
+    <pre>{{currentPage | json}}</pre>
+    <code>{{currentPage.url}}</code>
+    <div ng-include="currentPage.url">
+    </div>
+</div>
