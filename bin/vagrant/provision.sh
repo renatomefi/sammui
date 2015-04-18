@@ -16,7 +16,9 @@ echo "Checking installation:"
 php /vagrant/sammui/app/check.php
 echo "Creating MongoDB indexes and loading data"
 php /vagrant/sammui/app/console --env=dev doctrine:mongodb:schema:create --index
-php /vagrant/sammui/app/console --env=dev doctrine:fixtures:load --append
+php /vagrant/sammui/app/console --env=dev doctrine:mongodb:fixtures:load --append
+php /vagrant/sammui/app/console --env=test doctrine:mongodb:schema:create --index
+php /vagrant/sammui/app/console --env=test doctrine:mongodb:fixtures:load --append
 mongorestore /vagrant/sammui/docs/mongo/master/
 echo "--------------------------------------------------------"
 echo "---------- End   ---------------------------------------"
