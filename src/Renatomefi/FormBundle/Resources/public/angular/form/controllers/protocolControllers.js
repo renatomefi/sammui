@@ -4,12 +4,18 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
     .controller('formFillingMain', ['$rootScope', '$scope', '$route', '$routeParams', '$location', 'formProtocolManage', 'protocolData',
         function ($rootScope, $scope, $route, $routeParams, $location, formProtocolManage, protocolData) {
 
+            $rootScope.loading = true;
+
             $scope.currentTemplate = undefined;
 
             $scope.protocol = {
                 data: protocolData.getData($routeParams.protocolId),
                 original: protocolData.getOriginalData($routeParams.protocolId)
             };
+
+            $scope.protocol.data.$promise.then(function () {
+                $rootScope.loading = false;
+            });
 
             //TODO Review this process, it should be more complete, probably check the promise when it's done and have a mongoId
             $scope.loadProtocol = function () {

@@ -1,1 +1,0 @@
-{ "indexes" : [ { "v" : 1, "key" : { "_id" : 1 }, "ns" : "sammui.User", "name" : "_id_" }, { "v" : 1, "key" : { "usernameCanonical" : 1 }, "unique" : true, "ns" : "sammui.User", "w" : 1, "name" : "usernameCanonical_1" }, { "v" : 1, "key" : { "emailCanonical" : 1 }, "unique" : true, "ns" : "sammui.User", "w" : 1, "name" : "emailCanonical_1" } ] }

@@ -1,5 +1,5 @@
 {
-  "indent": 4,
+  "indent"   : 4,
   "asi"      : false,
   "devel"    : true,
   "browser"  : true,
@@ -13,5 +13,5 @@
   "undef"    : true,
   "unused"   : true,
   "curly"    : true,
-  "predef": ["angular"]
+  "predef"   : ["angular"]
 }
