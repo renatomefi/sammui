@@ -7,7 +7,6 @@ use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\FormField;
-use Renatomefi\FormBundle\Document\FormPage;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -16,13 +15,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @package Renatomefi\UserBundle\DataFixtures\MongoDB
  * @codeCoverageIgnore
  */
-class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwareInterface
+class LoadFormFields extends AbstractFixture implements FixtureInterface, ContainerAwareInterface
 {
-
-    /**
-     * Form name
-     */
-    const NAME = 'sammui-form-demo';
 
     /**
      * @var ContainerInterface
@@ -44,42 +38,29 @@ class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwa
     {
         $documentManager = $this->container->get('doctrine_mongodb.odm.document_manager');
 
-        $form = new Form();
-        $form->setName(static::NAME);
-        $form->setTemplate(static::NAME);
-
-        $page = new FormPage();
-        $page->setNumber(1);
-        $page->setTitle('First page');
-        $form->addPage($page);
-        unset($page);
-
-        $page = new FormPage();
-        $page->setNumber(2);
-        $page->setTitle('Second page');
-        $form->addPage($page);
-        unset($page);
+        /** @var Form $form */
+        $form = $this->getReference(LoadForm::NAME);
 
         $field = new FormField();
         $field->setName('Name');
-        $form->addField($field);
+        $field->setForm($form);
+        $documentManager->persist($field);
         unset($field);
 
         $field = new FormField();
         $field->setName('Email');
-        $form->addField($field);
+        $field->setForm($form);
+        $documentManager->persist($field);
         unset($field);
 
         $field = new FormField();
         $field->setName('Gender');
         $field->setOptions(['M','F']);
-        $form->addField($field);
+        $field->setForm($form);
+        $documentManager->persist($field);
         unset($field);
 
-        $documentManager->persist($form);
         $documentManager->flush();
-
-        $this->addReference(static::NAME, $form);
 
     }
 
@@ -88,6 +69,6 @@ class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwa
      */
     public function getOrder()
     {
-        return 4;
+        return 5;
     }
 }

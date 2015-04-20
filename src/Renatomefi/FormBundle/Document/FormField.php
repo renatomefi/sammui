@@ -2,6 +2,7 @@
 
 namespace Renatomefi\FormBundle\Document;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
@@ -22,7 +23,7 @@ class FormField extends ProtocolEmbed
     protected $form;
 
     /**
-     * @ODM\Field
+     * @ODM\Collection
      */
     protected $options;
 
@@ -73,7 +74,7 @@ class FormField extends ProtocolEmbed
     /**
      * Set options
      *
-     * @param string $options
+     * @param $options
      * @return self
      */
     public function setOptions($options)
@@ -85,12 +86,10 @@ class FormField extends ProtocolEmbed
     /**
      * Get options
      *
-     * @return string $options
+     * @return collection $options
      */
     public function getOptions()
     {
         return $this->options;
     }
-
-
 }
