@@ -18,7 +18,6 @@ services:
   - mongodb
 
 before_script:
-  - echo "version $(phpenv version-name)"
   - npm install -g bower
   - ln -s $(which bower) bin/bower
   - echo "extension = mongo.so" >> ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini

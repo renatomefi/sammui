@@ -278,6 +278,5 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
     }])
     .controller('formFillingPage', ['$scope', function ($scope) {
 
-
     }])
 ;

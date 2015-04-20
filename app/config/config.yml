@@ -77,14 +77,14 @@ swiftmailer:
 nelmio_api_doc: ~
 
 fos_oauth_server:
-    db_driver: mongodb
+    db_driver:           mongodb
     client_class:        Renatomefi\ApiBundle\Document\Client
     access_token_class:  Renatomefi\ApiBundle\Document\AccessToken
     refresh_token_class: Renatomefi\ApiBundle\Document\RefreshToken
     auth_code_class:     Renatomefi\ApiBundle\Document\AuthCode
     authorize: ~
     service:
-        user_provider: fos_user.user_manager
+        user_provider:   fos_user.user_manager
         options:
             supported_scopes: read
 
