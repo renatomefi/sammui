@@ -6,8 +6,8 @@ var sammuiTranslate = angular.module('sammui.translate', [
     'sammui.translateServices',
     'sammui.translateControllers'
 ]).config(['$translateProvider', function ($translateProvider) {
-    //$translateProvider.determinePreferredLanguage();
     $translateProvider.preferredLanguage('en-us');
+
     //var preferred = $translateProvider.preferredLanguage();
     $translateProvider.useLoader('translateLoader');
 }]);
@@ -26,7 +26,12 @@ sammuiTranslate.filter('getByKey', function () {
     };
 });
 
-sammuiTranslate.run(function ($rootScope, $translate, translateLangsInfo) {
+sammuiTranslate.run(function ($rootScope, $translate, translateLangsInfo, localStorageService) {
+    console.debug('preferredLanguage', localStorageService.get('preferredLanguage'));
+    if (localStorageService.get('preferredLanguage')) {
+        $translate.use(localStorageService.get('preferredLanguage'));
+    }
+
     $rootScope.modalLangChoose = function () {
         $rootScope.loading = true;
         $rootScope.modalLangItems = translateLangsInfo.query(function () {
@@ -36,6 +41,7 @@ sammuiTranslate.run(function ($rootScope, $translate, translateLangsInfo) {
     };
     $rootScope.appLangChoose = function (lang) {
         $translate.use(lang);
+        localStorageService.set('preferredLanguage', lang);
         //$translate.refresh();
     };
 });

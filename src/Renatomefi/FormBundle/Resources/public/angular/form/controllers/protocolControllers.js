@@ -142,6 +142,11 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             $scope.upload($scope.files);
         });
 
+        $scope.showImage = function (image) {
+            $scope.modal.data = image;
+            $scope.Ui.turnOn('modalImage');
+        };
+
         $scope.downloadUrl = function (fileId) {
             return downloadPath + fileId;
         };
@@ -222,11 +227,6 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             {name: 'conclusion', url: partialPath + 'conclusion.html'},
             {name: 'upload', url: partialPath + 'upload.html'}
         ];
-
-        $scope.showImage = function (image) {
-            $scope.modal.data = image;
-            $scope.Ui.turnOn('modalImage');
-        };
 
         $scope.toPage = function (pageId) {
             if (!angular.isUndefined($routeParams.pageId)) {
