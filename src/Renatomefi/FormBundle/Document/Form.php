@@ -49,6 +49,11 @@ class Form
     protected $template;
 
     /**
+     * @ODM\ReferenceMany(targetDocument="FormField", mappedBy="form")
+     */
+    protected $fields;
+
+    /**
      * Get id
      *
      * @return $id
@@ -154,5 +159,35 @@ class Form
     public function getPages()
     {
         return $this->pages;
+    }
+
+    /**
+     * Add field
+     *
+     * @param \Renatomefi\FormBundle\Document\FormField $field
+     */
+    public function addField(FormField $field)
+    {
+        $this->fields[] = $field;
+    }
+
+    /**
+     * Remove field
+     *
+     * @param \Renatomefi\FormBundle\Document\FormField $field
+     */
+    public function removeField(FormField $field)
+    {
+        $this->fields->removeElement($field);
+    }
+
+    /**
+     * Get fields
+     *
+     * @return \Doctrine\Common\Collections\Collection $fields
+     */
+    public function getFields()
+    {
+        return $this->fields;
     }
 }
