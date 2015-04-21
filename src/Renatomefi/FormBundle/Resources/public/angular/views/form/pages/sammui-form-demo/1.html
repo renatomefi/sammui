@@ -1,16 +1,33 @@
 <form role="form" class="ng-pristine ng-valid ng-valid-email">
     <fieldset>
-        <legend>Login</legend>
-        <div class="form-group has-success has-feedback">
-            <label>Email</label>
-            <input type="email" ng-model="email"
-                   class="form-control ng-pristine ng-untouched ng-valid needsclick ng-valid-email"
-                   placeholder="Enter email">
+        <legend>Fields test</legend>
+        <div ng-controller="formFillingPageField"
+             ng-init="field = (formFields | filter:{name: 'Name'}).pop()"
+             class="form-group">
+            <label>{{field.name}}</label>
+            <input ng-model="field.value"
+                   class="form-control">
         </div>
 
-        <div class="form-group">
-            <label>Password</label>
-            <input type="password" class="form-control needsclick" placeholder="Password">
+        <div ng-controller="formFillingPageField"
+             ng-init="field = (formFields | filter:{name: 'Email'}).pop()"
+             class="form-group">
+            <label>{{field.name}}</label>
+            <input ng-model="field.value"
+                   class="form-control">
+        </div>
+
+        <div ng-controller="formFillingPageField"
+             ng-init="field = (formFields | filter:{name: 'Gender'}).pop()"
+             class="form-group">
+            <label>{{field.name}}</label>
+
+            <div class="btn-group">
+                <a href="" class="btn btn-default" ui-turn-on="button1" ui-state="button1"
+                   ui-class="{'active': button1}" ui-exclusion-group="{{field.name}}">1</a>
+                <a href="" class="btn btn-default" ui-turn-on="button2" ui-state="button2"
+                   ui-class="{'active': button2}" ui-exclusion-group="{{field.name}}">2</a>
+            </div>
         </div>
 
         <div class="form-group">

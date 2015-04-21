@@ -54,7 +54,9 @@
     "ext-xdebug": "*",
     "sensio/generator-bundle": "~2.3",
     "codeclimate/php-test-reporter": "dev-master",
-    "matthiasnoback/symfony-dependency-injection-test": "0.*"
+    "matthiasnoback/symfony-dependency-injection-test": "0.*",
+    "squizlabs/php_codesniffer": "2.*",
+    "phpmd/phpmd": "~2.2"
   },
   "scripts": {
     "post-install-cmd": [

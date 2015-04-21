@@ -277,6 +277,11 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
     }])
     .controller('formFillingPage', ['$scope', function ($scope) {
+        $scope.$parent.protocol.data.$promise.then(function () {
+            $scope.formFields = $scope.$parent.protocol.data.form.fields;
+        });
+    }])
+    .controller('formFillingPageField', ['$scope', function ($scope) {
 
     }])
 ;

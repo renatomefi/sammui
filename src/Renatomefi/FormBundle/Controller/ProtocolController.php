@@ -141,6 +141,26 @@ class ProtocolController extends FOSRestController
     }
 
     /**
+     * @param Request $request
+     * @param $protocolId
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function patchFieldValueAction(Request $request, $protocolId)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
+        $protocol = $this->getProtocol($protocolId);
+
+        $formFieldDM = $dm->getRepository('FormBundle:FormField');
+//        $formFieldDM->find($request);
+
+//        var_dump($request->get())
+
+
+        return [];
+    }
+
+    /**
      * @param $protocolId
      * @param $userName
      * @return \Symfony\Component\HttpFoundation\Response
