@@ -1,6 +1,14 @@
 <!-- Controller: formFilling -->
 <div ng-controller="formFillingPage">
-    <h2><i class="glyphicon glyphicon-blackboard"></i> <small>{{currentPage.number}}</small> {{currentPage.title}}</h2>
+    <h2>
+        <i class="glyphicon glyphicon-blackboard"></i>
+        <small>{{currentPage.number}}</small>
+        {{currentPage.title}}
+    </h2>
+    <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-success" ng-click="saveFields()">Save</button>
+        <button type="button" class="btn btn-default">Middle</button>
+    </div>
     <pre>{{currentPage | json}}</pre>
     <div ng-include="currentPage.url"></div>
 </div>

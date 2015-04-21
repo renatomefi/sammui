@@ -276,12 +276,42 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         $scope.onLoad();
 
     }])
-    .controller('formFillingPage', ['$scope', function ($scope) {
+    .controller('formFillingPage', ['$scope', 'formProtocolFields', function ($scope, formProtocolFields) {
         $scope.$parent.protocol.data.$promise.then(function () {
             $scope.formFields = $scope.$parent.protocol.data.form.fields;
         });
-    }])
-    .controller('formFillingPageField', ['$scope', function ($scope) {
 
+        $scope.saveFields = function () {
+            $scope.savingForm = true;
+            formProtocolFields
+                .save({
+                    protocolId: $scope.$parent.protocol.data.id,
+                    data: $scope.$parent.protocol.data.form.fields
+                }, function (data) {
+                    console.debug('Return from saving fields', data);
+                })
+                .$promise.finally(function () {
+                    $scope.savingForm = false;
+                });
+        };
+    }])
+    .controller('formFillingPageField', ['$scope', '$filter', function ($scope, $filter) {
+        // $scope.field is determined at ng-init for those who uses this controller
+        $scope.field = {};
+
+        var fieldWatchUnbind = $scope.$watch('field', function () {
+            // Check if field.value is null, if it is get the value from the protocol.data.form.values.samefield
+            // this way we can setup the form from the server data
+            if (!$scope.field.value) {
+                var fieldValue = $scope.$parent.protocol.data.field_values.filter(function (value) {
+                    return $scope.field.id === value.field.id;
+                }).pop();
+
+                $scope.field.value = (fieldValue && fieldValue.hasOwnProperty('value')) ? fieldValue.value : undefined;
+            }
+
+            // Since we are not going to change the field, let's unbind it, you know, angular issues!
+            fieldWatchUnbind();
+        });
     }])
 ;

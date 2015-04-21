@@ -100,6 +100,16 @@ angular.module('sammui.protocolServices', ['ngResource'])
                 }
             });
     })
+    .factory('formProtocolFields', function ($resource) {
+        return $resource('/form/protocol/fields/:protocolId/save',
+            {
+                protocolId: '@protocolId'
+            }, {
+                'save': {
+                    method: 'PATCH'
+                }
+            });
+    })
     .factory('formProtocol', function ($resource) {
         return $resource('/form/protocol/:formId', {formId: '@formId'}, {
             'generate': {
