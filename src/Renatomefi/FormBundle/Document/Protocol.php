@@ -24,6 +24,7 @@ class Protocol
         $this->nonUser = new ArrayCollection();
         $this->comment = new ArrayCollection();
         $this->file = new ArrayCollection();
+        $this->fieldValues = new ArrayCollection();
     }
 
     /**
@@ -79,6 +80,12 @@ class Protocol
      * @ODM\ReferenceOne(targetDocument="Form")
      */
     protected $form;
+
+    /**
+     * @ODM\EmbedMany(targetDocument="ProtocolFieldValue")
+     * @var ArrayCollection
+     */
+    protected $fieldValues;
 
     /**
      * Get id
@@ -362,5 +369,35 @@ class Protocol
     public function getFile()
     {
         return $this->file;
+    }
+
+    /**
+     * Add fieldValue
+     *
+     * @param \Renatomefi\FormBundle\Document\ProtocolFieldValue $fieldValue
+     */
+    public function addFieldValue(ProtocolFieldValue $fieldValue)
+    {
+        $this->fieldValues[] = $fieldValue;
+    }
+
+    /**
+     * Remove fieldValue
+     *
+     * @param \Renatomefi\FormBundle\Document\ProtocolFieldValue $fieldValue
+     */
+    public function removeFieldValue(ProtocolFieldValue $fieldValue)
+    {
+        $this->fieldValues->removeElement($fieldValue);
+    }
+
+    /**
+     * Get fieldValues
+     *
+     * @return \Doctrine\Common\Collections\Collection $fieldValues
+     */
+    public function getFieldValues()
+    {
+        return $this->fieldValues;
     }
 }

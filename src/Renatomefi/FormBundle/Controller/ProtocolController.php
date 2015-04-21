@@ -6,6 +6,7 @@ use Doctrine\ODM\MongoDB\Query\Expr;
 use FOS\RestBundle\Controller\FOSRestController;
 use Renatomefi\FormBundle\Document\Protocol;
 use Renatomefi\FormBundle\Document\ProtocolComment;
+use Renatomefi\FormBundle\Document\ProtocolFieldValue;
 use Renatomefi\FormBundle\Document\ProtocolUser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -152,12 +153,25 @@ class ProtocolController extends FOSRestController
         $protocol = $this->getProtocol($protocolId);
 
         $formFieldDM = $dm->getRepository('FormBundle:FormField');
-//        $formFieldDM->find($request);
 
-//        var_dump($request->get())
+        foreach ($request->get('data') as $item) {
 
+            if (!array_key_exists('value', $item))
+                continue;
 
-        return [];
+            $field = $formFieldDM->find($item['id']);
+            $value = new ProtocolFieldValue();
+            $value->setField($field);
+            $value->setValue($item['value']);
+
+            $protocol->addFieldValue($value);
+        }
+
+        $dm->persist($protocol);
+        $dm->flush();
+        $dm->clear();
+
+        return $this->getProtocol($protocol->getId());
     }
 
     /**
