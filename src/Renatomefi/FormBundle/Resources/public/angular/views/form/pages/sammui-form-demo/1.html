@@ -1,22 +1,25 @@
-<form name="pageForm" class="my-form">
-    userType: <input name="input1" ng-model="userType" required>
-    userType: <input name="input2" ng-model="userType" required>
-    <span class="error" ng-show="pageForm.input.$error.required">Required!</span><br>
-    <tt>{{pageForm}}</tt>
-    <tt>userType = {{userType}}</tt><br>
-    <tt>pageForm.input.$valid = {{pageForm.input.$valid}}</tt><br>
-    <tt>pageForm.input.$error = {{pageForm.input.$error}}</tt><br>
-    <tt>pageForm.$valid = {{pageForm.$valid}}</tt><br>
-    <tt>pageForm.$error.required = {{!!pageForm.$error.required}}</tt><br>
-</form>
-<style>
-    .my-form {
-        -webkit-transition: all linear 0.5s;
-        transition: all linear 0.5s;
-        background: transparent;
-    }
+<form role="form" class="ng-pristine ng-valid ng-valid-email">
+    <fieldset>
+        <legend>Login</legend>
+        <div class="form-group has-success has-feedback">
+            <label>Email</label>
+            <input type="email" ng-model="email"
+                   class="form-control ng-pristine ng-untouched ng-valid needsclick ng-valid-email"
+                   placeholder="Enter email">
+        </div>
 
-    .my-form.ng-invalid {
-        background: red;
-    }
-</style>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control needsclick" placeholder="Password">
+        </div>
+
+        <div class="form-group">
+            <label>Remember Me</label>
+
+            <div class="switch ng-isolate-scope switch-transition-enabled active ng-valid" ng-class="{active: model}"
+                 ng-model="rememberMe">
+                <div class="switch-handle"></div>
+            </div>
+        </div>
+    </fieldset>
+</form>
