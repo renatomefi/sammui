@@ -145,7 +145,7 @@ class ProtocolController extends FOSRestController
      * @param $protocolId
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function patchFieldValueAction(Request $request, $protocolId)
+    public function patchFieldsSaveAction(Request $request, $protocolId)
     {
         $dm = $this->get('doctrine_mongodb')->getManager();
 
