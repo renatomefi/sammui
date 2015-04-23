@@ -159,12 +159,25 @@ class ProtocolController extends FOSRestController
             if (!array_key_exists('value', $item))
                 continue;
 
-            $field = $formFieldDM->find($item['id']);
-            $value = new ProtocolFieldValue();
-            $value->setField($field);
-            $value->setValue($item['value']);
+            $currentValue = $protocol->getFieldValueByFieldId($item['id']);
 
-            $protocol->addFieldValue($value);
+            // If there is a FieldValue just update it, if not create a new one and add it!
+            if ($currentValue) {
+
+                // No changes? Will not update it and lastUpdate!
+                if ($currentValue->getValue() === $item['value'])
+                    continue;
+
+                $currentValue->setLastUpdated(new \MongoDate());
+                $currentValue->setValue($item['value']);
+            } else  {
+                $field = $formFieldDM->find($item['id']);
+                $value = new ProtocolFieldValue();
+                $value->setField($field);
+                $value->setValue($item['value']);
+                $protocol->addFieldValue($value);
+            }
+
         }
 
         $dm->persist($protocol);

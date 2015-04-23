@@ -400,4 +400,18 @@ class Protocol
     {
         return $this->fieldValues;
     }
+
+    /**
+     * @param $id
+     * @return \Renatomefi\FormBundle\Document\ProtocolFieldValue $fieldValue
+     */
+    public function getFieldValueByFieldId($id)
+    {
+        foreach ($this->fieldValues as $value) {
+            if ($value->getField()->getId() === $id) {
+                return $value;
+            }
+        }
+        return null;
+    }
 }

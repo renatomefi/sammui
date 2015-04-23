@@ -295,7 +295,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 });
         };
     }])
-    .controller('formFillingPageField', ['$scope', '$filter', function ($scope, $filter) {
+    .controller('formFillingPageField', ['$scope', '$filter', function ($scope) {
         // $scope.field is determined at ng-init for those who uses this controller
         $scope.field = {};
 
