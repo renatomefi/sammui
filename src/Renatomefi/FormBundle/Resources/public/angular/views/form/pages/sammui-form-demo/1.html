@@ -28,13 +28,29 @@
                    class="form-control">
         </div>
 
-        <div class="form-group">
-            <label>Remember Me</label>
+        <div ng-controller="formFillingPageField"
+             ng-init="fieldName = 'Gender'"
+             class="form-group">
+            <label>{{field.name}}
+                <small ng-show="field.value !== fieldValue.value">
+                    <i class="glyphicon glyphicon-floppy-disk text-warning"></i>
+                </small>
+            </label>
+            <br>
+            <label class="radio-inline" ng-repeat="(key, value) in field.options">
+                <input type="radio" ng-model="field.value" value="{{key}}"> {{value}}
+            </label>
+        </div>
 
-            <div class="switch ng-isolate-scope switch-transition-enabled active ng-valid" ng-class="{active: model}"
-                 ng-model="rememberMe">
-                <div class="switch-handle"></div>
-            </div>
+        <div ng-controller="formFillingPageField"
+             ng-init="fieldName = 'Legal'"
+             class="form-group">
+            <label>{{field.name}}
+                <small ng-show="!!field.value !== !!fieldValue.value">
+                    <i class="glyphicon glyphicon-floppy-disk text-warning"></i>
+                </small>
+            </label>
+            <ui-switch ng-model="field.value"></ui-switch>
         </div>
     </fieldset>
 </form>

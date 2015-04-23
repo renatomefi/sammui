@@ -23,7 +23,7 @@ class FormField extends ProtocolEmbed
     protected $form;
 
     /**
-     * @ODM\Collection
+     * @ODM\Hash
      */
     protected $options;
 
@@ -86,7 +86,7 @@ class FormField extends ProtocolEmbed
     /**
      * Get options
      *
-     * @return collection $options
+     * @return $options
      */
     public function getOptions()
     {
