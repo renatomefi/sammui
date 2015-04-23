@@ -16,7 +16,13 @@ angular.module('sammui.protocolServices', ['ngResource'])
                     localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
                     Object.observe(currentData[protocolId], function (changes) {
                         localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
-                        console.debug('Local storage for "' + protocolId + '" has been updated');
+                        console.debug('Local storage for "' + protocolId + '" has been updated with changes', changes);
+                    });
+                    currentData[protocolId].form.fields.map(function(item) {
+                        Object.observe(item, function(changes) {
+                            console.debug('Field was changed', changes);
+                        });
+                        console.debug('looping fields', item);
                     });
                 });
             }

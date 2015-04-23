@@ -298,6 +298,15 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
     .controller('formFillingPageField', ['$scope', '$filter', function ($scope) {
         // $scope.field is determined at ng-init for those who uses this controller
         $scope.field = {};
+        $scope.fieldValue = {};
+
+        var fieldNameWatch = $scope.$watch('fieldName', function () {
+            $scope.field = $scope.$parent.protocol.data.form.fields.filter(function (value) {
+                return ($scope.fieldName === value.name || $scope.fieldName === value.id);
+            }).pop();
+
+            fieldNameWatch();
+        });
 
         var fieldWatchUnbind = $scope.$watch('field', function () {
             // Check if field.value is null, if it is get the value from the protocol.data.form.values.samefield
@@ -308,10 +317,13 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 }).pop();
 
                 $scope.field.value = (fieldValue && fieldValue.hasOwnProperty('value')) ? fieldValue.value : undefined;
+                $scope.fieldValue = fieldValue;
             }
 
             // Since we are not going to change the field, let's unbind it, you know, angular issues!
             fieldWatchUnbind();
         });
+
+
     }])
 ;
