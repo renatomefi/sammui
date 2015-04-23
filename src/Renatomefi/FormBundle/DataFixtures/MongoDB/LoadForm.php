@@ -4,6 +4,7 @@ namespace Renatomefi\UserBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\FormField;
@@ -16,7 +17,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @package Renatomefi\UserBundle\DataFixtures\MongoDB
  * @codeCoverageIgnore
  */
-class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwareInterface
+class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
 
     /**
