@@ -1,0 +1,54 @@
+<form role="form" class="ng-pristine ng-valid">
+    <pre>{{formFields | json}}</pre>
+
+    <fieldset>
+
+        <select name="Esfera">
+            <option value="estadual">estadual</option>
+            <option value="federal">federal</option>
+        </select>
+
+        <select name="Secretaria da pasta">
+            <option value="Própria">Própria</option>
+            <option value="Subsecretaria">Subsecretaria</option>
+            <option value="Diretoria/Departamento">Diretoria/Departamento</option>
+            <option value="Superintendência">Superintendência</option>
+            <option value="Instituto / Agência">Instituto / Agência</option>
+            <option value="Outro">Outro</option>
+        </select>
+
+        <input type="text" name="Unidade do MP / Defensoria" />
+        <input type="text" name="Tribunal de Justiça" />
+        <input type="text" name="Grau de Jurisdição" />
+        <input type="text" name="Comarca" />
+
+        <select name="Há Escola Penitenciária Estadual?">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+
+        <select name="Há Ouvidoria Estadual do Sistema Prisional?">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+
+        <select name="Há Corregedoria Estadual do Sistema Prisional?">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+
+        <select name="Há Plano de Carreira?">
+            <option value="Sim">Sim</option>
+            <!-- Todos os servidores penitenciarios -->
+            <!-- Agentes penitenciarios -->
+            <!-- outro -->
+            <option value="Não">Não</option>
+        </select>
+
+        <select name="Há Plano Estadual de Educação do Sistema Penitenciário?">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+
+    </fieldset>
+</form>

@@ -1,0 +1,37 @@
+<form role="form" class="ng-pristine ng-valid">
+    <pre>{{formFields | json}}</pre>
+
+    <fieldset>
+
+        <input type="text" name="Estabelecimento" />
+        <input type="text" name="Apelido da unidade" />
+        <input type="text" name="CEP" />
+        <input type="text" name="Cidade/UF" />
+
+        <input type="checkbox" name="Estabelecimento destinado ao recolhimento de presos provisórios" />
+        <!-- (Ex: Cadeia Pública; Presídio; Centro de Detenção Provisória; Unidade de Recolhimento Provisório) -->
+
+        <input type="checkbox" name="Estabelecimento destinado ao cumprimento de pena em regime fechado" />
+        <!-- (Ex: Penitenciária) -->
+
+        <input type="checkbox" name="Estabelecimento destinado ao cumprimento de pena em regime semiaberto" />
+        <!-- (Ex: Colônias agrícolas, industriais ou similares; Centro de Progressão Penitenciária; Unidade de Regime Semiaberto; Centro de Integração Social) -->
+
+        <input type="checkbox" name="Estabelecimento destinado ao cumprimento de regime aberto ou de limitação de fim de semana" />
+        <!-- (Ex: Casa de Albergado) -->
+
+        <input type="checkbox" name="Estabelecimento destinado ao cumprimento de medida de segurança de internação ou tratamento ambulatoria" />
+        <!-- (Ex: Hospital de Custódia e Tratamento Psiquiátrico) -->
+
+        <input type="checkbox" name="Estabelecimento destinado a diversos tipos de regime" />
+        <!-- (Ex: Centro de Ressocialização) -->
+
+        <input type="checkbox" name="Estabelecimento destinado à realização de exames gerais e criminológico" />
+        <!-- (Ex: Centro de Observação Criminológica e Triagem) -->
+
+        <input type="radio" name="categoria" value="Masculino">
+        <input type="radio" name="categoria" value="Feminino">
+        <input type="radio" name="categoria" value="Misto">
+
+    </fieldset>
+</form>

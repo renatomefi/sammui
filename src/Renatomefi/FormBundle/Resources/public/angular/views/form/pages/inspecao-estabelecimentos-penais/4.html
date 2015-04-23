@@ -1,0 +1,133 @@
+<form role="form" class="ng-pristine ng-valid">
+    <pre>{{formFields | json}}</pre>
+
+    <fieldset>
+
+        <input type="text" name="Capacidade total"/>
+        <input type="text" name="Lotação total"/>
+
+        <input type="checkbox" name="Lotação Mulheres" value="Condenada"/>
+        <input type="checkbox" name="Lotação Mulheres" value="Provisória"/>
+
+        <input type="checkbox" name="Lotação Homens" value="Condenada"/>
+        <input type="checkbox" name="Lotação Homens" value="Provisória"/>
+
+        <input type="checkbox" name="Lotação LGBT" value="Condenada"/>
+        <input type="checkbox" name="Lotação LGBT" value="Provisória"/>
+
+        <select name="Há alas separadas para diferentes regimes?">
+            <option value="Sim">Sim</option>
+            <option value="Nao">Nao</option>
+        </select>
+
+        <select name="Há alas separadas para presos provisórios e condenados?">
+            <option value="Sim">Sim</option>
+            <option value="Nao">Nao</option>
+        </select>
+
+        <select name="Há alas separadas para idosos?">
+            <option value="Sim">Sim</option>
+            <option value="Nao">Nao</option>
+        </select>
+
+        <select name="Há alas separadas para mulheres, se for o caso?">
+            <option value="Sim">Sim</option>
+            <option value="Nao">Nao</option>
+        </select>
+
+        <select name="Há alas separadas para pessoas em medida de segurança?">
+            <option value="Sim">Sim</option>
+            <option value="Nao">Nao</option>
+        </select>
+
+        <select name="Há alas separadas para LGBT?">
+            <option value="Sim">Sim</option>
+            <option value="Nao">Nao</option>
+        </select>
+
+        <select name="Há local especial para cumprimento de seguro/custódia diferenciada?">
+            <option value="Sim">Sim</option>
+            <option value="Nao">Nao</option>
+        </select>
+
+        <select name="Há acessibilidade para pessoas com deficiência?">
+            <option value="Sim">Sim</option>
+            <option value="Nao">Nao</option>
+        </select>
+
+        <select name="Há celas metálicas?">
+            <option value="Sim">Sim</option>
+            <option value="Nao">Nao</option>
+        </select>
+
+        <!-- 4.14 Programa de necessidades por tipo de estabelecimento penal1 -->
+
+        <input type="text" name="Número de celas individuais Homens">
+        <input type="text" name="Número de celas individuais Mulheres">
+        <input type="text" name="Lotação celas individuais Homens">
+        <input type="text" name="Lotação celas individuais Mulheres">
+
+        <input type="text" name="Dimensão">
+
+        <input type="checkbox" name="Permeabilidade do solo" value="1 a 3%">
+        <input type="checkbox" name="Permeabilidade do solo" value="3 a 5%">
+        <input type="checkbox" name="Permeabilidade do solo" value="5 a 10%">
+        <input type="checkbox" name="Permeabilidade do solo" value=">10%">
+
+        <select name="Ventilação cruzada geral">
+            <option value="insuficiente">insuficiente</option>
+            <option value="suficiente">suficiente</option>
+            <option value="excessiva">excessiva</option>
+        </select>
+
+        <select name="Ventilação cruzada nas celas">
+            <option value="insuficiente">insuficiente</option>
+            <option value="suficiente">suficiente</option>
+            <option value="excessiva">excessiva</option>
+        </select>
+
+        <select name="Iluminação natural nas celas">
+            <option value="inexistente">inexistente</option>
+            <option value="existente">existente</option>
+        </select>
+
+        <select name="Incidência de sol nas celas">
+            <option value="insuficiente">insuficiente</option>
+            <option value="suficiente">suficiente</option>
+            <option value="excessiva">excessiva</option>
+        </select>
+
+        <select name="Programa de combate a incêndio">
+            <option value="inexistente">inexistente</option>
+            <option value="existente">existente</option>
+        </select>
+
+        <select name="Extintores de incêndio">
+            <option value="insuficiente">insuficiente</option>
+            <option value="suficiente">suficiente</option>
+        </select>
+
+        <select name="Extintores de incêndio">
+            <option value="sem condições de uso">sem condições de uso</option>
+            <option value="em condições de uso">em condições de uso</option>
+        </select>
+
+        <select name="Construído ou ampliado com subvenção de recursos federais?">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+
+        <select name="Reformado com subvenção de recursos federais?">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+        </select>
+
+        <select name="Indicativos da atuação de facções no estabelecimento?">
+            <option value="Sim">Sim</option>
+            <!-- Quais ?-->
+            <option value="Não">Não</option>
+        </select>
+
+
+    </fieldset>
+</form>
