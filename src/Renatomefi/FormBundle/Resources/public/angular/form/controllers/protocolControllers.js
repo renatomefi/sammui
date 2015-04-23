@@ -288,17 +288,37 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                     protocolId: $scope.$parent.protocol.data.id,
                     data: $scope.$parent.protocol.data.form.fields
                 }, function (data) {
-                    console.debug('Return from saving fields', data);
+                    //$scope.$parent.protocol.data.form.fields = angular.copy(data.form.fields);
+                    $scope.$parent.protocol.data.field_values = angular.copy(data.field_values);
+                    $scope.$broadcast('event:form-fieldSaved');
                 })
                 .$promise.finally(function () {
                     $scope.savingForm = false;
                 });
         };
     }])
-    .controller('formFillingPageField', ['$scope', '$filter', function ($scope) {
+    .controller('formFillingPageField', ['$scope', function ($scope) {
         // $scope.field is determined at ng-init for those who uses this controller
         $scope.field = {};
         $scope.fieldValue = {};
+
+        var findFieldValueByField = function() {
+            var fieldValues = $scope.$parent.protocol.data.field_values;
+            for (var i = 0; i < fieldValues.length; i++) {
+                if ($scope.field.id === fieldValues[i].field.id) {
+                    $scope.fieldValue = fieldValues[i];
+                    break;
+                }
+            }
+
+            //$scope.fieldValue = $scope.$parent.protocol.data.field_values.filter(function (value) {
+            //    return $scope.field.id === value.field.id;
+            //}).pop();
+        };
+
+        $scope.$on('event:form-fieldSaved', function() {
+            findFieldValueByField();
+        });
 
         var fieldNameWatch = $scope.$watch('fieldName', function () {
             $scope.field = $scope.$parent.protocol.data.form.fields.filter(function (value) {
@@ -309,21 +329,18 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         });
 
         var fieldWatchUnbind = $scope.$watch('field', function () {
-            // Check if field.value is null, if it is get the value from the protocol.data.form.values.samefield
+
+            findFieldValueByField();
+
+            // Check if field.value is null, if it is get the value from the protocol.data.form.values.{sameField}
             // this way we can setup the form from the server data
             if (!$scope.field.value) {
-                var fieldValue = $scope.$parent.protocol.data.field_values.filter(function (value) {
-                    return $scope.field.id === value.field.id;
-                }).pop();
-
-                $scope.field.value = (fieldValue && fieldValue.hasOwnProperty('value')) ? fieldValue.value : undefined;
-                $scope.fieldValue = fieldValue;
+                $scope.field.value = ($scope.fieldValue && $scope.fieldValue.hasOwnProperty('value')) ? $scope.fieldValue.value : undefined;
             }
 
             // Since we are not going to change the field, let's unbind it, you know, angular issues!
             fieldWatchUnbind();
         });
-
 
     }])
 ;

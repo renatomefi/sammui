@@ -6,9 +6,25 @@
              ng-init="fieldName = 'Name'"
              class="form-group">
             <label>{{field.name}}
-                <small ng-show="field.value !== fieldValue.value"><i class="glyphicon glyphicon-floppy-disk text-warning"></i></small>
+                <small ng-show="field.value !== fieldValue.value">
+                    <i class="glyphicon glyphicon-floppy-disk text-warning"></i>
+                </small>
             </label>
             <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </div>
+
+        <div ng-controller="formFillingPageField"
+             ng-init="fieldName = 'Email'"
+             class="form-group">
+            <label>{{field.name}}
+                <small ng-show="field.value !== fieldValue.value">
+                    <i class="glyphicon glyphicon-floppy-disk text-warning"></i>
+                </small>
+            </label>
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </div>
 
