@@ -3,6 +3,7 @@
 angular.module('sammui.formDirectives', [])
     .directive('formFillingHeader', function () {
         return {
+            require: '^formFillingPage',
             restrict: 'E',
             replace: true,
             scope: {
@@ -14,5 +15,17 @@ angular.module('sammui.formDirectives', [])
                 currentPage: '='
             },
             templateUrl: '/bundles/form/angular/views/form/filling/partials/header.html'
+        };
+    })
+    .directive('formField', function () {
+        return {
+            //require: ['^transclude','^formFillingPage'],
+            restrict: 'E',
+            transclude: true,
+            scope: true,
+            link: function(scope, element, attrs, ngModelCtrl, transclude){
+                scope.fieldName = attrs.name;
+            },
+            templateUrl: '/bundles/form/angular/views/form/pages/field.html'
         };
     });
