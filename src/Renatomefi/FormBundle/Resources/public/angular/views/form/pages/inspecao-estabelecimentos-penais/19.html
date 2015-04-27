@@ -1,0 +1,74 @@
+<form role="form" class="ng-pristine ng-valid">
+    <pre>{{formFields | json}}</pre>
+
+    <fieldset>
+
+        <select name="Há registro de imposição de sanção disciplinar aos presos?">
+            <option value="sim">sim</option>
+            <option value="não">não</option>
+        </select>
+
+        <select name="Qual a forma adotada para o registro?">
+            <option value="Livro">Livro</option>
+            <option value="PAD">PAD</option>
+            <option value="Procedimento Eletrônico">Procedimento Eletrônico</option>
+            <option value="outro">outro</option>
+        </select>
+
+        <select name="No registro da sanção de natureza grave é anotado o prévio procedimento disciplinar?">
+            <option value="sim">sim</option>
+            <option value="não">não</option>
+        </select>
+
+        <select name="Há sanção disciplinar de natureza grave sem instauração do respectivo procedimento?">
+            <option value="sim">sim</option>
+            <option value="não">não</option>
+        </select>
+
+        <select name="Toda notícia de falta disciplinar enseja a instauração de procedimento?">
+            <option value="sim">sim</option>
+            <option value="não">não</option>
+        </select>
+
+        <select name="A falta disciplinar é reconhecida judicialmente?">
+            <option value="sim">sim</option>
+            <option value="não">não</option>
+        </select>
+
+        <select name="São executadas sanções coletivas?">
+            <option value="sim">sim</option>
+            <option value="não">não</option>
+        </select>
+
+        <select name="É observado o direito de defesa do preso?">
+            <option value="sim">sim</option>
+            <!-- Se sim, em qual fase?  fase administrativa  fase judicial-->
+            <option value="não">não</option>
+        </select>
+
+        <select name="O ato administrativo que determina a aplicação da sanção disciplinar é motivado?">
+            <option value="sim">sim</option>
+            <option value="não">não</option>
+        </select>
+
+        <input type="text" name="Quais as condições da cela usada para aplicação de sanção disciplinar?">
+
+        <select name="Qual o maior período aplicado de isolamento?">
+            <option value="10 dias">10 dias</option>
+            <option value="20 dias">20 dias</option>
+            <option value="30 dias">30 dias</option>
+            <option value="outro">outro</option>
+        </select>
+
+        <input type="text" name="Qual o tempo médio de rebaixamento de comportamento ou reabilitação por falta grave?">
+        <input type="text" name="Qual o número de sanções por falta grave (mês)?">
+
+        <select name="Houve motins ou rebeliões nos últimos 12 meses?">
+            <option value="sim">sim</option>
+            <option value="não">não</option>
+        </select>
+
+        <!-- 19.15 Ocorrências nos últimos 12 meses -->
+
+    </fieldset>
+</form>

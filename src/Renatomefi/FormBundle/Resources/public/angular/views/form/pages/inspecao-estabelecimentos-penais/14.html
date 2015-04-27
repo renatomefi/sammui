@@ -1,0 +1,32 @@
+<form role="form" class="ng-pristine ng-valid">
+    <pre>{{formFields | json}}</pre>
+
+    <fieldset>
+
+        <select name="Há oficinas de trabalho?">
+            <option value="Sim">Sim</option>
+            <!-- Quantidade -->
+            <option value="Não">Não</option>
+        </select>
+
+        <input type="text" name="Quantas das oficinas são administradas pelo estabelecimento?">
+        <input type="text" name="Quantas das oficinas são administradas em parceria com a iniciativa privada?">
+
+        <!-- 14.4 Atividade -->
+
+        <input type="text" name="Total de presos ou internos com permissão para trabalho externo">
+
+        <select name="Há avaliação das aptidões e capacidades do preso para sua alocação em determinado trabalho?">
+            <option value="Sim">Sim</option>
+            <!-- Em caso positivo, como essa avaliação é realizada? -->
+            <option value="Não">Não</option>
+        </select>
+
+        <select name="Há avaliação e estímulo ao crescimento profissional que permita a qualificação ou diversificação do trabalho?">
+            <option value="Sim">Sim</option>
+            <!-- Em caso positivo, descreva. -->
+            <option value="Não">Não</option>
+        </select>
+
+    </fieldset>
+</form>
