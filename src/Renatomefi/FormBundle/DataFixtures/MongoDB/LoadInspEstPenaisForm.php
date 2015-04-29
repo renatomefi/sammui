@@ -80,7 +80,8 @@ class LoadInspEstPenaisForm extends AbstractFixture implements FixtureInterface,
         [
             'title' => 'Assistência à Saúde',
             'number' => 11
-        ], [
+        ],
+        [
             'title' => 'Assistência à Saúde',
             'number' => 12
         ],

@@ -1,12 +1,11 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
-        <select name="Esfera">
-            <option value="estadual">estadual</option>
-            <option value="federal">federal</option>
-        </select>
+        <form-field name="1_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
         <select name="Secretaria da pasta">
             <option value="Própria">Própria</option>
@@ -17,10 +16,27 @@
             <option value="Outro">Outro</option>
         </select>
 
-        <input type="text" name="Unidade do MP / Defensoria" />
-        <input type="text" name="Tribunal de Justiça" />
-        <input type="text" name="Grau de Jurisdição" />
-        <input type="text" name="Comarca" />
+        <form-field name="1_3">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="1_4">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="1_5">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="1_6">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
         <select name="Há Escola Penitenciária Estadual?">
             <option value="Sim">Sim</option>
