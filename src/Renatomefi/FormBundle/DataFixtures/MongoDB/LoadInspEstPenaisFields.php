@@ -251,9 +251,153 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'feminino' => 'Feminino',
                 'misto' => 'Misto'
             ],
-        ]
+        ],
         // END page 2
 
+        // BEGIN page 3
+        [
+            'name' => '1',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Gestão'
+            ],
+            'type' => 'multicheckbox',
+            'options' => [
+                'pública' => 'Pública',
+                'terceirização de serviços complementares' => 'Terceirização de serviços complementares',
+                'terceirização da equipe técnica e administrativa' => 'Terceirização da equipe técnica e administrativa',
+                'terceirização da equipe de segurança' => 'Terceirização da equipe de segurança',
+                'método APAC' => 'Método APAC',
+                'pública' => 'Pública',
+                'pública' => 'Pública',
+            ]
+        ],
+        [
+            'name' => '2',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Responsável pelo estabelecimento'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Cargo'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Formação Profissional'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Direito' => 'Direito',
+                'Ciências Sociais' => 'Ciências Sociais',
+                'Psicologia' => 'Psicologia',
+                'Pedagogia' => 'Pedagogia',
+                'Administração' => 'Administração',
+                'Serviço Social' => 'Serviço Social',
+                'Outra' => 'Outra',
+            ]
+        ],
+
+        [
+            'name' => '5',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Responsável pela segurança'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '6',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Cargo'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '7',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Formação Profissional'
+            ],
+            'type' => 'select',
+            'options' => [
+                'direito' => 'Direito',
+                'ciências sociais' => 'Ciências Sociais',
+                'psicologia' => 'Psicologia',
+                'pedagogia' => 'Pedagogia',
+                'administração' => 'Administração',
+                'serviço social' => 'Serviço Social',
+                'outra' => 'Outra',
+            ]
+        ],
+        [
+            'name' => '8',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Quantidade de computadores'
+            ],
+            'type' => 'select',
+            'options' => [
+                '1 a 3' => '1 a 3',
+                '4 a 6' => '4 a 6',
+                '7 a 9' => '7 a 9',
+                '10 a 12' => '10 a 12',
+                '13 a 15' => '13 a 15',
+                '+15' => '+15',
+            ]
+        ],
+        [
+            'name' => '9',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Acesso a internet'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Alimenta o INFOPEN'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Integralmente' => 'Integralmente',
+                'Parcialmente' => 'Parcialmente',
+                'Não alimenta' => 'Não alimenta',
+                'Mensal' => 'Mensal',
+                'Trimestral' => 'Trimestral',
+                'Semestral' => 'Semestral',
+                'Anual' => 'Anual',
+                'Outro' => 'Outro',
+            ]
+        ],
+        [
+            'name' => '11',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Regulamento interno da unidade/Estado'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '12',
+            'page' => '3',
+            'translate' => [
+                'pt-br' => 'Regulamento disciplinar penitenciário da unidade/Estado'
+            ],
+            'type' => 'boolean',
+        ],
+        //END page 3
 
     ];
 
