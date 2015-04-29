@@ -1,15 +1,26 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
-        <input type="checkbox" name="Gestão" value="Pública" />
-        <input type="checkbox" name="Gestão" value="Terceirização de serviços complementares" />
-        <!--  (alimentação, limpeza, lavanderia) -->
+        <form-field name="3_1">
+            <label ng-repeat="(key, value) in $parent.field.options">
+                <!--
+                  - use `value="{{fruit.name}}"` to give the input a real value, in case the form gets submitted
+                    traditionally
 
-        <input type="checkbox" name="Gestão" value="Terceirização da equipe técnica e administrativa" />
-        <input type="checkbox" name="Gestão" value="Terceirização da equipe de segurança" />
-        <input type="checkbox" name="Gestão" value="Método APAC" />
+                  - use `ng-checked="fruit.selected"` to have the checkbox checked based on some angular expression
+                    (no two-way-data-binding)
+
+                  - use `ng-model="fruit.selected"` to utilize two-way-data-binding. Note that `.selected`
+                    is arbitrary. The property name could be anything and will be created on the object if not present.
+                -->
+                <input
+                        type="checkbox"
+                        name="3_1[]"
+                        value="{{key}}"
+                        ng-model="$parent.$parent.field.value[key]"
+                        > {{value}}
+            </label>
+        </form-field>
 
         <form-field name="3_2">
             <input ng-model="$parent.field.value"
