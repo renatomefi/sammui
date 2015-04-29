@@ -1,116 +1,76 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
 
     <fieldset>
 
-        <select name="Há pessoas com deficiência?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_1">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="?Há pessoas com mais de 60 anos presas?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_2">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há indígenas presos?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_3">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há notificação para Funai quanto ao ingresso do indígena?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_4">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há estrangeiros presos?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há adolescentes internados no local?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_6">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Os adolescentes estão separados dos adultos?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_7">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <input type="text" name="Providências adotadas em relação à separação imediata e retirada do(s) adolescente(s)">
+        <form-field name="5_8">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há pessoas presas com transtorno mental?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_9">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há pessoas presas em tratamento para dependência química?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_10">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há pessoas presas com Diabetes?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_11">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há pessoas presas com Hipertensão?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_12">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há pessoas presas com HIV?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_13">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há pessoas presas com Hepatite?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_14">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há pessoas presas com Tuberculose?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_15">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há pessoas presas com Hanseníase?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="5_16">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há pessoas presas em RDD?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
-
-        <select name="Há presas gestantes?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
-
-        <select name="Há crianças permanecendo com suas mães presas?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
-
+        <form-field name="5_17">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
     </fieldset>
 </form>

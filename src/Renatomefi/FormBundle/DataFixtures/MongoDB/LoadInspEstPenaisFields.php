@@ -703,6 +703,161 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
 
         //END page 4
 
+
+        //BEGIN page 5
+        [
+            'name' => '1',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas com deficiência?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '2',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há notificação para Funai quanto ao ingresso do indígena?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '3',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há estrangeiros presos?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '4',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há adolescentes internados no local?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '5',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Os adolescentes estão separados dos adultos?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Providências adotadas em relação à separação imediata e retirada do(s) adolescente(s)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '7',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas presas com transtorno mental?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '8',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas presas em tratamento para dependência química?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '9',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas presas com Diabetes?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '10',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas presas com Hipertensão?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '11',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas presas com HIV?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '12',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas presas com Hepatite?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '13',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas presas com Tuberculose?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '14',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas presas com Hanseníase?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '15',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há pessoas presas em RDD?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '16',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há presas gestantes?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        [
+            'name' => '17',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há crianças permanecendo com suas mães presas?'
+            ],
+            'type' => 'boolean',
+            // Quantidade???
+        ],
+        //END page 5
+
     ];
 
 
