@@ -1,52 +1,50 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
 
     <fieldset>
 
-        <input type="text" name="Quantidade de pessoas cumprindo medida de internação">
-        <input type="text" name="Quantidade de pessoas cumprindo medida ambulatorial">
+        <form-field name="6_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Pacientes com mais tempo de internação">
-            <!-- Quantidade ?-->
-            <option value="até 1 ano">até 1 ano</option>
-            <option value="de 1 a 3 anos">de 1 a 3 anos</option>
-            <option value="de 4 a 6 anos">de 4 a 6 anos</option>
-            <option value="de 7 a 9 anos">de 7 a 9 anos </option>
-            <option value="de 10 a 20 anos">de 10 a 20 anos</option>
-            <option value="de 21 a 30 anos">de 21 a 30 anos</option>
-            <option value="mais que 30 anos">mais que 30 anos</option>
-        </select>
+        <form-field name="6_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Há pacientes com alta médica?">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="6_3">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Pacientes indultados no último ano">
-            <option value="Sim">Sim</option>
-            <!-- Quantidade ?-->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="6_4">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Pacientes encaminhados no último ano para">
-            <!-- Quantidade ?-->
-            <option value="Centro de Atenção Psicossocial - CAPS">Centro de Atenção Psicossocial - CAPS</option>
-            <option value="Serviços Residenciais Terapêuticos -SRTs">Serviços Residenciais Terapêuticos -SRTs</option>
-            <option value="Programa de Volta para Casa – PVC ">Programa de Volta para Casa – PVC </option>
-            <option value="Outro">Outro</option>
-        </select>
+        <form-field name="6_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Periodicidade do exame de cessação de periculosidade">
-            <!-- Quantidade ?-->
-            <option value="Trimestral">Trimestral</option>
-            <option value="Semestral">Semestral</option>
-            <option value="Anual">Anual</option>
-            <option value="Quando solicitado">Quando solicitado</option>
-            <option value="Outro">Outro</option>
-        </select>
+        <form-field name="6_6">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-
+        <form-field name="6_7">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
     </fieldset>
 </form>

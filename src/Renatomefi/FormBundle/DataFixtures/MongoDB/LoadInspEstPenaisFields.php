@@ -858,6 +858,89 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 5
 
+        //BEGIN page 6
+        [
+            'name' => '1',
+            'page' => '6',
+            'translate' => [
+                'pt-br' => 'Quantidade de pessoas cumprindo medida de internação'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '2',
+            'page' => '6',
+            'translate' => [
+                'pt-br' => 'Quantidade de pessoas cumprindo medida ambulatorial'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3',
+            'page' => '6',
+            'translate' => [
+                'pt-br' => 'Pacientes com mais tempo de internação'
+            ],
+            'type' => 'select',
+            'options' => [
+                //Quantidade?
+                'até 1 ano',
+                'de 1 a 3 anos',
+                'de 4 a 6 anos',
+                'de 7 a 9 anos',
+                'de 10 a 20 anos',
+                'de 21 a 30 anos',
+                'mais que 30 anos',
+            ]
+        ],
+        [
+            'name' => '4',
+            'page' => '6',
+            'translate' => [
+                'pt-br' => 'Há pacientes com alta médica?'
+            ],
+            'type' => 'boolean',
+            //Quantidade?
+        ],
+        [
+            'name' => '5',
+            'page' => '6',
+            'translate' => [
+                'pt-br' => 'Pacientes indultados no último ano'
+            ],
+            'type' => 'boolean',
+            //Quantidade?
+        ],
+        [
+            'name' => '6',
+            'page' => '6',
+            'translate' => [
+                'pt-br' => 'Pacientes encaminhados no último ano para'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Centro de Atenção Psicossocial - CAPS',
+                'Serviços Residenciais Terapêuticos -SRTs',
+                'Programa de Volta para Casa – PVC',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '7',
+            'page' => '6',
+            'translate' => [
+                'pt-br' => 'Periodicidade do exame de cessação de periculosidade'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Centro de Atenção Psicossocial - CAPS',
+                'Serviços Residenciais Terapêuticos -SRTs',
+                'Programa de Volta para Casa – PVC',
+                'Outro',
+            ]
+        ],
+        //END page 6
+
     ];
 
 
