@@ -28,6 +28,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
     private $container;
 
     protected static $fields = [
+        // BEGIN page 1
         [
             'name' => '1',
             'page' => '1',
@@ -132,6 +133,127 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'boolean'
         ],
+        // END page 1
+
+        // BEGIN page 2
+        [
+            'name' => '1',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Estabelecimento'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '2',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Apelido da unidade'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '3',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Endereço'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '4',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'CEP'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '5',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Cidade/UF'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '6',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Estabelecimento destinado ao recolhimento de presos provisórios'
+            ],
+            // helper  Ex: Cadeia Pública; Presídio; Centro de Detenção Provisória; Unidade de Recolhimento Provisório
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '7',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Estabelecimento destinado ao cumprimento de pena em regime fechado'
+            ],
+            // helper  Ex: Penitenciária
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '8',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Estabelecimento destinado ao cumprimento de pena em regime semiaberto'
+            ],
+            // helper Ex: Colônias agrícolas, industriais ou similares; Centro de Progressão Penitenciária; Unidade de Regime Semiaberto; Centro de Integração Social
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '9',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Estabelecimento destinado ao cumprimento de regime aberto ou de limitação de fim de semana'
+            ],
+            // helper Ex: Casa de Albergado
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '10',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Estabelecimento destinado ao cumprimento de medida de segurança de internação ou tratamento ambulatoria'
+            ],
+            // helper Ex: Hospital de Custódia e Tratamento Psiquiátrico
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '11',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Estabelecimento destinado a diversos tipos de regime'
+            ],
+            // helper Ex: Centro de Ressocialização
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '12',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => 'Estabelecimento destinado à realização de exames gerais e criminológico'
+            ],
+            // helper Ex: Centro de Observação Criminológica e Triagem
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '13',
+            'page' => '2',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'radio',
+            'options' => [
+                'masculino' => 'Masculino',
+                'feminino' => 'Feminino',
+                'misto' => 'Misto'
+            ],
+        ]
+        // END page 2
+
 
     ];
 
