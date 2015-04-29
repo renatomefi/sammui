@@ -7,14 +7,10 @@
                    class="form-control">
         </form-field>
 
-        <select name="Secretaria da pasta">
-            <option value="Própria">Própria</option>
-            <option value="Subsecretaria">Subsecretaria</option>
-            <option value="Diretoria/Departamento">Diretoria/Departamento</option>
-            <option value="Superintendência">Superintendência</option>
-            <option value="Instituto / Agência">Instituto / Agência</option>
-            <option value="Outro">Outro</option>
-        </select>
+        <form-field name="1_2">
+            <select ng-model="$parent.field.value" ng-options="option for options in $parent.field.options">
+            </select>
+        </form-field>
 
         <form-field name="1_3">
             <input ng-model="$parent.field.value"
@@ -38,20 +34,17 @@
                    class="form-control">
         </form-field>
 
-        <select name="Há Escola Penitenciária Estadual?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="1_7">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há Ouvidoria Estadual do Sistema Prisional?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="1_8">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há Corregedoria Estadual do Sistema Prisional?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="1_9">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
         <select name="Há Plano de Carreira?">
             <option value="Sim">Sim</option>
@@ -61,10 +54,9 @@
             <option value="Não">Não</option>
         </select>
 
-        <select name="Há Plano Estadual de Educação do Sistema Penitenciário?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="1_11">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
     </fieldset>
 </form>

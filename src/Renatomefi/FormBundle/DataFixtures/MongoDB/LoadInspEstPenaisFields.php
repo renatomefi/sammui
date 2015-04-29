@@ -94,11 +94,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'translate' => [
                 'pt-br' => 'Há Escola Penitenciária Estadual?'
             ],
-            'options' => [
-                'sim' => 'Sim',
-                'não' => 'Não',
-            ],
-            'type' => 'radio'
+            'type' => 'boolean'
         ],
         [
             'name' => '8',
@@ -106,11 +102,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'translate' => [
                 'pt-br' => 'Há Ouvidoria Estadual do Sistema Prisional?'
             ],
-            'options' => [
-                'sim' => 'Sim',
-                'não' => 'Não',
-            ],
-            'type' => 'radio'
+            'type' => 'boolean'
         ],
         [
             'name' => '9',
@@ -118,11 +110,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'translate' => [
                 'pt-br' => 'Há Corregedoria Estadual do Sistema Prisional?'
             ],
-            'options' => [
-                'sim' => 'Sim',
-                'não' => 'Não',
-            ],
-            'type' => 'radio'
+            'type' => 'boolean'
         ],
         [
             'name' => '10',
@@ -142,11 +130,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'translate' => [
                 'pt-br' => 'Há Plano Estadual de Educação do Sistema Penitenciário?'
             ],
-            'options' => [
-                'sim' => 'Sim',
-                'não' => 'Não',
-            ],
-            'type' => 'radio'
+            'type' => 'boolean'
         ],
 
     ];
