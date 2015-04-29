@@ -1,133 +1,195 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
 
     <fieldset>
 
-        <input type="text" name="Capacidade total"/>
-        <input type="text" name="Lotação total"/>
+        <form-field name="4_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="checkbox" name="Lotação Mulheres" value="Condenada"/>
-        <input type="checkbox" name="Lotação Mulheres" value="Provisória"/>
+        <form-field name="4_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="checkbox" name="Lotação Homens" value="Condenada"/>
-        <input type="checkbox" name="Lotação Homens" value="Provisória"/>
+        <h6>Lotação Mulheres</h6>
+        <form-field name="4_3_1_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="4_3_1_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="checkbox" name="Lotação LGBT" value="Condenada"/>
-        <input type="checkbox" name="Lotação LGBT" value="Provisória"/>
+        <h6>Lotação Homens</h6>
+        <form-field name="4_3_2_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="4_3_2_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Há alas separadas para diferentes regimes?">
-            <option value="Sim">Sim</option>
-            <option value="Nao">Nao</option>
-        </select>
+        <h6>Lotação LGBT</h6>
+        <form-field name="4_3_3_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="4_3_3_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Há alas separadas para presos provisórios e condenados?">
-            <option value="Sim">Sim</option>
-            <option value="Nao">Nao</option>
-        </select>
+        <form-field name="4_4">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há alas separadas para idosos?">
-            <option value="Sim">Sim</option>
-            <option value="Nao">Nao</option>
-        </select>
+        <form-field name="4_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há alas separadas para mulheres, se for o caso?">
-            <option value="Sim">Sim</option>
-            <option value="Nao">Nao</option>
-        </select>
+        <form-field name="4_6">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há alas separadas para pessoas em medida de segurança?">
-            <option value="Sim">Sim</option>
-            <option value="Nao">Nao</option>
-        </select>
+        <form-field name="4_7">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há alas separadas para LGBT?">
-            <option value="Sim">Sim</option>
-            <option value="Nao">Nao</option>
-        </select>
+        <form-field name="4_8">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há local especial para cumprimento de seguro/custódia diferenciada?">
-            <option value="Sim">Sim</option>
-            <option value="Nao">Nao</option>
-        </select>
+        <form-field name="4_9">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há acessibilidade para pessoas com deficiência?">
-            <option value="Sim">Sim</option>
-            <option value="Nao">Nao</option>
-        </select>
+        <form-field name="4_10">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há celas metálicas?">
-            <option value="Sim">Sim</option>
-            <option value="Nao">Nao</option>
-        </select>
+        <form-field name="4_11">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="4_12">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
         <!-- 4.14 Programa de necessidades por tipo de estabelecimento penal1 -->
 
-        <input type="text" name="Número de celas individuais Homens">
-        <input type="text" name="Número de celas individuais Mulheres">
-        <input type="text" name="Lotação celas individuais Homens">
-        <input type="text" name="Lotação celas individuais Mulheres">
+        <form-field name="4_13">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="4_14">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="4_15">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="4_16">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="4_17">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Dimensão">
+        <form-field name="4_18">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <input type="checkbox" name="Permeabilidade do solo" value="1 a 3%">
-        <input type="checkbox" name="Permeabilidade do solo" value="3 a 5%">
-        <input type="checkbox" name="Permeabilidade do solo" value="5 a 10%">
-        <input type="checkbox" name="Permeabilidade do solo" value=">10%">
+        <form-field name="4_19">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Ventilação cruzada geral">
-            <option value="insuficiente">insuficiente</option>
-            <option value="suficiente">suficiente</option>
-            <option value="excessiva">excessiva</option>
-        </select>
+        <form-field name="4_20">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Ventilação cruzada nas celas">
-            <option value="insuficiente">insuficiente</option>
-            <option value="suficiente">suficiente</option>
-            <option value="excessiva">excessiva</option>
-        </select>
+        <form-field name="4_21">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Iluminação natural nas celas">
-            <option value="inexistente">inexistente</option>
-            <option value="existente">existente</option>
-        </select>
+        <form-field name="4_22">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+        <form-field name="4_23">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+        <form-field name="4_24">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+        <form-field name="4_25">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Incidência de sol nas celas">
-            <option value="insuficiente">insuficiente</option>
-            <option value="suficiente">suficiente</option>
-            <option value="excessiva">excessiva</option>
-        </select>
+        <form-field name="4_26">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Programa de combate a incêndio">
-            <option value="inexistente">inexistente</option>
-            <option value="existente">existente</option>
-        </select>
+        <form-field name="4_27">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Extintores de incêndio">
-            <option value="insuficiente">insuficiente</option>
-            <option value="suficiente">suficiente</option>
-        </select>
-
-        <select name="Extintores de incêndio">
-            <option value="sem condições de uso">sem condições de uso</option>
-            <option value="em condições de uso">em condições de uso</option>
-        </select>
-
-        <select name="Construído ou ampliado com subvenção de recursos federais?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
-
-        <select name="Reformado com subvenção de recursos federais?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
-
-        <select name="Indicativos da atuação de facções no estabelecimento?">
-            <option value="Sim">Sim</option>
-            <!-- Quais ?-->
-            <option value="Não">Não</option>
-        </select>
-
+        <form-field name="4_28">
+            <select>
+                <option value="Sim">Sim</option>
+                <!-- Quais ?-->
+                <option value="Não">Não</option>
+            </select>
+        </form-field>
 
     </fieldset>
 </form>

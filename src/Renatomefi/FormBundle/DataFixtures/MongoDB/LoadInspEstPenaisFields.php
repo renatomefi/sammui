@@ -268,8 +268,6 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'terceirização da equipe técnica e administrativa' => 'Terceirização da equipe técnica e administrativa',
                 'terceirização da equipe de segurança' => 'Terceirização da equipe de segurança',
                 'método APAC' => 'Método APAC',
-                'pública' => 'Pública',
-                'pública' => 'Pública',
             ]
         ],
         [
@@ -398,6 +396,312 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         //END page 3
+
+        //BEGIN page 4
+        [
+            'name' => '1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Capacidade total'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Lotação total'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3_1_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Condenada'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3_1_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Provisória'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3_2_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Condenada'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3_2_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Provisória'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3_3_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Condenada'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3_3_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Provisória'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Há alas separadas para diferentes regimes?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Há alas separadas para presos provisórios e condenados?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Há alas separadas para idosos?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '7',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Há alas separadas para mulheres, se for o caso?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '8',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Há alas separadas para pessoas em medida de segurança?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '9',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Há alas separadas para LGBT?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Há local especial para cumprimento de seguro/custódia diferenciada?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '11',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Há acessibilidade para pessoas com deficiência?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '12',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Há celas metálicas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '13',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Número de celas individuais Homens'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Número de celas individuais Mulheres'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Lotação celas individuais Homens'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '16',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Lotação celas individuais Mulheres'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '17',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Dimensão'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '18',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Permeabilidade'
+            ],
+            'type' => 'select',
+            'options' => [
+                '1 a 3%',
+                '3 a 5%',
+                '5 a 10%',
+                '>10%',
+            ]
+        ],
+        [
+            'name' => '19',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Ventilação cruzada geral'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Insuficiente',
+                'Suficiente',
+                'Excessiva',
+            ]
+        ],
+        [
+            'name' => '20',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Ventilação cruzada nas celas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Insuficiente',
+                'Suficiente',
+                'Excessiva',
+            ]
+        ],
+        [
+            'name' => '21',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Iluminação natural nas celas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Inexistente',
+                'Existente',
+            ]
+        ],
+        [
+            'name' => '22',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Incidência de sol nas celas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Insuficiente',
+                'Suficiente',
+                'Excessiva',
+            ]
+        ],
+        [
+            'name' => '23',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Programa de combate a incêndio'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Inexistente',
+                'Existente',
+            ]
+        ],
+        [
+            'name' => '24',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Extintores de incêndio'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Insuficiente',
+                'Suficiente',
+            ]
+        ],
+        [
+            'name' => '25',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Extintores de incêndio'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Sem condições de uso',
+                'Em condições de uso',
+            ]
+        ],
+        [
+            'name' => '26',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Construído ou ampliado com subvenção de recursos federais?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '27',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Reformado com subvenção de recursos federais?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '28',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Indicativos da atuação de facções no estabelecimento?'
+            ],
+            'type' => 'boolean',
+            // Quais???
+        ],
+
+        //END page 4
 
     ];
 
