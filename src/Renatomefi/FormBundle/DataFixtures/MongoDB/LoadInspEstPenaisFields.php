@@ -941,6 +941,314 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 6
 
+        //BEGIN page 7
+
+        [
+            'name' => '1',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Total de RH na área de segurança'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '2',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Total de RH na área administrativa'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Total de RH na área técnica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Total Geral'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Advogados / Defensores Públicos alocados na unidade'
+            ],
+            'type' => 'boolean',
+            /**
+             * <!-- Quantidade ?-->
+             * <option value="SUS">SUS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '6',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Auxiliares de Enfermagem'
+            ],
+            'type' => 'boolean',
+            /**
+             *   <!-- Quantidade ?-->
+             * <option value="SUAS">SUAS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '7',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Assistentes Sociais'
+            ],
+            'type' => 'boolean',
+            /**
+             *            <!-- Quantidade ?-->
+             * <option value="SUS">SUS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '8',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Dentistas'
+            ],
+            'type' => 'boolean',
+            /**
+             *           <!-- Quantidade ?-->
+             * <option value="SUS">SUS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '9',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Enfermeiros'
+            ],
+            'type' => 'boolean',
+            /**
+             *           <!-- Quantidade ?-->
+             * <option value="SUS">SUS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '10',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Médicos - Clínico Geral'
+            ],
+            'type' => 'boolean',
+            /**
+             * <!-- Quantidade ?-->
+             * <option value="SUS">SUS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '11',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Médicos - Psiquiatras'
+            ],
+            'type' => 'boolean',
+            /**
+             * <!-- Quantidade ?-->
+             * <option value="SUS">SUS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '12',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Médicos - Ginecologista'
+            ],
+            'type' => 'boolean',
+            /**
+             * <!-- Quantidade ?-->
+             * <option value="SUS">SUS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '13',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Pedagogos'
+            ],
+            'type' => 'boolean',
+            /**
+             * <!-- Quantidade ?-->
+             * <option value="Secretaria de Educação">Secretaria de Educação</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '14',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Psicólogos'
+            ],
+            'type' => 'boolean',
+            /**
+             * <!-- Quantidade ?-->
+             * <option value="SUS">SUS</option>
+             * <option value="SUAS">SUAS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '15',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Terapeutas Ocupacionais'
+            ],
+            'type' => 'boolean',
+            /**
+             *             <!-- Quantidade ?-->
+             * <option value="SUS">SUS</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '16',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Outros'
+            ],
+            'type' => 'select',
+            /**
+             * <!-- Quantidade ?-->
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</optio
+             */
+        ],
+        [
+            'name' => '17',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Agentes Prisionais'
+            ],
+            'type' => 'boolean',
+            /**
+             * <!-- Quantidade ?-->
+             * <option value="homens">homens</option>
+             * <option value="mulheres">mulheres</option>
+             */
+        ],
+        [
+            'name' => '18',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Escala de trabalho'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '19',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Há utilização de uniforme?'
+            ],
+            'type' => 'boolean',
+            /**
+             * <option value="Com identificação pessoal">Com identificação pessoal</option>
+             */
+        ],
+        [
+            'name' => '20',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Quais os tipos de cursos ocorrem para o treinamento dos agentes?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Curso de Formação',
+                'Cursos Especiais',
+            ]
+        ],
+
+        //END page 7
+
     ];
 
 
