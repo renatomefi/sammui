@@ -3,7 +3,7 @@
         <legend>Fields test</legend>
 
         <form-field name="Name">
-            <input ng-model="$parent.field.value"
+            <input type="text" ng-model="$parent.field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
@@ -15,29 +15,15 @@
         </form-field>
 
 
-        <div ng-controller="formFillingPageField"
-             ng-init="fieldName = 'Gender'"
-             class="form-group">
-            <label>{{field.name}}
-                <small ng-show="field.value !== fieldValue.value">
-                    <i class="glyphicon glyphicon-floppy-disk text-warning"></i>
-                </small>
+        <form-field name="Gender">
+            <label class="radio-inline" ng-repeat="(key, value) in $parent.field.options">
+                <input type="radio" ng-model="$parent.$parent.field.value" value="{{key}}"> {{value}}
             </label>
-            <br>
-            <label class="radio-inline" ng-repeat="(key, value) in field.options">
-                <input type="radio" ng-model="field.value" value="{{key}}"> {{value}}
-            </label>
-        </div>
+        </form-field>
 
-        <div ng-controller="formFillingPageField"
-             ng-init="fieldName = 'Legal'"
-             class="form-group">
-            <label>{{field.name}}
-                <small ng-show="!!field.value !== !!fieldValue.value">
-                    <i class="glyphicon glyphicon-floppy-disk text-warning"></i>
-                </small>
-            </label>
-            <ui-switch ng-model="field.value"></ui-switch>
-        </div>
+        <form-field name="Legal">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
     </fieldset>
 </form>

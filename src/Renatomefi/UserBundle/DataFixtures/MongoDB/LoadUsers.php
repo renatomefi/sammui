@@ -3,6 +3,7 @@
 namespace Renatomefi\UserBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -12,7 +13,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @package Renatomefi\UserBundle\DataFixtures\MongoDB
  * @codeCoverageIgnore
  */
-class LoadUsers implements FixtureInterface, ContainerAwareInterface
+class LoadUsers implements FixtureInterface, OrderedFixtureInterface    , ContainerAwareInterface
 {
 
     /**

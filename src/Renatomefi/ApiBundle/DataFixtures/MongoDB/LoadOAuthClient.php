@@ -3,6 +3,7 @@
 namespace Renatomefi\ApiBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use OAuth2\OAuth2;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
@@ -13,7 +14,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @package Renatomefi\ApiBundle\DataFixtures\MongoDB
  * @codeCoverageIgnore
  */
-class LoadOAuthClient implements FixtureInterface, ContainerAwareInterface
+class LoadOAuthClient implements FixtureInterface, OrderedFixtureInterface, ContainerAwareInterface
 {
 
     /**
