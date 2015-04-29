@@ -70,7 +70,14 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
             'pt-br' => 'Arquivos'],
         'form-filling-page-form' => [
             'en-us' => 'Form',
-            'pt-br' => 'Formulário']
+            'pt-br' => 'Formulário'],
+        'form-filling-index-pages-title' => [
+            'en-us' => 'Pages Index',
+            'pt-br' => 'Índice de Páginas'],
+        // Form: demo
+        'sammui-form-demo' => [
+            'en-us' => 'Demo Form',
+            'pt-br' => 'Formulário de demonstração']
     ];
 
     /**

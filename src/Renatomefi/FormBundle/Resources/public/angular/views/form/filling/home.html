@@ -1,4 +1,7 @@
 <!-- Controller: formFilling -->
+<div ui-content-for="title">
+    {{ protocol.data.form.name | translate }}
+</div>
 <div class="scrollable">
     <div class="scrollable-content">
         <div class="list-group" ng-controller="formFillingPagination">

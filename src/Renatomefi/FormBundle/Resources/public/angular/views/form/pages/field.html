@@ -1,0 +1,10 @@
+<!-- Controller: formFillingPage -->
+<div ng-controller="formFillingPageField"
+     class="form-group">
+    <label>{{field.name}}
+        <small ng-show="field.value != fieldValue.value">
+            <i class="glyphicon glyphicon-floppy-disk text-warning"></i>
+        </small>
+    </label>
+    <div ng-transclude></div>
+</div>

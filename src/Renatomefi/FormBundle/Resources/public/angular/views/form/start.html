@@ -23,7 +23,7 @@
                         <select class="form-control"
                                 ng-model="forms.current"
                                 ng-disabled="forms.loading || !forms.data"
-                                ng-options="f.id as f.name for f in forms.data">
+                                ng-options="f.id as f.name | translate for f in forms.data">
                             <option value="" ng-if="!forms.current">
                                 {{ 'form-select-default' | translate }}
                             </option>
