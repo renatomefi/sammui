@@ -8,7 +8,10 @@
         </form-field>
 
         <form-field name="1_2">
-            <select ng-model="$parent.field.value" ng-options="option for options in $parent.field.options">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
             </select>
         </form-field>
 
