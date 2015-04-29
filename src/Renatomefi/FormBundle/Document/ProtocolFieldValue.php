@@ -27,7 +27,7 @@ class ProtocolFieldValue extends ProtocolEmbed
     protected $field;
 
     /**
-     * @ODM\Field
+     * @ODM\Raw
      */
     protected $value;
 
@@ -61,7 +61,7 @@ class ProtocolFieldValue extends ProtocolEmbed
     /**
      * Set value
      *
-     * @param string $value
+     * @param $value
      * @return self
      */
     public function setValue($value)
@@ -73,7 +73,7 @@ class ProtocolFieldValue extends ProtocolEmbed
     /**
      * Get value
      *
-     * @return string $value
+     * @return $value
      */
     public function getValue()
     {

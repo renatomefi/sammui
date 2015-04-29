@@ -22,7 +22,6 @@ angular.module('sammui.protocolServices', ['ngResource'])
                         Object.observe(item, function(changes) {
                             console.debug('Field was changed', changes);
                         });
-                        console.debug('looping fields', item);
                     });
                 });
             }
