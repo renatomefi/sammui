@@ -1249,6 +1249,219 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
 
         //END page 7
 
+        //BEGIN page 8
+        [
+            'name' => '1',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há camas e colchões para todos os presos?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '2',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há distribuição de uniformes?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '3',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há distribuição de calçados?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '4',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há distribuição de roupas de cama?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '5',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há distribuição de toalhas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Periodicidade de substituição do material entregue'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '7',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há distribuição de artigos de higiene pessoal?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '8',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há distribuição de artigos de limpeza?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '9',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há distribuição de absorventes para as mulheres?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Sim',
+                'Não',
+                'Não se aplica'
+            ]
+        ],
+        [
+            'name' => '10',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há distribuição de fraldas, se for o caso?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Sim',
+                'Não',
+                'Não se aplica'
+            ]
+        ],
+        [
+            'name' => '11',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há local destinado à venda de produtos e objetos permitidos e não fornecidos pela administração? Descrever como é feito o pagamento, controle de preços e destino da receita:'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '12',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Descrever a mobília que compõe as celas'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '13',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há sanitário e lavatório em todas as celas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '14',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Caso não haja instalações sanitárias na cela, como é garantido o acesso aos banheiros externos?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'É garantido o acesso ao banheiro no período noturno?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '16',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Número de pessoas por vaso sanitário'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '17',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'É garantido a qualquer momento o uso da descarga do vaso sanitário?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '18',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Há privacidade para uso das instalações sanitárias?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '19',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'Número de pessoas por chuveiro'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '20',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'É garantido o banho diário?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '21',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'A água é aquecida?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '22',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'É fornecida água potável?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '23',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'A água é racionada?'
+            ],
+            'type' => 'boolean',
+            //Qual a frequência e duração oferecida?
+        ],
+        [
+            'name' => '24',
+            'page' => '8',
+            'translate' => [
+                'pt-br' => 'A água é racionada?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Hidráulico',
+                'Elétrica',
+                'Edificação',
+                'Outros',
+            ]
+        ],
+        //END page 8
+
+
     ];
 
 

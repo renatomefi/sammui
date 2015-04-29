@@ -1,127 +1,122 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
+        <form-field name="8_1">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há camas e colchões para todos os presos?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_2">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há distribuição de uniformes?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_3">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há distribuição de calçados?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_4">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há distribuição de roupas de cama?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há distribuição de toalhas?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_6">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Periodicidade de substituição do material entregue">
+        <form-field name="8_7">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há distribuição de artigos de higiene pessoal?">
-            <option value="Sim">Sim</option>
-            <!-- Quais? -->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_8">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há distribuição de artigos de limpeza?">
-            <option value="Sim">Sim</option>
-            <!-- Quais? -->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_9">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Há distribuição de absorventes para as mulheres?">
-            <option value="Sim">Sim</option>
-            <!-- Quais? -->
-            <option value="Não">Não</option>
-            <option value="não se aplica">não se aplica</option>
-            <!-- (estabelecimento masculino) -->
-        </select>
+        <form-field name="8_10">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Há distribuição de fraldas, se for o caso?">
-            <option value="Sim">Sim</option>
-            <!-- Quais? -->
-            <option value="Não">Não</option>
-            <option value="não se aplica">não se aplica</option>
-            <!-- (estabelecimento masculino) -->
-        </select>
+        <form-field name="8_11">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há local destinado à venda de produtos e objetos permitidos e não fornecidos pela administração?
-Descrever como é feito o pagamento, controle de preços e destino da receita:">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_12">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Descrever a mobília que compõe as celas">
+        <form-field name="8_13">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há sanitário e lavatório em todas as celas?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_14">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Caso não haja instalações sanitárias na cela, como é garantido o acesso aos banheiros externos?">
+        <form-field name="8_15">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="É garantido o acesso ao banheiro no período noturno?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_16">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Número de pessoas por vaso sanitário">
+        <form-field name="8_17">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="É garantido a qualquer momento o uso da descarga do vaso sanitário?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_18">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há privacidade para uso das instalações sanitárias?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_19">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Número de pessoas por chuveiro">
+        <form-field name="8_20">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
+        <form-field name="8_21">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="É garantido o banho diário?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_22">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="A água é aquecida?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="8_23">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="É fornecida água potável?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
-
-        <select name="A água é racionada?">
-            <option value="Sim">Sim</option>
-            <!-- Qual a frequência e duração oferecida? -->
-            <option value="Não">Não</option>
-        </select>
-
-        <select name="Problemas visíveis nas instalações">
-            <option value="hidráulico">hidráulico</option>
-            <option value="elétrica">elétrica</option>
-            <option value="edificação">edificação</option>
-            <option value="outros">outros</option>
-        </select>
-
-
+        <form-field name="8_24">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
     </fieldset>
 </form>
