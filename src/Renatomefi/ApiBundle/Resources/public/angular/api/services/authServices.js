@@ -132,11 +132,14 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
 
             var forceLogout = function () {
                 $cookies.remove('SMSESSID');
+                $cookies.remove('PHPSESSID');
+                $cookies.remove('access_token');
+                $cookies.remove('refresh_token');
                 oAuthSession.destroy();
                 $rootScope.$broadcast('event:auth-logoutForced');
             };
 
-            $http.get('/logout').success(function (data) {
+            $http.get('/logout').success(function () {
                 //if (!data.user) {
                 oAuthSession.destroy();
                 $rootScope.$broadcast('event:auth-logoutSuccess');
@@ -153,7 +156,8 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
 
         };
 
-        oAuth.refreshToken = function (refreshToken) {
+        oAuth.refreshToken = function (refreshToken, isRetry) {
+            isRetry = isRetry || false;
             return $http.post('/oauth/v2/token',
                 {
                     client_id: oAuthClientId,
@@ -172,6 +176,10 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                     });
                 })
                 .error(function (data, status) {
+                    if (status === 400 && isRetry === false) {
+                        oAuth.logout(true);
+                        oAuth.beAnonymous();
+                    }
                     $rootScope.$broadcast('event:auth-loginFail', data, status);
                     return data;
                 });

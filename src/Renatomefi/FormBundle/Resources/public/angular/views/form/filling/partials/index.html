@@ -2,7 +2,7 @@
     <li role="presentation"
         ng-repeat="item in templates"
         ng-class="{'active': (item.name === 'index')}">
-        <a ng-click="toPage(item.name)">{{item.name}}</a>
+        <a ng-click="toPage(item.name)">{{'form-filling-page-' + item.name | translate}}</a>
     </li>
 </ul>
 <div class="text-center">
@@ -11,6 +11,6 @@
 <ul class="nav nav-pills nav-justified">
     <li role="presentation"
         ng-repeat="page in formPages | orderBy: 'number'">
-        <a ng-click="toPage(page.number)">{{page.title}}</a>
+        <a ng-click="toPage(page.number)">{{::page.title}}</a>
     </li>
 </ul>
