@@ -33,6 +33,110 @@ class LoadInspEstPenaisForm extends AbstractFixture implements FixtureInterface,
     private $container;
 
     /**
+     * Form pages
+     * @var array
+     */
+    private static $pages = [
+        [
+            'title' => 'Estrutura Organizacional',
+            'number' => 1
+        ],
+        [
+            'title' => 'Identificação do Estabelecimento',
+            'number' => 2
+        ],
+        [
+            'title' => 'Administração',
+            'number' => 3
+        ],
+        [
+            'title' => 'Características do Estabelecimento',
+            'number' => 4
+        ],
+        [
+            'title' => 'Características das Pessoas Presas',
+            'number' => 5
+        ],
+        [
+            'title' => 'Características das Pessoas cumprindo Medida Segurança',
+            'number' => 6
+        ],
+        [
+            'title' => 'Características dos Funcionários em Exercício no Estabelecimento',
+            'number' => 7
+        ],
+        [
+            'title' => 'Condições Materiais',
+            'number' => 8
+        ],
+        [
+            'title' => 'Alimentação',
+            'number' => 9
+        ],
+        [
+            'title' => 'Rotina padrão',
+            'number' => 10
+        ],
+        [
+            'title' => 'Assistência à Saúde',
+            'number' => 11
+        ], [
+            'title' => 'Assistência à Saúde',
+            'number' => 12
+        ],
+        [
+            'title' => 'Assistência Jurídica',
+            'number' => 13
+        ],
+        [
+            'title' => 'Assistência Laboral',
+            'number' => 14
+        ],
+        [
+            'title' => 'Assistências Educacionais/Desportivas/Culturais e de Lazer',
+            'number' => 15
+        ],
+        [
+            'title' => 'Assistência Religiosa',
+            'number' => 16
+        ],
+        [
+            'title' => 'Assistência Social',
+            'number' => 17
+        ],
+        [
+            'title' => 'Segurança',
+            'number' => 18
+        ],
+        [
+            'title' => 'Disciplina e ocorrências',
+            'number' => 19
+        ],
+        [
+            'title' => 'Visitas',
+            'number' => 20
+        ],
+        [
+            'title' => 'Relato das pessoas presas ou de funcionários',
+            'number' => 21
+        ],
+        [
+            'title' => 'Diversos',
+            'number' => 22
+        ],
+        [
+            'title' => 'Inspeções',
+            'number' => 23
+        ],
+        [
+            'title' => 'Valoração sobre os itens inspecionados',
+            'number' => 24
+        ],
+
+    ];
+
+
+    /**
      * {@inheritDoc}
      */
     public function setContainer(ContainerInterface $container = null)
@@ -51,221 +155,13 @@ class LoadInspEstPenaisForm extends AbstractFixture implements FixtureInterface,
         $form->setName(static::NAME);
         $form->setTemplate(static::NAME);
 
-        /**
-         * Estrutura Organizacional
-         */
-        $page = new FormPage();
-        $page->setNumber(1);
-        $page->setTitle('Estrutura Organizacional');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Identificação do Estabelecimento
-         */
-        $page = new FormPage();
-        $page->setNumber(2);
-        $page->setTitle('Identificação do Estabelecimento');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Administração
-         */
-        $page = new FormPage();
-        $page->setNumber(3);
-        $page->setTitle('Administração');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Características do Estabelecimento
-         */
-        $page = new FormPage();
-        $page->setNumber(4);
-        $page->setTitle('Características do Estabelecimento');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Características das Pessoas Presas
-         */
-        $page = new FormPage();
-        $page->setNumber(5);
-        $page->setTitle('Características das Pessoas Presas');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Características das Pessoas cumprindo Medida Segurança
-         */
-        $page = new FormPage();
-        $page->setNumber(6);
-        $page->setTitle('Características das Pessoas cumprindo Medida Segurança');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Características dos Funcionários em Exercício no Estabelecimento
-         */
-        $page = new FormPage();
-        $page->setNumber(7);
-        $page->setTitle('Características dos Funcionários em Exercício no Estabelecimento');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Condições Materiais
-         */
-        $page = new FormPage();
-        $page->setNumber(8);
-        $page->setTitle('Condições Materiais');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Alimentação
-         */
-        $page = new FormPage();
-        $page->setNumber(9);
-        $page->setTitle('Alimentação');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Rotina padrão
-         */
-        $page = new FormPage();
-        $page->setNumber(10);
-        $page->setTitle('Rotina padrão');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Assistência à Saúde
-         */
-        $page = new FormPage();
-        $page->setNumber(11);
-        $page->setTitle('Assistência à Saúde');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Assistência à Saúde
-         */
-        $page = new FormPage();
-        $page->setNumber(12);
-        $page->setTitle('Assistência à Saúde');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Assistência Jurídica
-         */
-        $page = new FormPage();
-        $page->setNumber(13);
-        $page->setTitle('Assistência Jurídica');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Assistência Laboral
-         */
-        $page = new FormPage();
-        $page->setNumber(14);
-        $page->setTitle('Assistência Laboral');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Assistências Educacionais/Desportivas/Culturais e de Lazer
-         */
-        $page = new FormPage();
-        $page->setNumber(15);
-        $page->setTitle('Assistências Educacionais/Desportivas/Culturais e de Lazer');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Assistência Religiosa
-         */
-        $page = new FormPage();
-        $page->setNumber(16);
-        $page->setTitle('Assistência Religiosa');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Assistência Social
-         */
-        $page = new FormPage();
-        $page->setNumber(17);
-        $page->setTitle('Assistência Social');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Segurança
-         */
-        $page = new FormPage();
-        $page->setNumber(18);
-        $page->setTitle('Segurança');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Disciplina e ocorrências
-         */
-        $page = new FormPage();
-        $page->setNumber(19);
-        $page->setTitle('Disciplina e ocorrências');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Visitas
-         */
-        $page = new FormPage();
-        $page->setNumber(20);
-        $page->setTitle('Visitas');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Relato das pessoas presas ou de funcionários
-         */
-        $page = new FormPage();
-        $page->setNumber(21);
-        $page->setTitle('Relato das pessoas presas ou de funcionários');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Diversos
-         */
-        $page = new FormPage();
-        $page->setNumber(22);
-        $page->setTitle('Diversos');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Inspeções
-         */
-        $page = new FormPage();
-        $page->setNumber(23);
-        $page->setTitle('Inspeções');
-        $form->addPage($page);
-        unset($page);
-
-        /**
-         * Valoração sobre os itens inspecionados
-         */
-        $page = new FormPage();
-        $page->setNumber(24);
-        $page->setTitle('Valoração sobre os itens inspecionados');
-        $form->addPage($page);
-        unset($page);
+        foreach (self::$pages as $page) {
+            $formPage = new FormPage();
+            $formPage->setNumber($page['number']);
+            $formPage->setTitle($page['title']);
+            $form->addPage($formPage);
+            unset($formPage);
+        }
 
         $documentManager->persist($form);
         $documentManager->flush();
