@@ -2147,6 +2147,272 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 17
 
+        //BEGIN page 18
+        [
+            'name' => '1',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'A segurança interna é realizada por'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Agentes penitenciários',
+                'Policiais civis',
+                'Policiais militares',
+                'Terceirizados',
+                'Outros',
+            ]
+        ],
+        [
+            'name' => '2',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Arma menos letal (bala de borracha)'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '3',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Arma letal'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '4',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Taser'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '5',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Gás de pimenta / lacrimogênio'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Cacetete / Tonfa'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '7',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Algemas'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '8',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Rádio'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '9',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Alarme'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Circuito de vigilância interna'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '11',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Outro'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '12',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Os usuários têm porte de armas?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Sim',
+                'Não',
+                'Não se aplica',
+            ]
+        ],
+        [
+            'name' => '13',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'É garantido treinamento periódico?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Sim',
+                'Não',
+                'Não se aplica',
+            ]
+        ],
+        [
+            'name' => '14',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'No caso de emprego de arma de fogo, é feito registro?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Sim',
+                'Não',
+                'Não se aplica',
+            ]
+        ],
+        [
+            'name' => '15',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'No caso de uso de arma tipo Taser os registros de descarga do equipamento são identificados por servidor?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Sim',
+                'Não',
+                'Não se aplica',
+            ]
+        ],
+        [
+            'name' => '16',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'A segurança externa é realizada por'
+            ],
+            'type' => 'select',
+            'options' => [
+                'policiais civis',
+                'policiais militares',
+                'agentes penitenciários',
+                'terceiros',
+                'outros',
+            ]
+        ],
+        [
+            'name' => '17',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'A escolta externa é realizada por'
+            ],
+            'type' => 'select',
+            'options' => [
+                'policiais civis',
+                'policiais militares',
+                'agentes penitenciários',
+                'terceiros',
+                'outros',
+            ]
+        ],
+        [
+            'name' => '18',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Há escolta externa especifica para área de saúde'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '19',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Existe grupo de intervenção especial vinculado à unidade?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '20',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Caso exista, quem são os envolvidos'
+            ],
+            'type' => 'select',
+            'options' => [
+                'policiais civis',
+                'policiais militares',
+                'agentes penitenciários',
+                'terceiros',
+                'outros',
+            ]
+        ],
+        [
+            'name' => '21',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Portal detector de metal'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '22',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Raquete detectora de metal'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '23',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Banco detector de metal'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '24',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Raio X'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '25',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Espectômetro'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '26',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Body Scanner'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '27',
+            'page' => '18',
+            'translate' => [
+                'pt-br' => 'Outro'
+            ],
+            'type' => 'text',
+        ],
+        //END page 18
     ];
 
 
