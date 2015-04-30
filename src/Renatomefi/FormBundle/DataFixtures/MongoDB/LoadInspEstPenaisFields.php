@@ -3067,7 +3067,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
 
         foreach (self::$fields as $field) {
             $formField = new FormField();
-            $formField->setForm($form);
+//            $formField->setForm($form);
 
             $formField->setName(self::getFieldName($field));
 
@@ -3076,6 +3076,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             }
 
             $documentManager->persist($formField);
+            $form->addField($formField);
             unset($formField);
 
             $translation = new Translation();
@@ -3087,6 +3088,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             unset($translation);
         }
 
+        $documentManager->persist($form);
         $documentManager->flush();
 
     }
