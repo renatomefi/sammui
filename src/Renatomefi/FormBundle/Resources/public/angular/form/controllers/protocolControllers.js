@@ -14,17 +14,16 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             };
 
             $scope.protocol.data.$promise.then(function () {
+                console.log('protocol promise then');
+                $scope.protocol.data.form.pages.map(function (item) {
+                   console.log('pages', item);
+                });
                 $rootScope.loading = false;
             });
 
-            //TODO Review this process, it should be more complete, probably check the promise when it's done and have a mongoId
-            $scope.loadProtocol = function () {
-                if (!$scope.protocol.data) {
-                    $location.path('/form');
-                }
-            };
-
-            $scope.loadProtocol();
+            $scope.protocol.data.$promise.catch(function () {
+                $location.path('/form');
+            });
 
         }
     ])

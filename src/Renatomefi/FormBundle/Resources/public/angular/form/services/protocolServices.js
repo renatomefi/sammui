@@ -7,20 +7,29 @@ angular.module('sammui.protocolServices', ['ngResource'])
 
         var storagePrefix = 'protocol.';
 
+        var updateStorage = function (protocolId, changes) {
+            localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
+            console.debug('Local storage for "' + protocolId + '" has been updated with changes', changes);
+        };
+
         this.getData = function (protocolId) {
 
             if (!currentData[protocolId]) {
+
                 currentData[protocolId] = formProtocolManage.get({protocolId: protocolId});
+
                 currentData[protocolId].$promise.then(function (data) {
                     originalData[protocolId] = angular.copy(data);
+
                     localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
+
                     Object.observe(currentData[protocolId], function (changes) {
-                        localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
-                        console.debug('Local storage for "' + protocolId + '" has been updated with changes', changes);
+                        updateStorage(protocolId, changes);
                     });
-                    currentData[protocolId].form.fields.map(function(item) {
-                        Object.observe(item, function(changes) {
-//                             console.debug('Field was changed', changes);
+
+                    currentData[protocolId].form.fields.map(function (item) {
+                        Object.observe(item, function (changes) {
+                            updateStorage(protocolId, changes);
                         });
                     });
                 });
