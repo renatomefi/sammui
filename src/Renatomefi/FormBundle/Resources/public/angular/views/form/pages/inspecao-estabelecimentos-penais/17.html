@@ -1,40 +1,29 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
-        <select name="Há recintos adequados para a atividade de assistência social?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-
+        <form-field name="17_1">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
         <label>Ações de assistência social desenvolvidas</label>
-        <select name="Contato com familiares">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Documentos">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Benefícios da Previdência Social">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Ações com os egressos">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Ações com o SUAS">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Projetos">
-            <option value="sim">sim</option>
-            <!-- Quais? -->
-            <option value="não">não</option>
-        </select>
+        <form-field name="17_2">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="17_3">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="17_4">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="17_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="17_6">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="17_7">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
     </fieldset>
 </form>

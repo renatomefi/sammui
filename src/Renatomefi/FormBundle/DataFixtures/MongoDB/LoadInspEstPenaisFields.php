@@ -2075,7 +2075,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'translate' => [
                 'pt-br' => 'É permitida a entrada de objetos que fazem parte da cerimônia?'
             ],
-            'type' => 'text',
+            'type' => 'boolean',
         ],
         [
             'name' => '5',
@@ -2083,9 +2083,69 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'translate' => [
                 'pt-br' => 'As necessidades religiosas são consideradas com relação às vestimentas, horários e rotinas?'
             ],
-            'type' => 'text',
+            'type' => 'boolean',
         ],
         //END page 16
+
+        //BEGIN page 17
+        [
+            'name' => '1',
+            'page' => '17',
+            'translate' => [
+                'pt-br' => 'Há recintos adequados para a atividade de assistência social?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '2',
+            'page' => '17',
+            'translate' => [
+                'pt-br' => 'Contato com familiares'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '3',
+            'page' => '17',
+            'translate' => [
+                'pt-br' => 'Documentos'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '4',
+            'page' => '17',
+            'translate' => [
+                'pt-br' => 'Benefícios da Previdência Social'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '5',
+            'page' => '17',
+            'translate' => [
+                'pt-br' => 'Ações com os egressos'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '17',
+            'translate' => [
+                'pt-br' => 'Ações com o SUAS'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '7',
+            'page' => '17',
+            'translate' => [
+                'pt-br' => 'Projetos'
+            ],
+            'type' => 'boolean',
+            //Quais
+        ],
+        //END page 17
 
     ];
 
