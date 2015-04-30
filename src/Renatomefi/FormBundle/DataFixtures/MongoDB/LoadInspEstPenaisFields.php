@@ -134,7 +134,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'options' => [
                 'Todos os servidores penitenciarios',
                 'Agentes penitenciarios',
-                'Outro',
+                'other' => 'Outro',
             ],
             'type' => 'select'
         ],
@@ -142,7 +142,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'name' => '10_1_1',
             'page' => '1',
             'translate' => [
-                'pt-br' => 'Outro'
+                'pt-br' => ''
             ],
             'type' => 'input'
         ],
