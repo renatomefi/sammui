@@ -17,14 +17,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 $rootScope.loading = false;
             });
 
-            //TODO Review this process, it should be more complete, probably check the promise when it's done and have a mongoId
-            $scope.loadProtocol = function () {
-                if (!$scope.protocol.data) {
-                    $location.path('/form');
-                }
-            };
-
-            $scope.loadProtocol();
+            $scope.protocol.data.$promise.catch(function () {
+                $location.path('/form');
+            });
 
         }
     ])
@@ -234,12 +229,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             $scope.loadTemplate = function (pageId) {
                 if (isFinite(parseInt(pageId))) {
-
                     $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
                         return page.number === parseInt(pageId);
                     }).pop();
-
-                    $scope.currentPage.url = formConfig.template.generatePageUrl($scope.$parent.protocol.data.form.template, pageId);
 
                     $scope.$parent.currentTemplate = {
                         name: pageId,
