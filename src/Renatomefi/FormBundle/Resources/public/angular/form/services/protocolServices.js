@@ -1,65 +1,68 @@
 'use strict';
 
 angular.module('sammui.protocolServices', ['ngResource'])
-    .service('protocolData', ['localStorageService', 'formProtocolManage', function (localStorageService, formProtocolManage) {
-        var originalData = {};
-        var currentData = {};
+    .service('protocolData', ['localStorageService', 'formProtocolManage', 'formTemplate',
+        function (localStorageService, formProtocolManage, formTemplate) {
+            var originalData = {};
+            var currentData = {};
 
-        var storagePrefix = 'protocol.';
+            var storagePrefix = 'protocol.';
 
-        var updateStorage = function (protocolId, changes) {
-            localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
-            console.debug('Local storage for "' + protocolId + '" has been updated with changes', changes);
-        };
+            var updateStorage = function (protocolId, changes) {
+                localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
+                console.debug('Local storage for "' + protocolId + '" has been updated with changes', changes);
+            };
 
-        this.getData = function (protocolId) {
+            this.getData = function (protocolId) {
 
-            if (!currentData[protocolId]) {
+                if (!currentData[protocolId]) {
 
-                currentData[protocolId] = formProtocolManage.get({protocolId: protocolId});
+                    currentData[protocolId] = formProtocolManage.get({protocolId: protocolId});
 
-                currentData[protocolId].$promise.then(function (data) {
-                    originalData[protocolId] = angular.copy(data);
+                    currentData[protocolId].$promise.then(function (data) {
+                        originalData[protocolId] = angular.copy(data);
 
-                    localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
+                        formTemplate.loadTemplates(data.form);
 
-                    Object.observe(currentData[protocolId], function (changes) {
-                        updateStorage(protocolId, changes);
-                    });
+                        localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
 
-                    currentData[protocolId].form.fields.map(function (item) {
-                        Object.observe(item, function (changes) {
+                        Object.observe(currentData[protocolId], function (changes) {
                             updateStorage(protocolId, changes);
                         });
+
+                        currentData[protocolId].form.fields.map(function (item) {
+                            Object.observe(item, function (changes) {
+                                updateStorage(protocolId, changes);
+                            });
+                        });
                     });
-                });
-            }
+                }
 
-            return currentData[protocolId];
-        };
+                return currentData[protocolId];
+            };
 
-        this.getOriginalData = function (protocolId) {
-            if (!currentData[protocolId]) {
-                this.getData(protocolId);
-            }
+            this.getOriginalData = function (protocolId) {
+                if (!currentData[protocolId]) {
+                    this.getData(protocolId);
+                }
 
-            return originalData[protocolId];
-        };
+                return originalData[protocolId];
+            };
 
-        this.reloadOriginalData = function (protocolId) {
-            originalData[protocolId] = formProtocolManage.get({protocolId: protocolId});
-        };
+            this.reloadOriginalData = function (protocolId) {
+                originalData[protocolId] = formProtocolManage.get({protocolId: protocolId});
+            };
 
-        this.replaceDataByOriginal = function (protocolId, reload) {
-            reload = reload || false;
+            this.replaceDataByOriginal = function (protocolId, reload) {
+                reload = reload || false;
 
-            if (reload === true) {
-                this.reloadOriginalData(protocolId);
-            }
+                if (reload === true) {
+                    this.reloadOriginalData(protocolId);
+                }
 
-            currentData[protocolId] = angular.copy(originalData[protocolId]);
-        };
-    }])
+                currentData[protocolId] = angular.copy(originalData[protocolId]);
+            };
+        }])
     .factory('formProtocolManage', function ($resource) {
         return $resource('/form/protocol/:protocolId', {protocolId: '@protocolId'}, {
             'get': {

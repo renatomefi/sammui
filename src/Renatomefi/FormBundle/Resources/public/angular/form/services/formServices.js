@@ -17,4 +17,16 @@ angular.module('sammui.formServices', ['ngResource'])
                 }
             }
         };
-    });
+    })
+    .factory('formTemplate', ['$templateCache', '$http', 'formConfig', function ($templateCache, $http, formConfig) {
+        var loadTemplates = function (form) {
+            form.pages.map(function (item) {
+                item.url = formConfig.template.generatePageUrl(form.template, item.number);
+                $http.get(item.url, {cache: $templateCache});
+            });
+        };
+
+        return {
+            loadTemplates: loadTemplates
+        };
+    }]);

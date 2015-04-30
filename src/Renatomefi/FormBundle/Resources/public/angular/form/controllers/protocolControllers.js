@@ -14,10 +14,6 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             };
 
             $scope.protocol.data.$promise.then(function () {
-                console.log('protocol promise then');
-                $scope.protocol.data.form.pages.map(function (item) {
-                   console.log('pages', item);
-                });
                 $rootScope.loading = false;
             });
 
