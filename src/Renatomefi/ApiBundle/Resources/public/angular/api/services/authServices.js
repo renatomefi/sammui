@@ -197,7 +197,6 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                 .success(function (data) {
                     oAuth.getInfo(data, true);
 
-                    console.log('New token?? ', data);
                     authService.loginConfirmed('success', function (config) {
                         config.headers.Authorization = 'Bearer ' + data.access_token;
                         return config;

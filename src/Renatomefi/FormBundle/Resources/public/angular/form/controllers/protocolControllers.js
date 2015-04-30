@@ -229,12 +229,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             $scope.loadTemplate = function (pageId) {
                 if (isFinite(parseInt(pageId))) {
-
                     $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
                         return page.number === parseInt(pageId);
                     }).pop();
-
-                    $scope.currentPage.url = formConfig.template.generatePageUrl($scope.$parent.protocol.data.form.template, pageId);
 
                     $scope.$parent.currentTemplate = {
                         name: pageId,
