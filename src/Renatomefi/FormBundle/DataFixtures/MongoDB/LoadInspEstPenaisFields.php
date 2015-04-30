@@ -120,10 +120,31 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Há Plano de Carreira?'
             ],
             'options' => [
-                'sim' => 'Sim', // Exibir: Todos os servidores penitenciarios , Agentes penitenciarios , Outro
-                'não' => 'Não',
+                'Sim', // Exibir: Todos os servidores penitenciarios , Agentes penitenciarios , Outro
+                'Não',
             ],
-            'type' => 'radio'
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '10_1',
+            'page' => '1',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'options' => [
+                'Todos os servidores penitenciarios',
+                'Agentes penitenciarios',
+                'Outro',
+            ],
+            'type' => 'select'
+        ],
+        [
+            'name' => '10_1_1',
+            'page' => '1',
+            'translate' => [
+                'pt-br' => 'Outro'
+            ],
+            'type' => 'input'
         ],
         [
             'name' => '11',
