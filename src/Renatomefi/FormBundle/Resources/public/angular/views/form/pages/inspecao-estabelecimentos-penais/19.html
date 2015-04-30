@@ -1,72 +1,75 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
-        <select name="Há registro de imposição de sanção disciplinar aos presos?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="19_1">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Qual a forma adotada para o registro?">
-            <option value="Livro">Livro</option>
-            <option value="PAD">PAD</option>
-            <option value="Procedimento Eletrônico">Procedimento Eletrônico</option>
-            <option value="outro">outro</option>
-        </select>
+        <form-field name="19_2">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="No registro da sanção de natureza grave é anotado o prévio procedimento disciplinar?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="19_3">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há sanção disciplinar de natureza grave sem instauração do respectivo procedimento?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="19_4">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Toda notícia de falta disciplinar enseja a instauração de procedimento?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="19_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="A falta disciplinar é reconhecida judicialmente?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="19_6">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="São executadas sanções coletivas?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="19_7">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="É observado o direito de defesa do preso?">
-            <option value="sim">sim</option>
-            <!-- Se sim, em qual fase?  fase administrativa  fase judicial-->
-            <option value="não">não</option>
-        </select>
+        <form-field name="19_8">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="O ato administrativo que determina a aplicação da sanção disciplinar é motivado?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="19_9">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <input type="text" name="Quais as condições da cela usada para aplicação de sanção disciplinar?">
+        <form-field name="19_10">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Qual o maior período aplicado de isolamento?">
-            <option value="10 dias">10 dias</option>
-            <option value="20 dias">20 dias</option>
-            <option value="30 dias">30 dias</option>
-            <option value="outro">outro</option>
-        </select>
+        <form-field name="19_11">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <input type="text" name="Qual o tempo médio de rebaixamento de comportamento ou reabilitação por falta grave?">
-        <input type="text" name="Qual o número de sanções por falta grave (mês)?">
+        <form-field name="19_12">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Houve motins ou rebeliões nos últimos 12 meses?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="19_13">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="19_14">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
         <!-- 19.15 Ocorrências nos últimos 12 meses -->
 

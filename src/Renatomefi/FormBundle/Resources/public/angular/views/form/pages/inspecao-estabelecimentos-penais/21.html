@@ -1,60 +1,49 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
-        <select name="Há reclamações sobre quais aspectos">
-            <option value="Instalações">Instalações</option>
-            <option value="Assistência Jurídica">Assistência Jurídica</option>
-            <option value="Assistência Saúde">Assistência Saúde</option>
-            <option value="Assistência Educacional">Assistência Educacional</option>
-            <option value="Assistência social">Assistência social</option>
-            <option value="Atividades Esportivas">Atividades Esportivas</option>
-            <option value="Lazer">Lazer</option>
-            <option value="Visita">Visita</option>
-            <option value="Maus tratos ou tortura">Maus tratos ou tortura</option>
-            <option value="Outros">Outros</option>
-        </select>
+        <form-field name="21_1">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="No caso de maus tratos ou tortura, há indícios dos fatos relatados?">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!--   Ferimentos no corpo
-          Marcas de projéteis nas celas ou outros ambientes
-          Relatos idênticos em diferentes alas
-          Nas datas dos eventos houve cancelamento de visita, entrada de grupos especiais de intervenção, transferência de presos, movimentações noturnas ou outra situação atípica
-          Locais característicos como ambiente de castigo (sem colchão, sem sanitário, sem iluminação, sem ventilação, sujos, com insetos, entre outros aspectos)
-          Uso de bala clava (capuz)
-          Outros:  -->
-        </select>
+        <form-field name="21_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Quais providências foram tomadas para apurar os fatos até o momento?">
-            <option value="Exame de corpo de delito">Exame de corpo de delito</option>
-            <option value="Denúncia formalizada ao Juiz ou Ministério Público">Denúncia formalizada ao Juiz ou Ministério Público</option>
-            <option value="Inquérito">Inquérito</option>
-            <option value="Instauração de procedimento administrativo">Instauração de procedimento administrativo</option>
-            <option value="Outro">Outro</option>
-        </select>
+        <form-field name="21_3">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Quais providências serão tomadas para apurar os fatos a partir de agora?">
-            <option value="Exame de corpo de delito">Exame de corpo de delito</option>
-            <option value="Denúncia formalizada ao Juiz ou Ministério Público">Denúncia formalizada ao Juiz ou Ministério Público</option>
-            <option value="Inquérito">Inquérito</option>
-            <option value="Instauração de procedimento administrativo">Instauração de procedimento administrativo</option>
-            <option value="Outro">Outro</option>
-        </select>
+        <form-field name="21_4">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Há orientação no estabelecimento quanto à forma de acessar (assinalar as opções em que houver orientação)">
-            <option value="Ouvidoria">Ouvidoria</option>
-            <option value="Corregedoria">Corregedoria</option>
-            <option value="Conselho da Comunidade">Conselho da Comunidade</option>
-            <option value="Conselho Penitenciário">Conselho Penitenciário</option>
-            <option value="Comissão de DH da OAB">Comissão de DH da OAB</option>
-            <option value="Disque 100 ">Disque 100 </option>
-            <option value="Outro">Outro</option>
-        </select>
+        <form-field name="21_5">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <input type="text" name="Outras informações">
+        <form-field name="21_6">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
     </fieldset>
 </form>

@@ -2413,6 +2413,596 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         //END page 18
+
+        //BEGIN page 19
+        [
+            'name' => '1',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Há registro de imposição de sanção disciplinar aos presos?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '2',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Qual a forma adotada para o registro?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Livro',
+                'PAD',
+                'Procedimento Eletrônico',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '3',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'No registro da sanção de natureza grave é anotado o prévio procedimento disciplinar?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '4',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Há sanção disciplinar de natureza grave sem instauração do respectivo procedimento?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '5',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Toda notícia de falta disciplinar enseja a instauração de procedimento?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'A falta disciplinar é reconhecida judicialmente?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '7',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'São executadas sanções coletivas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '8',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'É observado o direito de defesa do preso?'
+            ],
+            'type' => 'boolean',
+            //Se sim, em qual fase?  fase administrativa  fase judicial
+        ],
+        [
+            'name' => '9',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'O ato administrativo que determina a aplicação da sanção disciplinar é motivado?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Quais as condições da cela usada para aplicação de sanção disciplinar?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '11',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Qual o maior período aplicado de isolamento?'
+            ],
+            'type' => 'select',
+            'options' => [
+                '10 dias',
+                '20 dias',
+                '30 dias',
+                'outro',
+            ]
+        ],
+        [
+            'name' => '12',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Qual o tempo médio de rebaixamento de comportamento ou reabilitação por falta grave?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '13',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Qual o número de sanções por falta grave (mês)?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Houve motins ou rebeliões nos últimos 12 meses?'
+            ],
+            'type' => 'boolean',
+        ],
+        //END page 19
+
+        //BEGIN page 20
+        [
+            'name' => '1',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'A visita social ocorre regularmente?'
+            ],
+            'type' => 'boolean',
+            // frequencia
+        ],
+        [
+            'name' => '2',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Quantas pessoas podem ser cadastradas por preso para realizarem a visita?'
+            ],
+            'type' => 'select',
+            'options' => [
+                '1 ou 2',
+                '3 ou 4',
+                '5 ou 6',
+                '7 ou 8',
+                '9 ou mais',
+            ]
+        ],
+        [
+            'name' => '3',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Quantas pessoas podem realizar a visita por vez?'
+            ],
+            'type' => 'select',
+            'options' => [
+                '1 ou 2',
+                '3 ou 4',
+                '5 ou 6',
+                '7 ou 8',
+                '9 ou mais',
+            ]
+        ],
+        [
+            'name' => '4',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Qual o local que ocorre a visita social'
+            ],
+            'type' => 'select',
+            'options' => [
+                'pátio de visita',
+                'pátio do banho de sol',
+                'celas',
+                'outro',
+            ]
+        ],
+        [
+            'name' => '5',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Há local específico para visita de crianças?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Há permissão para visitas íntimas?'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '7',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Há permissão para visitas íntimas homoafetivas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '8',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Qual o local que ocorre a visita íntima?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'módulo de visita íntima',
+                'celas',
+                'outro',
+            ]
+        ],
+        [
+            'name' => '9',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Quais os procedimentos de revista dos visitantes?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'mecânica(detector de metais, raquetes, banco, espectômetro)',
+                'manual sem desnudamento',
+                'com desnudamento',
+                'outro',
+            ]
+        ],
+        [
+            'name' => '10',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'É permitida a visita de menores de 18 anos?'
+            ],
+            'type' => 'boolean',
+        ],
+        //END page 20
+
+        //BEGIN page 21
+        [
+            'name' => '1',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Há reclamações sobre quais aspectos'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Instalações',
+                'Assistência Jurídica',
+                'Assistência Saúde',
+                'Assistência Educacional',
+                'Assistência social',
+                'Atividades Esportivas',
+                'Lazer',
+                'Visita',
+                'Maus tratos ou tortura',
+                'Outros',
+            ]
+        ],
+        [
+            'name' => '2',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'No caso de maus tratos ou tortura, há indícios dos fatos relatados?'
+            ],
+            'type' => 'boolean',
+            /**
+             *  Ferimentos no corpo
+             *  Marcas de projéteis nas celas ou outros ambientes
+             *  Relatos idênticos em diferentes alas
+             *  Nas datas dos eventos houve cancelamento de visita, entrada de grupos especiais de intervenção, transferência de presos, movimentações noturnas ou outra situação atípica
+             *  Locais característicos como ambiente de castigo (sem colchão, sem sanitário, sem iluminação, sem ventilação, sujos, com insetos, entre outros aspectos)
+             *  Uso de bala clava (capuz)
+             *  Outros:  -->
+             */
+        ],
+        [
+            'name' => '3',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Quais providências foram tomadas para apurar os fatos até o momento?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Exame de corpo de delito',
+                'Denúncia formalizada ao Juiz ou Ministério Público',
+                'Inquérito',
+                'Instauração de procedimento administrativo',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '4',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Quais providências serão tomadas para apurar os fatos a partir de agora?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Exame de corpo de delito',
+                'Denúncia formalizada ao Juiz ou Ministério Público',
+                'Inquérito',
+                'Instauração de procedimento administrativo',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '5',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Há orientação no estabelecimento quanto à forma de acessar (assinalar as opções em que houver orientação)'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ouvidoria',
+                'Corregedoria',
+                'Conselho da Comunidade',
+                'Conselho Penitenciário',
+                'Comissão de DH da OAB',
+                'Disque 100',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '6',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Outras informações'
+            ],
+            'type' => 'text',
+        ],
+        //END page 21
+
+        //BEGIN page 22
+        [
+            'name' => '1',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'No momento da inclusão da pessoa presa, há explicações sobre o funcionamento do estabelecimento?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '2',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'No momento da inclusão da pessoa presa, há explicações sobre direitos e deveres do preso?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '3',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Quando se aproxima a liberdade há algum trabalho realizado para preparação do preso?'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '4',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'É permitida a entrada de jornais e revistas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '5',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Como funciona o envio e recebimento de correspondências?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '6',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'As pessoas presas têm acesso a telefone público?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '7',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Há alistamento, transferência e revisão eleitoral de presos provisórios?'
+            ],
+            'type' => 'boolean',
+            //           <!-- motivo -->
+        ],
+        [
+            'name' => '8',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Rádio/Aparelho de Som'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '9',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'TV'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Vídeo/DVD'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '11',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Geladeira'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '12',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Fogão/Fogareiro/Mergulhão/Rabo Quente'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '13',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Outros'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Há organizações não governamentais atuando no estabelecimento?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '15',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Se existe, em quais áreas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'gestão',
+                'educação',
+                'saúde',
+                'assistência social',
+                'trabalho',
+                'religiosa',
+                'comunicação',
+                'cidadania',
+                'reciclagem',
+                'manutenção',
+                'outras',
+                /**
+                 * <!-- Qual a frequência:  diária             semanal
+                 *  quinzenal        mensal
+                 *  esporádico      outro: -->
+                 */
+            ]
+        ],
+        [
+            'name' => '16',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Como é tratado o lixo produzido no estabelecimento?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'separado',
+                'reciclado',
+                'não é recolhido',
+                'coleta municipal',
+                'outro',
+            ]
+        ],
+        //END page 22
+
+        //BEGIN page 23
+        [
+            'name' => '1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Juiz Corregedor'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '2',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Juiz de Execução'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '3',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Ministério Público'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '4',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Defensor Público'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '5',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Conselho Penitenciário'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '6',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Conselho da Comunidade'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '7',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Conselho Estadual de Direitos Humanos ou Comitê Estadual de Combate à Tortura'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '8',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Comissão de Direitos Humanos da OAB'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '9',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Pastoral Carcerária'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '10',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Outros'
+            ],
+            'type' => 'text',
+        ],
+        //END page 23
+
     ];
 
 
