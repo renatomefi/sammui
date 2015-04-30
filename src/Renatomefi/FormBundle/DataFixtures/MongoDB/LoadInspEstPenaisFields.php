@@ -1690,6 +1690,121 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 10
 
+        //BEGIN page 11
+        [
+            'name' => '1',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Existe unidade básica de saúde do SUS?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '2',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Está integrado à Rede Cegonha do SUS?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '3',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Há distribuição de preservativos?'
+            ],
+            'type' => 'boolean',
+            //frequencia
+        ],
+        [
+            'name' => '4',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Há acesso às medicações definidas pelo SUS para farmácias de unidades prisionais?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '5',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Há acesso às medicações prescritas que não estão no pacote SUS?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Há exames e consultas de ingresso?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '7',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Há pré-natal para presas gestantes?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '8',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Há vacinação regular?'
+            ],
+            'type' => 'boolean',
+            // Se sim, quais vacinas são oferecidas?
+        ],
+        [
+            'name' => '9',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'As pessoas presas têm acesso a médico particular, caso haja a contratação deste profissional por seus familiares?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'As pessoas presas têm acesso aos exames médicos necessários?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '11',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Quais trabalhos são realizados para prevenção ou controle de doenças infecto-contagiosas?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '12',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Há ambulância na unidade?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '13',
+            'page' => '11',
+            'translate' => [
+                'pt-br' => 'Para que estabelecimentos da rede de saúde as pessoas presas tem acesso, quando necessário?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Unidade Básica de Saúde – UBS',
+                'Unidade de Pronto Atendimento – UPA',
+                'Hospital',
+                'Centro de Atendimento Psicossocial – CAPS',
+                'Outro',
+            ]
+        ],
+
     ];
 
 
