@@ -2703,7 +2703,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Quais providências foram tomadas para apurar os fatos até o momento?'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Exame de corpo de delito',
                 'Denúncia formalizada ao Juiz ou Ministério Público',
                 'Inquérito',
@@ -2718,7 +2718,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Quais providências serão tomadas para apurar os fatos a partir de agora?'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Exame de corpo de delito',
                 'Denúncia formalizada ao Juiz ou Ministério Público',
                 'Inquérito',
@@ -2733,7 +2733,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Há orientação no estabelecimento quanto à forma de acessar (assinalar as opções em que houver orientação)'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ouvidoria',
                 'Corregedoria',
                 'Conselho da Comunidade',
@@ -2752,6 +2752,165 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         //END page 21
+
+        //BEGIN page 22
+        [
+            'name' => '1',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'No momento da inclusão da pessoa presa, há explicações sobre o funcionamento do estabelecimento?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '2',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'No momento da inclusão da pessoa presa, há explicações sobre direitos e deveres do preso?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '3',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Quando se aproxima a liberdade há algum trabalho realizado para preparação do preso?'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '4',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'É permitida a entrada de jornais e revistas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '5',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Como funciona o envio e recebimento de correspondências?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '6',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'As pessoas presas têm acesso a telefone público?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '7',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Há alistamento, transferência e revisão eleitoral de presos provisórios?'
+            ],
+            'type' => 'boolean',
+            //           <!-- motivo -->
+        ],
+        [
+            'name' => '8',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Rádio/Aparelho de Som'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '9',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'TV'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Vídeo/DVD'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '11',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Geladeira'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '12',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Fogão/Fogareiro/Mergulhão/Rabo Quente'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '13',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Outros'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Há organizações não governamentais atuando no estabelecimento?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '15',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Se existe, em quais áreas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'gestão',
+                'educação',
+                'saúde',
+                'assistência social',
+                'trabalho',
+                'religiosa',
+                'comunicação',
+                'cidadania',
+                'reciclagem',
+                'manutenção',
+                'outras',
+                /**
+                 * <!-- Qual a frequência:  diária             semanal
+                 *  quinzenal        mensal
+                 *  esporádico      outro: -->
+                 */
+            ]
+        ],
+        [
+            'name' => '16',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Como é tratado o lixo produzido no estabelecimento?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'separado',
+                'reciclado',
+                'não é recolhido',
+                'coleta municipal',
+                'outro',
+            ]
+        ],
+        //END page 22
+
 
     ];
 
