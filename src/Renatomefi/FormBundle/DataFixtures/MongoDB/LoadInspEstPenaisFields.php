@@ -1804,6 +1804,91 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Outro',
             ]
         ],
+        //END page 11
+
+        //BEGIN page 12
+        //END page 12
+
+        //BEGIN page 13
+        [
+            'name' => '1',
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'Às pessoas presas sem condições financeiras é proporcionada assistência jurídica gratuita e permanente?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '2',
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'Em caso positivo, por quem é prestada a assistência?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3',
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'A Funai presta assistência jurídica aos presos/internos indígenas?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Sim',
+                'Não',
+                'Não se aplica',
+            ]
+        ],
+        [
+            'name' => '4',
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'Onde é realizado o contato entre a pessoa presa e o advogado?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5',
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'A Defensoria Pública do Estado comparece com regularidade?'
+            ],
+            'type' => 'boolean',
+            // Periodicidade
+        ],
+        [
+            'name' => '6',
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'Saídas temporárias'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '7',
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'Livramento condicional'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '8',
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'Progressões'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '9',
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'Indulto'
+            ],
+            'type' => 'text',
+        ],
+
 
     ];
 
