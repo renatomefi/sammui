@@ -20,7 +20,7 @@ angular.module('sammui.protocolServices', ['ngResource'])
                     });
                     currentData[protocolId].form.fields.map(function(item) {
                         Object.observe(item, function(changes) {
-                            console.debug('Field was changed', changes);
+//                             console.debug('Field was changed', changes);
                         });
                     });
                 });
