@@ -49,7 +49,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
         unset($field);
 
         $field = new FormField();
-        $field->setName('nmail');
+        $field->setName('email');
         $field->setForm($form);
         $documentManager->persist($field);
         unset($field);

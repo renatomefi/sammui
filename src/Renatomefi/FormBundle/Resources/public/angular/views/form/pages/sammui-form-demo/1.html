@@ -2,26 +2,26 @@
     <fieldset>
         <legend>Fields test</legend>
 
-        <form-field name="Name">
+        <form-field name="name">
             <input type="text" ng-model="$parent.field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
 
-        <form-field name="Email">
+        <form-field name="email">
             <input ng-model="$parent.field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
 
 
-        <form-field name="Gender">
+        <form-field name="gender">
             <label class="radio-inline" ng-repeat="(key, value) in $parent.field.options">
                 <input type="radio" ng-model="$parent.$parent.field.value" value="{{key}}"> {{value}}
             </label>
         </form-field>
 
-        <form-field name="Legal">
+        <form-field name="above_21">
             <ui-switch ng-model="$parent.field.value"></ui-switch>
         </form-field>
 
