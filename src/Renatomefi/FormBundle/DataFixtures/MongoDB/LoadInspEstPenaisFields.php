@@ -48,12 +48,12 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Secretaria da pasta'
             ],
             'options' => [
-                'estadual' => 'Própria',
-                'subsecretaria' => 'Subsecretaria',
-                'diretoria/departamento' => 'Diretoria / Departamento',
-                'superintendência' => 'Superintendência',
-                'instituto/agência' => 'Instituto / Agência',
-                'outro' => 'Outro',
+                'Própria',
+                'Subsecretaria',
+                'Diretoria / Departamento',
+                'Superintendência',
+                'Instituto / Agência',
+                'Outro',
             ],
             'type' => 'select'
         ],
@@ -120,10 +120,31 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Há Plano de Carreira?'
             ],
             'options' => [
-                'sim' => 'Sim', // Exibir: Todos os servidores penitenciarios , Agentes penitenciarios , Outro
-                'não' => 'Não',
+                'Sim', // Exibir: Todos os servidores penitenciarios , Agentes penitenciarios , Outro
+                'Não',
             ],
-            'type' => 'radio'
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '10_1',
+            'page' => '1',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'options' => [
+                'Todos os servidores penitenciarios',
+                'Agentes penitenciarios',
+                'other' => 'Outro',
+            ],
+            'type' => 'select'
+        ],
+        [
+            'name' => '10_1_1',
+            'page' => '1',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'input'
         ],
         [
             'name' => '11',
@@ -247,9 +268,9 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'radio',
             'options' => [
-                'masculino' => 'Masculino',
-                'feminino' => 'Feminino',
-                'misto' => 'Misto'
+                'Masculino',
+                'Feminino',
+                'Misto'
             ],
         ],
         // END page 2
@@ -263,11 +284,11 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'multicheckbox',
             'options' => [
-                'pública' => 'Pública',
-                'terceirização de serviços complementares' => 'Terceirização de serviços complementares',
-                'terceirização da equipe técnica e administrativa' => 'Terceirização da equipe técnica e administrativa',
-                'terceirização da equipe de segurança' => 'Terceirização da equipe de segurança',
-                'método APAC' => 'Método APAC',
+                'Pública',
+                'Terceirização de serviços complementares',
+                'Terceirização da equipe técnica e administrativa',
+                'Terceirização da equipe de segurança',
+                'Método APAC',
             ]
         ],
         [
@@ -294,13 +315,13 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'select',
             'options' => [
-                'Direito' => 'Direito',
-                'Ciências Sociais' => 'Ciências Sociais',
-                'Psicologia' => 'Psicologia',
-                'Pedagogia' => 'Pedagogia',
-                'Administração' => 'Administração',
-                'Serviço Social' => 'Serviço Social',
-                'Outra' => 'Outra',
+                'Direito',
+                'Ciências Sociais',
+                'Psicologia',
+                'Pedagogia',
+                'Administração',
+                'Serviço Social',
+                'Outra',
             ]
         ],
 
@@ -328,13 +349,13 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'select',
             'options' => [
-                'direito' => 'Direito',
-                'ciências sociais' => 'Ciências Sociais',
-                'psicologia' => 'Psicologia',
-                'pedagogia' => 'Pedagogia',
-                'administração' => 'Administração',
-                'serviço social' => 'Serviço Social',
-                'outra' => 'Outra',
+                'Direito',
+                'Ciências Sociais',
+                'Psicologia',
+                'Pedagogia',
+                'Administração',
+                'Serviço Social',
+                'Outra',
             ]
         ],
         [
@@ -345,12 +366,12 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'select',
             'options' => [
-                '1 a 3' => '1 a 3',
-                '4 a 6' => '4 a 6',
-                '7 a 9' => '7 a 9',
-                '10 a 12' => '10 a 12',
-                '13 a 15' => '13 a 15',
-                '+15' => '+15',
+                '1 a 3',
+                '4 a 6',
+                '7 a 9',
+                '10 a 12',
+                '13 a 15',
+                '+15',
             ]
         ],
         [
@@ -369,14 +390,14 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'select',
             'options' => [
-                'Integralmente' => 'Integralmente',
-                'Parcialmente' => 'Parcialmente',
-                'Não alimenta' => 'Não alimenta',
-                'Mensal' => 'Mensal',
-                'Trimestral' => 'Trimestral',
-                'Semestral' => 'Semestral',
-                'Anual' => 'Anual',
-                'Outro' => 'Outro',
+                'Integralmente',
+                'Parcialmente',
+                'Não alimenta',
+                'Mensal',
+                'Trimestral',
+                'Semestral',
+                'Anual',
+                'Outro',
             ]
         ],
         [

@@ -49,13 +49,25 @@
             <ui-switch ng-model="$parent.field.value"></ui-switch>
         </form-field>
 
-        <select name="Há Plano de Carreira?">
-            <option value="Sim">Sim</option>
-            <!-- Todos os servidores penitenciarios -->
-            <!-- Agentes penitenciarios -->
-            <!-- outro -->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="1_10">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+
+            <form-field name="1_10_1" ng-if="$parent.field.value">
+                <select class="form-control"
+                        ng-model="$parent.field.value"
+                        ng-options="key as value for (key , value) in $parent.field.options">
+                    <option></option>
+                </select>
+
+                <form-field name="1_10_1_1" ng-if="$parent.field.value == 'other'">
+                    <input ng-model="$parent.field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+
+            </form-field>
+        </form-field>
+
 
         <form-field name="1_11">
             <ui-switch ng-model="$parent.field.value"></ui-switch>
