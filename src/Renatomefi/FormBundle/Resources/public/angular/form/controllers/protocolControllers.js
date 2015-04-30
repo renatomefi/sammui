@@ -205,77 +205,75 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             }
         };
     }])
-    .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', function ($scope, $routeParams, $location, $route) {
+    .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', 'formConfig',
+        function ($scope, $routeParams, $location, $route, formConfig) {
 
-        //TODO configuration file??
-        var partialPath = '/bundles/form/angular/views/form/filling/partials/';
-        var templatePath = '/bundles/form/angular/views/form/pages/';
+            var partialPath = formConfig.template.partialPath;
+            var templatePath = formConfig.template.pagesPath;
 
-        $scope.$parent.protocol.data.$promise.then(function () {
-            $scope.formPages = $scope.$parent.protocol.data.form.pages;
-        });
+            $scope.modal = {
+                data: undefined
+            };
 
-        $scope.modal = {
-            data: undefined
-        };
+            //Default templates to all forms
+            $scope.templates = [
+                {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
+                {name: 'users', url: partialPath + 'user.html'},
+                {name: 'comments', url: partialPath + 'comment.html'},
+                {name: 'conclusion', url: partialPath + 'conclusion.html'},
+                {name: 'upload', url: partialPath + 'upload.html'}
+            ];
 
-        //Default templates to all forms
-        $scope.templates = [
-            {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
-            {name: 'users', url: partialPath + 'user.html'},
-            {name: 'comments', url: partialPath + 'comment.html'},
-            {name: 'conclusion', url: partialPath + 'conclusion.html'},
-            {name: 'upload', url: partialPath + 'upload.html'}
-        ];
+            $scope.toPage = function (pageId) {
+                if (!angular.isUndefined($routeParams.pageId)) {
+                    $route.updateParams({pageId: pageId});
+                } else {
+                    $location.path($location.path() + '/page/' + pageId);
+                }
+            };
 
-        $scope.toPage = function (pageId) {
-            if (!angular.isUndefined($routeParams.pageId)) {
-                $route.updateParams({pageId: pageId});
-            } else {
-                $location.path($location.path() + '/page/' + pageId);
-            }
-        };
+            $scope.loadTemplate = function (pageId) {
+                if (isFinite(parseInt(pageId))) {
 
-        $scope.loadTemplate = function (pageId) {
-            if (isFinite(parseInt(pageId))) {
-                $scope.$parent.protocol.data.$promise.then(
-                    function () {
-                        $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
-                            return page.number === parseInt(pageId);
-                        }).pop();
-                        $scope.currentPage.url = templatePath + $scope.$parent.protocol.data.form.template + '/' + pageId + '.html';
-                        $scope.$parent.currentTemplate = {
-                            name: pageId,
-                            url: templatePath + 'base.html',
-                            headerType: 'form'
-                        };
-                    }
-                );
-            } else {
-                $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates.filter(function (template) {
-                    return pageId === template.name;
-                }).pop();
-            }
-        };
+                    $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
+                        return page.number === parseInt(pageId);
+                    }).pop();
 
-        $scope.onLoad = function () {
-            var pageId = $routeParams.pageId;
+                    $scope.currentPage.url = formConfig.template.generatePageUrl($scope.$parent.protocol.data.form.template, pageId);
 
-            if (pageId === undefined) {
-                $scope.toPage('index');
-                return;
-            }
+                    $scope.$parent.currentTemplate = {
+                        name: pageId,
+                        url: templatePath + 'base.html',
+                        headerType: 'form'
+                    };
+                } else {
+                    $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates.filter(function (template) {
+                        return pageId === template.name;
+                    }).pop();
+                }
+            };
 
-            if ($scope.selectedTemplate && pageId === $scope.selectedTemplate.name) {
-                return;
-            }
+            $scope.onLoad = function () {
+                var pageId = $routeParams.pageId;
 
-            $scope.loadTemplate(pageId);
-        };
+                if (pageId === undefined) {
+                    $scope.toPage('index');
+                    return;
+                }
 
-        $scope.onLoad();
+                if ($scope.selectedTemplate && pageId === $scope.selectedTemplate.name) {
+                    return;
+                }
 
-    }])
+                $scope.loadTemplate(pageId);
+            };
+
+            $scope.$parent.protocol.data.$promise.then(function () {
+                $scope.formPages = $scope.$parent.protocol.data.form.pages;
+                $scope.onLoad();
+            });
+
+        }])
     .controller('formFillingPage', ['$scope', 'formProtocolFields', function ($scope, formProtocolFields) {
         $scope.$parent.protocol.data.$promise.then(function () {
             $scope.formFields = $scope.$parent.protocol.data.form.fields;
@@ -335,7 +333,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             // Check if field.value is null, if it is get the value from the protocol.data.form.values.{sameField}
             // this way we can setup the form from the server data
             if (!$scope.field.value) {
-                $scope.field.value = ($scope.fieldValue && $scope.fieldValue.hasOwnProperty('value')) ? angular.copy($scope.fieldValue.value) : null;
+                $scope.field.value =
+                    ($scope.fieldValue && $scope.fieldValue.hasOwnProperty('value')) ? angular.copy($scope.fieldValue.value) : null;
             }
 
             $scope.isValueUpdated = function () {
