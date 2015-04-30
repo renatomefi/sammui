@@ -302,7 +302,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         $scope.field = {};
         $scope.fieldValue = {};
 
-        var findFieldValueByField = function() {
+        var findFieldValueByField = function () {
             var fieldValues = $scope.$parent.protocol.data.field_values;
             for (var i = 0; i < fieldValues.length; i++) {
                 if ($scope.field.id === fieldValues[i].field.id) {
@@ -316,7 +316,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             //}).pop();
         };
 
-        $scope.$on('event:form-fieldSaved', function() {
+        $scope.$on('event:form-fieldSaved', function () {
             findFieldValueByField();
         });
 
@@ -335,8 +335,20 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             // Check if field.value is null, if it is get the value from the protocol.data.form.values.{sameField}
             // this way we can setup the form from the server data
             if (!$scope.field.value) {
-                $scope.field.value = ($scope.fieldValue && $scope.fieldValue.hasOwnProperty('value')) ? $scope.fieldValue.value : undefined;
+                $scope.field.value = ($scope.fieldValue && $scope.fieldValue.hasOwnProperty('value')) ? angular.copy($scope.fieldValue.value) : null;
             }
+
+            $scope.isValueUpdated = function () {
+                if (!$scope.fieldValue.hasOwnProperty('value') && $scope.field.value === null) {
+                    return false;
+                } else if (angular.equals($scope.field.value, $scope.fieldValue.value)) {
+                    return false;
+                } else if ($scope.field.value === $scope.fieldValue.value) {
+                    return false;
+                }
+
+                return true;
+            };
 
             // Since we are not going to change the field, let's unbind it, you know, angular issues!
             fieldWatchUnbind();

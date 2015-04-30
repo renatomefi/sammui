@@ -2,7 +2,7 @@
 <div ng-controller="formFillingPageField"
      class="form-group">
     <label>{{field.name | translate}}
-        <small ng-show="field.value != fieldValue.value">
+        <small ng-show="isValueUpdated()">
             <i class="glyphicon glyphicon-floppy-disk text-warning"></i>
         </small>
     </label>
