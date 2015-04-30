@@ -44,29 +44,34 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
 
         $field = new FormField();
         $field->setName('name');
-        $field->setForm($form);
+//        $field->setForm($form);
         $documentManager->persist($field);
+        $form->addField($field);
         unset($field);
 
         $field = new FormField();
         $field->setName('email');
-        $field->setForm($form);
+//        $field->setForm($form);
         $documentManager->persist($field);
+        $form->addField($field);
         unset($field);
 
         $field = new FormField();
         $field->setName('gender');
         $field->setOptions(['m' => 'Masculino','f' => 'Feminino']);
-        $field->setForm($form);
+//        $field->setForm($form);
         $documentManager->persist($field);
+        $form->addField($field);
         unset($field);
 
         $field = new FormField();
         $field->setName('above_21');
-        $field->setForm($form);
+//        $field->setForm($form);
         $documentManager->persist($field);
+        $form->addField($field);
         unset($field);
 
+        $documentManager->persist($form);
         $documentManager->flush();
 
     }
