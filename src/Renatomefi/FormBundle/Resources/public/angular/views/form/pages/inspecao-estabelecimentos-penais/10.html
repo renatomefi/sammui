@@ -1,47 +1,84 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
 
     <fieldset>
 
-        <input type="text" name="Tempo diário dentro da cela">
+        <form-field name="10_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Tempo de pátio de sol">
-        <!-- frequencia -->
-        <input type="text" name="Tempo de visita">
-        <!-- frequencia -->
+        <form-field name="10_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Tempo de atividades educacionais">
-        <!-- frequencia -->
+        <form-field name="10_3">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Tempo de atividades laborais">
-        <!-- frequencia -->
+        <form-field name="10_4">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Tempo de atividades religiosas">
-        <!-- frequencia -->
+        <form-field name="10_5">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Tempo de visita íntima">
-        <!-- frequencia -->
+        <form-field name="10_6">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Tempo de atividades esportivas">
-        <!-- frequencia -->
+        <form-field name="10_7">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Tempo das atividades culturais">
-        <!-- frequencia -->
+        <form-field name="10_8">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Há programa individualizado para o cumprimento da pena?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="10_9">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Em caso positivo, qual a freqüência de atualização">
-            <option value="mensal">mensal</option>
-            <option value="trimestral">trimestral</option>
-            <option value="semestral">semestral</option>
-            <option value="outro">outro</option>
-        </select>
+        <form-field name="10_10">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <input type="text" name="Quais profissionais participam da elaboração do programa">
-        <input type="text" name="Descreva os procedimentos para elaboração do programa individualizado">
+        <form-field name="10_11">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+
+        <form-field name="10_12">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="10_13">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
     </fieldset>
 </form>

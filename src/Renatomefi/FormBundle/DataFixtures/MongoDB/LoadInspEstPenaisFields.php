@@ -1576,6 +1576,120 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ]
         ],
         //END page 9
+
+        //BEGIN page 10
+        [
+            'name' => '1',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Tempo diário dentro da cela'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '2',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Tempo de pátio de sol'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Tempo de visita'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Tempo de atividades educacionais'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Tempo de atividades laborais'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '6',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Tempo de atividades religiosas'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '7',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Tempo de visita íntima'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '8',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Tempo de atividades esportivas'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '9',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Tempo das atividades culturais'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '10',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Há programa individualizado para o cumprimento da pena?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '11',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Quais profissionais participam da elaboração do programa'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Trimestral',
+                'Semestral',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '12',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Quais profissionais participam da elaboração do programa'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '13',
+            'page' => '10',
+            'translate' => [
+                'pt-br' => 'Descreva os procedimentos para elaboração do programa individualizado'
+            ],
+            'type' => 'text',
+        ],
+        //END page 10
+
     ];
 
 
