@@ -2413,6 +2413,136 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         //END page 18
+
+        //BEGIN page 19
+        [
+            'name' => '1',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Há registro de imposição de sanção disciplinar aos presos?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '2',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Qual a forma adotada para o registro?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Livro',
+                'PAD',
+                'Procedimento Eletrônico',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '3',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'No registro da sanção de natureza grave é anotado o prévio procedimento disciplinar?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '4',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Há sanção disciplinar de natureza grave sem instauração do respectivo procedimento?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '5',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Toda notícia de falta disciplinar enseja a instauração de procedimento?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'A falta disciplinar é reconhecida judicialmente?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '7',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'São executadas sanções coletivas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '8',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'É observado o direito de defesa do preso?'
+            ],
+            'type' => 'boolean',
+            //Se sim, em qual fase?  fase administrativa  fase judicial
+        ],
+        [
+            'name' => '9',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'O ato administrativo que determina a aplicação da sanção disciplinar é motivado?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Quais as condições da cela usada para aplicação de sanção disciplinar?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '11',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Qual o maior período aplicado de isolamento?'
+            ],
+            'type' => 'select',
+            'options'=>[
+                '10 dias',
+                '20 dias',
+                '30 dias',
+                'outro',
+            ]
+        ],
+        [
+            'name' => '12',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Qual o tempo médio de rebaixamento de comportamento ou reabilitação por falta grave?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '13',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Qual o número de sanções por falta grave (mês)?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Houve motins ou rebeliões nos últimos 12 meses?'
+            ],
+            'type' => 'boolean',
+        ],
+        //END page 19
+
+
     ];
 
 
