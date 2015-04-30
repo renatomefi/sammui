@@ -1,34 +1,57 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
-        <select name="Às pessoas presas sem condições financeiras é proporcionada assistência jurídica gratuita e permanente?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="13_1">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <input type="text" name="Em caso positivo, por quem é prestada a assistência?">
+        <form-field name="13_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="A Funai presta assistência jurídica aos presos/internos indígenas?">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-            <option value="Não se aplica">Não se aplica</option>
-        </select>
+        <form-field name="13_3">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <input type="text" name="Onde é realizado o contato entre a pessoa presa e o advogado?">
+        <form-field name="13_4">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="A Defensoria Pública do Estado comparece com regularidade?">
-            <option value="Sim">Sim</option>
-            <!-- Periodicidade -->
-            <option value="Não">Não</option>
-        </select>
+        <form-field name="13_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <label>Direitos concedidos</label>
-        <input type="text" name="Saídas temporárias">
-        <input type="text" name="Livramento condicional">
-        <input type="text" name="Progressões">
-        <input type="text" name="Indulto">
+        <form-field name="13_6">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="13_7">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="13_8">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="13_9">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
     </fieldset>
 </form>

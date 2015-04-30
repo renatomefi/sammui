@@ -1,202 +1,103 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
 
     <fieldset>
+        <form-field name="7_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <input type="text" name="Total de RH na área de segurança">
-        <input type="text" name="Total de RH na área administrativa">
-        <input type="text" name="Total de RH na área técnica">
-        <input type="text" name="Total Geral">
+        <form-field name="7_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Advogados / Defensores Públicos alocados na unidade">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="Defensoria Pública">Defensoria Pública</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Outra forma de contratação">Outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_3">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Auxiliares de Enfermagem">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="SUS">SUS</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_4">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="Assistentes Sociais">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="SUAS">SUAS</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Dentistas">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="SUS">SUS</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_6">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Enfermeiros">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="SUS">SUS</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_7">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Médicos - Clínico Geral">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="SUS">SUS</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
-        <select name="Médicos - Psiquiatras">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="SUS">SUS</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
-        <select name="Médicos - Ginecologista">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="SUS">SUS</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_8">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Pedagogos">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="Secretaria de Educação">Secretaria de Educação</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_9">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Psicólogos">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="SUS">SUS</option>
-            <option value="SUAS">SUAS</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_10">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Terapeutas Ocupacionais">
-            <option value="não">não</option>
-            <option value="sim">sim</option>
-            <!-- Quantidade ?-->
-            <option value="SUS">SUS</option>
-            <option value="Própria Unidade">Própria Unidade</option>
-            <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_11">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Outros">
-            <!-- Quantidade ?-->
-            <option value="Própria Unidade">Própria Unidade</option>
-            <!-- Periodicidade/ frequência -->
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_12">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Agentes Prisionais">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-            <!-- Quantidade ?-->
-            <option value="homens">homens</option>
-            <option value="mulheres">mulheres</option>
-        </select>
+        <form-field name="7_13">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <input type="text" name="Escala de trabalho">
+        <form-field name="7_14">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há utilização de uniforme?">
-            <option value="sim">sim</option>
-            <option value="Com identificação pessoal">Com identificação pessoal</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="7_15">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <!--
-         Curso de Formação
- Cursos Especiais
-Entidade Executora: -->
-        <select name="Quais os tipos de cursos ocorrem para o treinamento dos agentes?">
-            <option value="Mensal">Mensal</option>
-            <option value="Quinzenal">Quinzenal</option>
-            <option value="Semanal">Semanal</option>
-            <option value="Diária">Diária</option>
-        </select>
+        <form-field name="7_16">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+
+        <form-field name="7_17">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="7_18">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="7_19">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="7_20">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
     </fieldset>
 </form>

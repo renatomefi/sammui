@@ -1,143 +1,146 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
-        <select name="A segurança interna é realizada por">
-            <option value="agentes penitenciários">agentes penitenciários</option>
-            <option value="policiais civis">policiais civis</option>
-            <option value="policiais militares">policiais militares</option>
-            <option value="terceirizados">terceirizados</option>
-            <option value="outros">outros</option>
-        </select>
-
+        <form-field name="18_1">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
         <label>Equipamentos disponibilizados pelos responsáveis pela segurança interna</label>
-        <select name="Arma menos letal (bala de borracha)">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Arma letal">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Taser">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Gás de pimenta / lacrimogênio">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Cacetete / Tonfa">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Algemas">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Rádio">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Alarme">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Circuito de vigilância interna">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Outro">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+
+        <form-field name="18_2">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_3">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_4">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_6">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_7">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_8">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_9">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_10">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_11">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
 
         <label>No caso de uso de arma de fogo</label>
-        <select name="Os usuários têm porte de armas?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-            <option value="não se aplica">não se aplica</option>
-        </select>
-        <select name="É garantido treinamento periódico?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-            <option value="não se aplica">não se aplica</option>
-        </select>
+        <form-field name="18_12">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+        <form-field name="18_13">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+        <form-field name="18_14">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+        <form-field name="18_15">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="No caso de emprego de arma de fogo, é feito registro?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-            <option value="não se aplica">não se aplica</option>
-        </select>
+        <form-field name="18_16">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="No caso de uso de arma tipo Taser os registros de descarga do equipamento são identificados por servidor?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-            <option value="não se aplica">não se aplica</option>
-        </select>
+        <form-field name="18_17">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="A segurança externa é realizada por">
-            <option value="policiais civis">policiais civis</option>
-            <option value="policiais militares">policiais militares</option>
-            <option value="agentes penitenciários">agentes penitenciários</option>
-            <option value="terceiros">terceiros</option>
-            <option value="outros">outros</option>
-        </select>
+        <form-field name="18_18">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="A escolta externa é realizada por">
-            <option value="policiais civis">policiais civis</option>
-            <option value="policiais militares">policiais militares</option>
-            <option value="agentes penitenciários">agentes penitenciários</option>
-            <option value="terceiros">terceiros</option>
-            <option value="outros">outros</option>
-        </select>
+        <form-field name="18_19">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há escolta externa especifica para área de saúde">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
 
-        <select name="Existe grupo de intervenção especial vinculado à unidade?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-
-        <select name="Caso exista, quem são os envolvidos">
-            <option value="policiais civis">policiais civis</option>
-            <option value="policiais militares">policiais militares</option>
-            <option value="agentes penitenciários">agentes penitenciários</option>
-            <option value="terceiros">terceiros</option>
-            <option value="outros">outros</option>
-        </select>
+        <form-field name="18_20">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
         <label>Equipamentos disponibilizados para o controle da entrada</label>
-        <select name="Portal detector de metal">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Raquete detectora de metal">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Banco detector de metal">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Raio X">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Espectômetro">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Body Scanner">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <input type="text" name="outro">
+
+        <form-field name="18_21">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="18_22">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="18_23">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="18_24">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="18_25">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="18_26">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="18_27">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
     </fieldset>
 </form>
