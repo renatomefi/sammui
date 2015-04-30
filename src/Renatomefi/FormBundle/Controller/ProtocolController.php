@@ -156,7 +156,7 @@ class ProtocolController extends FOSRestController
 
         foreach ($request->get('data') as $item) {
 
-            if (!array_key_exists('value', $item) || $item['value'] === null)
+            if (!array_key_exists('value', $item))
                 continue;
 
             $currentValue = $protocol->getFieldValueByFieldId($item['id']);
@@ -171,6 +171,9 @@ class ProtocolController extends FOSRestController
                 $currentValue->setLastUpdated(new \MongoDate());
                 $currentValue->setValue($item['value']);
             } else {
+                if ($item['value'] === null)
+                    continue;
+
                 $field = $formFieldDM->find($item['id']);
                 $value = new ProtocolFieldValue();
                 $value->setField($field);
