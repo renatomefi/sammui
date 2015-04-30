@@ -211,9 +211,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         var partialPath = '/bundles/form/angular/views/form/filling/partials/';
         var templatePath = '/bundles/form/angular/views/form/pages/';
 
-        $scope.$parent.protocol.data.$promise.then(function () {
-            $scope.formPages = $scope.$parent.protocol.data.form.pages;
-        });
+        var generatePageUrl = function (pageId) {
+            return templatePath + $scope.$parent.protocol.data.form.template + '/' + pageId + '.html';
+        };
 
         $scope.modal = {
             data: undefined
@@ -238,19 +238,18 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         $scope.loadTemplate = function (pageId) {
             if (isFinite(parseInt(pageId))) {
-                $scope.$parent.protocol.data.$promise.then(
-                    function () {
-                        $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
-                            return page.number === parseInt(pageId);
-                        }).pop();
-                        $scope.currentPage.url = templatePath + $scope.$parent.protocol.data.form.template + '/' + pageId + '.html';
-                        $scope.$parent.currentTemplate = {
-                            name: pageId,
-                            url: templatePath + 'base.html',
-                            headerType: 'form'
-                        };
-                    }
-                );
+
+                $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
+                    return page.number === parseInt(pageId);
+                }).pop();
+
+                $scope.currentPage.url = generatePageUrl(pageId);
+
+                $scope.$parent.currentTemplate = {
+                    name: pageId,
+                    url: templatePath + 'base.html',
+                    headerType: 'form'
+                };
             } else {
                 $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates.filter(function (template) {
                     return pageId === template.name;
@@ -273,7 +272,10 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             $scope.loadTemplate(pageId);
         };
 
-        $scope.onLoad();
+        $scope.$parent.protocol.data.$promise.then(function () {
+            $scope.formPages = $scope.$parent.protocol.data.form.pages;
+            $scope.onLoad();
+        });
 
     }])
     .controller('formFillingPage', ['$scope', 'formProtocolFields', function ($scope, formProtocolFields) {
@@ -335,7 +337,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             // Check if field.value is null, if it is get the value from the protocol.data.form.values.{sameField}
             // this way we can setup the form from the server data
             if (!$scope.field.value) {
-                $scope.field.value = ($scope.fieldValue && $scope.fieldValue.hasOwnProperty('value')) ? angular.copy($scope.fieldValue.value) : null;
+                $scope.field.value =
+                    ($scope.fieldValue && $scope.fieldValue.hasOwnProperty('value')) ? angular.copy($scope.fieldValue.value) : null;
             }
 
             $scope.isValueUpdated = function () {
