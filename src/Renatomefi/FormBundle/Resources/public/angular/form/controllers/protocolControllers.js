@@ -205,79 +205,75 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             }
         };
     }])
-    .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', function ($scope, $routeParams, $location, $route) {
+    .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', 'formConfig',
+        function ($scope, $routeParams, $location, $route, formConfig) {
 
-        //TODO configuration file??
-        var partialPath = '/bundles/form/angular/views/form/filling/partials/';
-        var templatePath = '/bundles/form/angular/views/form/pages/';
+            var partialPath = formConfig.template.partialPath;
+            var templatePath = formConfig.template.pagesPath;
 
-        var generatePageUrl = function (pageId) {
-            return templatePath + $scope.$parent.protocol.data.form.template + '/' + pageId + '.html';
-        };
+            $scope.modal = {
+                data: undefined
+            };
 
-        $scope.modal = {
-            data: undefined
-        };
+            //Default templates to all forms
+            $scope.templates = [
+                {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
+                {name: 'users', url: partialPath + 'user.html'},
+                {name: 'comments', url: partialPath + 'comment.html'},
+                {name: 'conclusion', url: partialPath + 'conclusion.html'},
+                {name: 'upload', url: partialPath + 'upload.html'}
+            ];
 
-        //Default templates to all forms
-        $scope.templates = [
-            {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
-            {name: 'users', url: partialPath + 'user.html'},
-            {name: 'comments', url: partialPath + 'comment.html'},
-            {name: 'conclusion', url: partialPath + 'conclusion.html'},
-            {name: 'upload', url: partialPath + 'upload.html'}
-        ];
+            $scope.toPage = function (pageId) {
+                if (!angular.isUndefined($routeParams.pageId)) {
+                    $route.updateParams({pageId: pageId});
+                } else {
+                    $location.path($location.path() + '/page/' + pageId);
+                }
+            };
 
-        $scope.toPage = function (pageId) {
-            if (!angular.isUndefined($routeParams.pageId)) {
-                $route.updateParams({pageId: pageId});
-            } else {
-                $location.path($location.path() + '/page/' + pageId);
-            }
-        };
+            $scope.loadTemplate = function (pageId) {
+                if (isFinite(parseInt(pageId))) {
 
-        $scope.loadTemplate = function (pageId) {
-            if (isFinite(parseInt(pageId))) {
+                    $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
+                        return page.number === parseInt(pageId);
+                    }).pop();
 
-                $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
-                    return page.number === parseInt(pageId);
-                }).pop();
+                    $scope.currentPage.url = formConfig.template.generatePageUrl($scope.$parent.protocol.data.form.template, pageId);
 
-                $scope.currentPage.url = generatePageUrl(pageId);
+                    $scope.$parent.currentTemplate = {
+                        name: pageId,
+                        url: templatePath + 'base.html',
+                        headerType: 'form'
+                    };
+                } else {
+                    $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates.filter(function (template) {
+                        return pageId === template.name;
+                    }).pop();
+                }
+            };
 
-                $scope.$parent.currentTemplate = {
-                    name: pageId,
-                    url: templatePath + 'base.html',
-                    headerType: 'form'
-                };
-            } else {
-                $scope.selectedTemplate = $scope.$parent.currentTemplate = $scope.templates.filter(function (template) {
-                    return pageId === template.name;
-                }).pop();
-            }
-        };
+            $scope.onLoad = function () {
+                var pageId = $routeParams.pageId;
 
-        $scope.onLoad = function () {
-            var pageId = $routeParams.pageId;
+                if (pageId === undefined) {
+                    $scope.toPage('index');
+                    return;
+                }
 
-            if (pageId === undefined) {
-                $scope.toPage('index');
-                return;
-            }
+                if ($scope.selectedTemplate && pageId === $scope.selectedTemplate.name) {
+                    return;
+                }
 
-            if ($scope.selectedTemplate && pageId === $scope.selectedTemplate.name) {
-                return;
-            }
+                $scope.loadTemplate(pageId);
+            };
 
-            $scope.loadTemplate(pageId);
-        };
+            $scope.$parent.protocol.data.$promise.then(function () {
+                $scope.formPages = $scope.$parent.protocol.data.form.pages;
+                $scope.onLoad();
+            });
 
-        $scope.$parent.protocol.data.$promise.then(function () {
-            $scope.formPages = $scope.$parent.protocol.data.form.pages;
-            $scope.onLoad();
-        });
-
-    }])
+        }])
     .controller('formFillingPage', ['$scope', 'formProtocolFields', function ($scope, formProtocolFields) {
         $scope.$parent.protocol.data.$promise.then(function () {
             $scope.formFields = $scope.$parent.protocol.data.form.fields;
