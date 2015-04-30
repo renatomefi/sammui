@@ -61,22 +61,6 @@ class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwa
         $form->addPage($page);
         unset($page);
 
-        $field = new FormField();
-        $field->setName('Name');
-        $form->addField($field);
-        unset($field);
-
-        $field = new FormField();
-        $field->setName('Email');
-        $form->addField($field);
-        unset($field);
-
-        $field = new FormField();
-        $field->setName('Gender');
-        $field->setOptions(['M','F']);
-        $form->addField($field);
-        unset($field);
-
         $documentManager->persist($form);
         $documentManager->flush();
 

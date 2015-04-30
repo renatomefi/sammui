@@ -20,6 +20,7 @@ class Form
     {
         $this->setCreatedAt(new \MongoDate());
         $this->pages = new ArrayCollection();
+        $this->fields = new ArrayCollection();
     }
 
     /**
@@ -49,7 +50,7 @@ class Form
     protected $template;
 
     /**
-     * @ODM\ReferenceMany(targetDocument="FormField", mappedBy="form")
+     * @ODM\ReferenceMany(targetDocument="FormField")
      */
     protected $fields;
 

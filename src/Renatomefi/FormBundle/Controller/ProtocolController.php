@@ -95,7 +95,7 @@ class ProtocolController extends FOSRestController
     {
         $form = $this->getForm($formId, true);
 
-        $dm = $this->get('doctrine_mongodb')->getManager();
+        $dm = $this->get('doctrine_mongodb.odm.document_manager');
 
         $protocol = new Protocol();
         $protocol->setForm($form);
@@ -170,7 +170,7 @@ class ProtocolController extends FOSRestController
 
                 $currentValue->setLastUpdated(new \MongoDate());
                 $currentValue->setValue($item['value']);
-            } else  {
+            } else {
                 $field = $formFieldDM->find($item['id']);
                 $value = new ProtocolFieldValue();
                 $value->setField($field);
@@ -183,6 +183,19 @@ class ProtocolController extends FOSRestController
         $dm->persist($protocol);
         $dm->flush();
         $dm->clear();
+
+        $dm = $this->get('doctrine_mongodb.odm.document_manager');
+
+//        return $protocol;
+
+        return $dm->createQueryBuilder('FormBundle:Protocol')
+            ->select('fieldValues.id', 'fieldValues.value', 'fieldValues.field', 'fieldValues.lastUpdated', 'createdAt')
+            ->field('id')->equals($protocol->getId())
+//            ->field('fieldValues.field')->prime(true)
+//            ->field('fieldValues.field')->prime(true)
+            ->getQuery()
+            ->getSingleResult();
+
 
         return $this->getProtocol($protocol->getId());
     }
