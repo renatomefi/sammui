@@ -2542,6 +2542,123 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 19
 
+        //BEGIN page 20
+        [
+            'name' => '1',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'A visita social ocorre regularmente?'
+            ],
+            'type' => 'boolean',
+            // frequencia
+        ],
+        [
+            'name' => '2',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Quantas pessoas podem ser cadastradas por preso para realizarem a visita?'
+            ],
+            'type' => 'select',
+            'options'=>[
+                '1 ou 2',
+                '3 ou 4',
+                '5 ou 6',
+                '7 ou 8',
+                '9 ou mais',
+            ]
+        ],
+        [
+            'name' => '3',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Quantas pessoas podem realizar a visita por vez?'
+            ],
+            'type' => 'select',
+            'options'=>[
+                '1 ou 2',
+                '3 ou 4',
+                '5 ou 6',
+                '7 ou 8',
+                '9 ou mais',
+            ]
+        ],
+        [
+            'name' => '4',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Qual o local que ocorre a visita social'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'pátio de visita',
+                'pátio do banho de sol',
+                'celas',
+                'outro',
+            ]
+        ],
+        [
+            'name' => '5',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Há local específico para visita de crianças?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '6',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Há permissão para visitas íntimas?'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '7',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Há permissão para visitas íntimas homoafetivas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '8',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Qual o local que ocorre a visita íntima?'
+            ],
+            'type' => 'select',
+            'options' =>[
+                'módulo de visita íntima',
+                'celas',
+                'outro',
+            ]
+        ],
+        [
+            'name' => '9',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'Quais os procedimentos de revista dos visitantes?'
+            ],
+            'type' => 'select',
+            'options' =>[
+                'mecânica(detector de metais, raquetes, banco, espectômetro)',
+                'manual sem desnudamento',
+                'com desnudamento',
+                'outro',
+            ]
+        ],
+        [
+            'name' => '10',
+            'page' => '20',
+            'translate' => [
+                'pt-br' => 'É permitida a visita de menores de 18 anos?'
+            ],
+            'type' => 'boolean',
+        ],
+        //END page 20
+
+
 
     ];
 
