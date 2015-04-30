@@ -1,31 +1,31 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
-        <select name="Há visita de religiosos?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
-        <select name="Quais denominações visitam o estabelecimento?">
-            <option value="Espíritas">Espíritas</option>
-            <option value="Católicos">Católicos</option>
-            <option value="Evangélicos">Evangélicos</option>
-            <option value="de Matriz Africana">de Matriz Africana</option>
-            <option value="Outra">Outra</option>
-        </select>
+        <form-field name="16_1">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <input type="text" name="Onde são realizadas as cerimônias religiosas?">
+        <form-field name="16_2">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="É permitida a entrada de objetos que fazem parte da cerimônia?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="16_3">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
-        <select name="As necessidades religiosas são consideradas com relação às vestimentas, horários e rotinas?">
-            <option value="sim">sim</option>
-            <option value="não">não</option>
-        </select>
+        <form-field name="16_4">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="16_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
 
     </fieldset>

@@ -2037,6 +2037,56 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 15
 
+        //BEGIN page 16
+        [
+            'name' => '1',
+            'page' => '16',
+            'translate' => [
+                'pt-br' => 'Há visita de religiosos?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '2',
+            'page' => '16',
+            'translate' => [
+                'pt-br' => 'Quais denominações visitam o estabelecimento?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Espíritas',
+                'Católicos',
+                'Evangélicos',
+                'de Matriz Africana',
+                'Outra',
+            ]
+        ],
+        [
+            'name' => '3',
+            'page' => '16',
+            'translate' => [
+                'pt-br' => 'Onde são realizadas as cerimônias religiosas?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4',
+            'page' => '16',
+            'translate' => [
+                'pt-br' => 'É permitida a entrada de objetos que fazem parte da cerimônia?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5',
+            'page' => '16',
+            'translate' => [
+                'pt-br' => 'As necessidades religiosas são consideradas com relação às vestimentas, horários e rotinas?'
+            ],
+            'type' => 'text',
+        ],
+        //END page 16
+
     ];
 
 
