@@ -103,7 +103,7 @@ class ProtocolController extends FOSRestController
         $dm->persist($protocol);
         $dm->flush();
 
-        return $protocol;
+        return ['id' => $protocol->getId()];
     }
 
     /**
@@ -148,15 +148,15 @@ class ProtocolController extends FOSRestController
      */
     public function patchFieldsSaveAction(Request $request, $protocolId)
     {
-        $dm = $this->get('doctrine_mongodb')->getManager();
+        $odm = $this->get('doctrine_mongodb')->getManager();
 
         $protocol = $this->getProtocol($protocolId);
 
-        $formFieldDM = $dm->getRepository('FormBundle:FormField');
+        $formFieldDM = $odm->getRepository('FormBundle:FormField');
 
         foreach ($request->get('data') as $item) {
 
-            if (!array_key_exists('value', $item))
+            if (!array_key_exists('value', $item) || $item['value'] === null)
                 continue;
 
             $currentValue = $protocol->getFieldValueByFieldId($item['id']);
@@ -180,24 +180,17 @@ class ProtocolController extends FOSRestController
 
         }
 
-        $dm->persist($protocol);
-        $dm->flush();
-        $dm->clear();
+        $odm->persist($protocol);
+        $odm->flush();
+        $odm->clear();
 
-        $dm = $this->get('doctrine_mongodb.odm.document_manager');
-
-//        return $protocol;
-
-        return $dm->createQueryBuilder('FormBundle:Protocol')
-            ->select('fieldValues.id', 'fieldValues.value', 'fieldValues.field', 'fieldValues.lastUpdated', 'createdAt')
+        $result = $odm->createQueryBuilder('FormBundle:Protocol')
+            ->select('fieldValues')
             ->field('id')->equals($protocol->getId())
-//            ->field('fieldValues.field')->prime(true)
-//            ->field('fieldValues.field')->prime(true)
             ->getQuery()
             ->getSingleResult();
 
-
-        return $this->getProtocol($protocol->getId());
+        return ['field_values' => $result->getFieldValues()];
     }
 
     /**
