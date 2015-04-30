@@ -1461,7 +1461,121 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 8
 
-
+        //BEGIN page 9
+        [
+            'name' => '1',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'A alimentação é preparada na própria unidade?'
+            ],
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '2',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'Em caso negativo, de onde provém Qual o custo diário da alimentação por preso?'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '3',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'O cardápio é orientado por nutricionista?'
+            ],
+            'type' => 'boolean'
+        ],
+        [
+            'name' => '4',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'Qual a quantidade de alimentação fornecida no almoço e janta à pessoa presa (peso)?'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '5',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'N.º de refeições diárias'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '6',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'Horários das refeições'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '7',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'Onde as refeições são realizadas?'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Celas',
+                'Refeitorio',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '8',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'Há controle de qualidade?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '9',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'Descrever o controle'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '10',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'As refeições são'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Padronizadas',
+                // <!-- adaptadas por motivos de -->
+                'Saúde',
+                'Religiosos',
+                'Outros',
+            ]
+        ],
+        [
+            'name' => '11',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'Os presos deslocados para audiências e outras atividades externas recebem alimentação e água potável quando saem e quando retornam, independentemente do horário?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '12',
+            'page' => '9',
+            'translate' => [
+                'pt-br' => 'As refeições são'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Família',
+                'Compra',
+                'Outro',
+            ]
+        ],
+        //END page 9
     ];
 
 
