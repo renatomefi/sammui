@@ -2911,6 +2911,97 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 22
 
+        //BEGIN page 23
+        [
+            'name' => '1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Juiz Corregedor'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '2',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Juiz de Execução'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '3',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Ministério Público'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '4',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Defensor Público'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '5',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Conselho Penitenciário'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '6',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Conselho da Comunidade'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '7',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Conselho Estadual de Direitos Humanos ou Comitê Estadual de Combate à Tortura'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '8',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Comissão de Direitos Humanos da OAB'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '9',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Pastoral Carcerária'
+            ],
+            'type' => 'boolean',
+            //Frequencia
+        ],
+        [
+            'name' => '10',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Outros'
+            ],
+            'type' => 'text',
+        ],
+        //END page 23
 
     ];
 

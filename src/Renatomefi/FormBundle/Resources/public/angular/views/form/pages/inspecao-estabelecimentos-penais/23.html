@@ -1,55 +1,50 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
 
     <fieldset>
 
         <label>O estabelecimento é inspecionado regularmente por</label>
-        <select name="Juiz Corregedor">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!-- frequencia -->
-        </select>
-        <select name=" Juiz de Execução">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!-- frequencia -->
-        </select>
-        <select name=" Ministério Público">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!-- frequencia -->
-        </select>
-        <select name="Defensor Público ">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!-- frequencia -->
-        </select>
-        <select name="Conselho Penitenciário">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!-- frequencia -->
-        </select>
-        <select name="Conselho da Comunidade">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!-- frequencia -->
-        </select>
-        <select name="Conselho Estadual de Direitos Humanos ou Comitê Estadual de Combate à Tortura">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!-- frequencia -->
-        </select>
-        <select name="Comissão de Direitos Humanos da OAB">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!-- frequencia -->
-        </select>
-        <select name="Pastoral Carcerária">
-            <option value="não">não</option>
-            <option value="Sim">Sim</option>
-            <!-- frequencia -->
-        </select>
-        <input type="text" name="outros">
+
+        <form-field name="23_1">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="23_2">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="23_3">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="23_4">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="23_5">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="23_6">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="23_7">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="23_8">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="23_9">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="23_10">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
     </fieldset>
 </form>
