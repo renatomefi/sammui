@@ -273,10 +273,35 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         $scope.saveFields = function () {
             $scope.savingForm = true;
+
+            var fieldsToSend = $scope.$parent.protocol.data.form.fields.filter(function (field) {
+                var fieldValue = null;
+
+                var fieldValues = $scope.$parent.protocol.data.field_values;
+                for (var i = 0; i < fieldValues.length; i++) {
+                    if (field.id === fieldValues[i].field.id) {
+                        fieldValue = fieldValues[i];
+                        break;
+                    }
+                }
+
+                if (!fieldValue && (field.value !== null && field.value !== undefined)) {
+                    return true;
+                }
+
+                if (!fieldValue && !field.value) {
+                    return false;
+                }
+
+                return field.value !== fieldValue.value;
+            });
+
+            console.log('Fields to send', fieldsToSend);
+
             formProtocolFields
                 .save({
                     protocolId: $scope.$parent.protocol.data.id,
-                    data: $scope.$parent.protocol.data.form.fields
+                    data: fieldsToSend
                 }, function (data) {
                     //$scope.$parent.protocol.data.form.fields = angular.copy(data.form.fields);
                     $scope.$parent.protocol.data.field_values = angular.copy(data.field_values);
