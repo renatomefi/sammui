@@ -9,6 +9,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\FormField;
 use Renatomefi\FormBundle\Document\FormPage;
+use Renatomefi\TranslateBundle\DataFixtures\MongoDB\LoadLangs;
+use Renatomefi\TranslateBundle\Document\Language;
+use Renatomefi\TranslateBundle\Document\Translation;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -164,6 +167,14 @@ class LoadInspEstPenaisForm extends AbstractFixture implements FixtureInterface,
             unset($formPage);
         }
 
+        $translation = new Translation();
+        /** @var Language $lang */
+        $lang = $this->getReference(LoadLangs::$reference_prefix . 'pt-br');
+        $translation->setLanguage($lang);
+        $translation->setKey(static::NAME);
+        $translation->setValue('Relatório de inspeção em Estabelecimentos Penais');
+
+        $documentManager->persist($translation);
         $documentManager->persist($form);
         $documentManager->flush();
 
