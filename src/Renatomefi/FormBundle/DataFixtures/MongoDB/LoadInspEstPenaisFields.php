@@ -2509,7 +2509,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Qual o maior período aplicado de isolamento?'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 '10 dias',
                 '20 dias',
                 '30 dias',
@@ -2559,7 +2559,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Quantas pessoas podem ser cadastradas por preso para realizarem a visita?'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 '1 ou 2',
                 '3 ou 4',
                 '5 ou 6',
@@ -2574,7 +2574,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Quantas pessoas podem realizar a visita por vez?'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 '1 ou 2',
                 '3 ou 4',
                 '5 ou 6',
@@ -2589,7 +2589,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Qual o local que ocorre a visita social'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'pátio de visita',
                 'pátio do banho de sol',
                 'celas',
@@ -2628,7 +2628,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Qual o local que ocorre a visita íntima?'
             ],
             'type' => 'select',
-            'options' =>[
+            'options' => [
                 'módulo de visita íntima',
                 'celas',
                 'outro',
@@ -2641,7 +2641,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Quais os procedimentos de revista dos visitantes?'
             ],
             'type' => 'select',
-            'options' =>[
+            'options' => [
                 'mecânica(detector de metais, raquetes, banco, espectômetro)',
                 'manual sem desnudamento',
                 'com desnudamento',
@@ -2658,7 +2658,100 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 20
 
-
+        //BEGIN page 21
+        [
+            'name' => '1',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Há reclamações sobre quais aspectos'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Instalações',
+                'Assistência Jurídica',
+                'Assistência Saúde',
+                'Assistência Educacional',
+                'Assistência social',
+                'Atividades Esportivas',
+                'Lazer',
+                'Visita',
+                'Maus tratos ou tortura',
+                'Outros',
+            ]
+        ],
+        [
+            'name' => '2',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'No caso de maus tratos ou tortura, há indícios dos fatos relatados?'
+            ],
+            'type' => 'boolean',
+            /**
+             *  Ferimentos no corpo
+             *  Marcas de projéteis nas celas ou outros ambientes
+             *  Relatos idênticos em diferentes alas
+             *  Nas datas dos eventos houve cancelamento de visita, entrada de grupos especiais de intervenção, transferência de presos, movimentações noturnas ou outra situação atípica
+             *  Locais característicos como ambiente de castigo (sem colchão, sem sanitário, sem iluminação, sem ventilação, sujos, com insetos, entre outros aspectos)
+             *  Uso de bala clava (capuz)
+             *  Outros:  -->
+             */
+        ],
+        [
+            'name' => '3',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Quais providências foram tomadas para apurar os fatos até o momento?'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Exame de corpo de delito',
+                'Denúncia formalizada ao Juiz ou Ministério Público',
+                'Inquérito',
+                'Instauração de procedimento administrativo',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '4',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Quais providências serão tomadas para apurar os fatos a partir de agora?'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Exame de corpo de delito',
+                'Denúncia formalizada ao Juiz ou Ministério Público',
+                'Inquérito',
+                'Instauração de procedimento administrativo',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '5',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Há orientação no estabelecimento quanto à forma de acessar (assinalar as opções em que houver orientação)'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ouvidoria',
+                'Corregedoria',
+                'Conselho da Comunidade',
+                'Conselho Penitenciário',
+                'Comissão de DH da OAB',
+                'Disque 100',
+                'Outro',
+            ]
+        ],
+        [
+            'name' => '6',
+            'page' => '21',
+            'translate' => [
+                'pt-br' => 'Outras informações'
+            ],
+            'type' => 'text',
+        ],
+        //END page 21
 
     ];
 
