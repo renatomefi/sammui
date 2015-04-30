@@ -1888,7 +1888,61 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'text',
         ],
+        //END page 13
 
+        //BEGIN page 14
+        [
+            'name' => '1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Há oficinas de trabalho?'
+            ],
+            'type' => 'boolean',
+            // Quantidade
+        ],
+        [
+            'name' => '2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantas das oficinas são administradas pelo estabelecimento?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantas das oficinas são administradas em parceria com a iniciativa privada?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Total de presos ou internos com permissão para trabalho externo'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '6',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Há avaliação das aptidões e capacidades do preso para sua alocação em determinado trabalho?'
+            ],
+            'type' => 'boolean',
+            // Em caso positivo, como essa avaliação é realizada?
+        ],
+        [
+            'name' => '7',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Há avaliação e estímulo ao crescimento profissional que permita a qualificação ou diversificação do trabalho?'
+            ],
+            'type' => 'boolean',
+            // Em caso positivo, descreva
+        ],
+        //END page 14
 
     ];
 
