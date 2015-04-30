@@ -1944,6 +1944,99 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         //END page 14
 
+        //BEGIN page 15
+        [
+            'name' => '2',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'Alfabetização'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'ensino fundamental'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'ensino médio'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'profissionalizante'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '6',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'outros'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '7',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'Especificar'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '8',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'Os cursos são ministrados por'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Professores do Sistema Penitenciário Estadual',
+                'Professores da Secretaria Estadual de Educação',
+                'Professores da Secretaria Municipal de Educação',
+                'Presos monitores',
+                'Voluntários',
+                'Outros professores', // Especificar
+            ]
+        ],
+        [
+            'name' => '9',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'Há atividades esportivas?'
+            ],
+            'type' => 'boolean',
+            // Quais / Onde
+        ],
+        [
+            'name' => '10',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'Há atividades culturais/lazer?'
+            ],
+            'type' => 'boolean',
+            // Quais / Onde
+        ],
+        [
+            'name' => '11',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'Se há biblioteca, como funciona o acesso das pessoas presas aos livros'
+            ],
+            'type' => 'text',
+        ],
+        //END page 15
+
     ];
 
 

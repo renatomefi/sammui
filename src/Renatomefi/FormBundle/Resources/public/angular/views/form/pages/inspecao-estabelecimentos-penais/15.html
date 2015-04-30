@@ -1,42 +1,60 @@
 <form role="form" class="ng-pristine ng-valid">
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
         <!-- 15.1 Programa de necessidades do módulo de educação por tipo de estabelecimento penal -->
 
         <label>Indique nas atividades o número de presos envolvidos</label>
 
-        <input type="text" name="alfabetização">
-        <input type="text" name="ensino fundamental">
-        <input type="text" name="ensino médio">
-        <input type="text" name="profissionalizante">
-        <input type="text" name="outros">
-        <input type="text" name="Especificar">
+        <form-field name="15_2">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="15_3">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="15_4">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="15_5">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="15_6">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="15_7">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+        <form-field name="15_8">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
 
-        <select name="Os cursos são ministrados por">
-            <option value="Professores do Sistema Penitenciário Estadual">Professores do Sistema Penitenciário Estadual</option>
-            <option value="Professores da Secretaria Estadual de Educação">Professores da Secretaria Estadual de Educação</option>
-            <option value="Professores da Secretaria Municipal de Educação">Professores da Secretaria Municipal de Educação</option>
-            <option value="Presos monitores">Presos monitores</option>
-            <option value="Voluntários">Voluntários</option>
-            <option value="Outros professores">Outros professores</option>
-            <!-- Especificar -->
-        </select>
+        <form-field name="15_9">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+        <form-field name="15_10">
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
 
-        <select name="Há atividades esportivas?">
-            <option value="sim">sim</option>
-            <!-- quais / onde -->
-            <option value="não">não</option>
-        </select>
-
-        <select name="Há atividades culturais/lazer?">
-            <option value="sim">sim</option>
-            <!-- quais / onde -->
-            <option value="não">não</option>
-        </select>
-
-        <input type="text" name="Se há biblioteca, como funciona o acesso das pessoas presas aos livros">
+        <form-field name="15_11">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
 
     </fieldset>
 </form>
