@@ -17,14 +17,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 $rootScope.loading = false;
             });
 
-            //TODO Review this process, it should be more complete, probably check the promise when it's done and have a mongoId
-            $scope.loadProtocol = function () {
-                if (!$scope.protocol.data) {
-                    $location.path('/form');
-                }
-            };
-
-            $scope.loadProtocol();
+            $scope.protocol.data.$promise.catch(function () {
+                $location.path('/form');
+            });
 
         }
     ])
@@ -234,12 +229,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             $scope.loadTemplate = function (pageId) {
                 if (isFinite(parseInt(pageId))) {
-
                     $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
                         return page.number === parseInt(pageId);
                     }).pop();
-
-                    $scope.currentPage.url = formConfig.template.generatePageUrl($scope.$parent.protocol.data.form.template, pageId);
 
                     $scope.$parent.currentTemplate = {
                         name: pageId,
@@ -281,10 +273,35 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         $scope.saveFields = function () {
             $scope.savingForm = true;
+
+            var fieldsToSend = $scope.$parent.protocol.data.form.fields.filter(function (field) {
+                var fieldValue = null;
+
+                var fieldValues = $scope.$parent.protocol.data.field_values;
+                for (var i = 0; i < fieldValues.length; i++) {
+                    if (field.id === fieldValues[i].field.id) {
+                        fieldValue = fieldValues[i];
+                        break;
+                    }
+                }
+
+                if (!fieldValue && (field.value !== null && field.value !== undefined)) {
+                    return true;
+                }
+
+                if (!fieldValue && !field.value) {
+                    return false;
+                }
+
+                return field.value !== fieldValue.value;
+            });
+
+            console.log('Fields to send', fieldsToSend);
+
             formProtocolFields
                 .save({
                     protocolId: $scope.$parent.protocol.data.id,
-                    data: $scope.$parent.protocol.data.form.fields
+                    data: fieldsToSend
                 }, function (data) {
                     //$scope.$parent.protocol.data.form.fields = angular.copy(data.form.fields);
                     $scope.$parent.protocol.data.field_values = angular.copy(data.field_values);

@@ -122,10 +122,8 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
         $protocol = $this->assertJsonResponse($client->getResponse(), Response::HTTP_OK, true);
 
         $this->assertObjectHasAttributes(
-            ['id', 'created_at', 'comment', 'user', 'non_user', 'form'], $protocol
+            ['id'], $protocol
         );
-
-        $this->assertEquals($form->getId(), $protocol->form->id);
 
         return $protocol;
     }
@@ -146,6 +144,7 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
     /**
      * @depends testPostProtocol
      * @param $protocol
+     * @return Protocol
      */
     public function testGetProtocol($protocol)
     {
@@ -154,11 +153,13 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
             'HTTP_ACCEPT' => 'application/json'
         ]);
 
-        $this->assertJsonResponse($client->getResponse(), Response::HTTP_OK, true);
+        $protocol = $this->assertJsonResponse($client->getResponse(), Response::HTTP_OK, true);
+
+        return $protocol;
     }
 
     /**
-     * @depends testPostProtocol
+     * @depends testGetProtocol
      * @param $protocol
      * @return array
      */
@@ -200,7 +201,7 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
     }
 
     /**
-     * @depends testPostProtocol
+     * @depends testGetProtocol
      * @depends testProtocolAddUser
      * @param $protocol
      * @param $protocolUsers
@@ -227,7 +228,7 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
     }
 
     /**
-     * @depends testPostProtocol
+     * @depends testGetProtocol
      * @param $protocol
      * @return array
      */
@@ -256,7 +257,7 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
     }
 
     /**
-     * @depends testPostProtocol
+     * @depends testGetProtocol
      * @param $protocol
      * @return array
      */
@@ -276,7 +277,7 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
     }
 
     /**
-     * @depends testPostProtocol
+     * @depends testGetProtocol
      * @depends testProtocolAddComment
      * @param $protocol
      * @param array $protocolComments
@@ -295,7 +296,7 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
     }
 
     /**
-     * @depends testPostProtocol
+     * @depends testGetProtocol
      * @param $protocol
      */
     public function testGetProtocolsByForm($protocol)
