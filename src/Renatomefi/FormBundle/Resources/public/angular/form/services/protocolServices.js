@@ -13,13 +13,27 @@ angular.module('sammui.protocolServices', ['ngResource'])
                 console.debug('Local storage for "' + protocolId + '" has been updated with changes', changes);
             };
 
-            this.getData = function (protocolId) {
+            var prepareFieldValuesHashMap = function (fieldValues) {
+                var tempObj = {};
+
+                for (var i = 0; i < fieldValues.length; i++) {
+                    tempObj[fieldValues[i].field.id] = i;
+                }
+
+                return tempObj;
+            };
+
+            var publicFunctions = {};
+
+            publicFunctions.getData = function (protocolId) {
 
                 if (!currentData[protocolId]) {
 
                     currentData[protocolId] = formProtocolManage.get({protocolId: protocolId});
 
                     currentData[protocolId].$promise.then(function (data) {
+                        data.field_values_hashmap_field = prepareFieldValuesHashMap(data.field_values);
+
                         originalData[protocolId] = angular.copy(data);
 
                         formTemplate.loadTemplates(data.form);
@@ -27,6 +41,9 @@ angular.module('sammui.protocolServices', ['ngResource'])
                         localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
 
                         Object.observe(currentData[protocolId], function (changes) {
+                            if (changes[0].name === 'field_values') {
+                                data.field_values_hashmap_field = prepareFieldValuesHashMap(data.field_values);
+                            }
                             updateStorage(protocolId, changes);
                         });
 
@@ -41,7 +58,7 @@ angular.module('sammui.protocolServices', ['ngResource'])
                 return currentData[protocolId];
             };
 
-            this.getOriginalData = function (protocolId) {
+            publicFunctions.getOriginalData = function (protocolId) {
                 if (!currentData[protocolId]) {
                     this.getData(protocolId);
                 }
@@ -49,11 +66,11 @@ angular.module('sammui.protocolServices', ['ngResource'])
                 return originalData[protocolId];
             };
 
-            this.reloadOriginalData = function (protocolId) {
+            publicFunctions.reloadOriginalData = function (protocolId) {
                 originalData[protocolId] = formProtocolManage.get({protocolId: protocolId});
             };
 
-            this.replaceDataByOriginal = function (protocolId, reload) {
+            publicFunctions.replaceDataByOriginal = function (protocolId, reload) {
                 reload = reload || false;
 
                 if (reload === true) {
@@ -62,6 +79,8 @@ angular.module('sammui.protocolServices', ['ngResource'])
 
                 currentData[protocolId] = angular.copy(originalData[protocolId]);
             };
+
+            return publicFunctions;
         }])
     .factory('formProtocolManage', function ($resource) {
         return $resource('/form/protocol/:protocolId', {protocolId: '@protocolId'}, {
