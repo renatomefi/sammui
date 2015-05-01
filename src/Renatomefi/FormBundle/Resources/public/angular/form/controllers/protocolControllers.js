@@ -329,20 +329,20 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         var findFieldValueByField = function () {
             var fieldValues = $scope.$parent.protocol.data.field_values;
-
             var hashMap = $scope.$parent.protocol.data.field_values_hashmap_field;
 
             $scope.fieldValue = fieldValues[hashMap[$scope.field.id]] || {};
         };
 
         $scope.$on('event:form-fieldSaved', function () {
-            findFieldValueByField();
+            setTimeout(findFieldValueByField, 150);
+            //findFieldValueByField();
         });
 
         var fieldNameWatch = $scope.$watch('fieldName', function () {
-            $scope.field = $scope.$parent.protocol.data.form.fields.filter(function (value) {
-                return ($scope.fieldName === value.name || $scope.fieldName === value.id);
-            }).pop();
+            var hashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
+
+            $scope.field = $scope.$parent.protocol.data.form.fields[hashMap[$scope.fieldName]];
 
             fieldNameWatch();
         });
