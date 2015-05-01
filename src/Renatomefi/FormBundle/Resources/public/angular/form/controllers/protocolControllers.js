@@ -330,17 +330,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         var findFieldValueByField = function () {
             var fieldValues = $scope.$parent.protocol.data.field_values;
 
-            // Using For Loop to get more performance
-            for (var i = 0; i < fieldValues.length; i++) {
-                if ($scope.field.id === fieldValues[i].field.id) {
-                    $scope.fieldValue = fieldValues[i];
-                    break;
-                }
-            }
+            var hashMap = $scope.$parent.protocol.data.field_values_hashmap_field;
 
-            //$scope.fieldValue = $scope.$parent.protocol.data.field_values.filter(function (value) {
-            //    return $scope.field.id === value.field.id;
-            //}).pop();
+            $scope.fieldValue = fieldValues[hashMap[$scope.field.id]] || {};
         };
 
         $scope.$on('event:form-fieldSaved', function () {
