@@ -271,6 +271,18 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             $scope.formFields = $scope.$parent.protocol.data.form.fields;
         });
 
+        $scope.isValueUpdated = function (fieldValue, field) {
+            if (!fieldValue.hasOwnProperty('value') && field.value === null) {
+                return false;
+            } else if (angular.equals(field.value, fieldValue.value)) {
+                return false;
+            } else if (field.value === fieldValue.value) {
+                return false;
+            }
+
+            return true;
+        };
+
         $scope.saveFields = function () {
             $scope.savingForm = true;
 
@@ -296,8 +308,6 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 return field.value !== fieldValue.value;
             });
 
-            console.log('Fields to send', fieldsToSend);
-
             formProtocolFields
                 .save({
                     protocolId: $scope.$parent.protocol.data.id,
@@ -319,6 +329,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
         var findFieldValueByField = function () {
             var fieldValues = $scope.$parent.protocol.data.field_values;
+
+            // Using For Loop to get more performance
             for (var i = 0; i < fieldValues.length; i++) {
                 if ($scope.field.id === fieldValues[i].field.id) {
                     $scope.fieldValue = fieldValues[i];
@@ -353,18 +365,6 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 $scope.field.value =
                     ($scope.fieldValue && $scope.fieldValue.hasOwnProperty('value')) ? angular.copy($scope.fieldValue.value) : null;
             }
-
-            $scope.isValueUpdated = function () {
-                if (!$scope.fieldValue.hasOwnProperty('value') && $scope.field.value === null) {
-                    return false;
-                } else if (angular.equals($scope.field.value, $scope.fieldValue.value)) {
-                    return false;
-                } else if ($scope.field.value === $scope.fieldValue.value) {
-                    return false;
-                }
-
-                return true;
-            };
 
             // Since we are not going to change the field, let's unbind it, you know, angular issues!
             fieldWatchUnbind();
