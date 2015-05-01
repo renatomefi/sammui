@@ -8,6 +8,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             $scope.currentTemplate = undefined;
 
+            protocolData.setScope($scope);
+
             $scope.protocol = {
                 data: protocolData.getData($routeParams.protocolId),
                 original: protocolData.getOriginalData($routeParams.protocolId)
@@ -313,14 +315,16 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                     protocolId: $scope.$parent.protocol.data.id,
                     data: fieldsToSend
                 }, function (data) {
-                    //$scope.$parent.protocol.data.form.fields = angular.copy(data.form.fields);
                     $scope.$parent.protocol.data.field_values = angular.copy(data.field_values);
-                    $scope.$broadcast('event:form-fieldSaved');
+                    $scope.$on('event:protocol-field_values-updated', function () {
+                        $scope.$broadcast('event:form-fieldSaved');
+                    });
                 })
                 .$promise.finally(function () {
                     $scope.savingForm = false;
                 });
         };
+
     }])
     .controller('formFillingPageField', ['$scope', function ($scope) {
         // $scope.field is determined at ng-init for those who uses this controller
@@ -335,8 +339,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         };
 
         $scope.$on('event:form-fieldSaved', function () {
-            setTimeout(findFieldValueByField, 150);
-            //findFieldValueByField();
+            findFieldValueByField();
         });
 
         var fieldNameWatch = $scope.$watch('fieldName', function () {

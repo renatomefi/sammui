@@ -6,6 +6,8 @@ angular.module('sammui.protocolServices', ['ngResource'])
             var originalData = {};
             var currentData = {};
 
+            var controllerScope;
+
             var storagePrefix = 'protocol.';
 
             var updateStorage = function (protocolId, changes) {
@@ -38,6 +40,10 @@ angular.module('sammui.protocolServices', ['ngResource'])
 
             var publicFunctions = {};
 
+            publicFunctions.setScope = function (scope) {
+                controllerScope = scope;
+            };
+
             publicFunctions.getData = function (protocolId) {
 
                 if (!currentData[protocolId]) {
@@ -57,6 +63,10 @@ angular.module('sammui.protocolServices', ['ngResource'])
                         Object.observe(currentData[protocolId], function (changes) {
                             if (changes[0].name === 'field_values') {
                                 data.field_values_hashmap_field = prepareFieldValuesHashMap(data.field_values);
+
+                                if (controllerScope) {
+                                    controllerScope.$broadcast('event:protocol-field_values-updated');
+                                }
                             }
                             updateStorage(protocolId, changes);
                         });
