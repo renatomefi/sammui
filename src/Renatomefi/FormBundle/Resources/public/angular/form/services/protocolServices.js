@@ -6,6 +6,8 @@ angular.module('sammui.protocolServices', ['ngResource'])
             var originalData = {};
             var currentData = {};
 
+            var controllerScope;
+
             var storagePrefix = 'protocol.';
 
             var updateStorage = function (protocolId, changes) {
@@ -23,7 +25,24 @@ angular.module('sammui.protocolServices', ['ngResource'])
                 return tempObj;
             };
 
+            var prepareFieldsHashMap = function (fields) {
+                var tempObj = {};
+
+                for (var i = 0; i < fields.length; i++) {
+                    if (tempObj[fields[i].name]) {
+                        console.warn('Form fields with name conflict: ' + fields[i].name + ' replacing it under ' + i);
+                    }
+                    tempObj[fields[i].name] = i;
+                }
+
+                return tempObj;
+            };
+
             var publicFunctions = {};
+
+            publicFunctions.setScope = function (scope) {
+                controllerScope = scope;
+            };
 
             publicFunctions.getData = function (protocolId) {
 
@@ -33,6 +52,7 @@ angular.module('sammui.protocolServices', ['ngResource'])
 
                     currentData[protocolId].$promise.then(function (data) {
                         data.field_values_hashmap_field = prepareFieldValuesHashMap(data.field_values);
+                        data.form.fields_hashmap_name = prepareFieldsHashMap(data.form.fields);
 
                         originalData[protocolId] = angular.copy(data);
 
@@ -43,11 +63,17 @@ angular.module('sammui.protocolServices', ['ngResource'])
                         Object.observe(currentData[protocolId], function (changes) {
                             if (changes[0].name === 'field_values') {
                                 data.field_values_hashmap_field = prepareFieldValuesHashMap(data.field_values);
+
+                                if (controllerScope) {
+                                    controllerScope.$broadcast('event:protocol-field_values-updated');
+                                }
                             }
                             updateStorage(protocolId, changes);
                         });
 
                         currentData[protocolId].form.fields.map(function (item) {
+                            //initializing value for all fields
+                            item.value = null;
                             Object.observe(item, function (changes) {
                                 updateStorage(protocolId, changes);
                             });
