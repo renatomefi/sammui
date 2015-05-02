@@ -273,6 +273,12 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             $scope.formFields = $scope.$parent.protocol.data.form.fields;
         });
 
+        $scope.showFieldDetails = false;
+
+        $scope.toggleShowFieldDetails = function () {
+            $scope.showFieldDetails = !$scope.showFieldDetails;
+        };
+
         $scope.isValueUpdated = function (fieldValue, field) {
             if (!fieldValue.hasOwnProperty('value') && field.value === null) {
                 return false;
@@ -330,6 +336,25 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         // $scope.field is determined at ng-init for those who uses this controller
         $scope.field = {};
         $scope.fieldValue = {};
+
+        $scope.dependenciesSatisfied = function () {
+            if ($scope.field.depends_on.length === 0) {
+                return true;
+            }
+
+            var unmet = false;
+
+            var fieldHashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
+            angular.forEach($scope.field.depends_on, function (dependency) {
+                var field = $scope.$parent.protocol.data.form.fields[fieldHashMap[dependency.name]];
+
+                if (!field.value || field.value === false || field.value === null) {
+                    unmet = true;
+                }
+            });
+
+            return !unmet;
+        };
 
         var findFieldValueByField = function () {
             var fieldValues = $scope.$parent.protocol.data.field_values;
