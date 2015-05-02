@@ -10,8 +10,22 @@
         </small>
     </label>
 
-    <div ng-transclude></div>
-    <p ng-if="showFieldDetails && fieldValue" class="help-block">
-        {{fieldValue.last_updated | date : 'medium'}} <strong>{{fieldValue.value}}</strong>
-    </p>
+    <div ng-hide="freeTextEnabled" ng-transclude></div>
+    <div ng-if="freeTextEnabled">
+        <div class="input-group merged">
+            <div class="input-group-btn">
+                <button class="btn btn-warning" ng-click="clearCurrentValue()">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </div>
+    </div>
+    <div ng-if="showFieldDetails && fieldValue.hasOwnProperty('value')">
+        <p class="help-block">
+            {{fieldValue.last_updated | date : 'medium'}} <strong>{{fieldValue.value}}</strong>
+        </p>
+    </div>
 </div>

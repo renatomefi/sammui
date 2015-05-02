@@ -337,6 +337,30 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         $scope.field = {};
         $scope.fieldValue = {};
 
+        $scope.freeTextEnabled = false;
+
+        $scope.clearCurrentValue = function () {
+            $scope.field.value = null;
+        };
+
+        $scope.$watch('field.value', function () {
+            if ($scope.field.hasOwnProperty('free_text_option')) {
+                var freeTextOption = $scope.field.free_text_option;
+
+                var isFreeTextSelected = ($scope.field.value === freeTextOption);
+                if (isFreeTextSelected ||
+                    (!$scope.field.options.hasOwnProperty($scope.field.value) && $scope.field.value !== null)) {
+                    var key = angular.copy($scope.field.value);
+                    if (isFreeTextSelected) {
+                        $scope.field.value = $scope.field.options[key];
+                    }
+                    $scope.freeTextEnabled = true;
+                } else {
+                    $scope.freeTextEnabled = false;
+                }
+            }
+        });
+
         $scope.dependenciesSatisfied = function () {
             if ($scope.field.depends_on.length === 0) {
                 return true;
