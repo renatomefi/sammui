@@ -353,6 +353,10 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 }
             });
 
+            if (unmet === true) {
+                $scope.$broadcast('event:form-fieldUnmetDependencies');
+            }
+
             return !unmet;
         };
 
@@ -363,10 +367,17 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             $scope.fieldValue = fieldValues[hashMap[$scope.field.id]] || {};
         };
 
+        // Find the field_values every time the form is saved
         $scope.$on('event:form-fieldSaved', function () {
             findFieldValueByField();
         });
 
+        // If the field have unmet dependencies just clear it value
+        $scope.$on('event:form-fieldUnmetDependencies', function () {
+            $scope.field.value = null;
+        });
+
+        // When the form-field directive is initialized it has a fieldName, this function will bind it with the field
         var fieldNameWatch = $scope.$watch('fieldName', function () {
             var hashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
 
@@ -375,6 +386,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             fieldNameWatch();
         });
 
+        // Initialize the field and set the best value
         var fieldWatchUnbind = $scope.$watch('field', function () {
 
             findFieldValueByField();
