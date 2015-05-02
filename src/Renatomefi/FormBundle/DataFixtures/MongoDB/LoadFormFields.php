@@ -56,7 +56,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
 
         $field = new FormField();
         $field->setName('gender');
-        $field->setOptions(['m' => 'Masculino','f' => 'Feminino']);
+        $field->setOptions(['m' => 'Masculino', 'f' => 'Feminino']);
         $documentManager->persist($field);
         $form->addField($field);
         unset($field);
@@ -77,6 +77,24 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
         $nField->addDependsOn($field);
         $documentManager->persist($nField);
         $form->addField($nField);
+        unset($field);
+        unset($nField);
+
+        $field = new FormField();
+        $field->setName('operational_system');
+        $field->setOptions(['Linux', 'MacOS', 'Windows', 'Other']);
+        $field->setFreeTextOption(3);
+        $documentManager->persist($field);
+        $form->addField($field);
+        unset($field);
+
+        $field = new FormField();
+        $field->setName('operational_system_map');
+        $field->setOptions(['linux' => 'Linux', 'mac' => 'MacOS', 'win' => 'Windows', 'other' => 'Other']);
+        $field->setFreeTextOption('other');
+        $documentManager->persist($field);
+        $form->addField($field);
+        unset($field);
 
         $documentManager->persist($form);
         $documentManager->flush();

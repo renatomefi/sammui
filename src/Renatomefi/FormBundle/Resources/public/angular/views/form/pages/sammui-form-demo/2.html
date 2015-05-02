@@ -12,5 +12,21 @@
                    class="form-control">
         </form-field>
 
+        <form-field name="operational_system">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+
+        <form-field name="operational_system_map">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
+        </form-field>
+
     </fieldset>
 </form>

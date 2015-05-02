@@ -177,6 +177,7 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                 })
                 .error(function (data, status) {
                     if (status === 400 && isRetry === false) {
+                        console.log('Cleaning invalid credentials');
                         oAuth.logout(true);
                         oAuth.beAnonymous();
                     }
