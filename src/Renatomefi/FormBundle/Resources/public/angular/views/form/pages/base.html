@@ -6,6 +6,12 @@
         {{currentPage.title}}
         <div class="btn-group btn-group-sm pull-right">
             <button type="button" class="btn btn-success" ng-click="saveFields()">Save</button>
+            <button ng-class="{'btn-primary': showFieldDetails}"
+                    ng-click="toggleShowFieldDetails()"
+                    type="button" class="btn">
+                <i ng-class="{'glyphicon-eye-open': showFieldDetails, 'glyphicon-eye-close': !showFieldDetails}"
+                   class="glyphicon"></i>
+            </button>
         </div>
     </h2>
     <div ng-include="currentPage.url"></div>

@@ -273,6 +273,12 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             $scope.formFields = $scope.$parent.protocol.data.form.fields;
         });
 
+        $scope.showFieldDetails = false;
+
+        $scope.toggleShowFieldDetails = function () {
+            $scope.showFieldDetails = !$scope.showFieldDetails;
+        };
+
         $scope.isValueUpdated = function (fieldValue, field) {
             if (!fieldValue.hasOwnProperty('value') && field.value === null) {
                 return false;

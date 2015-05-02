@@ -11,4 +11,7 @@
     </label>
 
     <div ng-transclude></div>
+    <p ng-if="showFieldDetails && fieldValue" class="help-block">
+        {{fieldValue.last_updated | date : 'medium'}} <strong>{{fieldValue.value}}</strong>
+    </p>
 </div>
