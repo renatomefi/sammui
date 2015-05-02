@@ -331,6 +331,25 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         $scope.field = {};
         $scope.fieldValue = {};
 
+        $scope.dependenciesSatisfied = function () {
+            if ($scope.field.depends_on.length === 0) {
+                return true;
+            }
+
+            var unmet = false;
+
+            var fieldHashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
+            angular.forEach($scope.field.depends_on, function (dependency) {
+                var field = $scope.$parent.protocol.data.form.fields[fieldHashMap[dependency.name]];
+
+                if (!field.value || field.value === false || field.value === null) {
+                    unmet = true;
+                }
+            });
+
+            return !unmet;
+        };
+
         var findFieldValueByField = function () {
             var fieldValues = $scope.$parent.protocol.data.field_values;
             var hashMap = $scope.$parent.protocol.data.field_values_hashmap_field;
