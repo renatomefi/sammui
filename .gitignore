@@ -5,7 +5,6 @@
 /build/
 /vendor/
 /composer.phar
-composer.lock
 /bin/karma/*
 /bin/doctrine*
 # Bower components
