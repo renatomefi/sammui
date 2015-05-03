@@ -352,9 +352,10 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                     (!$scope.field.options.hasOwnProperty($scope.field.value) && $scope.field.value !== null)) {
                     var key = angular.copy($scope.field.value);
                     if (isFreeTextSelected) {
-                        $scope.field.value = $scope.field.options[key];
+                        $scope.field.value = '';
                     }
                     $scope.freeTextEnabled = true;
+                    $scope.$broadcast('event:form-fieldFreeTextEnabled');
                 } else {
                     $scope.freeTextEnabled = false;
                 }
@@ -367,8 +368,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             }
 
             var unmet = false;
-
             var fieldHashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
+
             angular.forEach($scope.field.depends_on, function (dependency) {
                 var field = $scope.$parent.protocol.data.form.fields[fieldHashMap[dependency.name]];
 

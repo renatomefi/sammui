@@ -23,9 +23,16 @@ angular.module('sammui.formDirectives', [])
             restrict: 'E',
             transclude: true,
             scope: true,
-            link: function(scope, element, attrs, ngModelCtrl, transclude){
+            link: function (scope, element, attrs, ngModelCtrl, transclude) {
                 scope.fieldName = attrs.name;
             },
             templateUrl: '/bundles/form/angular/views/form/pages/field.html'
+        };
+    })
+    .directive('focusOn', function () {
+        return function (scope, elem, attr) {
+            scope.$on(attr.focusOn, function () {
+                elem[0].focus();
+            });
         };
     });
