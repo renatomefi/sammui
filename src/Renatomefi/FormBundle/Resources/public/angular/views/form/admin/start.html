@@ -1,0 +1,44 @@
+<!-- Controller: formStart -->
+<div ui-content-for="title">
+    {{ 'form-admin-start-title' | translate }}
+</div>
+
+<div class="scrollable">
+    <div class="scrollable-content">
+        <div class="list-group">
+            <div class="list-group-item list-group-item-home text-center">
+                <h1><i class="glyphicon glyphicon-cog feature-icon text-primary"></i>
+                    {{ 'form-admin-start-choose' | translate }}
+                </h1>
+            </div>
+            <div class="list-group-item list-group-item-home media">
+                <div class="media-body">
+                    <div class="alert alert-info" ng-show="!forms.data && !forms.loading">
+                        {{ 'form-no-forms' | translate }}
+                    </div>
+                    <div class="input-group merged">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-copy" aria-hidden="true"></span>
+                        </div>
+                        <select class="form-control"
+                                ng-model="forms.current"
+                                ng-disabled="forms.loading || !forms.data"
+                                ng-options="f.id as f.name | translate for f in forms.data">
+                            <option value="" ng-if="!forms.current">
+                                {{ 'form-select-default' | translate }}
+                            </option>
+                        </select>
+
+                        <div class="input-group-btn">
+                            <button class="btn btn-success"
+                                    ng-click="startForm(forms.current)"
+                                    ng-disabled="!forms.current">
+                                <span class="glyphicon glyphicon-play"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
