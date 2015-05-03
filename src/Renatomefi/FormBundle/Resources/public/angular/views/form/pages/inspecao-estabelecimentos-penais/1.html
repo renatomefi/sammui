@@ -2,9 +2,11 @@
     <fieldset>
 
         <form-field name="1_1">
-            <input ng-model="$parent.field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
+            <select class="form-control"
+                    ng-model="$parent.field.value"
+                    ng-options="key as value for (key , value) in $parent.field.options">
+                <option></option>
+            </select>
         </form-field>
 
         <form-field name="1_2">

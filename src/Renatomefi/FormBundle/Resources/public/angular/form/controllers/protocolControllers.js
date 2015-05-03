@@ -8,6 +8,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             $scope.currentTemplate = undefined;
 
+            protocolData.setScope($scope);
+
             $scope.protocol = {
                 data: protocolData.getData($routeParams.protocolId),
                 original: protocolData.getOriginalData($routeParams.protocolId)
@@ -271,6 +273,24 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             $scope.formFields = $scope.$parent.protocol.data.form.fields;
         });
 
+        $scope.showFieldDetails = false;
+
+        $scope.toggleShowFieldDetails = function () {
+            $scope.showFieldDetails = !$scope.showFieldDetails;
+        };
+
+        $scope.isValueUpdated = function (fieldValue, field) {
+            if (!fieldValue.hasOwnProperty('value') && field.value === null) {
+                return false;
+            } else if (angular.equals(field.value, fieldValue.value)) {
+                return false;
+            } else if (field.value === fieldValue.value) {
+                return false;
+            }
+
+            return true;
+        };
+
         $scope.saveFields = function () {
             $scope.savingForm = true;
 
@@ -296,53 +316,102 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 return field.value !== fieldValue.value;
             });
 
-            console.log('Fields to send', fieldsToSend);
-
             formProtocolFields
                 .save({
                     protocolId: $scope.$parent.protocol.data.id,
                     data: fieldsToSend
                 }, function (data) {
-                    //$scope.$parent.protocol.data.form.fields = angular.copy(data.form.fields);
                     $scope.$parent.protocol.data.field_values = angular.copy(data.field_values);
-                    $scope.$broadcast('event:form-fieldSaved');
+                    $scope.$on('event:protocol-field_values-updated', function () {
+                        $scope.$broadcast('event:form-fieldSaved');
+                    });
                 })
                 .$promise.finally(function () {
                     $scope.savingForm = false;
                 });
         };
+
     }])
     .controller('formFillingPageField', ['$scope', function ($scope) {
         // $scope.field is determined at ng-init for those who uses this controller
         $scope.field = {};
         $scope.fieldValue = {};
 
-        var findFieldValueByField = function () {
-            var fieldValues = $scope.$parent.protocol.data.field_values;
-            for (var i = 0; i < fieldValues.length; i++) {
-                if ($scope.field.id === fieldValues[i].field.id) {
-                    $scope.fieldValue = fieldValues[i];
-                    break;
-                }
-            }
+        $scope.freeTextEnabled = false;
 
-            //$scope.fieldValue = $scope.$parent.protocol.data.field_values.filter(function (value) {
-            //    return $scope.field.id === value.field.id;
-            //}).pop();
+        $scope.clearCurrentValue = function () {
+            $scope.field.value = null;
         };
 
+        $scope.$watch('field.value', function () {
+            if ($scope.field.hasOwnProperty('free_text_option')) {
+                var freeTextOption = $scope.field.free_text_option;
+
+                var isFreeTextSelected = ($scope.field.value === freeTextOption);
+                if (isFreeTextSelected ||
+                    (!$scope.field.options.hasOwnProperty($scope.field.value) && $scope.field.value !== null)) {
+                    var key = angular.copy($scope.field.value);
+                    if (isFreeTextSelected) {
+                        $scope.field.value = '';
+                    }
+                    $scope.freeTextEnabled = true;
+                    $scope.$broadcast('event:form-fieldFreeTextEnabled');
+                } else {
+                    $scope.freeTextEnabled = false;
+                }
+            }
+        });
+
+        $scope.dependenciesSatisfied = function () {
+            if ($scope.field.depends_on.length === 0) {
+                return true;
+            }
+
+            var unmet = false;
+            var fieldHashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
+
+            angular.forEach($scope.field.depends_on, function (dependency) {
+                var field = $scope.$parent.protocol.data.form.fields[fieldHashMap[dependency.name]];
+
+                if (!field.value || field.value === false || field.value === null) {
+                    unmet = true;
+                }
+            });
+
+            if (unmet === true) {
+                $scope.$broadcast('event:form-fieldUnmetDependencies');
+            }
+
+            return !unmet;
+        };
+
+        var findFieldValueByField = function () {
+            var fieldValues = $scope.$parent.protocol.data.field_values;
+            var hashMap = $scope.$parent.protocol.data.field_values_hashmap_field;
+
+            $scope.fieldValue = fieldValues[hashMap[$scope.field.id]] || {};
+        };
+
+        // Find the field_values every time the form is saved
         $scope.$on('event:form-fieldSaved', function () {
             findFieldValueByField();
         });
 
+        // If the field have unmet dependencies just clear it value
+        $scope.$on('event:form-fieldUnmetDependencies', function () {
+            $scope.field.value = null;
+        });
+
+        // When the form-field directive is initialized it has a fieldName, this function will bind it with the field
         var fieldNameWatch = $scope.$watch('fieldName', function () {
-            $scope.field = $scope.$parent.protocol.data.form.fields.filter(function (value) {
-                return ($scope.fieldName === value.name || $scope.fieldName === value.id);
-            }).pop();
+            var hashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
+
+            $scope.field = $scope.$parent.protocol.data.form.fields[hashMap[$scope.fieldName]];
 
             fieldNameWatch();
         });
 
+        // Initialize the field and set the best value
         var fieldWatchUnbind = $scope.$watch('field', function () {
 
             findFieldValueByField();
@@ -353,18 +422,6 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 $scope.field.value =
                     ($scope.fieldValue && $scope.fieldValue.hasOwnProperty('value')) ? angular.copy($scope.fieldValue.value) : null;
             }
-
-            $scope.isValueUpdated = function () {
-                if (!$scope.fieldValue.hasOwnProperty('value') && $scope.field.value === null) {
-                    return false;
-                } else if (angular.equals($scope.field.value, $scope.fieldValue.value)) {
-                    return false;
-                } else if ($scope.field.value === $scope.fieldValue.value) {
-                    return false;
-                }
-
-                return true;
-            };
 
             // Since we are not going to change the field, let's unbind it, you know, angular issues!
             fieldWatchUnbind();
