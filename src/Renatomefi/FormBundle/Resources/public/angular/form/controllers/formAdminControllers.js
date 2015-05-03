@@ -1,11 +1,6 @@
 'use strict';
 
 angular.module('sammui.formAdminControllers', ['ngRoute'])
-    .controller('formAdmin', ['$scope', 'formList',
-        function ($scope, formList) {
-
-        }
-    ])
     .controller('formAdminStart', ['$scope', '$location', 'formList',
         function ($scope, $location, formList) {
 
@@ -37,9 +32,23 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
 
         }
     ])
-    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', 'formList', 'formProtocol',
-        function ($rootScope, $scope, $location, formList, formProtocol) {
-            console.log('time to see protocols');
+    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', '$routeParams', 'formProtocols', 'formManage', 'formProtocol',
+        function ($rootScope, $scope, $location, $routeParams, formProtocols, formManage, formProtocol) {
+            $rootScope.loading = true;
+
+            // Loading form
+            formManage.get(
+                {formId: $routeParams.formId}, function (data) {
+                    $scope.form = data;
+                });
+
+            // Loading protocols from form
+            formProtocols.query(
+                {formId: $routeParams.formId}, function (data) {
+                    $scope.protocols = data;
+                }).$promise.finally(function () {
+                    $rootScope.loading = false;
+                });
         }
     ])
 ;
