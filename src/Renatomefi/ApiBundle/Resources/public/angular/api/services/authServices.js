@@ -177,9 +177,10 @@ angular.module('sammui.apiAuthServices', ['ngResource', 'ngRoute', 'ngCookies'])
                 })
                 .error(function (data, status) {
                     if (status === 400 && isRetry === false) {
-                        console.log('Cleaning invalid credentials');
-                        oAuth.logout(true);
-                        oAuth.beAnonymous();
+                        // TODO review what to do when the request is 400
+                        console.error('Invalid refresh token');
+                        //oAuth.logout(true);
+                        //oAuth.beAnonymous();
                     }
                     $rootScope.$broadcast('event:auth-loginFail', data, status);
                     return data;
