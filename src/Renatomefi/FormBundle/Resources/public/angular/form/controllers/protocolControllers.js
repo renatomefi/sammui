@@ -363,7 +363,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         });
 
         $scope.dependenciesSatisfied = function () {
-            if ($scope.field.depends_on.length === 0) {
+            if ($scope.field.hasOwnProperty('depends_on') && $scope.field.depends_on.length === 0) {
                 return true;
             }
 
