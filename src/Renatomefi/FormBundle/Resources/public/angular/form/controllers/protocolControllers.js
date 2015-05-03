@@ -367,8 +367,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             }
 
             var unmet = false;
-
             var fieldHashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
+
             angular.forEach($scope.field.depends_on, function (dependency) {
                 var field = $scope.$parent.protocol.data.form.fields[fieldHashMap[dependency.name]];
 
