@@ -2,13 +2,22 @@
 
 // Configuring $translateProvider
 var sammuiTranslate = angular.module('sammui.translate', [
-    'pascalprecht.translate',
-    'sammui.translateServices',
-    'sammui.translateControllers'
-]).config(['$translateProvider', function ($translateProvider) {
-    //$translateProvider.preferredLanguage('en-us');
-    $translateProvider.useLoader('translateLoader');
-}]);
+        'pascalprecht.translate',
+        'sammui.translateServices',
+        'sammui.translateControllers'
+    ]).config(['$translateProvider', function ($translateProvider) {
+        //$translateProvider.preferredLanguage('en-us');
+        $translateProvider.useLoader('translateLoader');
+    }])
+        .config(function ($routeProvider) {
+            $routeProvider.when('/l10n/admin', {
+                templateUrl: '/l10n/admin',
+                templatePreload: false,
+                controller: 'TranslateKeysController',
+                reloadOnSearch: false
+            });
+        })
+    ;
 
 sammuiTranslate.filter('getByKey', function () {
     return function (data, key) {
@@ -25,7 +34,6 @@ sammuiTranslate.filter('getByKey', function () {
 });
 
 sammuiTranslate.run(function ($rootScope, $translate, translateLangsInfo, localStorageService) {
-
     if (localStorageService.get('preferredLanguage')) {
         $translate.use(localStorageService.get('preferredLanguage'));
     } else {
