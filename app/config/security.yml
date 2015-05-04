@@ -68,6 +68,7 @@ security:
         - { path: ^/l10n/manage/langs, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET]}
         - { path: ^/l10n/manage/langs, roles: ROLE_ADMIN, methods: [POST, PUT, DELETE]}
         - { path: ^/form/protocol/forms, roles: ROLE_ADMIN, methods: [GET]}
+        - { path: ^/form/manage/list/all, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [GET]}
         - { path: ^/form/manage, roles: ROLE_ADMIN, methods: [GET]}
         - { path: ^/api/user/info, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/logout$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
