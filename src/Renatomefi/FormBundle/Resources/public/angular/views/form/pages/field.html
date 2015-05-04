@@ -11,9 +11,7 @@
     </label>
 
     <div ng-if="!protocol.readOnly" ng-hide="freeTextEnabled" ng-transclude></div>
-    <div ng-if="protocol.readOnly">
-        <i class="glyphicon glyphicon-arrow-right"></i> {{field.value}}
-    </div>
+
     <div ng-if="freeTextEnabled && !protocol.readOnly">
         <div class="input-group merged">
             <div class="input-group-btn">
@@ -27,6 +25,10 @@
                    class="form-control">
         </div>
     </div>
+
+    <blockquote ng-if="protocol.readOnly">
+        <p>{{field | fieldHumanValue}}</p>
+    </blockquote>
     <div ng-if="showFieldDetails && fieldValue.hasOwnProperty('value')">
         <p class="help-block">
             {{fieldValue.last_updated | date : 'medium'}} <strong>{{fieldValue.value}}</strong>

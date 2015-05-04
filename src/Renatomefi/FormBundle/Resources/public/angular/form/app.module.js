@@ -36,3 +36,36 @@ sammuiForm.config(function ($locationProvider, $routeProvider) {
         reloadOnSearch: false
     });
 });
+
+/*
+ 'form-value-null' => 'Nenhum valor'
+ 'form-value-true' => 'Verdadeiro'
+ 'form-value-false' => 'Falso'
+ */
+sammuiForm.filter('fieldHumanValue', function($filter) {
+    return function(input) {
+        var field = (input.hasOwnProperty('field')) ? input.field : input;
+
+        if (field.value === null) {
+            return $filter('translate')('form-value-null');
+        }
+
+        if (field.value === 'true' || field.value === true) {
+            return $filter('translate')('form-value-true');
+        }
+
+        if (field.value === 'false' || field.value === false) {
+            return $filter('translate')('form-value-false');
+        }
+
+        if (field.hasOwnProperty('options')) {
+            if (field.options[field.value]) {
+                return field.options[field.value];
+            } else if (field.hasOwnProperty('free_text_option')) {
+                return field.options[field.free_text_option] + ': ' + field.value;
+            }
+        }
+
+        return field.value;
+    };
+});

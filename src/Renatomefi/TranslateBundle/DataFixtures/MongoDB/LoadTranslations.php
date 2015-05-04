@@ -87,7 +87,31 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         // Form: demo
         'sammui-form-demo' => [
             'en-us' => 'Demo Form',
-            'pt-br' => 'Formulário de demonstração']
+            'pt-br' => 'Formulário de demonstração'],
+        'form-sammui-form-demo-field-name' => [
+            'en-us' => 'Complete Name',
+            'pt-br' => 'Nome Completo'],
+        'form-sammui-form-demo-field-email' => [
+            'en-us' => 'Email',
+            'pt-br' => 'Email'],
+        'form-sammui-form-demo-field-gender' => [
+            'en-us' => 'Gender',
+            'pt-br' => 'Sexo'],
+        'form-sammui-form-demo-field-above_21' => [
+            'en-us' => 'Above 21 yo',
+            'pt-br' => 'Mais de 21 anos'],
+        'form-sammui-form-demo-field-should_open_next' => [
+            'en-us' => 'Should open next field?',
+            'pt-br' => 'Devo abrir o próximo campo?'],
+        'form-sammui-form-demo-field-next' => [
+            'en-us' => 'I\'m next field',
+            'pt-br' => 'Eu sou o próximo campo'],
+        'form-sammui-form-demo-field-operational_system' => [
+            'en-us' => 'O.S. Sample with options (numeric keys)',
+            'pt-br' => 'S.O. Exemplo com opções (chaves numéricas)'],
+        'form-sammui-form-demo-field-operational_system_map' => [
+            'en-us' => 'O.S. Sample with options (hash keys)',
+            'pt-br' => 'S.O. Exemplo com opções (chaves com hash)'],
     ];
 
     /**
