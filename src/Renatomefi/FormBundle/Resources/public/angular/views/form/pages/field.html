@@ -10,8 +10,11 @@
         </small>
     </label>
 
-    <div ng-hide="freeTextEnabled" ng-transclude></div>
-    <div ng-if="freeTextEnabled">
+    <div ng-if="!$parent.protocol.readOnly" ng-hide="freeTextEnabled" ng-transclude></div>
+    <div ng-if="$parent.protocol.readOnly">
+        <i class="glyphicon glyphicon-arrow-right"></i> {{field.value}}
+    </div>
+    <div ng-if="freeTextEnabled && !$parent.protocol.readOnly">
         <div class="input-group merged">
             <div class="input-group-btn">
                 <button class="btn btn-warning" ng-click="clearCurrentValue()">
