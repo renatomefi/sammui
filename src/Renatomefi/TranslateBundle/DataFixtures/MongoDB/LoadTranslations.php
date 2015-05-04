@@ -74,6 +74,16 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-filling-index-pages-title' => [
             'en-us' => 'Pages Index',
             'pt-br' => 'Índice de Páginas'],
+        // Form: Buttons 'form-filling-btn-save'
+        'form-filling-btn-save' => [
+            'en-us' => 'Save',
+            'pt-br' => 'Salvar'],
+        'form-filling-btn-readonly' => [
+            'en-us' => 'Read Only mode',
+            'pt-br' => 'Modo leitura'],
+        'form-filling-btn-publish' => [
+            'en-us' => 'Publish',
+            'pt-br' => 'Publicar'],
         // Form: demo
         'sammui-form-demo' => [
             'en-us' => 'Demo Form',

@@ -2,7 +2,7 @@
 <div ng-controller="formFillingPageField"
      ng-show="dependenciesSatisfied()"
      class="form-group">
-    <label>{{ ::'form-' + $parent.protocol.data.form.name + '-field-' + field.name | translate}}
+    <label>{{ ::'form-' + protocol.data.form.name + '-field-' + field.name | translate}}
         <small ng-show="isValueUpdated(fieldValue, field)">
             <i ng-class="{'text-success': savingForm, 'text-warning': !savingForm}"
                class="glyphicon glyphicon-floppy-disk"></i>
@@ -10,11 +10,11 @@
         </small>
     </label>
 
-    <div ng-if="!$parent.protocol.readOnly" ng-hide="freeTextEnabled" ng-transclude></div>
-    <div ng-if="$parent.protocol.readOnly">
+    <div ng-if="!protocol.readOnly" ng-hide="freeTextEnabled" ng-transclude></div>
+    <div ng-if="protocol.readOnly">
         <i class="glyphicon glyphicon-arrow-right"></i> {{field.value}}
     </div>
-    <div ng-if="freeTextEnabled && !$parent.protocol.readOnly">
+    <div ng-if="freeTextEnabled && !protocol.readOnly">
         <div class="input-group merged">
             <div class="input-group-btn">
                 <button class="btn btn-warning" ng-click="clearCurrentValue()">
