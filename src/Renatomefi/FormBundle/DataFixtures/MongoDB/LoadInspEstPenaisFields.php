@@ -2,6 +2,7 @@
 
 namespace Renatomefi\UserBundle\DataFixtures\MongoDB;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
@@ -53,7 +54,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Diretoria / Departamento',
                 'Superintendência',
                 'Instituto / Agência',
-                'Outro',
+                'other' => 'Outro',
             ],
             'type' => 'select'
         ],
@@ -128,6 +129,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '10_1',
             'page' => '1',
+            'depends_on' => '1_10',
             'translate' => [
                 'pt-br' => ''
             ],
@@ -321,7 +323,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Pedagogia',
                 'Administração',
                 'Serviço Social',
-                'Outra',
+                'other' => 'Outra',
             ]
         ],
 
@@ -355,7 +357,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Pedagogia',
                 'Administração',
                 'Serviço Social',
-                'Outra',
+                'other' => 'Outra',
             ]
         ],
         [
@@ -397,7 +399,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Trimestral',
                 'Semestral',
                 'Anual',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         [
@@ -705,6 +707,15 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
+            'name' => '26_1',
+            'page' => '4',
+            'depends_on' => '4_26',
+            'translate' => [
+                'pt-br' => 'Quais'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '27',
             'page' => '4',
             'translate' => [
@@ -736,34 +747,96 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
+            'name' => '1_1',
+            'page' => '5',
+            'depends_on' => '5_1',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text'
+        ],
+        [
             'name' => '2',
             'page' => '5',
             'translate' => [
-                'pt-br' => 'Há notificação para Funai quanto ao ingresso do indígena?'
+                'pt-br' => 'Há pessoas com mais de 60 anos presas?'
             ],
             'type' => 'boolean',
             // Quantidade???
+        ],
+        [
+            'name' => '2_1',
+            'page' => '5',
+            'depends_on' => '5_2',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text'
         ],
         [
             'name' => '3',
             'page' => '5',
             'translate' => [
-                'pt-br' => 'Há estrangeiros presos?'
+                'pt-br' => 'Há indígenas presos?'
             ],
             'type' => 'boolean',
             // Quantidade???
+        ],
+        [
+            'name' => '3_1',
+            'page' => '5',
+            'depends_on' => '5_3',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text'
         ],
         [
             'name' => '4',
             'page' => '5',
             'translate' => [
-                'pt-br' => 'Há adolescentes internados no local?'
+                'pt-br' => 'Há notificação para Funai quanto ao ingresso do indígena?'
             ],
             'type' => 'boolean',
-            // Quantidade???
         ],
         [
             'name' => '5',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há estrangeiros presos?'
+            ],
+            'type' => 'boolean',
+            // Quantidade?
+        ],
+        [
+            'name' => '5_1',
+            'page' => '5',
+            'depends_on' => '5_5',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '6',
+            'page' => '5',
+            'translate' => [
+                'pt-br' => 'Há adolescentes internados no local?'
+            ],
+            'type' => 'boolean',
+            // Quantidade?
+        ],
+        [
+            'name' => '6_1',
+            'page' => '5',
+            'depends_on' => '5_6',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '7',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Os adolescentes estão separados dos adultos?'
@@ -771,7 +844,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '6',
+            'name' => '8',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Providências adotadas em relação à separação imediata e retirada do(s) adolescente(s)'
@@ -779,7 +852,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
-            'name' => '7',
+            'name' => '9',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há pessoas presas com transtorno mental?'
@@ -788,7 +861,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '8',
+            'name' => '9_1',
+            'page' => '5',
+            'depends_on' => '5_9',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '10',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há pessoas presas em tratamento para dependência química?'
@@ -797,7 +879,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '9',
+            'name' => '10_1',
+            'page' => '5',
+            'depends_on' => '5_10',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '11',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há pessoas presas com Diabetes?'
@@ -806,7 +897,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '10',
+            'name' => '11_1',
+            'page' => '5',
+            'depends_on' => '5_11',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '12',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há pessoas presas com Hipertensão?'
@@ -815,7 +915,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '11',
+            'name' => '12_1',
+            'page' => '5',
+            'depends_on' => '5_12',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '13',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há pessoas presas com HIV?'
@@ -824,7 +933,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '12',
+            'name' => '13_1',
+            'page' => '5',
+            'depends_on' => '5_13',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há pessoas presas com Hepatite?'
@@ -833,7 +951,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '13',
+            'name' => '14_1',
+            'page' => '5',
+            'depends_on' => '5_14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há pessoas presas com Tuberculose?'
@@ -842,7 +969,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '14',
+            'name' => '15_1',
+            'page' => '5',
+            'depends_on' => '5_15',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '16',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há pessoas presas com Hanseníase?'
@@ -851,7 +987,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '15',
+            'name' => '16_1',
+            'page' => '5',
+            'depends_on' => '5_16',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '17',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há pessoas presas em RDD?'
@@ -860,7 +1005,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '16',
+            'name' => '17_1',
+            'page' => '5',
+            'depends_on' => '5_17',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '18',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há presas gestantes?'
@@ -869,13 +1023,31 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade???
         ],
         [
-            'name' => '17',
+            'name' => '18_1',
+            'page' => '5',
+            'depends_on' => '5_18',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '19',
             'page' => '5',
             'translate' => [
                 'pt-br' => 'Há crianças permanecendo com suas mães presas?'
             ],
             'type' => 'boolean',
             // Quantidade???
+        ],
+        [
+            'name' => '19_1',
+            'page' => '5',
+            'depends_on' => '5_19',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
         ],
         //END page 5
 
@@ -3065,18 +3237,32 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
 
         $fieldPrefix = 'form-' . $form->getName();
 
+        $fieldsDocuments = [];
+
         foreach (self::$fields as $field) {
             $formField = new FormField();
-//            $formField->setForm($form);
 
             $formField->setName(self::getFieldName($field));
 
             if (array_key_exists('options', $field)) {
                 $formField->setOptions($field['options']);
+
+                if (array_key_exists('other', $field['options'])) {
+                    $formField->setFreeTextOption('other');
+                }
+            }
+
+            if (array_key_exists('depends_on', $field)) {
+                $dependsOn = $fieldsDocuments[$field['depends_on']];
+                $formField->addDependsOn($dependsOn);
+                unset($dependsOn);
             }
 
             $documentManager->persist($formField);
             $form->addField($formField);
+
+            $fieldsDocuments[self::getFieldName($field)] = $formField;
+
             unset($formField);
 
             $translation = new Translation();
@@ -3087,6 +3273,8 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
 
             unset($translation);
         }
+
+        unset($fieldsDocuments);
 
         $documentManager->persist($form);
         $documentManager->flush();
