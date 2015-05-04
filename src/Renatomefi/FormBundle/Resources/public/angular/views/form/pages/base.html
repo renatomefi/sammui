@@ -5,12 +5,21 @@
         <small>{{currentPage.number}}</small>
         {{currentPage.title}}
         <div class="btn-group btn-group-sm pull-right">
-            <button type="button" class="btn btn-success" ng-click="saveFields()">Save</button>
+            <button ng-click="saveFields()"
+                    ng-class="{'disabled': protocol.readOnly}"
+                    type="button" class="btn btn-success">Save
+            </button>
             <button ng-class="{'btn-primary': showFieldDetails}"
                     ng-click="toggleShowFieldDetails()"
                     type="button" class="btn">
                 <i ng-class="{'glyphicon-eye-open': showFieldDetails, 'glyphicon-eye-close': !showFieldDetails}"
                    class="glyphicon"></i>
+            </button>
+            <button ng-click="toggleReadOnly()"
+                    ng-class="{'btn-info': !protocol.readOnly}"
+                    type="button"
+                    class="btn btn-info">
+                <i class="glyphicon glyphicon-pencil"></i>
             </button>
         </div>
     </h2>

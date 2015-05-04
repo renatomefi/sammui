@@ -3,6 +3,8 @@
 namespace Renatomefi\FormBundle\Tests\Controller;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
+use Renatomefi\ApiBundle\Tests\Auth\OAuthClient;
+use Renatomefi\ApiBundle\Tests\Auth\OAuthClientInterface;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\Protocol;
 use Renatomefi\FormBundle\Tests\Form\AssertForm;
@@ -22,10 +24,10 @@ use Symfony\Component\HttpFoundation\Response;
  * Class ManageControllerTest
  * @package Renatomefi\FormBundle\Tests\Controller
  */
-class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInterface, AssertMongoUtilsInterface, AssertFormInterface, AssertObjectInterface
+class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInterface, AssertMongoUtilsInterface, AssertFormInterface, AssertObjectInterface, OAuthClientInterface
 {
 
-    use AssertMongoUtils, AssertForm, AssertRestUtils, AssertObject;
+    use AssertMongoUtils, AssertForm, AssertRestUtils, AssertObject, OAuthClient;
 
     /**
      * @var DocumentManager
@@ -302,7 +304,9 @@ class ProtocolControllerTest extends WebTestCase implements AssertRestUtilsInter
     public function testGetProtocolsByForm($protocol)
     {
         $client = static::createClient();
-        $client->request(Request::METHOD_GET, '/form/protocol/forms/' . $protocol->form->id, [], [], [
+        $client->request(Request::METHOD_GET, '/form/protocol/forms/' . $protocol->form->id, [
+            'access_token' => $this->getAdminCredentials()->access_token
+        ], [], [
             'HTTP_ACCEPT' => 'application/json'
         ]);
 

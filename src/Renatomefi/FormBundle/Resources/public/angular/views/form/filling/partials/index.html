@@ -1,3 +1,17 @@
+<div class="btn-group text-center">
+    <button
+            ng-class="{'disabled': protocol.readOnly}"
+            type="button" class="btn btn-warning">
+        <i class="glyphicon glyphicon-cloud-upload"></i> {{'form-filling-btn-publish' | translate}}
+    </button>
+    <button ng-click="toggleReadOnly()"
+            ng-class="{'btn-info': !protocol.readOnly}"
+            type="button"
+            class="btn btn-info">
+        <i class="glyphicon glyphicon-pencil"></i> {{'form-filling-btn-readonly' | translate}}
+    </button>
+</div>
+<hr>
 <ul class="nav nav-pills nav-justified">
     <li role="presentation"
         ng-repeat="item in templates"

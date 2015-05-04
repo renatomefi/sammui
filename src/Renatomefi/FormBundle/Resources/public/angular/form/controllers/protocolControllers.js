@@ -12,7 +12,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             $scope.protocol = {
                 data: protocolData.getData($routeParams.protocolId),
-                original: protocolData.getOriginalData($routeParams.protocolId)
+                original: protocolData.getOriginalData($routeParams.protocolId),
+                readOnly: !!($location.search().hasOwnProperty('readOnly'))
             };
 
             $scope.protocol.data.$promise.then(function () {
@@ -21,6 +22,18 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             $scope.protocol.data.$promise.catch(function () {
                 $location.path('/form');
+            });
+
+            $scope.toggleReadOnly = function() {
+                if (false === $scope.protocol.readOnly) {
+                    $location.search('readOnly');
+                } else {
+                    $location.search('readOnly', null);
+                }
+            };
+
+            $scope.$on('$locationChangeSuccess', function (){
+               $scope.protocol.readOnly = !!($location.search().hasOwnProperty('readOnly'));
             });
 
         }

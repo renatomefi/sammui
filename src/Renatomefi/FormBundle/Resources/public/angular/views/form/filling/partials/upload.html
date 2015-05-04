@@ -1,5 +1,5 @@
 <div ng-controller="formFillingUpload">
-    <div class="panel panel-info">
+    <div ng-hide="protocol.readOnly" class="panel panel-info">
         <div class="panel-heading">
             <h3 class="panel-title">{{'form-filling-upload-title' | translate}}</h3>
         </div>
@@ -31,8 +31,8 @@
                              class="progress-bar progress-bar-info"
                              ng-class="{'progress-bar-danger': f.error}"
                              style="width: {{f.progress}}%">
-                            {{((f.error) ? 'upload-try-again' : 'upload-success') | translate}} {{f.name}} ({{f.size |
-                            bytes}})
+                            {{((f.error) ? 'upload-try-again' : 'upload-success') | translate}}
+                            {{f.name}} ({{f.size | bytes}})
                             <span class="sr-only">{{f.progress}}%</span>
                         </div>
                     </div>
@@ -41,15 +41,13 @@
         </div>
     </div>
     <div class="panel panel-default" ng-hide="protocol.data.file.length == 0">
-        <div>
-
-        </div>
         <div class="panel-body">
             <ui-switch ng-model='showThumbs'></ui-switch>
             <div class="list-group" ng-repeat="file in protocol.data.file | orderBy:'-upload_date'">
                 <div class="list-group-item">
                     <h4 class="list-group-item-heading">
                         <button class="btn btn-danger btn-sm"
+                                ng-hide="protocol.readOnly"
                                 ng-click="deleteFile(file.id)">
                             <i class="glyphicon glyphicon-remove"></i>
                         </button>
@@ -59,8 +57,8 @@
                         </a>
                         {{::file.filename}}
                     </h4>
-                    <p class="list-group-item-text">{{file.upload_date | date:'short'}} : {{file.mime_type}} : <strong>{{::file.length
-                        | bytes}}</strong></p>
+                    <p class="list-group-item-text">{{file.upload_date | date:'short'}} :
+                        {{file.mime_type}} : <strong>{{::file.length | bytes}}</strong></p>
 
                     <div class="media">
                         <div class="pull-left" ng-if="showThumbs && file.mime_type.startsWith('image')">
@@ -71,13 +69,19 @@
                         </div>
                         <div class="media-body">
                             <h4 class="media-heading">
-                                <a href="#" editable-text="file.title" onaftersave="updateFile(file, 'title')">
-                                    {{ file.title || 'empty title' }}
+                                <a ng-hide="protocol.readOnly"
+                                   editable-text="file.title"
+                                   onaftersave="updateFile(file, 'title')">
+                                    {{ file.title || 'click-to-edit' | translate }}
                                 </a>
+                                <span ng-show="protocol.readOnly">{{file.title}}</span>
                             </h4>
-                            <a href="#" editable-textarea="file.description" onaftersave="updateFile(file, 'desc')">
+                            <a ng-hide="protocol.readOnly"
+                               editable-textarea="file.description"
+                               onaftersave="updateFile(file, 'desc')">
                                 <pre>{{ file.description || 'click-to-edit' | translate }}</pre>
                             </a>
+                            <pre ng-show="protocol.readOnly">{{file.description}}</pre>
                         </div>
                     </div>
                 </div>

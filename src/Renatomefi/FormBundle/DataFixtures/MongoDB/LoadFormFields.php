@@ -68,6 +68,13 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
         unset($field);
 
         $field = new FormField();
+        $field->setName('sammui_uses');
+        $field->setOptions(['PHP', 'Symfony 2', 'Javascript', 'AngularJS', 'MongoDB', 'Mobile Angular UI']);
+        $documentManager->persist($field);
+        $form->addField($field);
+        unset($field);
+
+        $field = new FormField();
         $field->setName('should_open_next');
         $documentManager->persist($field);
         $form->addField($field);
