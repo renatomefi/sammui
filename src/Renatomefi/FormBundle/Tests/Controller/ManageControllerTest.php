@@ -78,7 +78,13 @@ class ManageControllerTest extends WebTestCase implements OAuthClientInterface, 
 
         $urlSuffix = ($urlSuffix !== null) ? '/' . $urlSuffix : '';
 
-        $client->request(Request::METHOD_GET, '/form/manage' . $urlSuffix, $params, [], [
+        $defaultParams = [
+            'access_token' => $this->_oAuthCredentials->access_token
+        ];
+
+        if (count($params) > 0) $defaultParams = array_merge($params, $defaultParams);
+
+        $client->request(Request::METHOD_GET, '/form/manage' . $urlSuffix, $defaultParams, [], [
             'HTTP_ACCEPT' => 'application/json'
         ]);
 

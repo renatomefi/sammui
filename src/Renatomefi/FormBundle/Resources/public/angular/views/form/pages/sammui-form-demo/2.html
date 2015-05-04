@@ -2,6 +2,19 @@
     <fieldset>
         <legend>Fields Dependency</legend>
 
+        <form-field name="sammui_uses">
+            <div class="checkbox" ng-repeat="(key, value) in $parent.field.options">
+                <label>
+                    <input
+                            type="checkbox"
+                            name="3_1[]"
+                            value="{{key}}"
+                            ng-model="$parent.$parent.field.value[key]">
+                    {{value}}
+                </label>
+            </div>
+        </form-field>
+
         <form-field name="should_open_next">
             <ui-switch ng-model="$parent.field.value"></ui-switch>
         </form-field>

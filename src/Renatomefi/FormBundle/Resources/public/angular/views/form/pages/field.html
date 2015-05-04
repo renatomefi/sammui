@@ -27,7 +27,7 @@
     </div>
 
     <blockquote ng-if="protocol.readOnly">
-        <p>{{field | fieldHumanValue}}</p>
+        <p ng-bind-html="field | fieldHumanValue"></p>
     </blockquote>
     <div ng-if="showFieldDetails && fieldValue.hasOwnProperty('value')">
         <p class="help-block">
