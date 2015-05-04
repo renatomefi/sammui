@@ -1,7 +1,7 @@
 <div ng-controller="formFillingComment">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <form name="formProtocolNewComment" ng-submit="addComment()">
+            <form ng-if="!protocol.readOnly" name="formProtocolNewComment" ng-submit="addComment()">
                 <text-angular
                         ng-model="newComment"
                         ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],['quote','insertLink']]">
@@ -14,6 +14,7 @@
                     <span class="glyphicon glyphicon-comment"></span>
                 </div>
             </form>
+            <span ng-if="protocol.readOnly">{{'form-filling-page-comments' | translate}}</span>
         </div>
         <table class="table">
             <thead>

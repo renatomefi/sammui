@@ -1,7 +1,7 @@
 <div ng-controller="formFillingUser">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <form name="formProtocolNewUser" ng-submit="addUser(newUser)">
+            <form ng-if="!protocol.readOnly" name="formProtocolNewUser" ng-submit="addUser(newUser)">
                 <div class="input-group merged has-feedback">
                     <div class="input-group-addon">
                         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
@@ -22,6 +22,7 @@
                     </div>
                 </div>
             </form>
+            <span ng-if="protocol.readOnly">{{'form-filling-page-users' | translate}}</span>
         </div>
         <table class="table">
             <thead>

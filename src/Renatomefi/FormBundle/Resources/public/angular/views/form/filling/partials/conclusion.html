@@ -1,5 +1,9 @@
 <div class="panel panel-info" ng-controller="formFillingConclusion">
-    <div class="panel-body">
+    <div class="panel-heading">
+        <h3 class="panel-title">{{'form-filling-conclusion' | translate}}</h3>
+    </div>
+    <div ng-show="protocol.readOnly" ng-bind-html="savedConclusion" class="panel-body"></div>
+    <div ng-hide="protocol.readOnly" class="panel-body">
         <text-angular-toolbar
                 name="textFormat"
                 ta-toolbar-class="none"
