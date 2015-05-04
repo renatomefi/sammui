@@ -1,15 +1,6 @@
 'use strict';
 
 angular.module('sammui.translateControllers', ['ngRoute'])
-    // Routes
-    .config(function ($routeProvider) {
-        $routeProvider.when('/l10n/admin', {
-            templateUrl: '/l10n/admin',
-            templatePreload: false,
-            controller: 'TranslateKeysController',
-            reloadOnSearch: false
-        });
-    })
     .controller('TranslateKeysController',
     ['$rootScope', '$scope', '$q', '$window', '$location', '$filter', '$translate', 'translateLangs', 'translateLangsKeys',
         function ($rootScope, $scope, $q, $window, $location, $filter, $translate, translateLangs, translateLangsKeys) {

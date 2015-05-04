@@ -350,7 +350,6 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 var isFreeTextSelected = ($scope.field.value === freeTextOption);
                 if (isFreeTextSelected ||
                     (!$scope.field.options.hasOwnProperty($scope.field.value) && $scope.field.value !== null)) {
-                    var key = angular.copy($scope.field.value);
                     if (isFreeTextSelected) {
                         $scope.field.value = '';
                     }

@@ -109,6 +109,7 @@ class FormField extends ProtocolEmbed
     {
         return $this->freeTextOption;
     }
+
     /**
      * Add dependsOn
      *

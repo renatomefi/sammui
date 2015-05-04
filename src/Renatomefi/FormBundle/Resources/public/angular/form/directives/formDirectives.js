@@ -19,20 +19,23 @@ angular.module('sammui.formDirectives', [])
     })
     .directive('formField', function () {
         return {
-            //require: ['^transclude','^formFillingPage'],
             restrict: 'E',
             transclude: true,
             scope: true,
-            link: function (scope, element, attrs, ngModelCtrl, transclude) {
+            link: function (scope, elem, attrs) {
                 scope.fieldName = attrs.name;
             },
             templateUrl: '/bundles/form/angular/views/form/pages/field.html'
         };
     })
     .directive('focusOn', function () {
-        return function (scope, elem, attr) {
-            scope.$on(attr.focusOn, function () {
-                elem[0].focus();
-            });
+        return {
+            restrict: 'A',
+            link: function (scope, elem, attrs) {
+                scope.$on(attrs.focusOn, function () {
+                    elem[0].focus();
+                });
+            }
         };
-    });
+    })
+;
