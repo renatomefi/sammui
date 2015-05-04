@@ -112,6 +112,16 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-sammui-form-demo-field-operational_system_map' => [
             'en-us' => 'O.S. Sample with options (hash keys)',
             'pt-br' => 'S.O. Exemplo com opções (chaves com hash)'],
+        // Form: human readable Field Values
+        'form-value-null' => [
+            'en-us' => 'NULL Value',
+            'pt-br' => 'Valor nulo'],
+        'form-value-true' => [
+            'en-us' => 'True',
+            'pt-br' => 'Verdadeiro'],
+        'form-value-false' => [
+            'en-us' => 'False',
+            'pt-br' => 'Falso'],
     ];
 
     /**

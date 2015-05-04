@@ -37,11 +37,6 @@ sammuiForm.config(function ($locationProvider, $routeProvider) {
     });
 });
 
-/*
- 'form-value-null' => 'Nenhum valor'
- 'form-value-true' => 'Verdadeiro'
- 'form-value-false' => 'Falso'
- */
 sammuiForm.filter('fieldHumanValue', function($filter) {
     return function(input) {
         var field = (input.hasOwnProperty('field')) ? input.field : input;
