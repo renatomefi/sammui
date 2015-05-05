@@ -16,9 +16,9 @@
                    class="glyphicon"></i>
             </button>
             <button ng-click="toggleReadOnly()"
-                    ng-class="{'btn-info': !protocol.readOnly}"
+                    ng-class="{'btn-info': protocol.readOnly === true}"
                     type="button"
-                    class="btn btn-info">
+                    class="btn">
                 <i class="glyphicon glyphicon-pencil"></i>
             </button>
         </div>
