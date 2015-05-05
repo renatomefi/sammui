@@ -3,25 +3,25 @@
         <legend>Fields test</legend>
 
         <form-field name="name">
-            <input type="text" ng-model="$parent.field.value"
+            <input type="text" ng-model="field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
 
         <form-field name="email">
-            <input ng-model="$parent.field.value"
+            <input ng-model="field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
 
         <form-field name="gender">
-            <label class="radio-inline" ng-repeat="(key, value) in $parent.field.options">
-                <input type="radio" ng-model="$parent.$parent.field.value" value="{{key}}"> {{value}}
+            <label class="radio-inline" ng-repeat="(key, value) in field.options">
+                <input type="radio" ng-model="field.value" value="{{key}}"> {{value}}
             </label>
         </form-field>
 
         <form-field name="above_21">
-            <ui-switch ng-model="$parent.field.value"></ui-switch>
+            <ui-switch ng-model="field.value"></ui-switch>
         </form-field>
 
     </fieldset>
