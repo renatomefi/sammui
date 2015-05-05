@@ -59,10 +59,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'select'
         ],
         [
-            'name' => '3',
+            'name' => '3_1',
             'page' => '1',
             'translate' => [
-                'pt-br' => 'Unidade do MP / Defensoria'
+                'pt-br' => 'Unidade do MP'
+            ],
+            'type' => 'text'
+        ],
+        [
+            'name' => '3_2',
+            'page' => '1',
+            'translate' => [
+                'pt-br' => 'Defensoria'
             ],
             'type' => 'text'
         ],

@@ -17,7 +17,13 @@
             </select>
         </form-field>
 
-        <form-field name="1_3">
+        <form-field name="1_3_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="1_3_2">
             <input ng-model="$parent.field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
