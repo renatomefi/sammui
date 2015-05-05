@@ -29,7 +29,7 @@ class FormField extends ProtocolEmbed
     protected $freeTextOption;
 
     /**
-     * @ODM\ReferenceMany(targetDocument="FormField", simple="true")
+     * @ODM\EmbedMany(targetDocument="FormFieldDepends")
      */
     protected $dependsOn;
 
@@ -109,13 +109,14 @@ class FormField extends ProtocolEmbed
     {
         return $this->freeTextOption;
     }
+    
 
     /**
      * Add dependsOn
      *
-     * @param \Renatomefi\FormBundle\Document\FormField $dependsOn
+     * @param \Renatomefi\FormBundle\Document\FormFieldDepends $dependsOn
      */
-    public function addDependsOn(FormField $dependsOn)
+    public function addDependsOn(FormFieldDepends $dependsOn)
     {
         $this->dependsOn[] = $dependsOn;
     }
@@ -123,9 +124,9 @@ class FormField extends ProtocolEmbed
     /**
      * Remove dependsOn
      *
-     * @param \Renatomefi\FormBundle\Document\FormField $dependsOn
+     * @param \Renatomefi\FormBundle\Document\FormFieldDepends $dependsOn
      */
-    public function removeDependsOn(FormField $dependsOn)
+    public function removeDependsOn(FormFieldDepends $dependsOn)
     {
         $this->dependsOn->removeElement($dependsOn);
     }
@@ -139,5 +140,4 @@ class FormField extends ProtocolEmbed
     {
         return $this->dependsOn;
     }
-
 }
