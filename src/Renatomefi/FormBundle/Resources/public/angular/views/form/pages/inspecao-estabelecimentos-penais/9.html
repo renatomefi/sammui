@@ -52,11 +52,13 @@
         </form-field>
 
         <form-field name="9_10">
-            <select class="form-control"
-                    ng-model="$parent.field.value"
-                    ng-options="key as value for (key , value) in $parent.field.options">
-                <option></option>
-            </select>
+            <ui-switch ng-model="$parent.field.value"></ui-switch>
+        </form-field>
+
+        <form-field name="9_10_1">
+            <input ng-model="$parent.field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
         </form-field>
 
         <form-field name="9_11">

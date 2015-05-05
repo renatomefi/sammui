@@ -2235,6 +2235,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '2',
             'page' => '9',
+            'depends_on' => '9_1',
             'translate' => [
                 'pt-br' => 'Em caso negativo, de onde provém Qual o custo diário da alimentação por preso?'
             ],
@@ -2282,7 +2283,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'options' => [
                 'Celas',
                 'Refeitorio',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         [
@@ -2305,15 +2306,22 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'name' => '10',
             'page' => '9',
             'translate' => [
-                'pt-br' => 'As refeições são'
+                'pt-br' => 'As refeições são adaptadas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10_1',
+            'page' => '9',
+            'depends_on' => '9_10',
+            'translate' => [
+                'pt-br' => 'Adaptadas por motivos de'
             ],
             'type' => 'select',
             'options' => [
-                'Padronizadas',
-                // <!-- adaptadas por motivos de -->
                 'Saúde',
                 'Religiosos',
-                'Outros',
+                'other' => 'Outros',
             ]
         ],
         [
@@ -2334,7 +2342,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'options' => [
                 'Família',
                 'Compra',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         //END page 9
