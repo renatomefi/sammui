@@ -2033,12 +2033,30 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
+            'name' => '7_1',
+            'page' => '8',
+            'depends_on' => '8_7',
+            'translate' => [
+                'pt-br' => 'Quais'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '8',
             'page' => '8',
             'translate' => [
                 'pt-br' => 'Há distribuição de artigos de limpeza?'
             ],
             'type' => 'boolean',
+        ],
+        [
+            'name' => '8_1',
+            'page' => '8',
+            'depends_on' => '8_8',
+            'translate' => [
+                'pt-br' => 'Quais'
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '9',
@@ -2070,9 +2088,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'name' => '11',
             'page' => '8',
             'translate' => [
-                'pt-br' => 'Há local destinado à venda de produtos e objetos permitidos e não fornecidos pela administração? Descrever como é feito o pagamento, controle de preços e destino da receita:'
+                'pt-br' => 'Há local destinado à venda de produtos e objetos permitidos e não fornecidos pela administração?'
             ],
             'type' => 'boolean',
+        ],
+        [
+            'name' => '11_1',
+            'page' => '8',
+            'depends_on' => '8_11',
+            'translate' => [
+                'pt-br' => 'Descrever como é feito o pagamento, controle de preços e destino da receita'
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '12',
@@ -2172,6 +2199,15 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             //Qual a frequência e duração oferecida?
         ],
         [
+            'name' => '23_1',
+            'page' => '8',
+            'depends_on' => '8_23',
+            'translate' => [
+                'pt-br' => 'Qual a frequência e duração oferecida?'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '24',
             'page' => '8',
             'translate' => [
@@ -2182,7 +2218,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Hidráulico',
                 'Elétrica',
                 'Edificação',
-                'Outros',
+                'other' => 'Outros',
             ]
         ],
         //END page 8
@@ -2199,6 +2235,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '2',
             'page' => '9',
+            'depends_on' => '9_1',
             'translate' => [
                 'pt-br' => 'Em caso negativo, de onde provém Qual o custo diário da alimentação por preso?'
             ],
@@ -2246,7 +2283,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'options' => [
                 'Celas',
                 'Refeitorio',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         [
@@ -2269,15 +2306,22 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'name' => '10',
             'page' => '9',
             'translate' => [
-                'pt-br' => 'As refeições são'
+                'pt-br' => 'As refeições são adaptadas?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '10_1',
+            'page' => '9',
+            'depends_on' => '9_10',
+            'translate' => [
+                'pt-br' => 'Adaptadas por motivos de'
             ],
             'type' => 'select',
             'options' => [
-                'Padronizadas',
-                // <!-- adaptadas por motivos de -->
                 'Saúde',
                 'Religiosos',
-                'Outros',
+                'other' => 'Outros',
             ]
         ],
         [
@@ -2298,7 +2342,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'options' => [
                 'Família',
                 'Compra',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         //END page 9
