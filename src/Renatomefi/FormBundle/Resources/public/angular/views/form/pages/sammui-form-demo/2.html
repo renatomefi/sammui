@@ -15,15 +15,22 @@
             </div>
         </form-field>
 
-        <form-field name="should_open_next">
-            <ui-switch ng-model="$parent.field.value"></ui-switch>
-        </form-field>
 
-        <form-field name="next">
-            <input ng-model="$parent.field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <form-field name="should_open_next">
+                    <ui-switch ng-model="$parent.field.value"></ui-switch>
+                </form-field>
+
+                <form-field name="next">
+                    <input ng-model="$parent.field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+
+            </div>
+        </div>
 
         <form-field name="operational_system">
             <select class="form-control"
@@ -32,6 +39,8 @@
                 <option></option>
             </select>
         </form-field>
+
+
 
         <form-field name="operational_system_map">
             <select class="form-control"
