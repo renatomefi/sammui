@@ -37,6 +37,7 @@ class FormField extends ProtocolEmbed
     {
         parent::__construct();
         $this->dependsOn = new ArrayCollection();
+        $this->options = [];
     }
 
     /**
@@ -64,10 +65,10 @@ class FormField extends ProtocolEmbed
     /**
      * Set options
      *
-     * @param $options
+     * @param Array $options
      * @return self
      */
-    public function setOptions($options)
+    public function setOptions(Array $options)
     {
         $this->options = $options;
         return $this;
@@ -76,7 +77,7 @@ class FormField extends ProtocolEmbed
     /**
      * Get options
      *
-     * @return $options
+     * @return Array $options
      */
     public function getOptions()
     {

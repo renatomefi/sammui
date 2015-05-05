@@ -24,7 +24,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 $location.path('/form');
             });
 
-            $scope.toggleReadOnly = function() {
+            $scope.toggleReadOnly = function () {
                 if (false === $scope.protocol.readOnly) {
                     $location.search('readOnly');
                 } else {
@@ -32,8 +32,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 }
             };
 
-            $scope.$on('$locationChangeSuccess', function (){
-               $scope.protocol.readOnly = !!($location.search().hasOwnProperty('readOnly'));
+            $scope.$on('$locationChangeSuccess', function () {
+                $scope.protocol.readOnly = !!($location.search().hasOwnProperty('readOnly'));
             });
 
         }
@@ -383,11 +383,22 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             var fieldHashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
 
             angular.forEach($scope.field.depends_on, function (dependency) {
-                var field = $scope.$parent.protocol.data.form.fields[fieldHashMap[dependency.name]];
+                var field = $scope.$parent.protocol.data.form.fields[fieldHashMap[dependency.field.name]];
 
-                if (!field.value || field.value === false || field.value === null) {
+                if (angular.isUndefined(dependency.custom_value) || dependency.custom_value.length === 0) {
+                    if (!field.value || field.value === false) {
+                        unmet = true;
+                    }
+                } else {
+                    // Prove that you have the correct value :)
                     unmet = true;
+                    angular.forEach(dependency.custom_value, function (cValue) {
+                        if (cValue === field.value) {
+                            unmet = false;
+                        }
+                    });
                 }
+
             });
 
             if (unmet === true) {

@@ -2,6 +2,7 @@
 
 namespace Renatomefi\FormBundle\Document;
 
+use Doctrine\ODM\MongoDB\DocumentNotFoundException;
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
@@ -21,6 +22,7 @@ class FormFieldDepends
     }
 
     /**
+     * @var FormField
      * @ODM\ReferenceOne(targetDocument="FormField")
      */
     protected $field;
@@ -52,12 +54,18 @@ class FormFieldDepends
         return $this->field;
     }
 
-    /**
-     * @param $customValue
-     * @return self
-     */
+
     public function addCustomValue($customValue)
     {
+        if (!$this->field) {
+            throw new DocumentNotFoundException('Please, se the field before using customValues: self::setField(FormField)');
+        }
+
+        $fieldOptions = $this->field->getOptions();
+        if (count($fieldOptions) > 0 && !array_key_exists($customValue, $fieldOptions)) {
+            throw new DocumentNotFoundException('No reference for options found with: ' . $customValue);
+        }
+
         $this->customValue[] = $customValue;
         return $this;
     }
