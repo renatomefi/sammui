@@ -26,10 +26,12 @@ class FormFieldDepends
         if (null !== $field) {
             $this->setField($field);
 
-            if (is_array($customValue)) {
-                $this->customValue = $customValue;
-            } else {
-                $this->addCustomValue($customValue);
+            if (null !== $customValue) {
+                if (is_array($customValue)) {
+                    $this->customValue = $customValue;
+                } else {
+                    $this->addCustomValue($customValue);
+                }
             }
         }
     }
