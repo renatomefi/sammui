@@ -141,14 +141,6 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'select'
         ],
         [
-            'name' => '10_1_1',
-            'page' => '1',
-            'translate' => [
-                'pt-br' => ''
-            ],
-            'type' => 'input'
-        ],
-        [
             'name' => '11',
             'page' => '1',
             'translate' => [
@@ -1087,6 +1079,15 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ]
         ],
         [
+            'name' => '3_1',
+            'page' => '6',
+            'depends_on' => '6_3',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '4',
             'page' => '6',
             'translate' => [
@@ -1096,6 +1097,15 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             //Quantidade?
         ],
         [
+            'name' => '4_1',
+            'page' => '6',
+            'depends_on' => '6_4',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '5',
             'page' => '6',
             'translate' => [
@@ -1103,6 +1113,15 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'boolean',
             //Quantidade?
+        ],
+        [
+            'name' => '5_1',
+            'page' => '6',
+            'depends_on' => '6_5',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '6',
@@ -1115,7 +1134,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Centro de Atenção Psicossocial - CAPS',
                 'Serviços Residenciais Terapêuticos -SRTs',
                 'Programa de Volta para Casa – PVC',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         [
@@ -1129,7 +1148,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Centro de Atenção Psicossocial - CAPS',
                 'Serviços Residenciais Terapêuticos -SRTs',
                 'Programa de Volta para Casa – PVC',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         //END page 6
@@ -1177,6 +1196,63 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
             /**
              * <!-- Quantidade ?-->
+             * <option value="Defensoria Pública ">Defensoria Pública</option>
+             * <option value="Própria Unidade">Própria Unidade</option>
+             * <option value="Outra forma de contratação">Outra forma de contratação</option>
+             * <!-- Periodicidade/ frequência -->
+             * <option value="Mensal">Mensal</option>
+             * <option value="Quinzenal">Quinzenal</option>
+             * <option value="Semanal">Semanal</option>
+             * <option value="Diária">Diária</option>
+             */
+        ],
+        [
+            'name' => '5_1',
+            'page' => '7',
+            'depends_on' => '7_5',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5_2',
+            'page' => '7',
+            'depends_on' => '7_5',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'Defensoria Pública',
+                'Própria Unidade',
+                'other' => 'Outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '5_3',
+            'page' => '7',
+            'depends_on' => '7_5',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
+        ],
+        [
+            'name' => '6',
+            'page' => '7',
+            'translate' => [
+                'pt-br' => 'Auxiliares de Enfermagem'
+            ],
+            'type' => 'boolean',
+            /**
+             *   <!-- Quantidade ?-->
              * <option value="SUS">SUS</option>
              * <option value="Própria Unidade">Própria Unidade</option>
              * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
@@ -1188,23 +1264,42 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              */
         ],
         [
-            'name' => '6',
+            'name' => '6_1',
             'page' => '7',
+            'depends_on' => '7_6',
             'translate' => [
-                'pt-br' => 'Auxiliares de Enfermagem'
+                'pt-br' => 'Quantidade'
             ],
-            'type' => 'boolean',
-            /**
-             *   <!-- Quantidade ?-->
-             * <option value="SUAS">SUAS</option>
-             * <option value="Própria Unidade">Própria Unidade</option>
-             * <option value="Terceirizado/outra forma de contratação">Terceirizado/outra forma de contratação</option>
-             * <!-- Periodicidade/ frequência -->
-             * <option value="Mensal">Mensal</option>
-             * <option value="Quinzenal">Quinzenal</option>
-             * <option value="Semanal">Semanal</option>
-             * <option value="Diária">Diária</option>
-             */
+            'type' => 'text',
+        ],
+        [
+            'name' => '6_2',
+            'page' => '7',
+            'depends_on' => '7_6',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'SUS',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '6_3',
+            'page' => '7',
+            'depends_on' => '7_6',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
         ],
         [
             'name' => '7',
@@ -1226,6 +1321,44 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              */
         ],
         [
+            'name' => '7_1',
+            'page' => '7',
+            'depends_on' => '7_7',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '7_2',
+            'page' => '7',
+            'depends_on' => '7_7',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'SUAS',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '7_3',
+            'page' => '7',
+            'depends_on' => '7_7',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
+        ],
+        [
             'name' => '8',
             'page' => '7',
             'translate' => [
@@ -1243,6 +1376,44 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              * <option value="Semanal">Semanal</option>
              * <option value="Diária">Diária</option>
              */
+        ],
+        [
+            'name' => '8_1',
+            'page' => '7',
+            'depends_on' => '7_8',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '8_2',
+            'page' => '7',
+            'depends_on' => '7_8',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'SUS',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '8_3',
+            'page' => '7',
+            'depends_on' => '7_8',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
         ],
         [
             'name' => '9',
@@ -1264,6 +1435,44 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              */
         ],
         [
+            'name' => '9_1',
+            'page' => '7',
+            'depends_on' => '7_9',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '9_2',
+            'page' => '7',
+            'depends_on' => '7_9',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'SUS',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '9_3',
+            'page' => '7',
+            'depends_on' => '7_9',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
+        ],
+        [
             'name' => '10',
             'page' => '7',
             'translate' => [
@@ -1281,6 +1490,44 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              * <option value="Semanal">Semanal</option>
              * <option value="Diária">Diária</option>
              */
+        ],
+        [
+            'name' => '10_1',
+            'page' => '7',
+            'depends_on' => '7_10',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '10_2',
+            'page' => '7',
+            'depends_on' => '7_10',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'SUS',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '10_3',
+            'page' => '7',
+            'depends_on' => '7_10',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
         ],
         [
             'name' => '11',
@@ -1302,6 +1549,44 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              */
         ],
         [
+            'name' => '11_1',
+            'page' => '7',
+            'depends_on' => '7_11',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '11_2',
+            'page' => '7',
+            'depends_on' => '7_11',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'SUS',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '11_3',
+            'page' => '7',
+            'depends_on' => '7_11',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
+        ],
+        [
             'name' => '12',
             'page' => '7',
             'translate' => [
@@ -1321,6 +1606,44 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              */
         ],
         [
+            'name' => '12_1',
+            'page' => '7',
+            'depends_on' => '7_12',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '12_2',
+            'page' => '7',
+            'depends_on' => '7_12',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'SUS',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '12_3',
+            'page' => '7',
+            'depends_on' => '7_12',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
+        ],
+        [
             'name' => '13',
             'page' => '7',
             'translate' => [
@@ -1338,6 +1661,44 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              * <option value="Semanal">Semanal</option>
              * <option value="Diária">Diária</option>
              */
+        ],
+        [
+            'name' => '13_1',
+            'page' => '7',
+            'depends_on' => '7_13',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '13_2',
+            'page' => '7',
+            'depends_on' => '7_13',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'Secretaria de Educação',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '13_3',
+            'page' => '7',
+            'depends_on' => '7_13',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
         ],
         [
             'name' => '14',
@@ -1360,6 +1721,45 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              */
         ],
         [
+            'name' => '14_1',
+            'page' => '7',
+            'depends_on' => '7_14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_2',
+            'page' => '7',
+            'depends_on' => '7_14',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'SUS',
+                'SUAS',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '14_3',
+            'page' => '7',
+            'depends_on' => '7_14',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
+        ],
+        [
             'name' => '15',
             'page' => '7',
             'translate' => [
@@ -1379,12 +1779,50 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              */
         ],
         [
+            'name' => '15_1',
+            'page' => '7',
+            'depends_on' => '7_15',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2',
+            'page' => '7',
+            'depends_on' => '7_15',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'SUS',
+                'Própria Unidade',
+                'other' => 'Terceirizado/outra forma de contratação',
+            ]
+        ],
+        [
+            'name' => '15_3',
+            'page' => '7',
+            'depends_on' => '7_15',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
+        ],
+        [
             'name' => '16',
             'page' => '7',
             'translate' => [
                 'pt-br' => 'Outros'
             ],
-            'type' => 'select',
+            'type' => 'text',
             /**
              * <!-- Quantidade ?-->
              * <option value="Própria Unidade">Própria Unidade</option>
@@ -1394,6 +1832,42 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              * <option value="Semanal">Semanal</option>
              * <option value="Diária">Diária</optio
              */
+        ],
+        [
+            'name' => '16_1',
+            'page' => '7',
+            'depends_on' => '7_16',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '16_2',
+            'page' => '7',
+            'depends_on' => '7_16',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'Própria Unidade',
+            ]
+        ],
+        [
+            'name' => '16_3',
+            'page' => '7',
+            'depends_on' => '7_16',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
+            ]
         ],
         [
             'name' => '17',
@@ -1407,6 +1881,24 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              * <option value="homens">homens</option>
              * <option value="mulheres">mulheres</option>
              */
+        ],
+        [
+            'name' => '17_1',
+            'page' => '7',
+            'depends_on' => '7_17',
+            'translate' => [
+                'pt-br' => 'Quantidade homens'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '17_2',
+            'page' => '7',
+            'depends_on' => '7_17',
+            'translate' => [
+                'pt-br' => 'Quantidade mulheres'
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '18',
@@ -1428,6 +1920,15 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
              */
         ],
         [
+            'name' => '19_1',
+            'page' => '7',
+            'depends_on' => '7_19',
+            'translate' => [
+                'pt-br' => 'Com identificação pessoal'
+            ],
+            'type' => 'boolean',
+        ],
+        [
             'name' => '20',
             'page' => '7',
             'translate' => [
@@ -1437,6 +1938,30 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'options' => [
                 'Curso de Formação',
                 'Cursos Especiais',
+            ]
+        ],
+        [
+            'name' => '20_1',
+            'page' => '7',
+            'depends_on' => '7_20',
+            'translate' => [
+                'pt-br' => 'Entidade Executora'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '20_2',
+            'page' => '7',
+            'depends_on' => '7_20',
+            'translate' => [
+                'pt-br' => 'Periodicidade/ frequência'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Mensal',
+                'Quinzenal',
+                'Semanal',
+                'Diária',
             ]
         ],
 
