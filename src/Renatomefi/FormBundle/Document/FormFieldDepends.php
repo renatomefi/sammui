@@ -15,10 +15,23 @@ class FormFieldDepends
 
     /**
      * Setting up properties
+     *
+     * @param FormField $field
+     * @param Array|mixed $customValue
      */
-    public function __construct()
+    public function __construct(FormField $field = null, $customValue = null)
     {
         $this->customValue = [];
+
+        if (null !== $field) {
+            $this->setField($field);
+
+            if (is_array($customValue)) {
+                $this->customValue = $customValue;
+            } else {
+                $this->addCustomValue($customValue);
+            }
+        }
     }
 
     /**
@@ -58,12 +71,13 @@ class FormFieldDepends
     public function addCustomValue($customValue)
     {
         if (!$this->field) {
-            throw new DocumentNotFoundException('Please, se the field before using customValues: self::setField(FormField)');
+            throw new DocumentNotFoundException('Please, set the field before using customValues: self::setField(FormField)');
         }
 
         $fieldOptions = $this->field->getOptions();
         if (count($fieldOptions) > 0 && !array_key_exists($customValue, $fieldOptions)) {
-            throw new DocumentNotFoundException('No reference for options found with: ' . $customValue);
+            throw new DocumentNotFoundException('No reference for options found with: ' .
+                $customValue . ' at field: ' . $this->field->getName());
         }
 
         $this->customValue[] = $customValue;
