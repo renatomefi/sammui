@@ -29,7 +29,7 @@ class FormField extends ProtocolEmbed
     protected $freeTextOption;
 
     /**
-     * @ODM\ReferenceMany(targetDocument="FormField", simple="true")
+     * @ODM\EmbedMany(targetDocument="FormFieldDepends")
      */
     protected $dependsOn;
 
@@ -37,6 +37,7 @@ class FormField extends ProtocolEmbed
     {
         parent::__construct();
         $this->dependsOn = new ArrayCollection();
+        $this->options = [];
     }
 
     /**
@@ -64,10 +65,10 @@ class FormField extends ProtocolEmbed
     /**
      * Set options
      *
-     * @param $options
+     * @param Array $options
      * @return self
      */
-    public function setOptions($options)
+    public function setOptions(Array $options)
     {
         $this->options = $options;
         return $this;
@@ -76,7 +77,7 @@ class FormField extends ProtocolEmbed
     /**
      * Get options
      *
-     * @return $options
+     * @return Array $options
      */
     public function getOptions()
     {
@@ -109,13 +110,14 @@ class FormField extends ProtocolEmbed
     {
         return $this->freeTextOption;
     }
+    
 
     /**
      * Add dependsOn
      *
-     * @param \Renatomefi\FormBundle\Document\FormField $dependsOn
+     * @param \Renatomefi\FormBundle\Document\FormFieldDepends $dependsOn
      */
-    public function addDependsOn(FormField $dependsOn)
+    public function addDependsOn(FormFieldDepends $dependsOn)
     {
         $this->dependsOn[] = $dependsOn;
     }
@@ -123,9 +125,9 @@ class FormField extends ProtocolEmbed
     /**
      * Remove dependsOn
      *
-     * @param \Renatomefi\FormBundle\Document\FormField $dependsOn
+     * @param \Renatomefi\FormBundle\Document\FormFieldDepends $dependsOn
      */
-    public function removeDependsOn(FormField $dependsOn)
+    public function removeDependsOn(FormFieldDepends $dependsOn)
     {
         $this->dependsOn->removeElement($dependsOn);
     }
@@ -139,5 +141,4 @@ class FormField extends ProtocolEmbed
     {
         return $this->dependsOn;
     }
-
 }

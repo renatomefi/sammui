@@ -15,10 +15,8 @@
             </div>
         </form-field>
 
-
         <div class="panel panel-default">
             <div class="panel-body">
-
                 <form-field name="should_open_next">
                     <ui-switch ng-model="$parent.field.value"></ui-switch>
                 </form-field>
@@ -28,7 +26,6 @@
                            ng-model-options="{ debounce: 300 }"
                            class="form-control">
                 </form-field>
-
             </div>
         </div>
 
@@ -40,14 +37,25 @@
             </select>
         </form-field>
 
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form-field name="operational_system_map">
+                    <select class="form-control"
+                            ng-model="$parent.field.value"
+                            ng-options="key as value for (key , value) in $parent.field.options">
+                        <option></option>
+                    </select>
+                </form-field>
 
+                <form-field name="windows_field">
+                    <ui-switch ng-model="$parent.field.value"></ui-switch>
+                </form-field>
 
-        <form-field name="operational_system_map">
-            <select class="form-control"
-                    ng-model="$parent.field.value"
-                    ng-options="key as value for (key , value) in $parent.field.options">
-                <option></option>
-            </select>
-        </form-field>
+                <form-field name="crazy_confirmation">
+                    <ui-switch ng-model="$parent.field.value"></ui-switch>
+                </form-field>
+            </div>
+        </div>
+
     </fieldset>
 </form>

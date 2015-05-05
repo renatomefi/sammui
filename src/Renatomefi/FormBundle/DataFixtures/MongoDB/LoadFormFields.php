@@ -8,6 +8,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\FormField;
+use Renatomefi\FormBundle\Document\FormFieldDepends;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
@@ -81,7 +82,9 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
 
         $nField = new FormField();
         $nField->setName('next');
-        $nField->addDependsOn($field);
+        $depends = new FormFieldDepends();
+        $depends->setField($field);
+        $nField->addDependsOn($depends);
         $documentManager->persist($nField);
         $form->addField($nField);
         unset($field);
@@ -97,11 +100,32 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
 
         $field = new FormField();
         $field->setName('operational_system_map');
-        $field->setOptions(['linux' => 'Linux', 'mac' => 'MacOS', 'win' => 'Windows', 'other' => 'Other']);
+        $field->setOptions(['linux' => 'Linux', 'mac' => 'MacOS', 'win' => 'Windows', 'winv' => 'Windows Vista' , 'other' => 'Other']);
         $field->setFreeTextOption('other');
         $documentManager->persist($field);
         $form->addField($field);
+
+        $crazyField = new FormField();
+        $crazyField->setName('windows_field');
+//        Dependency complete way
+//        $depends = new FormFieldDepends();
+//        $depends->setField($field);
+//        $depends->addCustomValue('win');
+//        $depends->addCustomValue('winv');
+//        Dependency short way
+        $crazyField->addDependsOn(new FormFieldDepends($field, ['win', 'winv']));
+        $documentManager->persist($crazyField);
+        $form->addField($crazyField);
         unset($field);
+
+        $crazyConfirmField = new FormField();
+        $crazyConfirmField->setName('crazy_confirmation');
+        // if you deny to be crazy, you need to confirm :) (Testing custom value with false
+        $crazyConfirmField->addDependsOn(new FormFieldDepends($crazyField, false));
+        $documentManager->persist($crazyConfirmField);
+        $form->addField($crazyConfirmField);
+        unset($crazyField);
+        unset($crazyConfirmField);
 
         $documentManager->persist($form);
         $documentManager->flush();
