@@ -10,7 +10,7 @@
         </small>
     </label>
 
-    <div ng-if="!protocol.readOnly" ng-hide="freeTextEnabled" ng-transclude></div>
+    <div mefi-transclude ng-show="!protocol.readOnly" ng-hide="freeTextEnabled"></div>
 
     <div ng-if="freeTextEnabled && !protocol.readOnly">
         <div class="input-group merged">

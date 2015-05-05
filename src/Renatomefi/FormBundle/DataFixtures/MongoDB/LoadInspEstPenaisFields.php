@@ -9,7 +9,9 @@ use Doctrine\Common\Persistence\ObjectManager;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Renatomefi\FormBundle\Document\Form;
 use Renatomefi\FormBundle\Document\FormField;
+use Renatomefi\FormBundle\Document\FormFieldDepends;
 use Renatomefi\TranslateBundle\DataFixtures\MongoDB\LoadLangs;
+use Renatomefi\TranslateBundle\Document\Language;
 use Renatomefi\TranslateBundle\Document\Translation;
 use Symfony\Component\DependencyInjection\ContainerAwareInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
@@ -3831,8 +3833,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
 
             if (array_key_exists('depends_on', $field)) {
                 $dependsOn = $fieldsDocuments[$field['depends_on']];
-                $formField->addDependsOn($dependsOn);
+                $depends = new FormFieldDepends($dependsOn);
+                $formField->addDependsOn($depends);
                 unset($dependsOn);
+                unset($depends);
             }
 
             $documentManager->persist($formField);
@@ -3844,7 +3848,9 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
 
             $translation = new Translation();
             $translation->setKey($fieldPrefix . '-field-' . self::getFieldName($field));
-            $translation->setLanguage($this->getReference(LoadLangs::$reference_prefix . 'pt-br'));
+            /** @var Language $lang */
+            $lang = $this->getReference(LoadLangs::$reference_prefix . 'pt-br');
+            $translation->setLanguage($lang);
             $translation->setValue($field['translate']['pt-br']);
             $documentManager->persist($translation);
 
