@@ -3,13 +3,13 @@
         <legend>Fields Dependency</legend>
 
         <form-field name="sammui_uses">
-            <div class="checkbox" ng-repeat="(key, value) in $parent.field.options">
+            <div class="checkbox" ng-repeat="(key, value) in field.options">
                 <label>
                     <input
                             type="checkbox"
                             name="3_1[]"
                             value="{{key}}"
-                            ng-model="$parent.$parent.field.value[key]">
+                            ng-model="field.value[key]">
                     {{value}}
                 </label>
             </div>
@@ -18,11 +18,11 @@
         <div class="panel panel-default">
             <div class="panel-body">
                 <form-field name="should_open_next">
-                    <ui-switch ng-model="$parent.field.value"></ui-switch>
+                    <ui-switch ng-model="field.value"></ui-switch>
                 </form-field>
 
                 <form-field name="next">
-                    <input ng-model="$parent.field.value"
+                    <input ng-model="field.value"
                            ng-model-options="{ debounce: 300 }"
                            class="form-control">
                 </form-field>
@@ -30,29 +30,21 @@
         </div>
 
         <form-field name="operational_system">
-            <select class="form-control"
-                    ng-model="$parent.field.value"
-                    ng-options="key as value for (key , value) in $parent.field.options">
-                <option></option>
-            </select>
+            <select-field ng-model="field.value" options="field.options"></select-field>
         </form-field>
 
         <div class="panel panel-default">
             <div class="panel-body">
                 <form-field name="operational_system_map">
-                    <select class="form-control"
-                            ng-model="$parent.field.value"
-                            ng-options="key as value for (key , value) in $parent.field.options">
-                        <option></option>
-                    </select>
+                    <select-field ng-model="field.value" options="field.options"></select-field>
                 </form-field>
 
                 <form-field name="windows_field">
-                    <ui-switch ng-model="$parent.field.value"></ui-switch>
+                    <ui-switch ng-model="field.value"></ui-switch>
                 </form-field>
 
                 <form-field name="crazy_confirmation">
-                    <ui-switch ng-model="$parent.field.value"></ui-switch>
+                    <ui-switch ng-model="field.value"></ui-switch>
                 </form-field>
             </div>
         </div>
