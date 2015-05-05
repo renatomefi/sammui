@@ -1900,7 +1900,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
-            'name' => '17_1',
+            'name' => '17_2',
             'page' => '7',
             'depends_on' => '7_17',
             'translate' => [
