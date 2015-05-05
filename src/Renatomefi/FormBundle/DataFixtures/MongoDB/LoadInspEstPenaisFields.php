@@ -1087,6 +1087,15 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ]
         ],
         [
+            'name' => '3_1',
+            'page' => '6',
+            'depends_on' => '6_3',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '4',
             'page' => '6',
             'translate' => [
@@ -1096,6 +1105,15 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             //Quantidade?
         ],
         [
+            'name' => '4_1',
+            'page' => '6',
+            'depends_on' => '6_4',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '5',
             'page' => '6',
             'translate' => [
@@ -1103,6 +1121,15 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'boolean',
             //Quantidade?
+        ],
+        [
+            'name' => '5_1',
+            'page' => '6',
+            'depends_on' => '6_5',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '6',
@@ -1115,7 +1142,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Centro de Atenção Psicossocial - CAPS',
                 'Serviços Residenciais Terapêuticos -SRTs',
                 'Programa de Volta para Casa – PVC',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         [
@@ -1129,7 +1156,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Centro de Atenção Psicossocial - CAPS',
                 'Serviços Residenciais Terapêuticos -SRTs',
                 'Programa de Volta para Casa – PVC',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         //END page 6
