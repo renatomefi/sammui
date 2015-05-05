@@ -141,14 +141,6 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'select'
         ],
         [
-            'name' => '10_1_1',
-            'page' => '1',
-            'translate' => [
-                'pt-br' => ''
-            ],
-            'type' => 'input'
-        ],
-        [
             'name' => '11',
             'page' => '1',
             'translate' => [
