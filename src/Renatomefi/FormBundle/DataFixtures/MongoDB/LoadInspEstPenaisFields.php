@@ -2571,10 +2571,34 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
+            'name' => '2_1',
+            'page' => '10',
+            'depends_on' => [
+                'field' => '10_2',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '3',
             'page' => '10',
             'translate' => [
                 'pt-br' => 'Tempo de visita'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3_1',
+            'page' => '10',
+            'depends_on' => [
+                'field' => '10_3',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
             ],
             'type' => 'text',
         ],
@@ -2587,10 +2611,34 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
+            'name' => '4_1',
+            'page' => '10',
+            'depends_on' => [
+                'field' => '10_4',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '5',
             'page' => '10',
             'translate' => [
                 'pt-br' => 'Tempo de atividades laborais'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5_1',
+            'page' => '10',
+            'depends_on' => [
+                'field' => '10_5',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
             ],
             'type' => 'text',
         ],
@@ -2603,10 +2651,34 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
+            'name' => '6_1',
+            'page' => '10',
+            'depends_on' => [
+                'field' => '10_6',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '7',
             'page' => '10',
             'translate' => [
                 'pt-br' => 'Tempo de visita íntima'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '7_1',
+            'page' => '10',
+            'depends_on' => [
+                'field' => '10_7',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
             ],
             'type' => 'text',
         ],
@@ -2619,10 +2691,34 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
+            'name' => '8_1',
+            'page' => '10',
+            'depends_on' => [
+                'field' => '10_8',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '9',
             'page' => '10',
             'translate' => [
                 'pt-br' => 'Tempo das atividades culturais'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '9_1',
+            'page' => '10',
+            'depends_on' => [
+                'field' => '10_9',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
             ],
             'type' => 'text',
         ],
@@ -2635,30 +2731,42 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '11',
+            'name' => '10_1',
             'page' => '10',
+            'depends_on' => [
+                'field' => '10_10',
+                'value' => null
+            ],
             'translate' => [
-                'pt-br' => 'Quais profissionais participam da elaboração do programa'
+                'pt-br' => 'Qual a freqüência de atualização'
             ],
             'type' => 'select',
             'options' => [
                 'Mensal',
                 'Trimestral',
                 'Semestral',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         [
-            'name' => '12',
+            'name' => '10_2',
             'page' => '10',
+            'depends_on' => [
+                'field' => '10_10',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quais profissionais participam da elaboração do programa'
             ],
             'type' => 'text',
         ],
         [
-            'name' => '13',
+            'name' => '10_3',
             'page' => '10',
+            'depends_on' => [
+                'field' => '10_10',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Descreva os procedimentos para elaboração do programa individualizado'
             ],
