@@ -39,56 +39,34 @@ angular.module('sammui.formDirectives', [])
             template: '<select class="form-control" ng-model="model" ng-options="key as value for (key , value) in options"><option></option></select>'
         };
     })
+    .directive('booleanField', function () {
+        return {
+            restrict: 'E',
+            scope: {
+                model: '=ngModel'
+            },
+            controller: ['$scope', function ($scope) {
+                $scope.btnClick = function (value) {
+                    $scope.model = ($scope.model === value) ? null : value;
+                };
+            }],
+            template: '' +
+            '<div class="btn-group">' +
+            '<button ng-click="btnClick(true)" ng-class="{active: model === true}" type="button" class="btn btn-primary">' +
+            '<i class="glyphicon glyphicon-ok-sign"></i> ' + '{{\'form-value-true\' | translate}}' +
+            '</button>' +
+            '<button ng-click="btnClick(false)" ng-class="{active: model === false}" type="button" class="btn btn-primary">' +
+            '<i class="glyphicon glyphicon-remove-sign"></i> ' + '{{\'form-value-false\' | translate}}' +
+            '</button>' +
+            '</div>'
+        };
+    })
     .directive('focusOn', function () {
         return {
             restrict: 'A',
             link: function (scope, elem, attrs) {
                 scope.$on(attrs.focusOn, function () {
                     elem[0].focus();
-                });
-            }
-        };
-    })
-    .directive('mefiTransclude', function () {
-        /**
-         * @returns {string} Returns the string representation of the element.
-         */
-        function startingTag(element) {
-            element = angular.element(element).clone();
-            try {
-                // turns out IE does not let you set .html() on elements which
-                // are not allowed to have children. So we just ignore it.
-                element.empty();
-            } catch (e) {
-            }
-            var elemHtml = angular.element('<div>').append(element).html();
-            try {
-                return element[0].nodeType === 3 ? angular.lowercase(elemHtml) :
-                    elemHtml.
-                        match(/^(<[^>]+>)/)[1].
-                        replace(/^<([\w\-]+)/, function (match, nodeName) {
-                            return '<' + angular.lowercase(nodeName);
-                        });
-            } catch (e) {
-                return angular.lowercase(elemHtml);
-            }
-
-        }
-
-        return {
-            restrict: 'EA',
-            link: function ($scope, $element, $attrs, controller, $transclude) {
-                if (!$transclude) {
-                    throw minErr('ngTransclude')('orphan',
-                        'Illegal use of ngTransclude directive in the template! ' +
-                        'No parent directive that requires a transclusion found. ' +
-                        'Element: {0}',
-                        startingTag($element));
-                }
-
-                $transclude($scope, function (clone) {
-                    $element.empty();
-                    $element.append(clone);
                 });
             }
         };
