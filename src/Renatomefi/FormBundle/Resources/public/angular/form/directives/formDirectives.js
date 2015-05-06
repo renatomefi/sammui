@@ -36,7 +36,30 @@ angular.module('sammui.formDirectives', [])
                 changeExpr: '@ngChange',
                 options: '=options'
             },
-            template: '<select class="form-control" ng-model="model" ng-options="key as value for (key , value) in options"><option></option></select>'
+            template: '' +
+            '<select class="form-control" ng-model="model" ng-options="key as value for (key , value) in options">' +
+            '<option></option>' +
+            '</select>'
+        };
+    })
+    .directive('selectMultiField', function () {
+        return {
+            restrict: 'EA',
+            scope: {
+                model: '=ngModel',
+                options: '=options',
+                prefix: '@'
+            },
+            link: function (scope) {
+                if (!scope.prefix) {
+                    scope.prefix = scope.$id;
+                }
+            },
+            template: '' +
+            '<div class="checkbox checkbox-primary" ng-repeat="(key, value) in options">' +
+            '<input type="checkbox" id="{{::prefix}}_{{::key}}" ng-model="$parent.model[key]">' +
+            '<label for="{{::prefix}}_{{::key}}">{{value}}</label>' +
+            '</div>'
         };
     })
     .directive('booleanField', function () {
