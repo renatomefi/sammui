@@ -1,17 +1,7 @@
 <form>
     <fieldset>
-
         <form-field name="3_1">
-            <div class="checkbox" ng-repeat="(key, value) in field.options">
-                <label>
-                    <input
-                            type="checkbox"
-                            name="3_1[]"
-                            value="{{key}}"
-                            ng-model="field.value[key]">
-                    {{value}}
-                </label>
-            </div>
+            <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
         </form-field>
 
         <form-field name="3_2">
@@ -27,11 +17,7 @@
         </form-field>
 
         <form-field name="3_4">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
+            <select-field ng-model="field.value" options="field.options"></select-field>
         </form-field>
 
         <form-field name="3_5">
@@ -47,19 +33,11 @@
         </form-field>
 
         <form-field name="3_7">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
+            <select-field ng-model="field.value" options="field.options"></select-field>
         </form-field>
 
         <form-field name="3_8">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
+            <select-field ng-model="field.value" options="field.options"></select-field>
         </form-field>
 
         <form-field name="3_9">
@@ -67,11 +45,7 @@
         </form-field>
 
         <form-field name="3_10">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
+            <select-field ng-model="field.value" options="field.options"></select-field>
         </form-field>
 
         <form-field name="3_11">
@@ -81,6 +55,5 @@
         <form-field name="3_12">
             <ui-switch ng-model="field.value"></ui-switch>
         </form-field>
-
     </fieldset>
 </form>
