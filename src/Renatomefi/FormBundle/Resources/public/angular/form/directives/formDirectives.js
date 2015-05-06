@@ -39,6 +39,28 @@ angular.module('sammui.formDirectives', [])
             template: '<select class="form-control" ng-model="model" ng-options="key as value for (key , value) in options"><option></option></select>'
         };
     })
+    .directive('booleanField', function () {
+        return {
+            restrict: 'E',
+            scope: {
+                model: '=ngModel'
+            },
+            controller: ['$scope', function ($scope) {
+                $scope.btnClick = function (value) {
+                    $scope.model = ($scope.model === value) ? null : value;
+                };
+            }],
+            template: '' +
+            '<div class="btn-group">' +
+            '<button ng-click="btnClick(true)" ng-class="{active: model === true}" type="button" class="btn btn-primary">' +
+            '<i class="glyphicon glyphicon-ok-sign"></i> ' + '{{\'form-value-true\' | translate}}' +
+            '</button>' +
+            '<button ng-click="btnClick(false)" ng-class="{active: model === false}" type="button" class="btn btn-primary">' +
+            '<i class="glyphicon glyphicon-remove-sign"></i> ' + '{{\'form-value-false\' | translate}}' +
+            '</button>' +
+            '</div>'
+        };
+    })
     .directive('focusOn', function () {
         return {
             restrict: 'A',

@@ -25,14 +25,13 @@ angular.module('sammui.mainDirectives', [])
             } catch (e) {
                 return angular.lowercase(elemHtml);
             }
-
         }
 
         return {
             restrict: 'EA',
             link: function ($scope, $element, $attrs, controller, $transclude) {
                 if (!$transclude) {
-                    throw minErr('ngTransclude')('orphan',
+                    console.error('orphan',
                         'Illegal use of ngTransclude directive in the template! ' +
                         'No parent directive that requires a transclusion found. ' +
                         'Element: {0}',
