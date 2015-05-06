@@ -2542,6 +2542,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'name' => '12',
             'page' => '9',
             'translate' => [
+                'pt-br' => 'Há outras formas de fornecimento de alimentos?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '12_1',
+            'page' => '9',
+            'depends_on' => [
+                'field' => '9_12',
+                'value' => null
+            ],
+            'translate' => [
                 'pt-br' => 'As refeições são'
             ],
             'type' => 'select',

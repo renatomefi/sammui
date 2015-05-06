@@ -1,4 +1,4 @@
-<form role="form" class="ng-pristine ng-valid">
+<form>
 
     <fieldset>
         <form-field name="9_1">
@@ -34,11 +34,7 @@
         </form-field>
 
         <form-field name="9_7">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
+            <select-field ng-model="field.value" options="field.options"></select-field>
         </form-field>
 
         <form-field name="9_8">
@@ -56,22 +52,24 @@
         </form-field>
 
         <form-field name="9_10_1">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
+            <select-field ng-model="field.value" options="field.options"></select-field>
         </form-field>
 
         <form-field name="9_11">
             <ui-switch ng-model="field.value"></ui-switch>
         </form-field>
 
-        <form-field name="9_12">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
-        </form-field>
+        <div class="panel panel-default">
+        	<div class="panel-body">
+                <form-field name="9_12">
+                    <ui-switch ng-model="field.value"></ui-switch>
+                </form-field>
+
+                <form-field name="9_12_1">
+                    <select-field ng-model="field.value" options="field.options"></select-field>
+                </form-field>
+        	</div>
+        </div>
 
     </fieldset>
 </form>
