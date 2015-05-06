@@ -2928,6 +2928,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         ],
         [
             'name' => '2',
+            'depends_on' => [
+                'field' => '13_1',
+                'value' => null
+            ],
             'page' => '13',
             'translate' => [
                 'pt-br' => 'Em caso positivo, por quem é prestada a assistência?'
@@ -2963,6 +2967,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'boolean',
             // Periodicidade
+        ],
+        [
+            'name' => '5_1',
+            'depends_on' => [
+                'field' => '13_5',
+                'value' => null
+            ],
+            'page' => '13',
+            'translate' => [
+                'pt-br' => 'Periodicidade'
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '6',
