@@ -2801,6 +2801,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             //frequencia
         ],
         [
+            'name' => '3_1',
+            'page' => '11',
+            'depends_on' => [
+                'field' => '11_3',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '4',
             'page' => '11',
             'translate' => [
@@ -2840,6 +2852,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'boolean',
             // Se sim, quais vacinas são oferecidas?
+        ],
+        [
+            'name' => '8_1',
+            'page' => '11',
+            'depends_on' => [
+                'field' => '11_8',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Quais vacinas são oferecidas?'
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '9',
@@ -2885,7 +2909,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Unidade de Pronto Atendimento – UPA',
                 'Hospital',
                 'Centro de Atendimento Psicossocial – CAPS',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         //END page 11
