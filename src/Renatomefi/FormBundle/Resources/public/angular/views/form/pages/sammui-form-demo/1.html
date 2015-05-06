@@ -1,4 +1,4 @@
-<form role="form" class="ng-pristine ng-valid ng-valid-email">
+<form>
     <fieldset>
         <legend>Fields test</legend>
 
@@ -9,9 +9,9 @@
         </form-field>
 
         <form-field name="email">
-            <input ng-model="field.value"
+            <input type="email" ng-model="field.value"
                    ng-model-options="{ debounce: 300 }"
-                   class="form-control">
+                   class="form-control" required>
         </form-field>
 
         <form-field name="gender">
@@ -21,8 +21,7 @@
         </form-field>
 
         <form-field name="above_21">
-            <ui-switch ng-model="field.value"></ui-switch>
+            <ui-switch ng-model="field.value" required></ui-switch>
         </form-field>
-
     </fieldset>
 </form>
