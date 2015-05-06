@@ -118,6 +118,9 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-sammui-form-demo-field-crazy_confirmation' => [
             'en-us' => 'Are you sure?',
             'pt-br' => 'Você tem certeza?'],
+        'form-sammui-form-demo-field-sammui_uses' => [
+            'en-us' => 'What technologies does sammui uses?',
+            'pt-br' => 'Quais tecnologias o sammui usa?'],
         // Form: human readable Field Values
         'form-value-null' => [
             'en-us' => 'NULL Value',
