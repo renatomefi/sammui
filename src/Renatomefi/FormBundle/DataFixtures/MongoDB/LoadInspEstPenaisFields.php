@@ -3025,6 +3025,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quantidade
         ],
         [
+            'name' => '1_1',
+            'depends_on' => [
+                'field' => '14_1',
+                'value' => null
+            ],
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '2',
             'page' => '14',
             'translate' => [
@@ -3058,6 +3070,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Em caso positivo, como essa avaliação é realizada?
         ],
         [
+            'name' => '6_1',
+            'depends_on' => [
+                'field' => '14_6',
+                'value' => null
+            ],
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Como essa avaliação é realizada?'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '7',
             'page' => '14',
             'translate' => [
@@ -3065,6 +3089,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'boolean',
             // Em caso positivo, descreva
+        ],
+        [
+            'name' => '7_1',
+            'depends_on' => [
+                'field' => '14_7',
+                'value' => null
+            ],
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Descreva'
+            ],
+            'type' => 'text',
         ],
         //END page 14
 
