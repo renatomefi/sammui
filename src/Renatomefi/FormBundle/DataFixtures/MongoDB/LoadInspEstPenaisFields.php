@@ -139,7 +139,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '10_1',
             'page' => '1',
-            'depends_on' => '1_10',
+            'depends_on' => [
+                'field' => '1_10',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -711,7 +714,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '26_1',
             'page' => '4',
-            'depends_on' => '4_26',
+            'depends_on' => [
+                'field' => '4_26',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quais'
             ],
@@ -751,7 +757,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '1_1',
             'page' => '5',
-            'depends_on' => '5_1',
+            'depends_on' => [
+                'field' => '5_1',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -769,7 +778,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '2_1',
             'page' => '5',
-            'depends_on' => '5_2',
+            'depends_on' => [
+                'field' => '5_2',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -787,7 +799,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '3_1',
             'page' => '5',
-            'depends_on' => '5_3',
+            'depends_on' => [
+                'field' => '5_3',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -813,7 +828,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '5_1',
             'page' => '5',
-            'depends_on' => '5_5',
+            'depends_on' => [
+                'field' => '5_3',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -831,7 +849,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '6_1',
             'page' => '5',
-            'depends_on' => '5_6',
+            'depends_on' => [
+                'field' => '5_6',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -865,7 +886,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '9_1',
             'page' => '5',
-            'depends_on' => '5_9',
+            'depends_on' => [
+                'field' => '5_9',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -883,7 +907,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '10_1',
             'page' => '5',
-            'depends_on' => '5_10',
+            'depends_on' => [
+                'field' => '5_10',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -901,7 +928,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '11_1',
             'page' => '5',
-            'depends_on' => '5_11',
+            'depends_on' => [
+                'field' => '5_11',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -919,7 +949,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '12_1',
             'page' => '5',
-            'depends_on' => '5_12',
+            'depends_on' => [
+                'field' => '5_12',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -937,7 +970,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '13_1',
             'page' => '5',
-            'depends_on' => '5_13',
+            'depends_on' => [
+                'field' => '5_13',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -955,7 +991,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '14_1',
             'page' => '5',
-            'depends_on' => '5_14',
+            'depends_on' => [
+                'field' => '5_14',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -973,7 +1012,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '15_1',
             'page' => '5',
-            'depends_on' => '5_15',
+            'depends_on' => [
+                'field' => '5_15',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -991,7 +1033,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '16_1',
             'page' => '5',
-            'depends_on' => '5_16',
+            'depends_on' => [
+                'field' => '5_16',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1009,7 +1054,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '17_1',
             'page' => '5',
-            'depends_on' => '5_17',
+            'depends_on' => [
+                'field' => '5_17',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1027,7 +1075,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '18_1',
             'page' => '5',
-            'depends_on' => '5_18',
+            'depends_on' => [
+                'field' => '5_18',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1045,7 +1096,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '19_1',
             'page' => '5',
-            'depends_on' => '5_19',
+            'depends_on' => [
+                'field' => '5_19',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1091,7 +1145,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '3_1',
             'page' => '6',
-            'depends_on' => '6_3',
+            'depends_on' => [
+                'field' => '6_3',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1109,7 +1166,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '4_1',
             'page' => '6',
-            'depends_on' => '6_4',
+            'depends_on' => [
+                'field' => '6_4',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1127,7 +1187,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '5_1',
             'page' => '6',
-            'depends_on' => '6_5',
+            'depends_on' => [
+                'field' => '6_5',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1219,7 +1282,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '5_1',
             'page' => '7',
-            'depends_on' => '7_5',
+            'depends_on' => [
+                'field' => '7_5',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1228,7 +1294,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '5_2',
             'page' => '7',
-            'depends_on' => '7_5',
+            'depends_on' => [
+                'field' => '7_5',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1242,7 +1311,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '5_3',
             'page' => '7',
-            'depends_on' => '7_5',
+            'depends_on' => [
+                'field' => '7_5',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1276,7 +1348,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '6_1',
             'page' => '7',
-            'depends_on' => '7_6',
+            'depends_on' => [
+                'field' => '7_6',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1285,7 +1360,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '6_2',
             'page' => '7',
-            'depends_on' => '7_6',
+            'depends_on' => [
+                'field' => '7_6',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1299,7 +1377,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '6_3',
             'page' => '7',
-            'depends_on' => '7_6',
+            'depends_on' => [
+                'field' => '7_6',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1333,7 +1414,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '7_1',
             'page' => '7',
-            'depends_on' => '7_7',
+            'depends_on' => [
+                'field' => '7_7',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1342,7 +1426,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '7_2',
             'page' => '7',
-            'depends_on' => '7_7',
+            'depends_on' => [
+                'field' => '7_7',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1356,7 +1443,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '7_3',
             'page' => '7',
-            'depends_on' => '7_7',
+            'depends_on' => [
+                'field' => '7_7',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1390,7 +1480,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '8_1',
             'page' => '7',
-            'depends_on' => '7_8',
+            'depends_on' => [
+                'field' => '7_8',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1399,7 +1492,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '8_2',
             'page' => '7',
-            'depends_on' => '7_8',
+            'depends_on' => [
+                'field' => '7_8',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1413,7 +1509,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '8_3',
             'page' => '7',
-            'depends_on' => '7_8',
+            'depends_on' => [
+                'field' => '7_8',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1447,7 +1546,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '9_1',
             'page' => '7',
-            'depends_on' => '7_9',
+            'depends_on' => [
+                'field' => '7_9',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1456,7 +1558,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '9_2',
             'page' => '7',
-            'depends_on' => '7_9',
+            'depends_on' => [
+                'field' => '7_9',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1470,7 +1575,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '9_3',
             'page' => '7',
-            'depends_on' => '7_9',
+            'depends_on' => [
+                'field' => '7_9',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1504,7 +1612,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '10_1',
             'page' => '7',
-            'depends_on' => '7_10',
+            'depends_on' => [
+                'field' => '7_10',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1513,7 +1624,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '10_2',
             'page' => '7',
-            'depends_on' => '7_10',
+            'depends_on' => [
+                'field' => '7_10',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1527,7 +1641,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '10_3',
             'page' => '7',
-            'depends_on' => '7_10',
+            'depends_on' => [
+                'field' => '7_10',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1561,7 +1678,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '11_1',
             'page' => '7',
-            'depends_on' => '7_11',
+            'depends_on' => [
+                'field' => '7_11',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1570,7 +1690,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '11_2',
             'page' => '7',
-            'depends_on' => '7_11',
+            'depends_on' => [
+                'field' => '7_11',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1584,7 +1707,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '11_3',
             'page' => '7',
-            'depends_on' => '7_11',
+            'depends_on' => [
+                'field' => '7_11',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1618,7 +1744,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '12_1',
             'page' => '7',
-            'depends_on' => '7_12',
+            'depends_on' => [
+                'field' => '7_12',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1627,7 +1756,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '12_2',
             'page' => '7',
-            'depends_on' => '7_12',
+            'depends_on' => [
+                'field' => '7_12',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1641,7 +1773,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '12_3',
             'page' => '7',
-            'depends_on' => '7_12',
+            'depends_on' => [
+                'field' => '7_12',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1675,7 +1810,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '13_1',
             'page' => '7',
-            'depends_on' => '7_13',
+            'depends_on' => [
+                'field' => '7_13',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1684,7 +1822,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '13_2',
             'page' => '7',
-            'depends_on' => '7_13',
+            'depends_on' => [
+                'field' => '7_13',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1698,7 +1839,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '13_3',
             'page' => '7',
-            'depends_on' => '7_13',
+            'depends_on' => [
+                'field' => '7_13',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1733,7 +1877,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '14_1',
             'page' => '7',
-            'depends_on' => '7_14',
+            'depends_on' => [
+                'field' => '7_14',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1742,7 +1889,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '14_2',
             'page' => '7',
-            'depends_on' => '7_14',
+            'depends_on' => [
+                'field' => '7_14',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1757,7 +1907,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '14_3',
             'page' => '7',
-            'depends_on' => '7_14',
+            'depends_on' => [
+                'field' => '7_14',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1791,7 +1944,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '15_1',
             'page' => '7',
-            'depends_on' => '7_15',
+            'depends_on' => [
+                'field' => '7_15',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1800,7 +1956,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '15_2',
             'page' => '7',
-            'depends_on' => '7_15',
+            'depends_on' => [
+                'field' => '7_15',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1814,7 +1973,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '15_3',
             'page' => '7',
-            'depends_on' => '7_15',
+            'depends_on' => [
+                'field' => '7_15',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1846,7 +2008,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '16_1',
             'page' => '7',
-            'depends_on' => '7_16',
+            'depends_on' => [
+                'field' => '7_16',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade'
             ],
@@ -1855,7 +2020,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '16_2',
             'page' => '7',
-            'depends_on' => '7_16',
+            'depends_on' => [
+                'field' => '7_16',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => ''
             ],
@@ -1867,7 +2035,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '16_3',
             'page' => '7',
-            'depends_on' => '7_16',
+            'depends_on' => [
+                'field' => '7_16',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -1895,7 +2066,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '17_1',
             'page' => '7',
-            'depends_on' => '7_17',
+            'depends_on' => [
+                'field' => '7_17',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade homens'
             ],
@@ -1904,7 +2078,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '17_2',
             'page' => '7',
-            'depends_on' => '7_17',
+            'depends_on' => [
+                'field' => '7_17',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quantidade mulheres'
             ],
@@ -1932,7 +2109,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '19_1',
             'page' => '7',
-            'depends_on' => '7_19',
+            'depends_on' => [
+                'field' => '7_19',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Com identificação pessoal'
             ],
@@ -1953,7 +2133,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '20_1',
             'page' => '7',
-            'depends_on' => '7_20',
+            'depends_on' => [
+                'field' => '7_20',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Entidade Executora'
             ],
@@ -1962,7 +2145,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '20_2',
             'page' => '7',
-            'depends_on' => '7_20',
+            'depends_on' => [
+                'field' => '7_20',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Periodicidade/ frequência'
             ],
@@ -2037,7 +2223,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '7_1',
             'page' => '8',
-            'depends_on' => '8_7',
+            'depends_on' => [
+                'field' => '8_7',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quais'
             ],
@@ -2054,7 +2243,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '8_1',
             'page' => '8',
-            'depends_on' => '8_8',
+            'depends_on' => [
+                'field' => '8_8',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Quais'
             ],
@@ -2097,7 +2289,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '11_1',
             'page' => '8',
-            'depends_on' => '8_11',
+            'depends_on' => [
+                'field' => '8_11',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Descrever como é feito o pagamento, controle de preços e destino da receita'
             ],
@@ -2203,7 +2398,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '23_1',
             'page' => '8',
-            'depends_on' => '8_23',
+            'depends_on' => [
+                'field' => '8_23',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Qual a frequência e duração oferecida?'
             ],
@@ -2237,7 +2435,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '2',
             'page' => '9',
-            'depends_on' => '9_1',
+            'depends_on' => [
+                'field' => '9_1',
+                'value' => false
+            ],
             'translate' => [
                 'pt-br' => 'Em caso negativo, de onde provém Qual o custo diário da alimentação por preso?'
             ],
@@ -2315,7 +2516,10 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         [
             'name' => '10_1',
             'page' => '9',
-            'depends_on' => '9_10',
+            'depends_on' => [
+                'field' => '9_10',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Adaptadas por motivos de'
             ],
@@ -3832,8 +4036,8 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             }
 
             if (array_key_exists('depends_on', $field)) {
-                $dependsOn = $fieldsDocuments[$field['depends_on']];
-                $depends = new FormFieldDepends($dependsOn);
+                $dependsOn = $fieldsDocuments[$field['depends_on']['field']];
+                $depends = new FormFieldDepends($dependsOn, $field['depends_on']['value']);
                 $formField->addDependsOn($depends);
                 unset($dependsOn);
                 unset($depends);
