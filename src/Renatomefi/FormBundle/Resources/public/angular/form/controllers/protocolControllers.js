@@ -346,6 +346,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
     }])
     .controller('formFillingPageField', ['$scope', function ($scope) {
+
+        $scope.controllerReady = false;
+
         // $scope.field is determined at ng-init for those who uses this controller
         $scope.field = {};
         $scope.fieldValue = {};
@@ -374,38 +377,54 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             }
         });
 
-        $scope.dependenciesSatisfied = function () {
-            if ($scope.field.hasOwnProperty('depends_on') && $scope.field.depends_on.length === 0) {
+        $scope.checkDependenciesSatisfied = function () {
+            if ($scope.controllerReady === false) {
                 return true;
             }
 
-            var unmet = false;
+            if (!$scope.field.hasOwnProperty('depends_on') || $scope.field.depends_on.length === 0) {
+                return true;
+            }
+
             var fieldHashMap = $scope.$parent.protocol.data.form.fields_hashmap_name;
 
-            angular.forEach($scope.field.depends_on, function (dependency) {
-                var field = $scope.$parent.protocol.data.form.fields[fieldHashMap[dependency.field.name]];
+            // true means that this field will not open, since the dependencies were not resolved, or they were unmet!
+            var unmet = (function () {
+                //console.log('Current field is: ' + $scope.field.name);
+                for (var i = 0; i < $scope.field.depends_on.length; i++) {
+                    var dependency = $scope.field.depends_on[i];
+                    var field = $scope.$parent.protocol.data.form.fields[fieldHashMap[dependency.field.name]];
 
-                if (angular.isUndefined(dependency.custom_value) || dependency.custom_value.length === 0) {
-                    if (!field.value || field.value === false) {
-                        unmet = true;
-                    }
-                } else {
-                    // Prove that you have the correct value :)
-                    unmet = true;
-                    angular.forEach(dependency.custom_value, function (cValue) {
-                        if (field.hasOwnProperty('options') && Object.keys(field.options).length > 0) {
-                            if (field.options[cValue] && field.value[cValue] === true) {
-                                unmet = false;
-                            }
-                        } else {
-                            if (cValue === field.value) {
-                                unmet = false;
+                    //console.log('Dependency "' + field.name + '", current value: ' + JSON.stringify(field.value));
+
+                    if (angular.isUndefined(dependency.custom_value) || dependency.custom_value.length === 0) {
+                        if (!field.value || field.value === false) {
+                            return true;
+                        }
+                    } else {
+                        // Prove that you have the correct value :)
+                        // This is an OR condition, if any value from custom_value matches, the return will happens
+                        for (var j = 0; j < dependency.custom_value.length; j++) {
+                            var cValue = dependency.custom_value[j];
+
+                            if (field.hasOwnProperty('options') && Object.keys(field.options).length > 0) {
+                                if (field.options[cValue] &&
+                                    field.value !== null && field.value !== undefined &&
+                                    Object.getOwnPropertyNames(field.value).length > 0 &&
+                                    field.value[cValue] === true) {
+                                    return false;
+                                }
+                            } else {
+                                if (cValue === field.value) {
+                                    return false;
+                                }
                             }
                         }
-                    });
-                }
 
-            });
+                        return true;
+                    }
+                }
+            })();
 
             if (unmet === true) {
                 $scope.$broadcast('event:form-fieldUnmetDependencies');
@@ -454,6 +473,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             // Since we are not going to change the field, let's unbind it, you know, angular issues!
             fieldWatchUnbind();
+
+            $scope.controllerReady = true;
         });
 
     }])
