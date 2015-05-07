@@ -3369,6 +3369,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
             //Quais
         ],
+        [
+            'name' => '7_1',
+            'page' => '17',
+            'depend_on' => [
+                'field' => '17_7',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Quais?'
+            ],
+            'type' => 'text',
+        ],
         //END page 17
 
         //BEGIN page 18

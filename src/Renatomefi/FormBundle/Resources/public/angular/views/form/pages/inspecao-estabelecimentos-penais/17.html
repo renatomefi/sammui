@@ -27,6 +27,11 @@
                 <form-field name="17_7">
                     <ui-switch ng-model="field.value"></ui-switch>
                 </form-field>
+                <form-field name="17_7_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
             </div>
         </div>
     </fieldset>
