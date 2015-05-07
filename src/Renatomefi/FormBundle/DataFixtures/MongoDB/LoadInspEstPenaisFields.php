@@ -3396,11 +3396,11 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Policiais civis',
                 'Policiais militares',
                 'Terceirizados',
-                'Outros',
+                'other' => 'Outros',
             ]
         ],
         [
-            'name' => '2',
+            'name' => '2_1',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Arma menos letal (bala de borracha)'
@@ -3408,7 +3408,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '3',
+            'name' => '2_2',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Arma letal'
@@ -3416,7 +3416,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '4',
+            'name' => '2_3',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Taser'
@@ -3424,7 +3424,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '5',
+            'name' => '2_4',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Gás de pimenta / lacrimogênio'
@@ -3432,7 +3432,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '6',
+            'name' => '2_5',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Cacetete / Tonfa'
@@ -3440,7 +3440,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '7',
+            'name' => '2_6',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Algemas'
@@ -3448,7 +3448,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '8',
+            'name' => '2_7',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Rádio'
@@ -3456,7 +3456,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '9',
+            'name' => '2_8',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Alarme'
@@ -3464,7 +3464,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '10',
+            'name' => '2_9',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Circuito de vigilância interna'
@@ -3472,15 +3472,19 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '11',
+            'name' => '2_10',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Outro'
             ],
-            'type' => 'boolean',
+            'type' => 'select',
+            'options' => [
+                'other' => 'Sim',
+                'Não'
+            ]
         ],
         [
-            'name' => '12',
+            'name' => '3_1',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Os usuários têm porte de armas?'
@@ -3493,7 +3497,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ]
         ],
         [
-            'name' => '13',
+            'name' => '3_2',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'É garantido treinamento periódico?'
@@ -3506,7 +3510,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ]
         ],
         [
-            'name' => '14',
+            'name' => '4',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'No caso de emprego de arma de fogo, é feito registro?'
@@ -3519,7 +3523,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ]
         ],
         [
-            'name' => '15',
+            'name' => '5',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'No caso de uso de arma tipo Taser os registros de descarga do equipamento são identificados por servidor?'
@@ -3532,7 +3536,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ]
         ],
         [
-            'name' => '16',
+            'name' => '6',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'A segurança externa é realizada por'
@@ -3543,11 +3547,11 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'policiais militares',
                 'agentes penitenciários',
                 'terceiros',
-                'outros',
+                'other' => 'outros',
             ]
         ],
         [
-            'name' => '17',
+            'name' => '7',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'A escolta externa é realizada por'
@@ -3558,11 +3562,11 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'policiais militares',
                 'agentes penitenciários',
                 'terceiros',
-                'outros',
+                'other' => 'outros',
             ]
         ],
         [
-            'name' => '18',
+            'name' => '8',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Há escolta externa especifica para área de saúde'
@@ -3570,7 +3574,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '19',
+            'name' => '9',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Existe grupo de intervenção especial vinculado à unidade?'
@@ -3578,8 +3582,12 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '20',
+            'name' => '10',
             'page' => '18',
+            'depends_on' => [
+                'field' => '18_9',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Caso exista, quem são os envolvidos'
             ],
@@ -3589,11 +3597,11 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'policiais militares',
                 'agentes penitenciários',
                 'terceiros',
-                'outros',
+                'other'=>'outros',
             ]
         ],
         [
-            'name' => '21',
+            'name' => '11_1',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Portal detector de metal'
@@ -3601,7 +3609,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '22',
+            'name' => '11_2',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Raquete detectora de metal'
@@ -3609,7 +3617,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '23',
+            'name' => '11_3',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Banco detector de metal'
@@ -3617,7 +3625,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '24',
+            'name' => '11_4',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Raio X'
@@ -3625,7 +3633,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '25',
+            'name' => '11_5',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Espectômetro'
@@ -3633,7 +3641,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '26',
+            'name' => '11_6',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Body Scanner'
@@ -3641,12 +3649,16 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'boolean',
         ],
         [
-            'name' => '27',
+            'name' => '11_7',
             'page' => '18',
             'translate' => [
                 'pt-br' => 'Outro'
             ],
-            'type' => 'text',
+            'type' => 'select',
+            'options' => [
+                'other' => 'Sim',
+                'Não'
+            ]
         ],
         //END page 18
 
