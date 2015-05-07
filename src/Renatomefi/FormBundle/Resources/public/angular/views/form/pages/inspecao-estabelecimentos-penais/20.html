@@ -22,11 +22,13 @@
         </form-field>
 
         <form-field name="20_4">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
+            <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
+        </form-field>
+
+        <form-field name="20_4_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
         </form-field>
 
         <form-field name="20_5">
@@ -42,19 +44,23 @@
         </form-field>
 
         <form-field name="20_8">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
+            <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
+        </form-field>
+
+        <form-field name="20_8_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
         </form-field>
 
         <form-field name="20_9">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
+            <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
+        </form-field>
+
+        <form-field name="20_9_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
         </form-field>
 
         <form-field name="20_10">

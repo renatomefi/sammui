@@ -3961,6 +3961,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // frequencia
         ],
         [
+            'name' => '1_1',
+            'page' => '20',
+            'depends_on' => [
+                'field' => '20_1',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '2',
             'page' => '20',
             'translate' => [
@@ -3996,13 +4008,25 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'translate' => [
                 'pt-br' => 'Qual o local que ocorre a visita social'
             ],
-            'type' => 'select',
+            'type' => 'multicheckbox',
             'options' => [
-                'pátio de visita',
-                'pátio do banho de sol',
-                'celas',
-                'outro',
+                'Pátio de visita',
+                'Pátio do banho de sol',
+                'Celas',
+                'Outro',
             ]
+        ],
+        [
+            'name' => '4_1',
+            'page' => '20',
+            'depends_on' => [
+                'field' => '20_4',
+                'value' => 3
+            ],
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '5',
@@ -4022,6 +4046,18 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             //Frequencia
         ],
         [
+            'name' => '6_1',
+            'page' => '20',
+            'depends_on' => [
+                'field' => '20_6',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '7',
             'page' => '20',
             'translate' => [
@@ -4035,12 +4071,24 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'translate' => [
                 'pt-br' => 'Qual o local que ocorre a visita íntima?'
             ],
-            'type' => 'select',
+            'type' => 'multicheckbox',
             'options' => [
-                'módulo de visita íntima',
-                'celas',
-                'outro',
+                'Módulo de visita íntima',
+                'Celas',
+                'Outro',
             ]
+        ],
+        [
+            'name' => '8_1',
+            'page' => '20',
+            'depends_on' => [
+                'field' => '20_8',
+                'value' => 2
+            ],
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '9',
@@ -4050,11 +4098,23 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             ],
             'type' => 'select',
             'options' => [
-                'mecânica(detector de metais, raquetes, banco, espectômetro)',
-                'manual sem desnudamento',
-                'com desnudamento',
-                'outro',
+                'Mecânica(detector de metais, raquetes, banco, espectômetro)',
+                'Manual sem desnudamento',
+                'Com desnudamento',
+                'Outro',
             ]
+        ],
+        [
+            'name' => '9_1',
+            'page' => '20',
+            'depends_on' => [
+                'field' => '20_9',
+                'value' => 3
+            ],
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '10',
