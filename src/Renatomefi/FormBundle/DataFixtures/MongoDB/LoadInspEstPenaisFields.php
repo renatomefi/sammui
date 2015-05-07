@@ -3282,7 +3282,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Católicos',
                 'Evangélicos',
                 'de Matriz Africana',
-                'Outra',
+                'other' => 'Outra',
             ]
         ],
         [
