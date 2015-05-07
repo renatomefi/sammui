@@ -3597,7 +3597,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'policiais militares',
                 'agentes penitenciários',
                 'terceiros',
-                'other'=>'outros',
+                'other' => 'outros',
             ]
         ],
         [
@@ -3682,7 +3682,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Livro',
                 'PAD',
                 'Procedimento Eletrônico',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         [
@@ -3735,6 +3735,22 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             //Se sim, em qual fase?  fase administrativa  fase judicial
         ],
         [
+            'name' => '8_1',
+            'page' => '19',
+            'depends_on' => [
+                'field' => '19_8',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'em qual fase?'
+            ],
+            'options' => [
+                'fase administrativa',
+                'fase judicial',
+            ],
+            'type' => 'boolean',
+        ],
+        [
             'name' => '9',
             'page' => '19',
             'translate' => [
@@ -3761,7 +3777,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 '10 dias',
                 '20 dias',
                 '30 dias',
-                'outro',
+                'other' => 'Outro',
             ]
         ],
         [
@@ -3787,6 +3803,150 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'pt-br' => 'Houve motins ou rebeliões nos últimos 12 meses?'
             ],
             'type' => 'boolean',
+        ],
+        [
+            'name' => '15_1_1',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Fugas (pessoas)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_1_2',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Pessoas evadidas'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_1_3',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Saídas temporárias (pessoas)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_1_4',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes naturais'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_1_5',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes por homicídio'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_1_6',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes acidentais'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_1_7',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes por suicídio'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_1_8',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes por causas desconhecidas'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_1_9',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Incidentes com funcionários (pessoas)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_1',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Fugas (pessoas)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_2',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Pessoas evadidas'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_3',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Saídas temporárias (pessoas)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_4',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes naturais'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_5',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes por homicídio'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_6',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes acidentais'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_7',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes por suicídio'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_8',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Mortes por causas desconhecidas'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_9',
+            'page' => '19',
+            'translate' => [
+                'pt-br' => 'Incidentes com funcionários (pessoas)'
+            ],
+            'type' => 'text',
         ],
         //END page 19
 
