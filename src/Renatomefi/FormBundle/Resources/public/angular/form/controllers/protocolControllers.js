@@ -393,8 +393,14 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                     // Prove that you have the correct value :)
                     unmet = true;
                     angular.forEach(dependency.custom_value, function (cValue) {
-                        if (cValue === field.value) {
-                            unmet = false;
+                        if (field.hasOwnProperty('options') && Object.keys(field.options).length > 0) {
+                            if (field.options[cValue] && field.value[cValue] === true) {
+                                unmet = false;
+                            }
+                        } else {
+                            if (cValue === field.value) {
+                                unmet = false;
+                            }
                         }
                     });
                 }
