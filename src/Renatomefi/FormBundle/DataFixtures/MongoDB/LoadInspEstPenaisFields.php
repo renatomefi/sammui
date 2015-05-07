@@ -3118,7 +3118,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
 
         //BEGIN page 15
         [
-            'name' => '2',
+            'name' => '2_1',
             'page' => '15',
             'translate' => [
                 'pt-br' => 'Alfabetização'
@@ -3126,7 +3126,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
-            'name' => '3',
+            'name' => '2_2',
             'page' => '15',
             'translate' => [
                 'pt-br' => 'ensino fundamental'
@@ -3134,7 +3134,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
-            'name' => '4',
+            'name' => '2_3',
             'page' => '15',
             'translate' => [
                 'pt-br' => 'ensino médio'
@@ -3142,7 +3142,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
-            'name' => '5',
+            'name' => '2_4',
             'page' => '15',
             'translate' => [
                 'pt-br' => 'profissionalizante'
@@ -3150,7 +3150,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
-            'name' => '6',
+            'name' => '2_5',
             'page' => '15',
             'translate' => [
                 'pt-br' => 'outros'
@@ -3158,15 +3158,19 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             'type' => 'text',
         ],
         [
-            'name' => '7',
+            'name' => '2_5_1',
             'page' => '15',
+            'depends_on' => [
+                'field' => '15_2_5',
+                'value' => null
+            ],
             'translate' => [
                 'pt-br' => 'Especificar'
             ],
             'type' => 'text',
         ],
         [
-            'name' => '8',
+            'name' => '3',
             'page' => '15',
             'translate' => [
                 'pt-br' => 'Os cursos são ministrados por'
@@ -3178,11 +3182,11 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
                 'Professores da Secretaria Municipal de Educação',
                 'Presos monitores',
                 'Voluntários',
-                'Outros professores', // Especificar
+                'other' => 'Outros professores', // Especificar
             ]
         ],
         [
-            'name' => '9',
+            'name' => '4',
             'page' => '15',
             'translate' => [
                 'pt-br' => 'Há atividades esportivas?'
@@ -3191,7 +3195,31 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quais / Onde
         ],
         [
-            'name' => '10',
+            'name' => '4_1',
+            'page' => '15',
+            'depends_on' => [
+                'field' => '15_4',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Quais?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_2',
+            'page' => '15',
+            'depends_on' => [
+                'field' => '15_4',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Onde?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5',
             'page' => '15',
             'translate' => [
                 'pt-br' => 'Há atividades culturais/lazer?'
@@ -3200,7 +3228,31 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
             // Quais / Onde
         ],
         [
-            'name' => '11',
+            'name' => '5_1',
+            'page' => '15',
+            'depends_on' => [
+                'field' => '15_5',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Quando?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5_2',
+            'page' => '15',
+            'depends_on' => [
+                'field' => '15_5',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Onde?'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '6',
             'page' => '15',
             'translate' => [
                 'pt-br' => 'Se há biblioteca, como funciona o acesso das pessoas presas aos livros'
