@@ -6,11 +6,7 @@
         </form-field>
 
         <form-field name="20_2">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
+            <select-field ng-model="field.value" options="field.options"></select-field>
         </form-field>
 
         <form-field name="20_3">
@@ -21,15 +17,19 @@
             </select>
         </form-field>
 
-        <form-field name="20_4">
-            <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
-        </form-field>
+        <div class="panel panel-default">
+        	<div class="panel-body">
+                <form-field name="20_4">
+                    <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
+                </form-field>
 
-        <form-field name="20_4_1">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
+                <form-field name="20_4_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+        	</div>
+        </div>
 
         <form-field name="20_5">
             <ui-switch ng-model="field.value"></ui-switch>
@@ -43,25 +43,33 @@
             <ui-switch ng-model="field.value"></ui-switch>
         </form-field>
 
-        <form-field name="20_8">
-            <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
-        </form-field>
+        <div class="panel panel-default">
+        	<div class="panel-body">
+                <form-field name="20_8">
+                    <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
+                </form-field>
 
-        <form-field name="20_8_1">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
+                <form-field name="20_8_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+        	</div>
+        </div>
 
-        <form-field name="20_9">
-            <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
-        </form-field>
+        <div class="panel panel-default">
+        	<div class="panel-body">
+                <form-field name="20_9">
+                    <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
+                </form-field>
 
-        <form-field name="20_9_1">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
+                <form-field name="20_9_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+        	</div>
+        </div>
 
         <form-field name="20_10">
             <ui-switch ng-model="field.value"></ui-switch>
