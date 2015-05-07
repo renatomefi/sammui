@@ -1,6 +1,6 @@
 <!-- Controller: formFillingPage -->
 <div ng-controller="formFillingPageField"
-     ng-show="dependenciesSatisfied()"
+     ng-show="checkDependenciesSatisfied()"
      class="form-group">
     <label>{{ ::'form-' + protocol.data.form.name + '-field-' + field.name | translate}}
         <small ng-show="isValueUpdated(fieldValue, field)">
