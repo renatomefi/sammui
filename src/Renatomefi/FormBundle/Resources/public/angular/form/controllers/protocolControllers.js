@@ -407,15 +407,15 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                         for (var j = 0; j < dependency.custom_value.length; j++) {
                             var cValue = dependency.custom_value[j];
 
+                            if (cValue === field.value) {
+                                return false;
+                            }
+
                             if (field.hasOwnProperty('options') && Object.keys(field.options).length > 0) {
                                 if (field.options[cValue] &&
                                     field.value !== null && field.value !== undefined &&
                                     Object.getOwnPropertyNames(field.value).length > 0 &&
                                     field.value[cValue] === true) {
-                                    return false;
-                                }
-                            } else {
-                                if (cValue === field.value) {
                                     return false;
                                 }
                             }
