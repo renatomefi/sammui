@@ -1,5 +1,11 @@
 /* Input group */
 
+@media (min-width: 768px) {
+    .nav-justified > li {
+        /*display: table-cell;*/
+        width: 100%;
+    }
+}
 .input-group-addon {
     background-color: #fff;
 }

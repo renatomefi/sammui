@@ -10,10 +10,14 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             protocolData.setScope($scope);
 
+            $scope.isReadOnly = function () {
+                return !!($location.search().hasOwnProperty('readOnly'));
+            };
+
             $scope.protocol = {
                 data: protocolData.getData($routeParams.protocolId),
                 original: protocolData.getOriginalData($routeParams.protocolId),
-                readOnly: !!($location.search().hasOwnProperty('readOnly'))
+                readOnly: $scope.isReadOnly()
             };
 
             $scope.protocol.data.$promise.then(function () {
@@ -33,7 +37,7 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             };
 
             $scope.$on('$locationChangeSuccess', function () {
-                $scope.protocol.readOnly = !!($location.search().hasOwnProperty('readOnly'));
+                $scope.protocol.readOnly = $scope.isReadOnly();
             });
 
         }
