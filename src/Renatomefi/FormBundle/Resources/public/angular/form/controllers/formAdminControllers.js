@@ -32,8 +32,8 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
 
         }
     ])
-    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', '$routeParams', 'formProtocols', 'formManage', 'formProtocol',
-        function ($rootScope, $scope, $location, $routeParams, formProtocols, formManage, formProtocol) {
+    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', '$routeParams', 'formProtocols', 'formManage', 'formProtocolManage',
+        function ($rootScope, $scope, $location, $routeParams, formProtocols, formManage, formProtocolManage) {
             $rootScope.loading = true;
 
             // Loading form
@@ -52,6 +52,17 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
 
             $scope.readProtocol = function (protocolId) {
                 return '#/form/' + protocolId + '/page/index?readOnly';
+            };
+
+            $scope.protocolDetailsModal = function (protocolId) {
+                $rootScope.loading = true;
+                formProtocolManage
+                    .get({protocolId: protocolId})
+                    .$promise.then(function (data) {
+                        $scope.protocol = data;
+                        $rootScope.loading = false;
+                        $rootScope.Ui.turnOn('modalProtocolDetails');
+                    });
             };
         }
     ])

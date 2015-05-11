@@ -183,6 +183,12 @@ class ProtocolController extends FOSRestController
 
         }
 
+        if (!$protocol->getFirstSaveDate()) {
+            $protocol->setFirstSaveDate(new \MongoDate());
+        }
+
+        $protocol->setLastSaveDate(new \MongoDate());
+
         $odm->persist($protocol);
         $odm->flush();
         $odm->clear();

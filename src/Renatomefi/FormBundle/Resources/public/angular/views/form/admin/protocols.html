@@ -52,7 +52,7 @@
                     <table class="table table-striped table-hover">
                         <thead>
                         <tr>
-                            <th><i class="glyphicon glyphicon-cog"></i></th>
+                            <th></th>
                             <th>Date</th>
                             <th><i class="glyphicon glyphicon-barcode"></i></th>
                         </tr>
@@ -61,8 +61,9 @@
                         <tr ng-repeat="protocol in protocols | orderBy:'created_at':true">
                             <td>
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-default">
-                                        <span class="glyphicon glyphicon-cloud-upload"></span>
+                                    <button ng-click="protocolDetailsModal(protocol.id)"
+                                            type="button" class="btn btn-default">
+                                        <i class="glyphicon glyphicon-cog"></i>
                                     </button>
                                     <a ng-href="{{readProtocol(protocol.id)}}"
                                        type="button" class="btn btn-warning" target="_blank">
@@ -75,6 +76,90 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ui-content-for="modals">
+    <div class="modal modal-overlay" ui-if='modalProtocolDetails' ui-state='modalProtocolDetails'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close"
+                            ui-turn-off="modalProtocolDetails">&times;</button>
+                    <h4 class="modal-title">{{'form-protocol-details' | translate}}</h4>
+                </div>
+                <div class="modal-body">
+                    <p><i class="fa fa-barcode"></i> <strong>{{::protocol.id}}</strong></p>
+
+                    <p>{{protocol.form.name | translate}} <strong>{{::protocol.form.name}}</strong></p>
+
+                    <p>
+                        {{'form-protocol-created_at' | translate}}
+                        <strong>{{protocol.created_at | date:'medium'}}</strong>
+                    </p>
+
+                    <p>
+                        {{'form-protocol-first_save_date' | translate}}
+                        <strong>{{protocol.first_save_date | date:'medium'}}</strong>
+                    </p>
+
+                    <p>
+                        {{'form-protocol-last_save_date' | translate}}
+                        <strong>{{protocol.last_save_date | date:'medium'}}</strong>
+                    </p>
+
+                    <hr>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default">
+                            <i class="fa fa-eye fa-2x"></i> View
+                        </button>
+                        <button type="button" class="btn btn-success">
+                            <i class="fa fa-file-pdf-o fa-2x"></i> PDF
+                        </button>
+                        <button type="button" class="btn btn-success">
+                            <i class="fa fa-file-excel-o fa-2x"></i> Table
+                        </button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-warning">
+                            <i class="fa fa-lock fa-2x"></i> Lock
+                        </button>
+                    </div>
+
+                    <hr>
+
+                    <p>
+                        {{'form-protocol-field_values' | translate}}
+                        <strong>{{protocol.field_values.length}}/{{protocol.form.fields.length}}</strong>
+                    </p>
+
+                    <hr>
+
+                    <table class="table table-striped table-hover">
+                        <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Non-User</th>
+                            <th>Comments</th>
+                            <th>Uploads</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>{{protocol.user.length}}</td>
+                            <td>{{protocol.non_user.length}}</td>
+                            <td>{{protocol.comment.length}}</td>
+                            <td>{{protocol.file.length}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button ui-turn-off="modalProtocolDetails" class="btn btn-default">Close</button>
                 </div>
             </div>
         </div>
