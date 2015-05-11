@@ -49,6 +49,10 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
                 }).$promise.finally(function () {
                     $rootScope.loading = false;
                 });
+
+            $scope.readProtocol = function (protocolId) {
+                return '#/form/' + protocolId + '/page/index?readOnly';
+            };
         }
     ])
 ;
