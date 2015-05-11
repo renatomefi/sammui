@@ -149,8 +149,8 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
         $scope.showThumbs = false;
 
         //TODO configuration file??
-        var uploadPath = '/form/protocol/files/upload';
-        var downloadPath = '/form/protocol/files/get/';
+        var uploadPath = '/form/protocol/files/upload',
+            downloadPath = '/form/protocol/files/get/';
 
         $scope.$watch('files', function () {
             $scope.upload($scope.files);
@@ -219,24 +219,16 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             }
         };
     }])
-    .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', 'formConfig',
-        function ($scope, $routeParams, $location, $route, formConfig) {
+    .controller('formFillingPagination', ['$scope', '$routeParams', '$location', '$route', 'formConfig', 'formActionsTemplates',
+        function ($scope, $routeParams, $location, $route, formConfig, formActionsTemplates) {
 
-            var partialPath = formConfig.template.partialPath;
             var templatePath = formConfig.template.pagesPath;
 
             $scope.modal = {
                 data: undefined
             };
 
-            //Default templates to all forms
-            $scope.templates = [
-                {name: 'index', url: partialPath + 'index.html', headerType: 'index'},
-                {name: 'users', url: partialPath + 'user.html'},
-                {name: 'comments', url: partialPath + 'comment.html'},
-                {name: 'conclusion', url: partialPath + 'conclusion.html'},
-                {name: 'upload', url: partialPath + 'upload.html'}
-            ];
+            $scope.templates = formActionsTemplates.get();
 
             $scope.toPage = function (pageId) {
                 if (!angular.isUndefined($routeParams.pageId)) {
@@ -247,9 +239,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             };
 
             $scope.loadTemplate = function (pageId) {
-                if (isFinite(parseInt(pageId))) {
+                if (isFinite(parseInt(pageId, 10))) {
                     $scope.currentPage = $scope.$parent.protocol.data.form.pages.filter(function (page) {
-                        return page.number === parseInt(pageId);
+                        return page.number === parseInt(pageId, 10);
                     }).pop();
 
                     $scope.$parent.currentTemplate = {
