@@ -1,6 +1,6 @@
 <?php
 
-namespace Renatomefi\UserBundle\DataFixtures\MongoDB;
+namespace PensandoODireito\SisdepenFormsBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\DataFixtures\AbstractFixture;
@@ -18,11 +18,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Carrega os campos do formulário INSPEÇÃO EM ESTABELECIMENTOS PENAIS LoadInspEstPenaisForm
- * Class LoadInspEstPenaisFields
- * @package Renatomefi\UserBundle\DataFixtures\MongoDB
+ *
+ * Class LoadFormFields
+ * @package PensandoODireito\SisdepenFormsBundle\DataFixtures\MongoDB
  * @codeCoverageIgnore
  */
-class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class LoadFormFields extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
 
     /**
@@ -30,7 +31,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
      */
     private $container;
 
-    protected static $fields = [
+    public static $fields = [
         // BEGIN page 1
         [
             'name' => '1',
@@ -4508,7 +4509,7 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
         $documentManager = $this->container->get('doctrine_mongodb.odm.document_manager');
 
         /** @var Form $form */
-        $form = $this->getReference(LoadInspEstPenaisForm::NAME);
+        $form = $this->getReference(LoadForm::NAME);
 
         $fieldPrefix = 'form-' . $form->getName();
 
@@ -4557,7 +4558,6 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
 
         $documentManager->persist($form);
         $documentManager->flush();
-
     }
 
     /**
@@ -4565,6 +4565,6 @@ class LoadInspEstPenaisFields extends AbstractFixture implements FixtureInterfac
      */
     public function getOrder()
     {
-        return 5;
+        return 6;
     }
 }
