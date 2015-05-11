@@ -1,7 +1,7 @@
 <div ng-controller="formFillingComment">
     <div class="panel panel-info">
         <div class="panel-heading">
-            <form ng-if="!protocol.readOnly" name="formProtocolNewComment" ng-submit="addComment()">
+            <form ng-hide="protocol.readOnly" name="formProtocolNewComment" ng-submit="addComment()">
                 <text-angular
                         ng-model="newComment"
                         ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','strikeThrough'],['quote','insertLink']]">
@@ -20,8 +20,8 @@
             <thead>
             <tr>
                 <th></th>
-                <th>{{'protocol-comment-created-at' | translate}}</th>
                 <th>{{'protocol-comment' | translate}}</th>
+                <th>{{'protocol-comment-created-at' | translate}}</th>
             </tr>
             </thead>
             <tbody>

@@ -52,12 +52,12 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             formProtocolUser
                 .add({
-                    protocolId: $scope.$parent.protocol.data.id,
+                    protocolId: $scope.protocol.data.id,
                     userName: userName
                 }, function (data) {
                     $scope.newUser = null;
-                    $scope.$parent.protocol.data.user = angular.copy(data.user);
-                    $scope.$parent.protocol.data.non_user = angular.copy(data.nonUser);
+                    $scope.protocol.data.user = angular.copy(data.user);
+                    $scope.protocol.data.non_user = angular.copy(data.nonUser);
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;
@@ -69,11 +69,11 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             formProtocolUser
                 .remove({
-                    protocolId: $scope.$parent.protocol.data.id,
+                    protocolId: $scope.protocol.data.id,
                     userName: userName
                 }, function (data) {
-                    $scope.$parent.protocol.data.user = angular.copy(data.user);
-                    $scope.$parent.protocol.data.non_user = angular.copy(data.nonUser);
+                    $scope.protocol.data.user = angular.copy(data.user);
+                    $scope.protocol.data.non_user = angular.copy(data.nonUser);
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;
@@ -90,11 +90,11 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             formProtocolComment
                 .add({
-                    protocolId: $scope.$parent.protocol.data.id,
+                    protocolId: $scope.protocol.data.id,
                     body: $scope.newComment
                 }, function (data) {
                     $scope.newComment = null;
-                    $scope.$parent.protocol.data.comment = angular.copy(data);
+                    $scope.protocol.data.comment = angular.copy(data);
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;
@@ -106,10 +106,10 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             formProtocolComment
                 .remove({
-                    protocolId: $scope.$parent.protocol.data.id,
+                    protocolId: $scope.protocol.data.id,
                     commentId: commentId
                 }, function (data) {
-                    $scope.$parent.protocol.data.comment = angular.copy(data);
+                    $scope.protocol.data.comment = angular.copy(data);
                 })
                 .$promise.finally(function () {
                     $scope.loading = false;
