@@ -31,6 +31,7 @@ class AppKernel extends Kernel
             new Renatomefi\ApiBundle\ApiBundle(),
             new Renatomefi\UserBundle\UserBundle(),
             new Renatomefi\FormBundle\FormBundle(),
+            new PensandoODireito\SisdepenFormsBundle\SisdepenFormsBundle(),
         ];
 
         $bundlesDev = [

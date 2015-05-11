@@ -1,13 +1,12 @@
 <?php
 
-namespace Renatomefi\UserBundle\DataFixtures\MongoDB;
+namespace PensandoODireito\SisdepenFormsBundle\DataFixtures\MongoDB;
 
 use Doctrine\Common\DataFixtures\AbstractFixture;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Renatomefi\FormBundle\Document\Form;
-use Renatomefi\FormBundle\Document\FormField;
 use Renatomefi\FormBundle\Document\FormPage;
 use Renatomefi\TranslateBundle\DataFixtures\MongoDB\LoadLangs;
 use Renatomefi\TranslateBundle\Document\Language;
@@ -17,12 +16,12 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Carrega os formulário do RELATÓRIO DE INSPEÇÃO EM ESTABELECIMENTOS PENAIS 1 2
- * Class LoadInspEstPenaisForm
  *
- * @package Renatomefi\UserBundle\DataFixtures\MongoDB
+ * Class LoadFor
+ * @package PensandoODireito\SisdepenFormsBundle\DataFixtures\MongoDB
  * @codeCoverageIgnore
  */
-class LoadInspEstPenaisForm extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
+class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwareInterface, OrderedFixtureInterface
 {
 
     /**
@@ -39,7 +38,7 @@ class LoadInspEstPenaisForm extends AbstractFixture implements FixtureInterface,
      * Form pages
      * @var array
      */
-    private static $pages = [
+    public static $pages = [
         [
             'title' => 'Estrutura Organizacional',
             'number' => 1
@@ -179,7 +178,6 @@ class LoadInspEstPenaisForm extends AbstractFixture implements FixtureInterface,
         $documentManager->flush();
 
         $this->addReference(static::NAME, $form);
-
     }
 
     /**
@@ -187,6 +185,6 @@ class LoadInspEstPenaisForm extends AbstractFixture implements FixtureInterface,
      */
     public function getOrder()
     {
-        return 4;
+        return 5;
     }
 }
