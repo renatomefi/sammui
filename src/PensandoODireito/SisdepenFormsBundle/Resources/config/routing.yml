@@ -1,0 +1,3 @@
+sisdepen_forms_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SisdepenFormsBundle:Default:index }

@@ -1,0 +1,4 @@
+services:
+#    sisdepen_forms.example:
+#        class: PensandoODireito\SisdepenFormsBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
