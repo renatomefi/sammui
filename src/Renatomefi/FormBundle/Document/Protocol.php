@@ -25,12 +25,19 @@ class Protocol
         $this->comment = new ArrayCollection();
         $this->file = new ArrayCollection();
         $this->fieldValues = new ArrayCollection();
+        $this->publish = new ArrayCollection();
+
     }
 
     /**
      * @ODM\Id(strategy="auto")
      */
     protected $id;
+
+    /**
+     * @ODM\EmbedMany(targetDocument="ProtocolPublish")
+     */
+    protected $publish;
 
     /**
      * @ODM\Date
@@ -213,6 +220,26 @@ class Protocol
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Is this protocol locked?
+     *
+     * @return bool
+     */
+    public function isLocked()
+    {
+        return $this->publish[0]->getLocked();
+    }
+
+    /**
+     * Set publish to the protocol
+     *
+     * @param \Renatomefi\FormBundle\Document\ProtocolPublish $publish
+     */
+    public function setPublish(ProtocolPublish $publish)
+    {
+        $this->publish[] = $publish;
     }
 
     /**

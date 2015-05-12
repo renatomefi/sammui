@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('sammui.protocolServices', ['ngResource'])
-    .service('protocolData', ['localStorageService', 'formProtocolManage', 'formTemplate',
-        function (localStorageService, formProtocolManage, formTemplate) {
+    .service('protocolData', ['localStorageService', 'formProtocolManage', 'formPagesTemplate', 'formActionsTemplates',
+        function (localStorageService, formProtocolManage, formPagesTemplate, formActionsTemplates) {
             var originalData = {};
             var currentData = {};
 
@@ -56,7 +56,8 @@ angular.module('sammui.protocolServices', ['ngResource'])
 
                         originalData[protocolId] = angular.copy(data);
 
-                        formTemplate.loadTemplates(data.form);
+                        formPagesTemplate.preload(data.form);
+                        formActionsTemplates.preload();
 
                         localStorageService.set(storagePrefix + protocolId, currentData[protocolId]);
 
@@ -131,6 +132,22 @@ angular.module('sammui.protocolServices', ['ngResource'])
                     params: {action: 'removes'}
                 }
             });
+    })
+    .factory('formProtocolLock', function ($resource) {
+        return $resource('/form/protocol/publishes/:protocolId/locks/:lock',
+            {
+                protocolId: '@protocolId'
+            }, {
+                'lock': {
+                    method: 'PATCH',
+                    params: {lock: true}
+                },
+                'unlock': {
+                    method: 'PATCH',
+                    params: {lock: false}
+                }
+            }
+        );
     })
     .factory('formProtocolComment', function ($resource) {
         return $resource('/form/protocol/:action/:protocolId/:var/:commentId',
