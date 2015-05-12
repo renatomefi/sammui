@@ -7,6 +7,7 @@ use FOS\RestBundle\Controller\FOSRestController;
 use Renatomefi\FormBundle\Document\Protocol;
 use Renatomefi\FormBundle\Document\ProtocolComment;
 use Renatomefi\FormBundle\Document\ProtocolFieldValue;
+use Renatomefi\FormBundle\Document\ProtocolPublish;
 use Renatomefi\FormBundle\Document\ProtocolUser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -291,5 +292,28 @@ class ProtocolController extends FOSRestController
         $dm->clear();
 
         return $this->getProtocol($protocolId)->getComment()->toArray();
+    }
+
+    /**
+     * @param $protocolId
+     * @param $lock
+     * @return array
+     */
+    public function patchPublishLockAction($protocolId, $lock)
+    {
+        $dm = $this->get('doctrine_mongodb')->getManager();
+
+        $protocol = $this->getProtocol($protocolId);
+
+        $publish = new ProtocolPublish();
+        $publish->setLocked($lock);
+
+        $protocol->setPublish($publish);
+
+        $dm->persist($protocol);
+        $dm->flush();
+        $dm->clear();
+
+        return true;
     }
 }
