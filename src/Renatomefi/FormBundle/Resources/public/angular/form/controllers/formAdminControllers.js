@@ -60,6 +60,11 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
                     .get({protocolId: protocolId})
                     .$promise.then(function (data) {
                         $scope.protocol = data;
+                        $scope.protocol.isLocked = (function() {
+                           if (data.publish.length > 0 && data.publish[0].locked === true) {
+                               return true;
+                           }
+                        })();
                         $rootScope.loading = false;
                         $rootScope.Ui.turnOn('modalProtocolDetails');
                     });
