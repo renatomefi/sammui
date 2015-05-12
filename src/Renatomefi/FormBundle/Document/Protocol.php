@@ -33,6 +33,11 @@ class Protocol
     protected $id;
 
     /**
+     * @ODM\EmbedMany(targetDocument="ProtocolPublish")
+     */
+    protected $publish;
+
+    /**
      * @ODM\Date
      */
     protected $createdAt;
