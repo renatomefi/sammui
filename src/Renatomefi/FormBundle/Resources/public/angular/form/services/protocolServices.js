@@ -133,6 +133,22 @@ angular.module('sammui.protocolServices', ['ngResource'])
                 }
             });
     })
+    .factory('formProtocolLock', function ($resource) {
+        return $resource('/form/protocol/publishes/:protocolId/locks/:lock',
+            {
+                protocolId: '@protocolId'
+            }, {
+                'lock': {
+                    method: 'PATCH',
+                    params: {lock: true}
+                },
+                'unlock': {
+                    method: 'PATCH',
+                    params: {lock: false}
+                }
+            }
+        );
+    })
     .factory('formProtocolComment', function ($resource) {
         return $resource('/form/protocol/:action/:protocolId/:var/:commentId',
             {

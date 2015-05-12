@@ -314,6 +314,6 @@ class ProtocolController extends FOSRestController
         $dm->flush();
         $dm->clear();
 
-        return true;
+        return ['isLocked' => $this->getProtocol($protocolId)->isLocked()];
     }
 }
