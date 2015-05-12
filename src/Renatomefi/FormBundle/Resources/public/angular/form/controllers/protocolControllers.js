@@ -51,7 +51,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             };
 
             $scope.$on('$locationChangeSuccess', function () {
-                $scope.protocol.readOnly = $scope.isReadOnly();
+                $scope.protocol.data.$promise.then(function () {
+                    $scope.protocol.readOnly = $scope.isReadOnly();
+                });
             });
 
         }

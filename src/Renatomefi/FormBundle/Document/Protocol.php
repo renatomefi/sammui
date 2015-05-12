@@ -228,7 +228,10 @@ class Protocol
      */
     public function isLocked()
     {
-        return $this->publish[0]->getLocked();
+        if (count($this->publish) > 0) {
+            return $this->publish[0]->getLocked();
+        }
+        return false;
     }
 
     /**

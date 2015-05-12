@@ -10,6 +10,7 @@ use Renatomefi\FormBundle\Document\ProtocolPublish;
 use Renatomefi\FormBundle\Document\ProtocolUser;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * Class ProtocolController
@@ -33,6 +34,9 @@ class ProtocolController extends FOSRestController
         if (!$result && true === $notFoundException)
             throw $this->createNotFoundException("No Protocol found with id: \"$id\"");
 
+        if ($result->isLocked()) {
+            $this->denyAccessUnlessGranted('ROLE_ADMIN');
+        }
         return $result;
     }
 
@@ -305,6 +309,9 @@ class ProtocolController extends FOSRestController
         $protocol = $this->getProtocol($protocolId);
 
         $publish = new ProtocolPublish();
+        if ($this->getUser()) {
+            $publish->setUser($this->getUser());
+        }
         $publish->setLocked($lock);
 
         $protocol->setPublish($publish);
@@ -313,6 +320,6 @@ class ProtocolController extends FOSRestController
         $dm->flush();
         $dm->clear();
 
-        return ['isLocked' => $this->getProtocol($protocolId)->isLocked()];
+        return ['isLocked' => $protocol->isLocked()];
     }
 }
