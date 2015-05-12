@@ -830,7 +830,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'name' => '5_1',
             'page' => '5',
             'depends_on' => [
-                'field' => '5_3',
+                'field' => '5_5',
                 'value' => null
             ],
             'translate' => [
