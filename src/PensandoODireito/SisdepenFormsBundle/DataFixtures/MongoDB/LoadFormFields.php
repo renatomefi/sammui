@@ -4149,8 +4149,24 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             ]
         ],
         [
+            'name' => '1_1',
+            'page' => '21',
+            'depends_on' => [
+                'field' => '21_1',
+                'value' => 9
+            ],
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '2',
             'page' => '21',
+            'depends_on' => [
+                'field' => '21_1',
+                'value' => 8
+            ],
             'translate' => [
                 'pt-br' => 'No caso de maus tratos ou tortura, há indícios dos fatos relatados?'
             ],
@@ -4166,12 +4182,37 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
              */
         ],
         [
+            'name' => '2_1',
+            'page' => '21',
+            'depends_on' => [
+                'field' => '21_2',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ferimentos no corpo',
+                'Marcas de projéteis nas celas ou outros ambientes',
+                'Relatos idênticos em diferentes alas',
+                'Nas datas dos eventos houve cancelamento de visita, entrada de grupos especiais de intervenção, transferência de presos, movimentações noturnas ou outra situação atípica',
+                'Locais característicos como ambiente de castigo (sem colchão, sem sanitário, sem iluminação, sem ventilação, sujos, com insetos, entre outros aspectos)',
+                'Uso de bala clava (capuz)',
+                'other' => 'Outros',
+            ]
+        ],
+        [
             'name' => '3',
             'page' => '21',
             'translate' => [
                 'pt-br' => 'Quais providências foram tomadas para apurar os fatos até o momento?'
             ],
-            'type' => 'select',
+            'depends_on' => [
+                'field' => '21_1',
+                'value' => 8
+            ],
+            'type' => 'multicheckbox',
             'options' => [
                 'Exame de corpo de delito',
                 'Denúncia formalizada ao Juiz ou Ministério Público',
@@ -4181,12 +4222,28 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             ]
         ],
         [
+            'name' => '3_1',
+            'page' => '21',
+            'depends_on' => [
+                'field' => '21_3',
+                'value' => 4
+            ],
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '4',
             'page' => '21',
             'translate' => [
                 'pt-br' => 'Quais providências serão tomadas para apurar os fatos a partir de agora?'
             ],
-            'type' => 'select',
+            'depends_on' => [
+                'field' => '21_1',
+                'value' => 8
+            ],
+            'type' => 'multicheckbox',
             'options' => [
                 'Exame de corpo de delito',
                 'Denúncia formalizada ao Juiz ou Ministério Público',
@@ -4194,6 +4251,18 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'Instauração de procedimento administrativo',
                 'Outro',
             ]
+        ],
+        [
+            'name' => '4_1',
+            'page' => '21',
+            'depends_on' => [
+                'field' => '21_4',
+                'value' => 4
+            ],
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'text',
         ],
         [
             'name' => '5',
@@ -4209,7 +4278,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'Conselho Penitenciário',
                 'Comissão de DH da OAB',
                 'Disque 100',
-                'Outro',
+                'other' => 'Outro',
             ]
         ],
         [
