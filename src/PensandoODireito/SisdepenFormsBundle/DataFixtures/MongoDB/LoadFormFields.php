@@ -4318,6 +4318,18 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
+            'name' => '3_1',
+            'page' => '22',
+            'depends_on' => [
+                'field' => '22_3',
+                'value' => null
+            ],
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '4',
             'page' => '22',
             'translate' => [
@@ -4351,7 +4363,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //           <!-- motivo -->
         ],
         [
-            'name' => '8',
+            'name' => '7_1',
+            'page' => '22',
+            'depends_on' => [
+                'field' => '22_7',
+                'value' => false
+            ],
+            'translate' => [
+                'pt-br' => 'Motivo'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '8_1',
             'page' => '22',
             'translate' => [
                 'pt-br' => 'Rádio/Aparelho de Som'
@@ -4359,7 +4383,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '9',
+            'name' => '8_2',
             'page' => '22',
             'translate' => [
                 'pt-br' => 'TV'
@@ -4367,7 +4391,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '10',
+            'name' => '8_3',
             'page' => '22',
             'translate' => [
                 'pt-br' => 'Vídeo/DVD'
@@ -4375,7 +4399,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '11',
+            'name' => '8_4',
             'page' => '22',
             'translate' => [
                 'pt-br' => 'Geladeira'
@@ -4383,7 +4407,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '12',
+            'name' => '8_5',
             'page' => '22',
             'translate' => [
                 'pt-br' => 'Fogão/Fogareiro/Mergulhão/Rabo Quente'
@@ -4391,7 +4415,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '13',
+            'name' => '8_6',
             'page' => '22',
             'translate' => [
                 'pt-br' => 'Outros'
@@ -4399,7 +4423,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
-            'name' => '14',
+            'name' => '9',
             'page' => '22',
             'translate' => [
                 'pt-br' => 'Há organizações não governamentais atuando no estabelecimento?'
@@ -4407,12 +4431,16 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '15',
+            'name' => '10_1',
             'page' => '22',
             'translate' => [
-                'pt-br' => 'Se existe, em quais áreas'
+                'pt-br' => 'Quais áreas'
             ],
-            'type' => 'select',
+            'depends_on' => [
+                'field' => '22_9',
+                'value' => null
+            ],
+            'type' => 'multicheckbox',
             'options' => [
                 'gestão',
                 'educação',
@@ -4425,15 +4453,54 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'reciclagem',
                 'manutenção',
                 'outras',
-                /**
-                 * <!-- Qual a frequência:  diária             semanal
-                 *  quinzenal        mensal
-                 *  esporádico      outro: -->
-                 */
             ]
         ],
         [
-            'name' => '16',
+            'name' => '10_1_1',
+            'page' => '22',
+            'depends_on' => [
+                'field' => '22_10_1',
+                'value' => 10
+            ],
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '10_2',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => 'Qual a frequência'
+            ],
+            'depends_on' => [
+                'field' => '22_9',
+                'value' => null
+            ],
+            'type' => 'multicheckbox',
+            'options' => [
+                'diária',
+                'semanal',
+                'quinzenal',
+                'mensal',
+                'esporádico',
+                'outro',
+            ]
+        ],
+        [
+            'name' => '10_2_1',
+            'page' => '22',
+            'depends_on' => [
+                'field' => '22_10_2',
+                'value' => 5
+            ],
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '11',
             'page' => '22',
             'translate' => [
                 'pt-br' => 'Como é tratado o lixo produzido no estabelecimento?'
@@ -4446,6 +4513,18 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'coleta municipal',
                 'outro',
             ]
+        ],
+        [
+            'name' => '11_1',
+            'page' => '22',
+            'translate' => [
+                'pt-br' => ''
+            ],
+            'depends_on' => [
+                'field' => '22_11',
+                'value' => 4
+            ],
+            'type' => 'text',
         ],
         //END page 22
 
