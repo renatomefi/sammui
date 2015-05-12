@@ -4530,7 +4530,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
 
         //BEGIN page 23
         [
-            'name' => '1',
+            'name' => '1_1',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Juiz Corregedor'
@@ -4539,7 +4539,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
-            'name' => '2',
+            'name' => '1_1_1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'depends_on' => [
+                'field' => '23_1_1',
+                'value' => null
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_2',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Juiz de Execução'
@@ -4548,7 +4560,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
-            'name' => '3',
+            'name' => '1_2_1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'depends_on' => [
+                'field' => '23_1_2',
+                'value' => null
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_3',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Ministério Público'
@@ -4557,7 +4581,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
-            'name' => '4',
+            'name' => '1_3_1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'depends_on' => [
+                'field' => '23_1_3',
+                'value' => null
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_4',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Defensor Público'
@@ -4566,7 +4602,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
-            'name' => '5',
+            'name' => '1_4_1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'depends_on' => [
+                'field' => '23_1_4',
+                'value' => null
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_5',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Conselho Penitenciário'
@@ -4575,7 +4623,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
-            'name' => '6',
+            'name' => '1_5_1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'depends_on' => [
+                'field' => '23_1_5',
+                'value' => null
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_6',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Conselho da Comunidade'
@@ -4584,7 +4644,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
-            'name' => '7',
+            'name' => '1_6_1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'depends_on' => [
+                'field' => '23_1_6',
+                'value' => null
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_7',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Conselho Estadual de Direitos Humanos ou Comitê Estadual de Combate à Tortura'
@@ -4593,7 +4665,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
-            'name' => '8',
+            'name' => '1_7_1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'depends_on' => [
+                'field' => '23_1_7',
+                'value' => null
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_8',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Comissão de Direitos Humanos da OAB'
@@ -4602,7 +4686,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
-            'name' => '9',
+            'name' => '1_8_1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'depends_on' => [
+                'field' => '23_1_8',
+                'value' => null
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_9',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Pastoral Carcerária'
@@ -4611,7 +4707,19 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             //Frequencia
         ],
         [
-            'name' => '10',
+            'name' => '1_9_1',
+            'page' => '23',
+            'translate' => [
+                'pt-br' => 'Frequência'
+            ],
+            'depends_on' => [
+                'field' => '23_1_9',
+                'value' => null
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_10',
             'page' => '23',
             'translate' => [
                 'pt-br' => 'Outros'
