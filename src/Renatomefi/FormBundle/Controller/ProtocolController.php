@@ -2,7 +2,6 @@
 
 namespace Renatomefi\FormBundle\Controller;
 
-use Doctrine\ODM\MongoDB\Query\Expr;
 use FOS\RestBundle\Controller\FOSRestController;
 use Renatomefi\FormBundle\Document\Protocol;
 use Renatomefi\FormBundle\Document\ProtocolComment;

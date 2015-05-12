@@ -26,7 +26,6 @@ class Protocol
         $this->file = new ArrayCollection();
         $this->fieldValues = new ArrayCollection();
         $this->publish = new ArrayCollection();
-
     }
 
     /**
