@@ -1,15 +1,20 @@
 <form>
 
     <fieldset>
-        <form-field name="9_1">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
 
-        <form-field name="9_2">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form-field name="9_1">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
+
+                <form-field name="9_2">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
 
         <form-field name="9_3">
             <boolean-field ng-model="field.value"></boolean-field>
@@ -47,20 +52,24 @@
                    class="form-control">
         </form-field>
 
-        <form-field name="9_10">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form-field name="9_10">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
 
-        <form-field name="9_10_1">
-            <select-field ng-model="field.value" options="field.options"></select-field>
-        </form-field>
+                <form-field name="9_10_1">
+                    <select-field ng-model="field.value" options="field.options"></select-field>
+                </form-field>
+            </div>
+        </div>
 
         <form-field name="9_11">
             <boolean-field ng-model="field.value"></boolean-field>
         </form-field>
 
         <div class="panel panel-default">
-        	<div class="panel-body">
+            <div class="panel-body">
                 <form-field name="9_12">
                     <boolean-field ng-model="field.value"></boolean-field>
                 </form-field>
@@ -68,7 +77,7 @@
                 <form-field name="9_12_1">
                     <select-field ng-model="field.value" options="field.options"></select-field>
                 </form-field>
-        	</div>
+            </div>
         </div>
 
     </fieldset>
