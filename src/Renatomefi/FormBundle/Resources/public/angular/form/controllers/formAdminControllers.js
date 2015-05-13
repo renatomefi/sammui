@@ -32,8 +32,8 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
 
         }
     ])
-    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', '$routeParams', 'formProtocols', 'formManage', 'formProtocolManage',
-        function ($rootScope, $scope, $location, $routeParams, formProtocols, formManage, formProtocolManage) {
+    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', '$routeParams', 'formProtocols', 'formManage', 'formProtocolManage', 'formProtocolLock',
+        function ($rootScope, $scope, $location, $routeParams, formProtocols, formManage, formProtocolManage, formProtocolLock) {
             $rootScope.loading = true;
 
             // Loading form
@@ -60,14 +60,28 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
                     .get({protocolId: protocolId})
                     .$promise.then(function (data) {
                         $scope.protocol = data;
-                        $scope.protocol.isLocked = (function() {
-                           if (data.publish.length > 0 && data.publish[0].locked === true) {
-                               return true;
-                           }
+                        $scope.protocol.isLocked = (function () {
+                            if (data.publish.length > 0 && data.publish[0].locked === true) {
+                                return true;
+                            }
                         })();
                         $rootScope.loading = false;
                         $rootScope.Ui.turnOn('modalProtocolDetails');
                     });
+            };
+
+            $scope.lockProtocol = function (lock) {
+                if (lock === true) {
+                    formProtocolLock.lock(
+                        {protocolId: $scope.protocol.id}
+                    );
+                }
+
+                if (lock === false) {
+                    formProtocolLock.unlock(
+                        {protocolId: $scope.protocol.id}
+                    );
+                }
             };
         }
     ])

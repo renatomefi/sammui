@@ -312,6 +312,8 @@ class ProtocolController extends FOSRestController
         if ($this->getUser()) {
             $publish->setUser($this->getUser());
         }
+        $lock = $lock === 'true' ? true : false;
+
         $publish->setLocked($lock);
 
         $protocol->setPublish($publish);

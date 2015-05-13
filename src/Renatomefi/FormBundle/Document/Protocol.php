@@ -241,7 +241,9 @@ class Protocol
      */
     public function setPublish(ProtocolPublish $publish)
     {
-        $this->publish[] = $publish;
+        $array = $this->publish->toArray();
+        array_unshift($array, $publish);
+        $this->publish = new ArrayCollection($array);
     }
 
     /**

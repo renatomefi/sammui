@@ -58,7 +58,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="protocol in protocols | orderBy:'created_at':true">
+                        <tr ng-repeat="protocol in protocols | orderBy:'-created_at'">
                             <td>
                                 <div class="btn-group">
                                     <button ng-click="protocolDetailsModal(protocol.id)"
@@ -141,7 +141,7 @@
                         </button>
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning">
+                        <button ng-click="lockProtocol(!protocol.isLocked)" type="button" class="btn btn-warning">
                             <i ng-class="{'fa-lock': !protocol.isLocked, 'fa-unlock': protocol.isLocked}"
                                class="fa fa-2x"></i>
                             {{'form-protocol-' + ((!protocol.isLocked) ? 'lock' : 'unlock') | translate}}
