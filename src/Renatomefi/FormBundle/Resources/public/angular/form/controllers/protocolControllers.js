@@ -10,17 +10,25 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             protocolData.setScope($scope);
 
-            $scope.isReadOnly = function () {
-                return !!($location.search().hasOwnProperty('readOnly'));
-            };
-
             $scope.protocol = {
                 data: protocolData.getData($routeParams.protocolId),
                 original: protocolData.getOriginalData($routeParams.protocolId),
-                readOnly: $scope.isReadOnly()
+                readOnly: true,
+                published: false
             };
 
             $scope.protocol.data.$promise.then(function () {
+                $scope.isReadOnly = function () {
+                    var publish = $scope.protocol.data.publish;
+                    if (publish.length > 0 && publish[0].locked === true) {
+                        $scope.protocol.published = true;
+                        return true;
+                    }
+                    return !!($location.search().hasOwnProperty('readOnly'));
+                };
+
+                $scope.protocol.readOnly = $scope.isReadOnly();
+
                 $rootScope.loading = false;
             });
 
@@ -43,7 +51,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             };
 
             $scope.$on('$locationChangeSuccess', function () {
-                $scope.protocol.readOnly = $scope.isReadOnly();
+                $scope.protocol.data.$promise.then(function () {
+                    $scope.protocol.readOnly = $scope.isReadOnly();
+                });
             });
 
         }

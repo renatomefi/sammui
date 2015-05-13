@@ -26,7 +26,6 @@ class Protocol
         $this->file = new ArrayCollection();
         $this->fieldValues = new ArrayCollection();
         $this->publish = new ArrayCollection();
-
     }
 
     /**
@@ -229,7 +228,10 @@ class Protocol
      */
     public function isLocked()
     {
-        return $this->publish[0]->getLocked();
+        if (count($this->publish) > 0) {
+            return $this->publish[0]->getLocked();
+        }
+        return false;
     }
 
     /**
@@ -239,7 +241,9 @@ class Protocol
      */
     public function setPublish(ProtocolPublish $publish)
     {
-        $this->publish[] = $publish;
+        $array = $this->publish->toArray();
+        array_unshift($array, $publish);
+        $this->publish = new ArrayCollection($array);
     }
 
     /**

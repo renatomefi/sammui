@@ -32,8 +32,8 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
 
         }
     ])
-    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', '$routeParams', 'formProtocols', 'formManage', 'formProtocolManage',
-        function ($rootScope, $scope, $location, $routeParams, formProtocols, formManage, formProtocolManage) {
+    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', '$routeParams', 'formProtocols', 'formManage', 'formProtocolManage', 'formProtocolLock',
+        function ($rootScope, $scope, $location, $routeParams, formProtocols, formManage, formProtocolManage, formProtocolLock) {
             $rootScope.loading = true;
 
             // Loading form
@@ -60,9 +60,34 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
                     .get({protocolId: protocolId})
                     .$promise.then(function (data) {
                         $scope.protocol = data;
+                        $scope.protocol.isLocked = (function () {
+                            if (data.publish.length > 0 && data.publish[0].locked === true) {
+                                return true;
+                            }
+                        })();
                         $rootScope.loading = false;
                         $rootScope.Ui.turnOn('modalProtocolDetails');
                     });
+            };
+
+            $scope.lockProtocol = function (lock) {
+                var lockProcess = function (protocolId, promise) {
+                    $rootScope.loading = true;
+                    $rootScope.Ui.turnOff('modalProtocolDetails');
+                    promise.then(function () {
+                        $scope.protocolDetailsModal(protocolId);
+                    });
+                };
+                if (lock === true) {
+                    lockProcess($scope.protocol.id, formProtocolLock.lock(
+                        {protocolId: $scope.protocol.id}
+                    ).$promise);
+                }
+                if (lock === false) {
+                    lockProcess($scope.protocol.id, formProtocolLock.unlock(
+                        {protocolId: $scope.protocol.id}
+                    ).$promise);
+                }
             };
         }
     ])

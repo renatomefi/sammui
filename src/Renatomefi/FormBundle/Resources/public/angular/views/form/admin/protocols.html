@@ -58,7 +58,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr ng-repeat="protocol in protocols | orderBy:'created_at':true">
+                        <tr ng-repeat="protocol in protocols | orderBy:'-created_at'">
                             <td>
                                 <div class="btn-group">
                                     <button ng-click="protocolDetailsModal(protocol.id)"
@@ -92,31 +92,47 @@
                     <h4 class="modal-title">{{'form-protocol-details' | translate}}</h4>
                 </div>
                 <div class="modal-body">
-                    <p><i class="fa fa-barcode"></i> <strong>{{::protocol.id}}</strong></p>
+                    <p class="text-success"><i class="fa fa-barcode"></i> <strong>{{::protocol.id}}</strong></p>
 
-                    <p>{{protocol.form.name | translate}} <strong>{{::protocol.form.name}}</strong></p>
+                    <p class="text-success">{{protocol.form.name | translate}} <strong>{{::protocol.form.name}}</strong>
+                    </p>
 
-                    <p>
+                    <p class="text-success">
                         {{'form-protocol-created_at' | translate}}
                         <strong>{{protocol.created_at | date:'medium'}}</strong>
                     </p>
 
-                    <p>
+                    <p class="text-primary">
                         {{'form-protocol-first_save_date' | translate}}
                         <strong>{{protocol.first_save_date | date:'medium'}}</strong>
                     </p>
 
-                    <p>
+                    <p class="text-primary">
                         {{'form-protocol-last_save_date' | translate}}
                         <strong>{{protocol.last_save_date | date:'medium'}}</strong>
+                    </p>
+
+                    <p ng-if="protocol.publish.length > 0" class="text-warning">
+                        <strong>
+                            {{'form-protocol-published-' + ((protocol.publish[0].locked) ? 'true' : 'false') | translate}}
+                        </strong>
+                        {{protocol.publish[0].created_at | date:'medium'}}
+                    </p>
+
+                    <p ng-if="protocol.publish.length === 0" class="text-warning">
+                        <strong>
+                            {{'form-protocol-published-' + ((protocol.publish[0].locked === true) ? 'true' : 'false') | translate}}
+                        </strong>
+                        {{protocol.publish[0].created_at | date:'medium'}}
                     </p>
 
                     <hr>
 
                     <div class="btn-group">
-                        <button type="button" class="btn btn-default">
-                            <i class="fa fa-eye fa-2x"></i> View
-                        </button>
+                        <a ng-href="{{readProtocol(protocol.id)}}"
+                           type="button" class="btn btn-default" target="_blank">
+                            <i class="fa fa-eye fa-2x"></i>
+                        </a>
                         <button type="button" class="btn btn-success">
                             <i class="fa fa-file-pdf-o fa-2x"></i> PDF
                         </button>
@@ -125,8 +141,10 @@
                         </button>
                     </div>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-warning">
-                            <i class="fa fa-lock fa-2x"></i> Lock
+                        <button ng-click="lockProtocol(!protocol.isLocked)" type="button" class="btn btn-warning">
+                            <i ng-class="{'fa-lock': !protocol.isLocked, 'fa-unlock': protocol.isLocked}"
+                               class="fa fa-2x"></i>
+                            {{'form-protocol-' + ((!protocol.isLocked) ? 'lock' : 'unlock') | translate}}
                         </button>
                     </div>
 
