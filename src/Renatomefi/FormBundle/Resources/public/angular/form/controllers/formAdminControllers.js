@@ -71,16 +71,22 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
             };
 
             $scope.lockProtocol = function (lock) {
+                var lockProcess = function (protocolId, promise) {
+                    $rootScope.loading = true;
+                    $rootScope.Ui.turnOff('modalProtocolDetails');
+                    promise.then(function () {
+                        $scope.protocolDetailsModal(protocolId);
+                    });
+                };
                 if (lock === true) {
-                    formProtocolLock.lock(
+                    lockProcess($scope.protocol.id, formProtocolLock.lock(
                         {protocolId: $scope.protocol.id}
-                    );
+                    ).$promise);
                 }
-
                 if (lock === false) {
-                    formProtocolLock.unlock(
+                    lockProcess($scope.protocol.id, formProtocolLock.unlock(
                         {protocolId: $scope.protocol.id}
-                    );
+                    ).$promise);
                 }
             };
         }
