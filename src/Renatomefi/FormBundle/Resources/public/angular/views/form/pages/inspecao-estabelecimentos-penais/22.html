@@ -9,9 +9,21 @@
             <boolean-field ng-model="field.value"></boolean-field>
         </form-field>
 
-        <form-field name="22_3">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <form-field name="22_3">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
+
+                <form-field name="22_3_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+
+            </div>
+        </div>
 
         <form-field name="22_4">
             <boolean-field ng-model="field.value"></boolean-field>
@@ -27,61 +39,97 @@
             <boolean-field ng-model="field.value"></boolean-field>
         </form-field>
 
-        <form-field name="22_7">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
+        <div class="panel panel-default">
+            <div class="panel-body">
 
-        <label>É permitido o uso de</label>
+                <form-field name="22_7">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
 
-        <form-field name="22_8">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
+                <form-field name="22_7_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
 
-        <form-field name="22_9">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">É permitido o uso de</h4>
+            </div>
+            <div class="panel-body">
 
-        <form-field name="22_10">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
+                <form-field name="22_8_1">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
 
-        <form-field name="22_11">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
+                <form-field name="22_8_2">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
 
-        <form-field name="22_12">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
+                <form-field name="22_8_3">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
 
-        <form-field name="22_13">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
+                <form-field name="22_8_4">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
 
-        <form-field name="22_14">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
-        </form-field>
+                <form-field name="22_8_5">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
 
-        <form-field name="22_15">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
-        </form-field>
+                <form-field name="22_8_6">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
 
-        <form-field name="22_16">
-            <select class="form-control"
-                    ng-model="field.value"
-                    ng-options="key as value for (key , value) in field.options">
-                <option></option>
-            </select>
-        </form-field>
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <form-field name="22_9">
+                    <boolean-field ng-model="field.value"></boolean-field>
+                </form-field>
+
+                <form-field name="22_10_1">
+                    <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
+                </form-field>
+
+                <form-field name="22_10_1_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+
+                <form-field name="22_10_2">
+                    <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
+                </form-field>
+
+                <form-field name="22_10_2_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <form-field name="22_11">
+                    <select-multi-field ng-model="field.value" options="field.options"></select-multi-field>
+                </form-field>
+
+                <form-field name="22_11_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
 
     </fieldset>
 </form>
