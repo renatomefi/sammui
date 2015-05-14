@@ -21,6 +21,10 @@
     {
       "type": "vcs",
       "url": "https://github.com/renatomefidf/php-test-reporter"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:renatomefidf/ExcelBundle.git"
     }
   ],
   "require": {
@@ -47,7 +51,7 @@
     "jms/di-extra-bundle": "1.5.*",
     "qandidate/symfony-json-request-transformer": "1.*",
     "sp/bower-bundle": "0.11.*",
-    "liuggio/excelbundle": "^2.0"
+    "liuggio/excelbundle": "dev-helper_html"
   },
   "require-dev": {
     "doctrine/doctrine-fixtures-bundle": "2.2.*",

@@ -53,6 +53,8 @@ class ProtocolExportController extends Controller
         // ask the service for a Excel5
         $objPHPExcel = $this->get('phpexcel')->createPHPExcelObject();
 
+        $htmlWizard = $this->get('phpexcel')->createHelperHTML();
+
         $objPHPExcel->getProperties()->setCreator("sammui")
             ->setLastModifiedBy("sammui")
             ->setTitle($protocol->getForm()->getName() . ': ' . $protocol->getId());
@@ -100,7 +102,7 @@ class ProtocolExportController extends Controller
             $position = $i + $currentLine;
 
             $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $comment->getCreatedAt());
-            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $comment->getBody());
+            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $htmlWizard->toRichTextObject(utf8_decode($comment->getBody())));
         }
 
         $currentLine += count($comments);
@@ -137,8 +139,18 @@ class ProtocolExportController extends Controller
 
         $currentLine += count($nonUsers);
 
+        $objPHPExcel->getActiveSheet()->setCellValue('A' . $currentLine, 'form-filling-page-conclusion');
+        $currentLine++;
+
+        $objPHPExcel->getActiveSheet()->setCellValue('B' . $currentLine, $htmlWizard->toRichTextObject(utf8_decode($protocol->getConclusion())));
+        $objPHPExcel->getActiveSheet()->mergeCells(str_replace('%', $currentLine, 'B%:D%'));
+        $objPHPExcel->getActiveSheet()->getRowDimension($currentLine)->setRowHeight(300);
+        $currentLine++;
+
         $objPHPExcel->getActiveSheet()->getStyle('A1:A' . $currentLine)->getFont()->setBold(true);
 
+
+        // Values Sheet
         $objPHPExcel->createSheet(1);
         $objPHPExcel->setActiveSheetIndex(1);
         $objPHPExcel->getActiveSheet()->setTitle('data');
@@ -167,6 +179,13 @@ class ProtocolExportController extends Controller
 
         $objPHPExcel->getActiveSheet()->getStyle('A1:C1')->getFont()->setBold(true);
         $objPHPExcel->getActiveSheet()->getStyle('A1:A' . $currentLine)->getFont()->setBold(true);
+
+        foreach (range('A', 'D') as $columnID) {
+            $objPHPExcel->getSheet(0)->getColumnDimension($columnID)
+                ->setAutoSize(true);
+            $objPHPExcel->getSheet(1)->getColumnDimension($columnID)
+                ->setAutoSize(true);
+        }
 
         $objPHPExcel->setActiveSheetIndex(0);
         // create the writer

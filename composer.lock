@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "96e3f302054e1b348d38f1f08bd7cb23",
+    "hash": "8d2bb4c8f13838f0fd3fe6f1f6132393",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -763,12 +763,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/mongodb-odm.git",
-                "reference": "0f5e7d72ea1859f57b254e93bcb50433e64e755e"
+                "reference": "91239639b5b5c91a75ac2a07dbbfe4be0fd177d9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/0f5e7d72ea1859f57b254e93bcb50433e64e755e",
-                "reference": "0f5e7d72ea1859f57b254e93bcb50433e64e755e",
+                "url": "https://api.github.com/repos/doctrine/mongodb-odm/zipball/91239639b5b5c91a75ac2a07dbbfe4be0fd177d9",
+                "reference": "91239639b5b5c91a75ac2a07dbbfe4be0fd177d9",
                 "shasum": ""
             },
             "require": {
@@ -833,7 +833,7 @@
                 "odm",
                 "persistence"
             ],
-            "time": "2015-05-12 23:07:56"
+            "time": "2015-05-14 16:54:33"
         },
         {
             "name": "doctrine/mongodb-odm-bundle",
@@ -841,12 +841,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/DoctrineMongoDBBundle.git",
-                "reference": "428c21fd3bea9e27281784bcae2db9b7516b318e"
+                "reference": "9e98fd9def517c68c8b8db43333545faef9a94b6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/DoctrineMongoDBBundle/zipball/428c21fd3bea9e27281784bcae2db9b7516b318e",
-                "reference": "428c21fd3bea9e27281784bcae2db9b7516b318e",
+                "url": "https://api.github.com/repos/doctrine/DoctrineMongoDBBundle/zipball/9e98fd9def517c68c8b8db43333545faef9a94b6",
+                "reference": "9e98fd9def517c68c8b8db43333545faef9a94b6",
                 "shasum": ""
             },
             "require": {
@@ -903,7 +903,7 @@
                 "persistence",
                 "symfony"
             ],
-            "time": "2015-04-15 14:15:44"
+            "time": "2015-05-14 17:52:49"
         },
         {
             "name": "doctrine/orm",
@@ -1880,18 +1880,18 @@
             "time": "2014-12-12 05:04:05"
         },
         {
-            "name": "liuggio/ExcelBundle",
-            "version": "v2.0.1",
+            "name": "liuggio/excelbundle",
+            "version": "dev-helper_html",
             "target-dir": "Liuggio/ExcelBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/liuggio/ExcelBundle.git",
-                "reference": "dce33eb948ba01303c15b9c3bd17390afe37407c"
+                "url": "https://github.com/renatomefidf/ExcelBundle.git",
+                "reference": "b143725a83e23bc1cae112e75dbf079d8be0c5a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/liuggio/ExcelBundle/zipball/dce33eb948ba01303c15b9c3bd17390afe37407c",
-                "reference": "dce33eb948ba01303c15b9c3bd17390afe37407c",
+                "url": "https://api.github.com/repos/renatomefidf/ExcelBundle/zipball/b143725a83e23bc1cae112e75dbf079d8be0c5a3",
+                "reference": "b143725a83e23bc1cae112e75dbf079d8be0c5a3",
                 "shasum": ""
             },
             "require": {
@@ -1900,7 +1900,7 @@
                 "symfony/framework-bundle": "~2.1"
             },
             "require-dev": {
-                "phpunit/phpunit": "3.7.*",
+                "phpunit/phpunit": ">=3.7",
                 "sensio/framework-extra-bundle": "~2.1",
                 "symfony/browser-kit": "~2.1",
                 "symfony/class-loader": "~2.1",
@@ -1908,7 +1908,7 @@
                 "symfony/form": "~2.1",
                 "symfony/validator": "~2.1"
             },
-            "type": "library",
+            "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.0.x-dev"
@@ -1919,29 +1919,31 @@
                     "Liuggio\\ExcelBundle": ""
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "ExcelBundle Contributors",
-                    "homepage": "https://github.com/liuggio/ExcelBundle#contributors"
-                },
-                {
                     "name": "Giulio De Donato",
                     "email": "liuggio@gmail.com"
+                },
+                {
+                    "name": "ExcelBundle Contributors",
+                    "homepage": "https://github.com/liuggio/ExcelBundle#contributors"
                 }
             ],
             "description": "This is a Symfony2 Bundle helps you to read and write Excel files (including pdf, xlsx, odt), thanks to the PHPExcel library",
             "homepage": "http://www.welcometothebundle.com",
             "keywords": [
-                "Symfony2",
+                "Excel",
                 "bundle",
-                "excel",
+                "symfony2",
                 "xls"
             ],
-            "time": "2014-06-11 13:07:44"
+            "support": {
+                "source": "https://github.com/renatomefidf/ExcelBundle/tree/helper_html"
+            },
+            "time": "2015-05-14 20:09:21"
         },
         {
             "name": "michelf/php-markdown",
@@ -4960,6 +4962,7 @@
         "doctrine/mongodb-odm": 20,
         "doctrine/mongodb-odm-bundle": 20,
         "friendsofsymfony/rest-bundle": 5,
+        "liuggio/excelbundle": 20,
         "codeclimate/php-test-reporter": 20
     },
     "prefer-stable": false,
