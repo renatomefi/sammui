@@ -37,9 +37,16 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
             });
 
             $scope.publishProtocol = function () {
-                formProtocolLock.lock(
-                    {protocolId: $scope.protocol.data.id}
-                );
+                formProtocolLock
+                    .lock(
+                    {protocolId: $scope.protocol.data.id})
+                    .$promise.then(function (data) {
+                        if (data.isLocked === true) {
+                            $rootScope.modalInfoBody = 'form-protocol-publish-success';
+                            $location.path('/form');
+                            $rootScope.Ui.turnOn("modalInfo");
+                        }
+                    });
             };
 
             $scope.toggleReadOnly = function () {

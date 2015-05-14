@@ -33,8 +33,8 @@ angular.module('sammui.translateControllers', ['ngRoute'])
             $scope.langPublish = function () {
                 var refresh = $translate.refresh();
                 refresh.then(function () {
-                    $scope.modalInfoBody = 'translate-admin-publish-success';
-                    $scope.Ui.turnOn("modalInfo");
+                    $rootScope.modalInfoBody = 'translate-admin-publish-success';
+                    $rootScope.Ui.turnOn("modalInfo");
                 });
             };
 
