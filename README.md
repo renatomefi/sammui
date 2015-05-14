@@ -36,6 +36,15 @@ In use libs and technologies
 
 - Layout Mobile Angular UI - http://mobileangularui.com/
 
+JetBrains WebStorm
+------------
+
+We are very happy to use WebStorm IDE.
+
+Thanks JetBrains for giving us a license for Open Source Projects
+
+[![Build Status](https://www.jetbrains.com/webstorm/documentation/docs/logo_webstorm.png)](https://www.jetbrains.com/webstorm/)
+
 Automatic Installation
 ------------
 
