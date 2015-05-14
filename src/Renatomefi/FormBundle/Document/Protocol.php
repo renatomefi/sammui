@@ -247,6 +247,16 @@ class Protocol
     }
 
     /**
+     * Get all publishs
+     *
+     * @return ArrayCollection
+     */
+    public function getPublish()
+    {
+        return $this->publish;
+    }
+
+    /**
      * Add nonUser
      *
      * @param \Renatomefi\FormBundle\Document\ProtocolUser $nonUser

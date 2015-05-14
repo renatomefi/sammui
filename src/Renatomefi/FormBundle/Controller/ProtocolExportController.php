@@ -2,8 +2,16 @@
 
 namespace Renatomefi\FormBundle\Controller;
 
+use Renatomefi\FormBundle\Document\Protocol;
+use Renatomefi\FormBundle\Document\ProtocolComment;
+use Renatomefi\FormBundle\Document\ProtocolFieldValue;
+use Renatomefi\FormBundle\Document\ProtocolPublish;
+use Renatomefi\FormBundle\Document\ProtocolUser;
+use Renatomefi\UserBundle\Document\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -14,129 +22,168 @@ class ProtocolExportController extends Controller
 {
 
     /**
-     * @Route("/excel/{protocol}")
-     * @Method("GET")
-     *
-     * @param $protocol
-     * @return \Symfony\Component\HttpFoundation\StreamedResponse
-     * @throws \PHPExcel_Exception
+     * @param $id
+     * @throws NotFoundHttpException
+     * @return Protocol
      */
-    public function excelAction($protocol)
+    protected function getProtocol($id)
     {
-        // ask the service for a Excel5
-        $objPHPExcel = $this->get('phpexcel')->createPHPExcelObject();
+        $formsDM = $this->get('doctrine_mongodb')->getRepository('FormBundle:Protocol');
 
-        $objPHPExcel->getProperties()->setCreator("sammui")
-            ->setLastModifiedBy("sammui")
-            ->setTitle("Office 2005 XLSX Test Document")
-            ->setSubject("Office 2005 XLSX Test Document")
-            ->setDescription("Test document for Office 2005 XLSX, generated using PHP classes.")
-            ->setKeywords("office 2005 openxml php")
-            ->setCategory("Test result file");
+        $result = $formsDM->findOneById($id);
 
-        $objPHPExcel->setActiveSheetIndex(0);
-        $objPHPExcel->getActiveSheet()->setCellValue('A1', "Firstname");
-        $objPHPExcel->getActiveSheet()->setCellValue('B1', "Lastname");
-        $objPHPExcel->getActiveSheet()->setCellValue('C1', "Phone");
-        $objPHPExcel->getActiveSheet()->setCellValue('D1', "Fax");
-        $objPHPExcel->getActiveSheet()->setCellValue('E1', "Is Client ?");
+        if (!$result)
+            throw $this->createNotFoundException("No Protocol found with id: \"$id\"");
 
-        $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setVisible(false);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setVisible(false);
-
-        $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setOutlineLevel(1)
-            ->setVisible(false)
-            ->setCollapsed(true);
-
-        $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setOutlineLevel(1)
-            ->setVisible(false)
-            ->setCollapsed(true);
-
-        $objPHPExcel->getActiveSheet()->getPageSetup()->setRowsToRepeatAtTopByStartAndEnd(1, 1);
-
-        for ($i = 2; $i <= 5000; $i++) {
-            $objPHPExcel->getActiveSheet()->setCellValue('A' . $i, "FName $i")
-                ->setCellValue('B' . $i, "LName $i")
-                ->setCellValue('C' . $i, "PhoneNo $i")
-                ->setCellValue('D' . $i, "FaxNo $i")
-                ->setCellValue('E' . $i, true);
-        }
-
-        $objPHPExcel->setActiveSheetIndex(0);
-
-        // create the writer
-        $writer = $this->get('phpexcel')->createWriter($objPHPExcel, 'Excel5');
-        // create the response
-        $response = $this->get('phpexcel')->createStreamedResponse($writer);
-        // adding headers
-        $response->headers->set('Content-Type', 'text/vnd.ms-excel; charset=utf-8');
-        $response->headers->set('Content-Disposition', 'attachment;filename=stream-file.xls');
-        $response->headers->set('Pragma', 'public');
-        $response->headers->set('Cache-Control', 'maxage=1');
-
-        return $response;
+        return $result;
     }
 
     /**
-     * Large table
-     *
-     * @Route("/excel/test1/{protocol}")
+     * @Route("/excel/{protocolId}")
      * @Method("GET")
      *
-     * @param $protocol
+     * @param $protocolId
      * @return \Symfony\Component\HttpFoundation\StreamedResponse
      * @throws \PHPExcel_Exception
      */
-    public function excelTest1Action($protocol)
+    public function excelAction($protocolId)
     {
+        $protocol = $this->getProtocol($protocolId);
+
         // ask the service for a Excel5
         $objPHPExcel = $this->get('phpexcel')->createPHPExcelObject();
 
         $objPHPExcel->getProperties()->setCreator("sammui")
             ->setLastModifiedBy("sammui")
-            ->setTitle("Office 2005 XLSX Test Document")
-            ->setSubject("Office 2005 XLSX Test Document")
-            ->setDescription("Test document for Office 2005 XLSX, generated using PHP classes.")
-            ->setKeywords("office 2005 openxml php")
-            ->setCategory("Test result file");
+            ->setTitle($protocol->getForm()->getName() . ': ' . $protocol->getId());
 
         $objPHPExcel->setActiveSheetIndex(0);
-        $objPHPExcel->getActiveSheet()->setCellValue('A1', "Firstname");
-        $objPHPExcel->getActiveSheet()->setCellValue('B1', "Lastname");
-        $objPHPExcel->getActiveSheet()->setCellValue('C1', "Phone");
-        $objPHPExcel->getActiveSheet()->setCellValue('D1', "Fax");
-        $objPHPExcel->getActiveSheet()->setCellValue('E1', "Is Client ?");
+        $objPHPExcel->getActiveSheet()->setTitle('info');
 
-        $objPHPExcel->getActiveSheet()->getColumnDimension('C')->setVisible(false);
-        $objPHPExcel->getActiveSheet()->getColumnDimension('D')->setVisible(false);
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', $protocol->getForm()->getName());
+        $objPHPExcel->getActiveSheet()->setCellValue('B1', $protocol->getForm()->getId());
 
-        $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setOutlineLevel(1)
-            ->setVisible(false)
-            ->setCollapsed(true);
+        $objPHPExcel->getActiveSheet()->setCellValue('A2', 'protocol');
+        $objPHPExcel->getActiveSheet()->setCellValue('B2', $protocol->getId());
 
-        $objPHPExcel->getActiveSheet()->getColumnDimension('E')->setOutlineLevel(1)
-            ->setVisible(false)
-            ->setCollapsed(true);
+        $objPHPExcel->getActiveSheet()->setCellValue('A3', 'form-protocol-first_save_date');
+        $objPHPExcel->getActiveSheet()->setCellValue('B3', $protocol->getFirstSaveDate());
 
-        $objPHPExcel->getActiveSheet()->getPageSetup()->setRowsToRepeatAtTopByStartAndEnd(1, 1);
+        $objPHPExcel->getActiveSheet()->setCellValue('A4', 'form-protocol-last_save_date');
+        $objPHPExcel->getActiveSheet()->setCellValue('B4', $protocol->getLastSaveDate());
 
-        for ($i = 2; $i <= 5000; $i++) {
-            $objPHPExcel->getActiveSheet()->setCellValue('A' . $i, "FName $i")
-                ->setCellValue('B' . $i, "LName $i")
-                ->setCellValue('C' . $i, "PhoneNo $i")
-                ->setCellValue('D' . $i, "FaxNo $i")
-                ->setCellValue('E' . $i, true);
+        $objPHPExcel->getActiveSheet()->setCellValue('A5', 'publish');
+        $objPHPExcel->getActiveSheet()->setCellValue('B5', $protocol->isLocked() ? 'published' : 'not published');
+
+        $publishes = $protocol->getPublish();
+        $currentLine = 6;
+        for ($i = 0; $i < count($publishes); $i++) {
+            /** @var ProtocolPublish $publish */
+            $publish = $publishes[$i];
+            $position = $i + $currentLine;
+
+            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $publish->getLocked());
+            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $publish->getCreatedAt());
+            if ($publish->getUser())
+                $objPHPExcel->getActiveSheet()->setCellValue('D' . $position, $publish->getUser()->getUsername());
+        }
+        $currentLine += count($publishes);
+
+        $objPHPExcel->getActiveSheet()->setCellValue('A' . $currentLine, 'form-filling-page-comments');
+        $objPHPExcel->getActiveSheet()->setCellValue('B' . $currentLine, count($protocol->getComment()));
+        $currentLine++;
+
+        $comments = $protocol->getComment();
+        for ($i = 0; $i < count($comments); $i++) {
+            /** @var ProtocolComment $comment */
+            $comment = $comments[$i];
+            $position = $i + $currentLine;
+
+            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $comment->getCreatedAt());
+            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $comment->getBody());
         }
 
-        $objPHPExcel->setActiveSheetIndex(0);
+        $currentLine += count($comments);
 
+        $objPHPExcel->getActiveSheet()->setCellValue('A' . $currentLine, 'form-filling-page-users');
+        $objPHPExcel->getActiveSheet()->setCellValue('B' . $currentLine, count($protocol->getUser()));
+        $currentLine++;
+
+        $users = $protocol->getUser();
+        for ($i = 0; $i < count($users); $i++) {
+            /** @var User $user */
+            $user = $users[$i];
+            $position = $i + $currentLine;
+
+            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $user->getCreatedAt());
+            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $user->getUsername());
+        }
+
+        $currentLine += count($users);
+
+        $objPHPExcel->getActiveSheet()->setCellValue('A' . $currentLine, 'form-filling-page-non_users');
+        $objPHPExcel->getActiveSheet()->setCellValue('B' . $currentLine, count($protocol->getUser()));
+        $currentLine++;
+
+        $nonUsers = $protocol->getNonUser();
+        for ($i = 0; $i < count($nonUsers); $i++) {
+            /** @var ProtocolUser $user */
+            $user = $nonUsers[$i];
+            $position = $i + $currentLine;
+
+            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $user->getCreatedAt());
+            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $user->getUsername());
+        }
+
+        $currentLine += count($nonUsers);
+
+        $objPHPExcel->getActiveSheet()->getStyle('A1:A' . $currentLine)->getFont()->setBold(true);
+
+        $objPHPExcel->createSheet(1);
+        $objPHPExcel->setActiveSheetIndex(1);
+        $objPHPExcel->getActiveSheet()->setTitle('data');
+
+        $objPHPExcel->getActiveSheet()->setCellValue('A1', 'field');
+        $objPHPExcel->getActiveSheet()->setCellValue('B1', 'value');
+        $objPHPExcel->getActiveSheet()->setCellValue('C1', 'date');
+
+        $values = $protocol->getFieldValues();
+        $currentLine = 2;
+        for ($i = 0; $i < count($values); $i++) {
+            /** @var ProtocolFieldValue $value */
+            $value = $values[$i];
+            $position = $i + $currentLine;
+
+            $objPHPExcel->getActiveSheet()->setCellValue('A' . $position, $value->getField()->getName());
+            $curValue = $value->getValue();
+            if (is_array($curValue)) {
+                $curValue = implode(', ', $curValue);
+            }
+            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $curValue);
+            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $value->getCreatedAt());
+        }
+
+        $currentLine += count($values);
+
+        $objPHPExcel->getActiveSheet()->getStyle('A1:C1')->getFont()->setBold(true);
+        $objPHPExcel->getActiveSheet()->getStyle('A1:A' . $currentLine)->getFont()->setBold(true);
+
+        $objPHPExcel->setActiveSheetIndex(0);
         // create the writer
         $writer = $this->get('phpexcel')->createWriter($objPHPExcel, 'Excel5');
         // create the response
         $response = $this->get('phpexcel')->createStreamedResponse($writer);
+
+
+        $dispositionHeader = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            $protocol->getForm()->getName() . '_' . $protocol->getId() . '.xls'
+        );
+
+        $response->headers->set('Content-Disposition', $dispositionHeader);
+
         // adding headers
         $response->headers->set('Content-Type', 'text/vnd.ms-excel; charset=utf-8');
-        $response->headers->set('Content-Disposition', 'attachment;filename=stream-file.xls');
         $response->headers->set('Pragma', 'public');
         $response->headers->set('Cache-Control', 'maxage=1');
 
