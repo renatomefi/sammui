@@ -239,8 +239,9 @@ class ProtocolExportController extends Controller
         $objPHPExcel->getActiveSheet()->setTitle('data');
 
         $objPHPExcel->getActiveSheet()->setCellValue('A1', 'field');
-        $objPHPExcel->getActiveSheet()->setCellValue('B1', 'value');
-        $objPHPExcel->getActiveSheet()->setCellValue('C1', 'date');
+        $objPHPExcel->getActiveSheet()->setCellValue('C1', 'rvalue');
+        $objPHPExcel->getActiveSheet()->setCellValue('D1', 'value');
+        $objPHPExcel->getActiveSheet()->setCellValue('E1', 'date');
 
         $values = $protocol->getFieldValues();
         $currentLine = 2;
@@ -250,13 +251,19 @@ class ProtocolExportController extends Controller
             $position = $i + $currentLine;
 
             $objPHPExcel->getActiveSheet()->setCellValue('A' . $position, $value->getField()->getName());
-            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $this->translate($value->getField()->getName()));
+            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position,
+                $this->translate('form-' . $protocol->getForm()->getName() . '-field-' . $value->getField()->getName()));
             $curValue = $value->getValue();
             if (is_array($curValue)) {
-                $curValue = implode(', ', $curValue);
+                $curValue = '';
+                foreach ($value->getValue() as $k => $v) {
+                    $curValue .= $k . ':' . $v . ',';
+                }
+                $curValue = rtrim($curValue, ',');
             }
             $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $curValue);
-            $objPHPExcel->getActiveSheet()->setCellValue('D' . $position, $value->getCreatedAt());
+            $objPHPExcel->getActiveSheet()->setCellValue('D' . $position, $value->getValueInHR());
+            $objPHPExcel->getActiveSheet()->setCellValue('E' . $position, $value->getCreatedAt());
         }
 
         $currentLine += count($values);
