@@ -129,14 +129,16 @@
                     <hr>
 
                     <div class="btn-group">
-                        <a ng-href="{{readProtocol(protocol.id)}}"
-                           type="button" class="btn btn-default" target="_blank">
+                        <a ng-href="{{readProtocol(protocol.id)}}" target="_blank"
+                           type="button" class="btn btn-default">
                             <i class="fa fa-eye fa-2x"></i>
                         </a>
-                        <a ng-href="{{protocolExportUrl('pdf')}}" type="button" class="btn btn-success">
+                        <a ng-href="{{protocolExportUrl('pdf')}}" target="_blank"
+                           type="button" class="btn btn-success">
                             <i class="fa fa-file-pdf-o fa-2x"></i> PDF
                         </a>
-                        <a ng-href="{{protocolExportUrl('excel')}}" type="button" class="btn btn-success">
+                        <a ng-href="{{protocolExportUrl('excel')}}" target="_blank"
+                           type="button" class="btn btn-success">
                             <i class="fa fa-file-excel-o fa-2x"></i> Excel
                         </a>
                     </div>

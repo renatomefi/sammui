@@ -5,6 +5,7 @@ namespace Renatomefi\FormBundle\Controller;
 use Renatomefi\FormBundle\Document\Protocol;
 use Renatomefi\FormBundle\Document\ProtocolComment;
 use Renatomefi\FormBundle\Document\ProtocolFieldValue;
+use Renatomefi\FormBundle\Document\ProtocolFile;
 use Renatomefi\FormBundle\Document\ProtocolPublish;
 use Renatomefi\FormBundle\Document\ProtocolUser;
 use Renatomefi\UserBundle\Document\User;
@@ -84,8 +85,8 @@ class ProtocolExportController extends Controller
             $publish = $publishes[$i];
             $position = $i + $currentLine;
 
-            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $publish->getLocked());
-            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $publish->getCreatedAt());
+            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $publish->getCreatedAt());
+            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, ($publish->getLocked()) ? 'lock' : 'unlock');
             if ($publish->getUser())
                 $objPHPExcel->getActiveSheet()->setCellValue('D' . $position, $publish->getUser()->getUsername());
         }
@@ -138,6 +139,26 @@ class ProtocolExportController extends Controller
         }
 
         $currentLine += count($nonUsers);
+
+        $objPHPExcel->getActiveSheet()->setCellValue('A' . $currentLine, 'form-filling-page-files');
+        $objPHPExcel->getActiveSheet()->setCellValue('B' . $currentLine, count($protocol->getFile()));
+        $currentLine++;
+
+        $files = $protocol->getFile();
+        for ($i = 0; $i < count($files); $i++) {
+            /** @var ProtocolFile $file */
+            $file = $files[$i];
+            $position = $i + $currentLine;
+
+            $objPHPExcel->getActiveSheet()->setCellValue('B' . $position, $file->getUploadDate());
+            $objPHPExcel->getActiveSheet()->setCellValue('C' . $position, $file->getFilename()
+                . '(' . $file->getId() . '):' . $file->getLength());
+            $objPHPExcel->getActiveSheet()->setCellValue('D' . $position, $file->getTitle()
+                . ': ' . $file->getDescription());
+        }
+
+        $currentLine += count($files);
+
 
         $objPHPExcel->getActiveSheet()->setCellValue('A' . $currentLine, 'form-filling-page-conclusion');
         $currentLine++;
