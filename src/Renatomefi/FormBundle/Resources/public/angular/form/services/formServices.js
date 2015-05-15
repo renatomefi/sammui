@@ -13,17 +13,37 @@ angular.module('sammui.formServices', ['ngResource'])
                 partialPath: '/bundles/form/angular/views/form/filling/partials/',
                 pagesPath: '/bundles/form/angular/views/form/pages/',
                 partials: ['field', 'base'],
-                //TODO bring templates from formFillingPagination $scope.templates
                 generateFormPageUrl: function (formTemplate, pageId) {
                     return this.pagesPath + formTemplate + '/' + pageId + '.html';
                 },
                 generatePageUrl: function (page) {
                     return this.pagesPath + page + '.html';
+                },
+                generatePartialUrl: function (page) {
+                    return this.partialPath + page + '.html';
                 }
             }
         };
     })
-    .factory('formTemplate', ['$templateCache', '$http', 'formConfig', function ($templateCache, $http, formConfig) {
+    .factory('formActionsTemplates', ['$templateCache', '$http', 'formConfig', function ($templateCache, $http, formConfig) {
+        return {
+            get: function () {
+                return [
+                    {name: 'index', url: formConfig.template.generatePartialUrl('index'), headerType: 'index'},
+                    {name: 'users', url: formConfig.template.generatePartialUrl('user')},
+                    {name: 'comments', url: formConfig.template.generatePartialUrl('comment')},
+                    {name: 'conclusion', url: formConfig.template.generatePartialUrl('conclusion')},
+                    {name: 'upload', url: formConfig.template.generatePartialUrl('upload')}
+                ];
+            },
+            preload: function () {
+                this.get().map(function (item) {
+                    $http.get(item.url, {cache: $templateCache});
+                });
+            }
+        };
+    }])
+    .factory('formPagesTemplate', ['$templateCache', '$http', 'formConfig', function ($templateCache, $http, formConfig) {
         var loadTemplates = function (form) {
             form.pages.map(function (item) {
                 item.url = formConfig.template.generateFormPageUrl(form.template, item.number);
@@ -36,6 +56,6 @@ angular.module('sammui.formServices', ['ngResource'])
         };
 
         return {
-            loadTemplates: loadTemplates
+            preload: loadTemplates
         };
     }]);

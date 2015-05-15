@@ -131,6 +131,10 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-value-false' => [
             'en-us' => 'False',
             'pt-br' => 'Falso'],
+        // Form: Modals and infos
+        'form-protocol-publish-success' => [
+            'en-us' => 'Procolo published successfully, you\'ll not be able to open it again',
+            'pt-br' => 'Protocolo publicado com sucesso, você não poderá mais acessa-lo'],
     ];
 
     /**

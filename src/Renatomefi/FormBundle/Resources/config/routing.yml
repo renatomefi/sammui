@@ -1,5 +1,9 @@
 frontend:
-    prefix:    /protocol/files/
+    prefix:   /protocol/files/
     resource: "@FormBundle/Controller/ProtocolFilesController.php"
     type:     annotation
 
+export:
+    prefix:   /protocol/export/
+    resource: "@FormBundle/Controller/ProtocolExportController.php"
+    type:     annotation
