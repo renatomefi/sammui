@@ -32,8 +32,8 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
 
         }
     ])
-    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', '$routeParams', 'formProtocols', 'formManage', 'formProtocolManage', 'formProtocolLock',
-        function ($rootScope, $scope, $location, $routeParams, formProtocols, formManage, formProtocolManage, formProtocolLock) {
+    .controller('formAdminProtocols', ['$rootScope', '$scope', '$location', '$translate', '$routeParams', 'formProtocols', 'formManage', 'formProtocolManage', 'formProtocolLock',
+        function ($rootScope, $scope, $location, $translate, $routeParams, formProtocols, formManage, formProtocolManage, formProtocolLock) {
             $rootScope.loading = true;
 
             // Loading form
@@ -56,7 +56,7 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
 
             $scope.protocolExportUrl = function (handler, protocolId) {
                 protocolId = protocolId || $scope.protocol.id;
-                return '/form/protocol/export/' + handler +'/' + protocolId;
+                return '/form/protocol/export/' + handler +'/' + protocolId + '/' + $translate.use();
             };
 
             $scope.protocolDetailsModal = function (protocolId) {
