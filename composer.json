@@ -51,11 +51,11 @@
     "jms/di-extra-bundle": "1.5.*",
     "qandidate/symfony-json-request-transformer": "1.*",
     "sp/bower-bundle": "0.11.*",
-    "liuggio/excelbundle": "dev-helper_html"
+    "liuggio/excelbundle": "^2.0.2"
   },
   "require-dev": {
     "doctrine/doctrine-fixtures-bundle": "2.2.*",
-    "phpunit/phpunit": "4.5.*",
+    "phpunit/phpunit": "4.6.*",
     "ext-xdebug": "*",
     "sensio/generator-bundle": "~2.3",
     "codeclimate/php-test-reporter": "dev-master",
