@@ -54,6 +54,11 @@ angular.module('sammui.formAdminControllers', ['ngRoute'])
                 return '#/form/' + protocolId + '/page/index?readOnly';
             };
 
+            $scope.protocolExportUrl = function (handler, protocolId) {
+                protocolId = protocolId || $scope.protocol.id;
+                return '/form/protocol/export/' + handler +'/' + protocolId;
+            };
+
             $scope.protocolDetailsModal = function (protocolId) {
                 $rootScope.loading = true;
                 formProtocolManage

@@ -133,12 +133,12 @@
                            type="button" class="btn btn-default" target="_blank">
                             <i class="fa fa-eye fa-2x"></i>
                         </a>
-                        <button type="button" class="btn btn-success">
+                        <a ng-href="{{protocolExportUrl('pdf')}}" type="button" class="btn btn-success">
                             <i class="fa fa-file-pdf-o fa-2x"></i> PDF
-                        </button>
-                        <button type="button" class="btn btn-success">
-                            <i class="fa fa-file-excel-o fa-2x"></i> Table
-                        </button>
+                        </a>
+                        <a ng-href="{{protocolExportUrl('excel')}}" type="button" class="btn btn-success">
+                            <i class="fa fa-file-excel-o fa-2x"></i> Excel
+                        </a>
                     </div>
                     <div class="btn-group">
                         <button ng-click="lockProtocol(!protocol.isLocked)" type="button" class="btn btn-warning">
