@@ -55,7 +55,7 @@ angular.module('sammui.protocolServices', ['ngResource'])
                         data.form.fields_hashmap_name = prepareFieldsHashMap(data.form.fields);
                         data.form.groups = {};
                         $filter('unique')(data.form.pages, 'group').map(function (page) {
-                            data.form.groups[page.group] = data.form.name + '-group-' + page.group;
+                            data.form.groups[page.group] = $filter('translate')('form-' + data.form.name + '-group-' + page.group);
                         });
 
                         originalData[protocolId] = angular.copy(data);

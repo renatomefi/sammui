@@ -31,8 +31,9 @@
             <ul class="pagination" style="margin: 0;">
                 <li role="presentation"
                     ng-repeat="page in pages | orderBy: 'number'"
-                    ng-class="{active: (page.number == currentPage)}">
-                    <a ng-click="toPage()(page.number)">{{page.number}}</a>
+                    ng-class="{active: (page.number == currentPage),
+                    disabled: (protocol.data.current_group && protocol.data.current_group !== page.group)}">
+                    <a ng-click="toPage()(page.number)"><strong>{{page.number}}</strong></a>
                 </li>
             </ul>
         </div>

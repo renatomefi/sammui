@@ -13,7 +13,7 @@
         </button>
     </div>
     <select ng-model="protocol.data.current_group" class="form-control"
-            ng-options="key as value for (key , value) in protocol.data.form.groups">
+            ng-options="key as value for (key, value) in protocol.data.form.groups">
         <option value=""></option>
     </select>
 </div>
@@ -34,7 +34,8 @@
 </div>
 <ul class="nav nav-pills nav-justified">
     <li role="presentation"
-        ng-repeat="page in formPages | orderBy: 'number'">
+        ng-repeat="page in formPages | orderBy: 'number'"
+        ng-hide="protocol.data.current_group && protocol.data.current_group !== page.group">
         <a ng-click="toPage(page.number)">{{::page.title}}
             <span ng-show="page.group"> - {{'form-' + protocol.data.form.name + '-group-' + page.group | translate}}</span></a>
     </li>
