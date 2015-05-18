@@ -124,6 +124,12 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-sammui-form-demo-field-sammui_uses' => [
             'en-us' => 'What technologies does sammui uses?',
             'pt-br' => 'Quais tecnologias o sammui usa?'],
+        'form-sammui-form-demo-group-group_1' => [
+            'en-us' => 'Group 1 of pages',
+            'pt-br' => 'Grupo de páginas 1'],
+        'form-sammui-form-demo-group-group_2' => [
+            'en-us' => 'Group 2 of pages',
+            'pt-br' => 'Grupo de páginas 2'],
         // Form: human readable Field Values
         'form-value-null' => [
             'en-us' => 'NULL Value',

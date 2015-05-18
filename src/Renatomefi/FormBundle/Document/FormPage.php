@@ -22,6 +22,33 @@ class FormPage extends ProtocolEmbed
     protected $number;
 
     /**
+     * @ODM\String
+     */
+    protected $group;
+
+    /**
+     * Get group
+     *
+     * @return string
+     */
+    public function getGroup()
+    {
+        return $this->group;
+    }
+
+    /**
+     * Set page group
+     *
+     * @param string $group
+     * @return self
+     */
+    public function setGroup($group)
+    {
+        $this->group = $group;
+        return $this;
+    }
+
+    /**
      * Set title
      *
      * @param string $title

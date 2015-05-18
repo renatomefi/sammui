@@ -52,12 +52,28 @@ class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwa
         $page = new FormPage();
         $page->setNumber(1);
         $page->setTitle('First page');
+        $page->setGroup('group_1');
         $form->addPage($page);
         unset($page);
 
         $page = new FormPage();
         $page->setNumber(2);
         $page->setTitle('Second page');
+        $page->setGroup('group_1');
+        $form->addPage($page);
+        unset($page);
+
+        $page = new FormPage();
+        $page->setNumber(3);
+        $page->setTitle('Third page');
+        $page->setGroup('group_2');
+        $form->addPage($page);
+        unset($page);
+
+        $page = new FormPage();
+        $page->setNumber(4);
+        $page->setTitle('Fourth page');
+        $page->setGroup('group_2');
         $form->addPage($page);
         unset($page);
 
