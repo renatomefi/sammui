@@ -99,32 +99,36 @@ class ProtocolExportController extends Controller
     }
 
     /**
-     * @Route("/files/{protocolId}")
+     * @Route("/files/{protocolId}/{lang}")
      * @Method("GET")
      *
      * @param $protocolId
+     * @param $lang
      * @return \Symfony\Component\HttpFoundation\StreamedResponse
      * @throws \PHPExcel_Exception
      */
-    public function filesAction($protocolId)
+    public function filesAction($protocolId, $lang)
     {
+        $this->languageKey = $lang;
+
         $protocol = $this->getProtocol($protocolId);
 
-        $file = tempnam("/tmp", "sammui_files_");
+        $tmpFile = tempnam("/tmp", "sammui_files_");
 
         $zipFile = new \ZipArchive();
-        $zipFile->open($file, \ZipArchive::CREATE);
+        $zipFile->open($tmpFile, \ZipArchive::CREATE);
 
         /** @var ProtocolFile $protocolFile */
         foreach ($protocol->getFile() as $protocolFile) {
             $zipFile->addFromString($protocolFile->getId() . '_' . $protocolFile->getFilename(), $protocolFile->getFile()->getBytes());
         }
 
+        $zipFileName = $zipFile->filename;
         $zipFile->close();
 
-        $response = new StreamedResponse(function () use ($file) {
-            echo file_get_contents($file);
-            unlink($file);
+        $response = new StreamedResponse(function () use ($zipFileName) {
+            echo file_get_contents($zipFileName);
+            unlink($zipFileName);
         });
 
         $dispositionHeader = $response->headers->makeDisposition(

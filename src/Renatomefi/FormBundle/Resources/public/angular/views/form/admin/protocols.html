@@ -141,6 +141,10 @@
                            type="button" class="btn btn-success">
                             <i class="fa fa-file-excel-o fa-2x"></i> Excel
                         </a>
+                        <a ng-href="{{protocolExportUrl('files')}}" target="_blank"
+                           type="button" class="btn btn-success">
+                            <i class="fa fa-file-zip-o fa-2x"></i> Zip
+                        </a>
                     </div>
                     <div class="btn-group">
                         <button ng-click="lockProtocol(!protocol.isLocked)" type="button" class="btn btn-warning">
