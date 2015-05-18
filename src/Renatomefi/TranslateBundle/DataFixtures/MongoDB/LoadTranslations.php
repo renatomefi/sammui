@@ -68,6 +68,9 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-filling-page-upload' => [
             'en-us' => 'Files',
             'pt-br' => 'Arquivos'],
+        'form-filling-page-files' => [
+            'en-us' => 'Files',
+            'pt-br' => 'Anexos'],
         'form-filling-page-form' => [
             'en-us' => 'Form',
             'pt-br' => 'Formulário'],
@@ -159,7 +162,9 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-protocol-field_values' => [
             'en-us' => 'Saved fields',
             'pt-br' => 'Campos salvos'],
-
+        'form-filling-page-non_users' => [
+            'en-us' => 'Non registered users',
+            'pt-br' => 'Usuários não registrados'],
     ];
 
     /**

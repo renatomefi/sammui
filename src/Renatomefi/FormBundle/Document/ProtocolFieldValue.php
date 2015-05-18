@@ -109,7 +109,7 @@ class ProtocolFieldValue extends ProtocolEmbed
             }
         } elseif (is_bool($value)) {
             $str = ($value === true) ? 'form-value-true' : 'form-value-false';
-        } elseif(null === $value) {
+        } elseif (null === $value) {
             $str = 'form-value-null';
         } else {
             $str = $value;

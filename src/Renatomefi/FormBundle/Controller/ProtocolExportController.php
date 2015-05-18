@@ -225,10 +225,12 @@ class ProtocolExportController extends Controller
         $objPHPExcel->getActiveSheet()->setCellValue('A' . $currentLine, $this->translate('form-filling-page-conclusion'));
         $currentLine++;
 
-        $objPHPExcel->getActiveSheet()->setCellValue('B' . $currentLine, $htmlWizard->toRichTextObject(utf8_decode($protocol->getConclusion())));
-        $objPHPExcel->getActiveSheet()->mergeCells(str_replace('%', $currentLine, 'B%:D%'));
-        $objPHPExcel->getActiveSheet()->getRowDimension($currentLine)->setRowHeight(300);
-        $currentLine++;
+        if ($protocol->getConclusion()) {
+            $objPHPExcel->getActiveSheet()->setCellValue('B' . $currentLine, $htmlWizard->toRichTextObject(utf8_decode($protocol->getConclusion())));
+            $objPHPExcel->getActiveSheet()->mergeCells(str_replace('%', $currentLine, 'B%:D%'));
+            $objPHPExcel->getActiveSheet()->getRowDimension($currentLine)->setRowHeight(300);
+            $currentLine++;
+        }
 
         $objPHPExcel->getActiveSheet()->getStyle('A1:A' . $currentLine)->getFont()->setBold(true);
 
