@@ -12,7 +12,9 @@ use Renatomefi\TranslateBundle\Document\Language;
 use Renatomefi\UserBundle\Document\User;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Intl\Data\Generator\LanguageDataGenerator;
 use Symfony\Component\Routing\Annotation\Route;
@@ -94,6 +96,48 @@ class ProtocolExportController extends Controller
 //        $response->headers->set('Cache-Control', 'maxage=1');
 //
 //        return $response;
+    }
+
+    /**
+     * @Route("/files/{protocolId}")
+     * @Method("GET")
+     *
+     * @param $protocolId
+     * @return \Symfony\Component\HttpFoundation\StreamedResponse
+     * @throws \PHPExcel_Exception
+     */
+    public function filesAction($protocolId)
+    {
+        $protocol = $this->getProtocol($protocolId);
+
+        $file = tempnam("/tmp", "sammui_files_");
+
+        $zipFile = new \ZipArchive();
+        $zipFile->open($file, \ZipArchive::CREATE);
+
+        /** @var ProtocolFile $protocolFile */
+        foreach ($protocol->getFile() as $protocolFile) {
+            $zipFile->addFromString($protocolFile->getId() . '_' . $protocolFile->getFilename(), $protocolFile->getFile()->getBytes());
+        }
+
+        $zipFile->close();
+
+        $response = new StreamedResponse(function () use ($file) {
+            echo file_get_contents($file);
+            unlink($file);
+        });
+
+        $dispositionHeader = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            $protocol->getForm()->getName() . '_' . $protocol->getId() . '_files' . '.zip'
+        );
+
+        $response->headers->set('Content-Disposition', $dispositionHeader);
+        $response->headers->set('Content-Type', 'application/zip; charset=utf-8');
+        $response->headers->set('Pragma', 'public');
+        $response->headers->set('Cache-Control', 'maxage=1');
+
+        return $response;
     }
 
     /**
