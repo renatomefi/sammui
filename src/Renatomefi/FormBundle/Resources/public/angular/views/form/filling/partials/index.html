@@ -1,15 +1,21 @@
-<div class="btn-group text-center">
-    <button ng-click="publishProtocol()"
-            ng-class="{'disabled': protocol.readOnly}"
-            type="button" class="btn btn-warning">
-        <i class="glyphicon glyphicon-cloud-upload"></i> {{'form-filling-btn-publish' | translate}}
-    </button>
-    <button ng-click="toggleReadOnly()"
-            ng-class="{'btn-info': protocol.readOnly === true, 'disabled': protocol.published === true}"
-            type="button"
-            class="btn">
-        <i class="glyphicon glyphicon-pencil"></i> {{'form-filling-btn-readonly' | translate}}
-    </button>
+<div class="input-group merged">
+    <div class="input-group-btn text-center">
+        <button ng-click="publishProtocol()"
+                ng-class="{'disabled': protocol.readOnly}"
+                type="button" class="btn btn-warning">
+            <i class="glyphicon glyphicon-cloud-upload"></i> {{'form-filling-btn-publish' | translate}}
+        </button>
+        <button ng-click="toggleReadOnly()"
+                ng-class="{'btn-info': protocol.readOnly === true, 'disabled': protocol.published === true}"
+                type="button"
+                class="btn">
+            <i class="glyphicon glyphicon-pencil"></i> {{'form-filling-btn-readonly' | translate}}
+        </button>
+    </div>
+    <select ng-model="protocol.data.current_group" class="form-control"
+            ng-options="key as value for (key, value) in protocol.data.form.groups">
+        <option value=""></option>
+    </select>
 </div>
 <div ng-if="protocol.published === true" class="alert alert-warning">
     <strong>{{'form-filling-protocol-published' | translate}}</strong>
@@ -28,7 +34,9 @@
 </div>
 <ul class="nav nav-pills nav-justified">
     <li role="presentation"
-        ng-repeat="page in formPages | orderBy: 'number'">
-        <a ng-click="toPage(page.number)">{{::page.title}}</a>
+        ng-repeat="page in formPages | orderBy: 'number'"
+        ng-hide="protocol.data.current_group && protocol.data.current_group !== page.group">
+        <a ng-click="toPage(page.number)">{{::page.title}}
+            <span ng-show="page.group"> - {{'form-' + protocol.data.form.name + '-group-' + page.group | translate}}</span></a>
     </li>
 </ul>

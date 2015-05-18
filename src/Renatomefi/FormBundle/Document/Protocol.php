@@ -80,6 +80,11 @@ class Protocol
     /**
      * @ODM\String
      */
+    protected $currentGroup;
+
+    /**
+     * @ODM\String
+     */
     protected $conclusion;
 
     /**
@@ -101,6 +106,24 @@ class Protocol
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCurrentGroup()
+    {
+        return $this->currentGroup;
+    }
+
+    /**
+     * @param string $currentGroup
+     * @return self
+     */
+    public function setCurrentGroup($currentGroup)
+    {
+        $this->currentGroup = $currentGroup;
+        return $this;
     }
 
     /**

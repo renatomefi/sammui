@@ -95,6 +95,19 @@ class Language
     }
 
     /**
+     * @param $key
+     * @return Translation
+     */
+    public function findTranslationByKey($key)
+    {
+        /** @var Translation $trans */
+        foreach ($this->translations as $trans) {
+            if ($trans->getKey() === $key)
+                return $trans;
+        }
+    }
+
+    /**
      * Add translation
      *
      * @param \Renatomefi\TranslateBundle\Document\Translation $translation

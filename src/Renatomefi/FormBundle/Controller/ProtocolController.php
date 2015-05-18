@@ -191,6 +191,7 @@ class ProtocolController extends FOSRestController
             $protocol->setFirstSaveDate(new \MongoDate());
         }
 
+        $protocol->setCurrentGroup($request->get('group'));
         $protocol->setLastSaveDate(new \MongoDate());
 
         $odm->persist($protocol);

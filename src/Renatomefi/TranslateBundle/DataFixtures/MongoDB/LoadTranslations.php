@@ -68,6 +68,9 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-filling-page-upload' => [
             'en-us' => 'Files',
             'pt-br' => 'Arquivos'],
+        'form-filling-page-files' => [
+            'en-us' => 'Files',
+            'pt-br' => 'Anexos'],
         'form-filling-page-form' => [
             'en-us' => 'Form',
             'pt-br' => 'Formulário'],
@@ -121,6 +124,12 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-sammui-form-demo-field-sammui_uses' => [
             'en-us' => 'What technologies does sammui uses?',
             'pt-br' => 'Quais tecnologias o sammui usa?'],
+        'form-sammui-form-demo-group-group_1' => [
+            'en-us' => 'Group 1 of pages',
+            'pt-br' => 'Grupo de páginas 1'],
+        'form-sammui-form-demo-group-group_2' => [
+            'en-us' => 'Group 2 of pages',
+            'pt-br' => 'Grupo de páginas 2'],
         // Form: human readable Field Values
         'form-value-null' => [
             'en-us' => 'NULL Value',
@@ -135,6 +144,33 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-protocol-publish-success' => [
             'en-us' => 'Procolo published successfully, you\'ll not be able to open it again',
             'pt-br' => 'Protocolo publicado com sucesso, você não poderá mais acessa-lo'],
+        'form-protocol-created_at' => [
+            'en-us' => 'Protocol started at',
+            'pt-br' => 'Preenchimento iniciado em'],
+        'form-protocol-first_save_date' => [
+            'en-us' => 'First save date',
+            'pt-br' => 'Primeiro salvamento em'],
+        'form-protocol-last_save_date' => [
+            'en-us' => 'Last save at',
+            'pt-br' => 'Última vez salvo em'],
+        'form-protocol-published-true' => [
+            'en-us' => 'Published',
+            'pt-br' => 'Publicado'],
+        'form-protocol-published-false' => [
+            'en-us' => 'Not Published',
+            'pt-br' => 'Não Publicado'],
+        'form-protocol-lock' => [
+            'en-us' => 'Lock/Publish',
+            'pt-br' => 'Bloquear/Publicar'],
+        'form-protocol-unlock' => [
+            'en-us' => 'Unlock/Un-publish',
+            'pt-br' => 'Desbloquar/Despublicar'],
+        'form-protocol-field_values' => [
+            'en-us' => 'Saved fields',
+            'pt-br' => 'Campos salvos'],
+        'form-filling-page-non_users' => [
+            'en-us' => 'Non registered users',
+            'pt-br' => 'Usuários não registrados'],
     ];
 
     /**
