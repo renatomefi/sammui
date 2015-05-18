@@ -178,18 +178,23 @@ class ProtocolExportController extends Controller
         $objPHPExcel->getActiveSheet()->setCellValue('A2', $this->translate('protocol'));
         $objPHPExcel->getActiveSheet()->setCellValue('B2', $protocol->getId());
 
-        $objPHPExcel->getActiveSheet()->setCellValue('A3', $this->translate($this->translate('form-protocol-first_save_date')));
-        $objPHPExcel->getActiveSheet()->setCellValue('B3', $protocol->getFirstSaveDate());
+        $objPHPExcel->getActiveSheet()->setCellValue('A3', $this->translate('form-protocol-group'));
+        $objPHPExcel->getActiveSheet()->setCellValue('B3', $protocol->getCurrentGroup());
+        $objPHPExcel->getActiveSheet()->setCellValue('C3',
+            $this->translate('form-' . $protocol->getForm()->getName() . '-group-' . $protocol->getCurrentGroup()));
 
-        $objPHPExcel->getActiveSheet()->setCellValue('A4', $this->translate('form-protocol-last_save_date'));
-        $objPHPExcel->getActiveSheet()->setCellValue('B4', $protocol->getLastSaveDate());
+        $objPHPExcel->getActiveSheet()->setCellValue('A4', $this->translate($this->translate('form-protocol-first_save_date')));
+        $objPHPExcel->getActiveSheet()->setCellValue('B4', $protocol->getFirstSaveDate());
 
-        $objPHPExcel->getActiveSheet()->setCellValue('A5', 'publish');
-        $objPHPExcel->getActiveSheet()->setCellValue('B5',
+        $objPHPExcel->getActiveSheet()->setCellValue('A5', $this->translate('form-protocol-last_save_date'));
+        $objPHPExcel->getActiveSheet()->setCellValue('B5', $protocol->getLastSaveDate());
+
+        $objPHPExcel->getActiveSheet()->setCellValue('A6', 'publish');
+        $objPHPExcel->getActiveSheet()->setCellValue('B6',
             $protocol->isLocked() ? $this->translate('published') : $this->translate('not published'));
 
         $publishes = $protocol->getPublish();
-        $currentLine = 6;
+        $currentLine = 7;
         for ($i = 0; $i < count($publishes); $i++) {
             /** @var ProtocolPublish $publish */
             $publish = $publishes[$i];
