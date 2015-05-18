@@ -113,7 +113,7 @@ class ProtocolExportController extends Controller
 
         $protocol = $this->getProtocol($protocolId);
 
-        $tmpFile = tempnam("/tmp", "sammui_files_");
+        $tmpFile = tempnam(sys_get_temp_dir(), "sammui_files_");
 
         $zipFile = new \ZipArchive();
         $zipFile->open($tmpFile, \ZipArchive::CREATE);
