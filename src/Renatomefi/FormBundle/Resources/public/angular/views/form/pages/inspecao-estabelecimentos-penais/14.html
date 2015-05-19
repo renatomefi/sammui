@@ -27,7 +27,585 @@
                    class="form-control">
         </form-field>
 
+        <style>
+            thead, tbody, tr, td, th {
+                display: block;
+            }
+
+            tbody {
+                /*height: 120px;*/
+                overflow-y: auto;
+            }
+
+
+        </style>
+
         <!-- 14.4 Atividade -->
+        <div class="panel panel-default panel-info">
+            <div class="panel-heading">Atividades Homens</div>
+            <div class="panel-body">
+                <div class="panel-group" id="14-4-accordion-men" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-1-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-men" href="#14-4-1"
+                                   aria-expanded="false" aria-controls="14-4-1">
+                                    Cozinha
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-1" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-1-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_1_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_1_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_1_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-2-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-men" href="#14-4-2"
+                                   aria-expanded="false" aria-controls="14-4-2">
+                                    Limpeza
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-2" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-2-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_2_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_2_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_2_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-3-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-men" href="#14-4-3"
+                                   aria-expanded="false" aria-controls="14-4-3">
+                                    Serviços Administrativos
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-3" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-3-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_3_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_3_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_3_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-4-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-men" href="#14-4-4"
+                                   aria-expanded="false" aria-controls="14-4-4">
+                                    Oficinas de trabalho
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-4" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-4-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_4_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_4_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_4_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-5-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-men" href="#14-4-5"
+                                   aria-expanded="false" aria-controls="14-4-5">
+                                    Biblioteca
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-5" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-5-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_5_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_5_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_5_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-6-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-men" href="#14-4-6"
+                                   aria-expanded="false" aria-controls="14-4-6">
+                                    Fábrica
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-6" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-6-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_6_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_6_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_6_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-7-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-men" href="#14-4-7"
+                                   aria-expanded="false" aria-controls="14-4-7">
+                                    Agricutura
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-7" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-7-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_7_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_7_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_7_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-8-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-men" href="#14-4-8"
+                                   aria-expanded="false" aria-controls="14-4-8">
+                                    Artesanato
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-8" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-8-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_8_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_8_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_8_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-9-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-men" href="#14-4-9"
+                                   aria-expanded="false" aria-controls="14-4-9">
+                                    Pecuária
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-9" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-9-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_9_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_9_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_9_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form-field name="14_4_10_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
+
+        <div class="panel panel-default panel-danger">
+            <div class="panel-heading">Atividades Mulheres</div>
+            <div class="panel-body">
+                <div class="panel-group" id="14-4-accordion-women" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-11-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-women" href="#14-4-11"
+                                   aria-expanded="false" aria-controls="14-4-11">
+                                    Cozinha
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-11" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-1-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_11_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_11_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_11_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-12-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-women" href="#14-4-12"
+                                   aria-expanded="false" aria-controls="14-4-12">
+                                    Limpeza
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-12" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-12-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_12_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_12_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_12_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-13-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-women" href="#14-4-13"
+                                   aria-expanded="false" aria-controls="14-4-13">
+                                    Serviços Administrativos
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-13" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-3-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_13_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_13_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_13_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-14-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-women" href="#14-4-14"
+                                   aria-expanded="false" aria-controls="14-4-14">
+                                    Oficinas de trabalho
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-14" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-14-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_14_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_14_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_14_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-15-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-women" href="#14-4-15"
+                                   aria-expanded="false" aria-controls="14-4-15">
+                                    Biblioteca
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-15" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-15-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_15_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_15_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_15_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-16-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-women" href="#14-4-16"
+                                   aria-expanded="false" aria-controls="14-4-16">
+                                    Fábrica
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-16" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-16-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_16_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_16_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_16_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-17-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-women" href="#14-4-17"
+                                   aria-expanded="false" aria-controls="14-4-17">
+                                    Agricutura
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-17" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-7-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_17_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_17_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_17_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-18-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-women" href="#14-4-18"
+                                   aria-expanded="false" aria-controls="14-4-18">
+                                    Artesanato
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-18" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-8-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_18_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_18_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_18_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="14-4-19-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#14-4-accordion-women" href="#14-4-19"
+                                   aria-expanded="false" aria-controls="14-4-19">
+                                    Pecuária
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="14-4-19" class="panel-collapse collapse" role="tabpanel"
+                             aria-labelledby="14-4-9-heading">
+                            <div class="panel-body">
+                                <form-field name="14_4_19_1">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_19_2">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                                <form-field name="14_4_19_3">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form-field name="14_4_20_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
 
         <form-field name="14_5">
             <input ng-model="field.value"
@@ -64,3 +642,7 @@
         </div>
     </fieldset>
 </form>
+<script>
+    Jquery.on
+    $('.collapse').collapse()
+</script>
