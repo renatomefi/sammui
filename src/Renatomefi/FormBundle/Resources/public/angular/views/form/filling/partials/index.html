@@ -1,6 +1,6 @@
 <div class="input-group merged">
     <div class="input-group-btn text-center">
-        <button ng-click="publishProtocol()"
+        <button ui-turn-on="modalPublish"
                 ng-class="{'disabled': protocol.readOnly}"
                 type="button" class="btn btn-warning">
             <i class="glyphicon glyphicon-cloud-upload"></i> {{'form-filling-btn-publish' | translate}}
@@ -18,8 +18,8 @@
     </select>
 </div>
 <div ng-if="protocol.published === true" class="alert alert-warning">
-    <strong>{{'form-filling-protocol-published' | translate}}</strong>
-    {{protocol.data.publish[0].created_at | date:'medium'}}
+    <strong>{{"form-filling-protocol-published" | translate}}</strong>
+    {{protocol.data.publish[0].created_at | date:"medium"}}
 </div>
 <hr>
 <ul class="nav nav-pills nav-justified">
@@ -30,7 +30,7 @@
     </li>
 </ul>
 <div class="text-center">
-    <h3>{{'form-filling-index-pages-title' | translate}}</h3>
+    <h3>{{"form-filling-index-pages-title" | translate}}</h3>
 </div>
 <ul class="nav nav-pills nav-justified">
     <li role="presentation"
@@ -40,3 +40,42 @@
             <span ng-show="page.group"> - {{'form-' + protocol.data.form.name + '-group-' + page.group | translate}}</span></a>
     </li>
 </ul>
+<div ui-content-for="modals">
+    <div class="modal" ui-if="modalPublish" ui-state="modalPublish">
+        <div class="modal-backdrop in"></div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close"
+                            ui-turn-off="modalPublish">&times;</button>
+                    <h4 class="modal-title">{{'form-protocol-publish-modal' | translate}}</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>{{'form-protocol-publish-item-a' | translate}}</label>
+                        <ui-switch ng-model="publish.items.a"></ui-switch>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'form-protocol-publish-item-b' | translate}}</label>
+                        <ui-switch ng-model="publish.items.b"></ui-switch>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'form-protocol-publish-item-c' | translate}}</label>
+                        <ui-switch ng-model="publish.items.c"></ui-switch>
+                    </div>
+                    <div class="form-group">
+                        <label>{{'form-protocol-publish-item-d' | translate}}</label>
+                        <ui-switch ng-model="publish.items.d"></ui-switch>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button ui-turn-off="modalPublish" class="btn btn-default">{{"btn-cancel" | translate}}</button>
+                    <button ng-class="{disabled: !(publish.items.a === true && publish.items.b === true && publish.items.c === true && publish.items.d === true)}"
+                            ng-click="publishProtocol()" class="btn btn-warning">
+                        {{"form-filling-btn-publish" | translate}}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
