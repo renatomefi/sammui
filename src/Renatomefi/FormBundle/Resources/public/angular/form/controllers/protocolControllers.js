@@ -19,10 +19,6 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
                 }
             };
 
-            $scope.$watch('publish.items', function () {
-                console.log('publish CHANGED');
-            });
-
             $scope.protocol = {
                 data: protocolData.getData($routeParams.protocolId),
                 original: protocolData.getOriginalData($routeParams.protocolId),
