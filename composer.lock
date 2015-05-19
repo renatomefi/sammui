@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8d2bb4c8f13838f0fd3fe6f1f6132393",
+    "hash": "5290d8ef2e78a4671ba2ee95bef5d5d5",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1880,33 +1880,33 @@
             "time": "2014-12-12 05:04:05"
         },
         {
-            "name": "liuggio/excelbundle",
-            "version": "dev-helper_html",
+            "name": "liuggio/ExcelBundle",
+            "version": "v2.0.2",
             "target-dir": "Liuggio/ExcelBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/renatomefidf/ExcelBundle.git",
-                "reference": "b143725a83e23bc1cae112e75dbf079d8be0c5a3"
+                "url": "https://github.com/liuggio/ExcelBundle.git",
+                "reference": "33ce101e5fb76786ea05da350ab394b596d7ee52"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/renatomefidf/ExcelBundle/zipball/b143725a83e23bc1cae112e75dbf079d8be0c5a3",
-                "reference": "b143725a83e23bc1cae112e75dbf079d8be0c5a3",
+                "url": "https://api.github.com/repos/liuggio/ExcelBundle/zipball/33ce101e5fb76786ea05da350ab394b596d7ee52",
+                "reference": "33ce101e5fb76786ea05da350ab394b596d7ee52",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "phpoffice/phpexcel": "~1.8.0",
-                "symfony/framework-bundle": "~2.1"
+                "symfony/framework-bundle": "~2.6"
             },
             "require-dev": {
-                "phpunit/phpunit": ">=3.7",
-                "sensio/framework-extra-bundle": "~2.1",
-                "symfony/browser-kit": "~2.1",
-                "symfony/class-loader": "~2.1",
-                "symfony/finder": "~2.0",
-                "symfony/form": "~2.1",
-                "symfony/validator": "~2.1"
+                "phpunit/phpunit": "~4.6",
+                "sensio/framework-extra-bundle": "~2.3",
+                "symfony/browser-kit": "~2.6",
+                "symfony/class-loader": "~2.6",
+                "symfony/finder": "~2.6",
+                "symfony/form": "~2.6",
+                "symfony/validator": "~2.6"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1919,31 +1919,29 @@
                     "Liuggio\\ExcelBundle": ""
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
-                    "name": "Giulio De Donato",
-                    "email": "liuggio@gmail.com"
-                },
-                {
                     "name": "ExcelBundle Contributors",
                     "homepage": "https://github.com/liuggio/ExcelBundle#contributors"
+                },
+                {
+                    "name": "Giulio De Donato",
+                    "email": "liuggio@gmail.com"
                 }
             ],
             "description": "This is a Symfony2 Bundle helps you to read and write Excel files (including pdf, xlsx, odt), thanks to the PHPExcel library",
             "homepage": "http://www.welcometothebundle.com",
             "keywords": [
-                "Excel",
+                "Symfony2",
                 "bundle",
-                "symfony2",
+                "excel",
                 "xls"
             ],
-            "support": {
-                "source": "https://github.com/renatomefidf/ExcelBundle/tree/helper_html"
-            },
-            "time": "2015-05-14 20:09:21"
+            "time": "2015-05-15 09:50:11"
         },
         {
             "name": "michelf/php-markdown",
@@ -4086,31 +4084,33 @@
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "1.3.4",
+            "version": "1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "acd690379117b042d1c8af1fafd61bde001bf6bb"
+                "reference": "a923bb15680d0089e2316f7a4af8f437046e96bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/acd690379117b042d1c8af1fafd61bde001bf6bb",
-                "reference": "acd690379117b042d1c8af1fafd61bde001bf6bb",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/a923bb15680d0089e2316f7a4af8f437046e96bb",
+                "reference": "a923bb15680d0089e2316f7a4af8f437046e96bb",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
             "autoload": {
                 "classmap": [
-                    "File/"
+                    "src/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                ""
-            ],
             "license": [
                 "BSD-3-Clause"
             ],
@@ -4127,7 +4127,7 @@
                 "filesystem",
                 "iterator"
             ],
-            "time": "2013-10-10 15:34:57"
+            "time": "2015-04-02 05:19:05"
         },
         {
             "name": "phpunit/php-text-template",
@@ -4268,16 +4268,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.5.1",
+            "version": "4.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d6429b0995b24a2d9dfe5587ee3a7071c1161af4"
+                "reference": "3afe303d873a4d64c62ef84de491b97b006fbdac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d6429b0995b24a2d9dfe5587ee3a7071c1161af4",
-                "reference": "d6429b0995b24a2d9dfe5587ee3a7071c1161af4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/3afe303d873a4d64c62ef84de491b97b006fbdac",
+                "reference": "3afe303d873a4d64c62ef84de491b97b006fbdac",
                 "shasum": ""
             },
             "require": {
@@ -4289,17 +4289,17 @@
                 "php": ">=5.3.3",
                 "phpspec/prophecy": "~1.3,>=1.3.1",
                 "phpunit/php-code-coverage": "~2.0,>=2.0.11",
-                "phpunit/php-file-iterator": "~1.3.2",
+                "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
-                "phpunit/php-timer": "~1.0.2",
+                "phpunit/php-timer": "~1.0",
                 "phpunit/phpunit-mock-objects": "~2.3",
                 "sebastian/comparator": "~1.1",
-                "sebastian/diff": "~1.1",
+                "sebastian/diff": "~1.2",
                 "sebastian/environment": "~1.2",
                 "sebastian/exporter": "~1.2",
                 "sebastian/global-state": "~1.0",
                 "sebastian/version": "~1.0",
-                "symfony/yaml": "~2.0"
+                "symfony/yaml": "~2.1|~3.0"
             },
             "suggest": {
                 "phpunit/php-invoker": "~1.1"
@@ -4310,7 +4310,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.5.x-dev"
+                    "dev-master": "4.6.x-dev"
                 }
             },
             "autoload": {
@@ -4336,7 +4336,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-03-29 09:24:05"
+            "time": "2015-04-29 15:18:52"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -4962,7 +4962,6 @@
         "doctrine/mongodb-odm": 20,
         "doctrine/mongodb-odm-bundle": 20,
         "friendsofsymfony/rest-bundle": 5,
-        "liuggio/excelbundle": 20,
         "codeclimate/php-test-reporter": 20
     },
     "prefer-stable": false,
