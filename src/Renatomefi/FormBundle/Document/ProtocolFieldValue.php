@@ -20,7 +20,7 @@ class ProtocolFieldValue extends ProtocolEmbed
         parent::__construct();
         $this->setLastUpdated(new \MongoDate());
     }
-    
+
     /**
      * @ODM\ReferenceOne(targetDocument="FormField")
      */
@@ -78,6 +78,44 @@ class ProtocolFieldValue extends ProtocolEmbed
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * Get the value in human readable format
+     *
+     * @return string
+     */
+    public function getValueInHR()
+    {
+        $value = $this->value;
+        $opts = $this->getField()->getOptions();
+        $isMulti = (count($opts) > 0);
+        $isArray = is_array($value);
+
+        $str = '';
+        if ($isMulti) {
+            if ($isArray) {
+                foreach ($value as $k => $v) {
+                    if ($v === true)
+                        $str .= $opts[$k] . ',';
+                }
+                $str = rtrim($str, ',');
+            } else {
+                if (array_key_exists($value, $opts)) {
+                    $str = $opts[$value];
+                } else {
+                    $str = $value;
+                }
+            }
+        } elseif (is_bool($value)) {
+            $str = ($value === true) ? 'form-value-true' : 'form-value-false';
+        } elseif (null === $value) {
+            $str = 'form-value-null';
+        } else {
+            $str = $value;
+        }
+
+        return $str;
     }
 
     /**

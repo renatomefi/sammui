@@ -10,6 +10,15 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             protocolData.setScope($scope);
 
+            $scope.publish = {
+                items: {
+                    a: false,
+                    b: false,
+                    c: false,
+                    d: false
+                }
+            };
+
             $scope.protocol = {
                 data: protocolData.getData($routeParams.protocolId),
                 original: protocolData.getOriginalData($routeParams.protocolId),
@@ -173,8 +182,9 @@ angular.module('sammui.protocolControllers', ['ngRoute'])
 
             formProtocolFields
                 .save({
-                    protocolId: $scope.$parent.protocol.data.id,
-                    data: fieldsToSend
+                    protocolId: $scope.protocol.data.id,
+                    data: fieldsToSend,
+                    group: $scope.protocol.data.current_group
                 }, function (data) {
                     $scope.$parent.protocol.data.field_values = angular.copy(data.field_values);
                     $scope.$on('event:protocol-field_values-updated', function () {

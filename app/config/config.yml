@@ -122,3 +122,11 @@ fos_user:
     db_driver: %fos_user_db_driver%
     firewall_name: main
     user_class: %fos_user_class%
+
+knp_snappy:
+    pdf:
+        enabled:    true
+        binary:     %wkhtmltopdf_path%
+        options:    []
+    image:
+        enabled:    false

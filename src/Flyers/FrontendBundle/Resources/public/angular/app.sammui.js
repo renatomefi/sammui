@@ -10,6 +10,7 @@ var sammui = angular.module('sammui', [
     'xeditable',
     'mobile-angular-ui',
     'mobile-angular-ui.gestures',
+    'ui.unique',
     'textAngular',
     'sammui.api',
     'sammui.form',

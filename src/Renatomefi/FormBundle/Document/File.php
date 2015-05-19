@@ -75,7 +75,7 @@ abstract class File
     /**
      * Get file
      *
-     * @return $file
+     * @return \MongoGridFSFile $file
      */
     public function getFile()
     {
