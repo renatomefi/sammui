@@ -51,7 +51,9 @@
     "jms/di-extra-bundle": "1.5.*",
     "qandidate/symfony-json-request-transformer": "1.*",
     "sp/bower-bundle": "0.11.*",
-    "liuggio/excelbundle": "^2.0.2"
+    "liuggio/excelbundle": "^2.0.2",
+    "knplabs/knp-snappy-bundle": "^1.2",
+    "h4cc/wkhtmltopdf-amd64": "0.12.2.1"
   },
   "require-dev": {
     "doctrine/doctrine-fixtures-bundle": "2.2.*",

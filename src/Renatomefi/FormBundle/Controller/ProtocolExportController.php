@@ -82,20 +82,35 @@ class ProtocolExportController extends Controller
 
         $protocol = $this->getProtocol($protocolId);
 
+        $pdfFile = tempnam(sys_get_temp_dir(), 'sammui_pdf_');
+        $this->get('knp_snappy.pdf')->generateFromHtml(
+            $this->renderView(
+                'FormBundle:ProtocolExport:pdf.html.twig',
+                array(
+                    'some'  => ['a','b']
+                )
+            ),
+            $pdfFile,
+            [],
+            true
+        );
 
-//        $dispositionHeader = $response->headers->makeDisposition(
-//            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
-//            $protocol->getForm()->getName() . '_' . $protocol->getId() . '.xls'
-//        );
-//
-//        $response->headers->set('Content-Disposition', $dispositionHeader);
-//
-//        // adding headers
-//        $response->headers->set('Content-Type', 'text/vnd.ms-excel; charset=utf-8');
-//        $response->headers->set('Pragma', 'public');
-//        $response->headers->set('Cache-Control', 'maxage=1');
-//
-//        return $response;
+        $response = new StreamedResponse(function () use ($pdfFile) {
+            echo file_get_contents($pdfFile);
+            unlink($pdfFile);
+        });
+
+        $dispositionHeader = $response->headers->makeDisposition(
+            ResponseHeaderBag::DISPOSITION_ATTACHMENT,
+            $protocol->getForm()->getName() . '_' . $protocol->getId() . '.pdf'
+        );
+
+        $response->headers->set('Content-Disposition', $dispositionHeader);
+        $response->headers->set('Content-Type', 'application/pdf; charset=utf-8');
+        $response->headers->set('Pragma', 'public');
+        $response->headers->set('Cache-Control', 'maxage=1');
+
+        return $response;
     }
 
     /**
@@ -113,7 +128,7 @@ class ProtocolExportController extends Controller
 
         $protocol = $this->getProtocol($protocolId);
 
-        $tmpFile = tempnam("/tmp", "sammui_files_");
+        $tmpFile = tempnam(sys_get_temp_dir(), 'sammui_files_');
 
         $zipFile = new \ZipArchive();
         $zipFile->open($tmpFile, \ZipArchive::CREATE);

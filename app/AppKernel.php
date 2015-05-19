@@ -26,6 +26,7 @@ class AppKernel extends Kernel
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
             new Sp\BowerBundle\SpBowerBundle(),
             new Flyers\FrontendBundle\FrontendBundle(),
             new Renatomefi\TranslateBundle\TranslateBundle(),
