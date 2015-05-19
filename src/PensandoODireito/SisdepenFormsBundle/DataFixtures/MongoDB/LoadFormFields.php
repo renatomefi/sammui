@@ -3066,6 +3066,454 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
+            'name' => '4_1_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_1_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_1_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_2_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_2_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_2_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_3_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_3_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_3_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_4_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_4_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_4_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_5_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_5_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_5_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_6_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_6_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_6_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_7_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_7_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_7_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_8_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_8_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_8_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_9_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_9_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_9_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_10_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Outros'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_11_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_11_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_11_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_12_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_12_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_12_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_13_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_13_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_13_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_14_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_14_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_14_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_15_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_15_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_15_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_16_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_16_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_16_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_17_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_17_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_17_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_18_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_18_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_18_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_19_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_19_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_19_3',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Não remunerados'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_20_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Outros'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '5',
             'page' => '14',
             'translate' => [
