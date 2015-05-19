@@ -171,6 +171,20 @@ class LoadTranslations extends AbstractFixture implements OrderedFixtureInterfac
         'form-filling-page-non_users' => [
             'en-us' => 'Non registered users',
             'pt-br' => 'Usuários não registrados'],
+        // Protocol publish
+        //'form-protocol-publish-item-a'
+        'form-protocol-publish-item-b' => [
+            'en-us' => 'I revised all fields',
+            'pt-br' => 'Eu revisei todos os campos'],
+        'form-protocol-publish-item-a' => [
+            'en-us' => 'I saved all fields',
+            'pt-br' => 'Eu salvei todos os campos'],
+        'form-protocol-publish-item-c' => [
+            'en-us' => 'I known that I\'ll not have access to this protocol anymore',
+            'pt-br' => 'Eu aceito que não terei mais acesso de leitura e edição deste protocolo'],
+        'form-protocol-publish-item-d' => [
+            'en-us' => 'I\'m sure of all above',
+            'pt-br' => 'Tenho certeza de todos os itens acima'],
     ];
 
     /**
