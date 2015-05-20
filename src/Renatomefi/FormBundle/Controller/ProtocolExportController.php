@@ -86,9 +86,9 @@ class ProtocolExportController extends Controller
         $this->get('knp_snappy.pdf')->generateFromHtml(
             $this->renderView(
                 'FormBundle:ProtocolExport:pdf.html.twig',
-                array(
-                    'some'  => ['a','b']
-                )
+                [
+                    'fieldValues' => $protocol->getFieldValues()
+                ]
             ),
             $pdfFile,
             [],
