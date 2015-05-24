@@ -3514,6 +3514,166 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
+            'name' => '4_21_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_21_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_22_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_22_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_23_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_23_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_24_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_24_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_25_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_25_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_26_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_26_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_27_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_27_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_28_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_28_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_29_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_29_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_30_1',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Mulher'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_30_2',
+            'page' => '14',
+            'translate' => [
+                'pt-br' => 'Homem'
+            ],
+            'type' => 'text',
+        ],
+        [
             'name' => '5',
             'page' => '14',
             'translate' => [

@@ -75,7 +75,6 @@
                 </form-field>
             </div>
         </div>
-
         <div class="panel panel-default panel-danger">
             <div class="panel-heading">Atividades Mulheres</div>
 
@@ -123,6 +122,52 @@
                 </form-field>
             </div>
         </div>
+
+        <!-- 14.4.1 Remuneração -->
+        <div class="panel panel-default">
+            <div class="panel-heading">Remuneração</div>
+
+            <div class="panel-body">
+
+                <div class="panel-group"
+                     ui-state='accordionRemuneracao'>
+
+                    <div class="panel panel-default"
+                         ng-repeat="remuneracao in
+                         [
+                         {id:1,title:'Cozinha',field:'14_4_21'},
+                         {id:2,title:'Limpeza',field:'14_4_22'},
+                         {id:3,title:'Serviços Administrativos',field:'14_4_23'},
+                         {id:4,title:'Oficinas de trabalho',field:'14_4_24'},
+                         {id:5,title:'Biblioteca',field:'14_4_25'},
+                         {id:6,title:'Fábrica',field:'14_4_26'},
+                         {id:7,title:'Agricutura',field:'14_4_27'},
+                         {id:8,title:'Artesanato',field:'14_4_28'},
+                         {id:9,title:'Pecuária',field:'14_4_29'},
+                         {id:10,title:'Outros',field:'14_4_30'}
+                         ]
+                         "
+                            >
+                        <div class="panel-heading" ui-set="{'accordionRemuneracao': remuneracao.id}">
+                            <h4 class="panel-title">
+                                {{remuneracao.title}}
+                            </h4>
+                        </div>
+
+                        <div class="panel-body" ui-if="accordionRemuneracao == {{remuneracao.id}}">
+                            <div ng-repeat="i in [1,2]">
+                                <form-field name="{{remuneracao.field}}_{{i}}">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <form-field name="14_5">
             <input ng-model="field.value"
