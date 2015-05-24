@@ -29,6 +29,10 @@ class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwa
      */
     const NAME = 'inspecao-estabelecimentos-penais';
 
+    const GROUP_ANUAL = 'anual';
+    const GROUP_SEMESTRAL = 'semestral';
+    const GROUP_MENSAL = 'mensal';
+
     /**
      * @var ContainerInterface
      */
@@ -41,99 +45,123 @@ class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwa
     public static $pages = [
         [
             'title' => 'Estrutura Organizacional',
-            'number' => 1
+            'number' => 1,
+            'group' => LoadForm::GROUP_ANUAL
         ],
         [
             'title' => 'Identificação do Estabelecimento',
-            'number' => 2
+            'number' => 2,
+            'group' => LoadForm::GROUP_ANUAL
         ],
         [
             'title' => 'Administração',
-            'number' => 3
+            'number' => 3,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Características do Estabelecimento',
-            'number' => 4
+            'number' => 4,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Características das Pessoas Presas',
-            'number' => 5
+            'number' => 5,
+            'group' => LoadForm::GROUP_MENSAL
         ],
         [
             'title' => 'Características das Pessoas cumprindo Medida Segurança',
-            'number' => 6
+            'number' => 6,
+            'group' => LoadForm::GROUP_MENSAL
         ],
         [
             'title' => 'Características dos Funcionários em Exercício no Estabelecimento',
-            'number' => 7
+            'number' => 7,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Condições Materiais',
-            'number' => 8
+            'number' => 8,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Alimentação',
-            'number' => 9
+            'number' => 9,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Rotina padrão',
-            'number' => 10
+            'number' => 10,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Assistência à Saúde',
-            'number' => 11
+            'number' => 11,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Assistência à Saúde',
-            'number' => 12
+            'number' => 12,
+            'group' => LoadForm::GROUP_ANUAL
         ],
         [
             'title' => 'Assistência Jurídica',
-            'number' => 13
+            'number' => 13,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Assistência Laboral',
-            'number' => 14
+            'number' => 14,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Assistências Educacionais/Desportivas/Culturais e de Lazer',
-            'number' => 15
+            'number' => 15,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Assistência Religiosa',
-            'number' => 16
+            'number' => 16,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Assistência Social',
-            'number' => 17
+            'number' => 17,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Segurança',
-            'number' => 18
+            'number' => 18,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Disciplina e ocorrências',
-            'number' => 19
+            'number' => 19,
+            'group' => LoadForm::GROUP_MENSAL
         ],
         [
             'title' => 'Visitas',
-            'number' => 20
+            'number' => 20,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Relato das pessoas presas ou de funcionários',
-            'number' => 21
+            'number' => 21,
+            'group' => LoadForm::GROUP_MENSAL
         ],
         [
             'title' => 'Diversos',
-            'number' => 22
+            'number' => 22,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
         [
             'title' => 'Inspeções',
-            'number' => 23
+            'number' => 23,
+            'group' => LoadForm::GROUP_MENSAL
         ],
         [
             'title' => 'Valoração sobre os itens inspecionados',
-            'number' => 24
+            'number' => 24,
+            'group' => LoadForm::GROUP_SEMESTRAL
         ],
 
     ];
@@ -162,6 +190,7 @@ class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwa
             $formPage = new FormPage();
             $formPage->setNumber($page['number']);
             $formPage->setTitle($page['title']);
+            $formPage->setGroup($page['group']);
             $form->addPage($formPage);
             unset($formPage);
         }

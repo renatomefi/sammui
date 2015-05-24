@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('sammui.protocolServices', ['ngResource'])
-    .service('protocolData', ['localStorageService', 'formProtocolManage', 'formPagesTemplate', 'formActionsTemplates',
-        function (localStorageService, formProtocolManage, formPagesTemplate, formActionsTemplates) {
+    .service('protocolData', ['$filter', 'localStorageService', 'formProtocolManage', 'formPagesTemplate', 'formActionsTemplates',
+        function ($filter, localStorageService, formProtocolManage, formPagesTemplate, formActionsTemplates) {
             var originalData = {};
             var currentData = {};
 
@@ -53,6 +53,10 @@ angular.module('sammui.protocolServices', ['ngResource'])
                     currentData[protocolId].$promise.then(function (data) {
                         data.field_values_hashmap_field = prepareFieldValuesHashMap(data.field_values);
                         data.form.fields_hashmap_name = prepareFieldsHashMap(data.form.fields);
+                        data.form.groups = {};
+                        $filter('unique')(data.form.pages, 'group').map(function (page) {
+                            data.form.groups[page.group] = $filter('translate')('form-' + data.form.name + '-group-' + page.group);
+                        });
 
                         originalData[protocolId] = angular.copy(data);
 

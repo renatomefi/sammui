@@ -129,16 +129,22 @@
                     <hr>
 
                     <div class="btn-group">
-                        <a ng-href="{{readProtocol(protocol.id)}}"
-                           type="button" class="btn btn-default" target="_blank">
+                        <a ng-href="{{readProtocol(protocol.id)}}" target="_blank"
+                           type="button" class="btn btn-default">
                             <i class="fa fa-eye fa-2x"></i>
                         </a>
-                        <button type="button" class="btn btn-success">
+                        <a ng-href="{{protocolExportUrl('pdf')}}" target="_blank"
+                           type="button" class="btn btn-success">
                             <i class="fa fa-file-pdf-o fa-2x"></i> PDF
-                        </button>
-                        <button type="button" class="btn btn-success">
-                            <i class="fa fa-file-excel-o fa-2x"></i> Table
-                        </button>
+                        </a>
+                        <a ng-href="{{protocolExportUrl('excel')}}" target="_blank"
+                           type="button" class="btn btn-success">
+                            <i class="fa fa-file-excel-o fa-2x"></i> Excel
+                        </a>
+                        <a ng-href="{{protocolExportUrl('files')}}" target="_blank"
+                           type="button" class="btn btn-success">
+                            <i class="fa fa-file-zip-o fa-2x"></i> Zip
+                        </a>
                     </div>
                     <div class="btn-group">
                         <button ng-click="lockProtocol(!protocol.isLocked)" type="button" class="btn btn-warning">

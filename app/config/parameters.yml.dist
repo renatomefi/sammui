@@ -28,3 +28,5 @@ parameters:
 
     fos_user_db_driver: odm
     fos_user_class: Flyers\BackendBundle\Document\User
+
+    wkhtmltopdf_path: %kernel.root_dir%/../bin/wkhtmltopdf-amd64
