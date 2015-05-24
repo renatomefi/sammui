@@ -2,7 +2,45 @@
     <fieldset>
 
         <!-- 15.1 Programa de necessidades do módulo de educação por tipo de estabelecimento penal -->
+        <div class="panel panel-default">
+            <div class="panel-heading">Programa de necessidades do módulo de educação por tipo de estabelecimento penal</div>
 
+            <div class="panel-body">
+
+                <div class="panel-group"
+                     ui-state='accordion_15_1'>
+
+                    <div class="panel panel-default"
+                         ng-repeat="panel in
+                         [
+                         {id:1,title:'Biblioteca',field:'15_1_1'},
+                         {id:2,title:'Sala de aula',field:'15_1_2'},
+                         {id:3,title:'Instalação sanitária (pessoa presa)',field:'15_1_3'},
+                         {id:4,title:'Sala de professores',field:'15_1_4'},
+                         {id:5,title:'Sala de informática',field:'15_1_5'},
+                         {id:6,title:'Sala de encontros com a sociedade',field:'15_1_6'}
+                         ]
+                         "
+                            >
+                        <div class="panel-heading" ui-set="{'accordion_15_1': panel.id}">
+                            <h4 class="panel-title">
+                                {{panel.title}}
+                            </h4>
+                        </div>
+
+                        <div class="panel-body" ui-if="accordion_15_1 == {{panel.id}}">
+                            <div ng-repeat="i in [1,2,3,4,5]">
+
+                                <form-field name="{{panel.field}}_{{i}}">
+                                    <select-field ng-model="field.value" options="field.options"></select-field>
+                                </form-field>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="panel panel-default">
             <div class="panel-heading">

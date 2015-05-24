@@ -3727,6 +3727,397 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
 
         //BEGIN page 15
         [
+            'name' => '1_1_1',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'P'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_2',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'CP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_3',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COL'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_4',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_5',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_1',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'P'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_2',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'CP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_3',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COL'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_4',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_5',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_1',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'P'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_2',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'CP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_3',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COL'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_4',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_5',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_1',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'P'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_2',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'CP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_3',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COL'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_4',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_5',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_1',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'P'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_2',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'CP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_3',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COL'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_4',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_5',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_1',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'P'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_2',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'CP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_3',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COL'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_4',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_5',
+            'page' => '15',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'select',
+            'options'=>[
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+
+        [
             'name' => '2_1',
             'page' => '15',
             'translate' => [
