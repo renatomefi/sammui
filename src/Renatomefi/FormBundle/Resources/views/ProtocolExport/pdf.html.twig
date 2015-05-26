@@ -5,6 +5,10 @@
     <title></title>
 </head>
 <body>
-Hello World
+<ul>
+    {% for fv in fieldValues %}
+        <li><strong>{{ fv.field.name }}:</strong> {{ fv.getValueInHR() }}</li>
+    {% endfor %}
+</ul>
 </body>
 </html>
