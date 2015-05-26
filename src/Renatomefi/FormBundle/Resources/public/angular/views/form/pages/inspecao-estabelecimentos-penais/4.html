@@ -8,51 +8,92 @@
                    class="form-control">
         </form-field>
 
+        <form-field name="4_1_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
         <form-field name="4_2">
             <input ng-model="field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
 
-        <h6>Lotação Mulheres</h6>
-        <form-field name="4_3_1_1">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
-        <form-field name="4_3_1_2">
+        <div class="panel panel-default panel-danger">
+            <div class="panel-heading">Lotação Mulheres</div>
+            <div class="panel-body">
+                <form-field name="4_2_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+                <form-field name="4_2_1_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+                <form-field name="4_2_1_2">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
+
+        <form-field name="4_3">
             <input ng-model="field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
 
-        <h6>Lotação Homens</h6>
-        <form-field name="4_3_2_1">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
-        <form-field name="4_3_2_2">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
-
-        <h6>Lotação LGBT</h6>
-        <form-field name="4_3_3_1">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
-        <form-field name="4_3_3_2">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
-        </form-field>
+        <div class="panel panel-default panel-info">
+            <div class="panel-heading">Lotação Homens</div>
+            <div class="panel-body">
+                <form-field name="4_3_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+                <form-field name="4_3_1_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+                <form-field name="4_3_1_2">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
 
         <form-field name="4_4">
-            <boolean-field ng-model="field.value"></boolean-field>
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
         </form-field>
+
+        <div class="panel panel-default panel-warning">
+            <div class="panel-heading">Lotação LGBT</div>
+            <div class="panel-body">
+                <form-field name="4_4_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+                <form-field name="4_4_1_1">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+                <form-field name="4_4_1_2">
+                    <input ng-model="field.value"
+                           ng-model-options="{ debounce: 300 }"
+                           class="form-control">
+                </form-field>
+            </div>
+        </div>
 
         <form-field name="4_5">
             <boolean-field ng-model="field.value"></boolean-field>
@@ -86,32 +127,151 @@
             <boolean-field ng-model="field.value"></boolean-field>
         </form-field>
 
-        <!-- 4.14 Programa de necessidades por tipo de estabelecimento penal1 -->
-
         <form-field name="4_13">
+            <boolean-field ng-model="field.value"></boolean-field>
+        </form-field>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Programa de necessidades por tipo de estabelecimento penal</div>
+
+            <div class="panel-body">
+
+                <div class="panel-group"
+                     ui-state='accordion_4_14'>
+
+                    <div class="panel panel-default"
+                         ng-repeat="panel in
+                         [
+                         {id:1,title:'Guarda externa',field:'4_14_1'},
+                         {id:2,title:'Agente penitenciário / Monitor',field:'4_14_2'},
+                         {id:3,title:'Administração',field:'4_14_3'},
+                         {id:4,title:'Recepção / Revista',field:'4_14_4'},
+                         {id:5,title:'Centro de observação / triagem / inclusão',field:'4_14_5'},
+                         {id:6,title:'Tratamento penal',field:'4_14_6'},
+                         {id:7,title:'Vivência coletiva',field:'4_14_7'},
+                         {id:8,title:'Vivência individual',field:'4_14_8'},
+                         {id:9,title:'Serviços',field:'4_14_9'},
+                         {id:10,title:'Saude',field:'4_14_10'},
+                         {id:11,title:'Tratamento para dependentes quimicos',field:'4_14_11'},
+                         {id:12,title:'Oficina do trabalho',field:'4_14_12'},
+                         {id:13,title:'Educativo',field:'4_14_13'},
+                         {id:14,title:'Polivalente',field:'4_14_14'},
+                         {id:15,title:'Creche',field:'4_14_15'},
+                         {id:16,title:'Berçário',field:'4_14_16'},
+                         {id:17,title:'Visita íntima',field:'4_14_17'},
+                         {id:18,title:'Esportes',field:'4_14_18'},
+                         ]
+                         "
+                            >
+                        <div class="panel-heading" ui-set="{'accordion_4_14': panel.id}">
+                            <h4 class="panel-title">
+                                {{panel.title}}
+                            </h4>
+                        </div>
+
+                        <div class="panel-body" ui-if="accordion_4_14 == {{panel.id}}">
+                            <div ng-repeat="i in [1,2,3,4,5,6]">
+
+                                <form-field name="{{panel.field}}_{{i}}">
+                                    <input ng-model="field.value"
+                                           ng-model-options="{ debounce: 300 }"
+                                           class="form-control">
+                                </form-field>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form-field name="4_15_1_1">
             <input ng-model="field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
-        <form-field name="4_14">
+
+        <form-field name="4_15_1_2">
             <input ng-model="field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
-        <form-field name="4_15">
+
+        <form-field name="4_15_2_1">
             <input ng-model="field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
-        <form-field name="4_16">
+
+        <form-field name="4_15_2_1_1">
             <input ng-model="field.value"
                    ng-model-options="{ debounce: 300 }"
                    class="form-control">
         </form-field>
+
+        <form-field name="4_15_2_2">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="4_15_2_2_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="4_16_1_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="4_16_1_2">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="4_16_2_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="4_16_2_2">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+
+        <form-field name="4_16_3_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="4_16_3_1_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="4_16_3_2">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
+        <form-field name="4_16_3_2_1">
+            <input ng-model="field.value"
+                   ng-model-options="{ debounce: 300 }"
+                   class="form-control">
+        </form-field>
+
         <form-field name="4_17">
-            <input ng-model="field.value"
-                   ng-model-options="{ debounce: 300 }"
-                   class="form-control">
+            <select-field ng-model="field.value" options="field.options"></select-field>
         </form-field>
 
         <form-field name="4_18">
@@ -139,11 +299,11 @@
         </form-field>
 
         <form-field name="4_24">
-            <select-field ng-model="field.value" options="field.options"></select-field>
+            <boolean-field ng-model="field.value"></boolean-field>
         </form-field>
 
         <form-field name="4_25">
-            <select-field ng-model="field.value" options="field.options"></select-field>
+            <boolean-field ng-model="field.value"></boolean-field>
         </form-field>
 
         <div class="panel panel-default">
@@ -159,12 +319,5 @@
             </div>
         </div>
 
-        <form-field name="4_27">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
-
-        <form-field name="4_28">
-            <boolean-field ng-model="field.value"></boolean-field>
-        </form-field>
     </fieldset>
 </form>

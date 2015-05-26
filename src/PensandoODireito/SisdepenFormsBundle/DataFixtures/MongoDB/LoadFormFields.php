@@ -436,10 +436,58 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
-            'name' => '2',
+            'name' => '1_1',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Lotação total'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Capacidade Mulheres'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '2_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '2_1_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Condenada'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '2_1_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Provisória'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Capacidade Homens'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '3_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Quantidade'
             ],
             'type' => 'text',
         ],
@@ -460,39 +508,39 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
-            'name' => '3_2_1',
-            'page' => '4',
-            'translate' => [
-                'pt-br' => 'Condenada'
-            ],
-            'type' => 'text',
-        ],
-        [
-            'name' => '3_2_2',
-            'page' => '4',
-            'translate' => [
-                'pt-br' => 'Provisória'
-            ],
-            'type' => 'text',
-        ],
-        [
-            'name' => '3_3_1',
-            'page' => '4',
-            'translate' => [
-                'pt-br' => 'Condenada'
-            ],
-            'type' => 'text',
-        ],
-        [
-            'name' => '3_3_2',
-            'page' => '4',
-            'translate' => [
-                'pt-br' => 'Provisória'
-            ],
-            'type' => 'text',
-        ],
-        [
             'name' => '4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Capacidade LGBT'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Quantidade'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_1_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Condenada'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '4_1_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Provisória'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '5',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Há alas separadas para diferentes regimes?'
@@ -500,7 +548,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '5',
+            'name' => '6',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Há alas separadas para presos provisórios e condenados?'
@@ -508,7 +556,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '6',
+            'name' => '7',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Há alas separadas para idosos?'
@@ -516,7 +564,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '7',
+            'name' => '8',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Há alas separadas para mulheres, se for o caso?'
@@ -524,7 +572,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '8',
+            'name' => '9',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Há alas separadas para pessoas em medida de segurança?'
@@ -532,7 +580,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '9',
+            'name' => '10',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Há alas separadas para LGBT?'
@@ -540,7 +588,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '10',
+            'name' => '11',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Há local especial para cumprimento de seguro/custódia diferenciada?'
@@ -548,7 +596,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '11',
+            'name' => '12',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Há acessibilidade para pessoas com deficiência?'
@@ -556,7 +604,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '12',
+            'name' => '13',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Há celas metálicas?'
@@ -564,7 +612,871 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'boolean',
         ],
         [
-            'name' => '13',
+            'name' => '14_1_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_1_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_1_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_1_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_1_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_1_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_2_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_2_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_2_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_2_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_2_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_2_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_3_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_3_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_3_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_3_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_3_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_3_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_4_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_4_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_4_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_4_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_4_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_4_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_5_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_5_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_5_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_5_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_5_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_5_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_6_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_6_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_6_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_6_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_6_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_6_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_7_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_7_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_7_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_7_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_7_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_7_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_8_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_8_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_8_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_8_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_8_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_8_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_9_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_9_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_9_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_9_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_9_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_9_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_10_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_10_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_19_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_10_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_10_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_10_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_11_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_11_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_11_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_11_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_11_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_11_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_12_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_12_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_12_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_12_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_12_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_12_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_13_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_13_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_13_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_13_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_13_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_13_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_14_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_14_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_14_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_14_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_14_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_14_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_15_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_15_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_15_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_15_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_15_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_15_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_16_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_16_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_16_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_16_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_16_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_16_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_17_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_17_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_17_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_17_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_17_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_17_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_18_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Penitenciária'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_18_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Colonia'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_18_3',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Cadeia publica'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_18_4',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'COC'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_18_5',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Casa do albergado'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '14_18_6',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'HCTP'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_1_1',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Número de celas individuais Homens'
@@ -572,7 +1484,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
-            'name' => '14',
+            'name' => '15_1_2',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Número de celas individuais Mulheres'
@@ -580,7 +1492,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
-            'name' => '15',
+            'name' => '15_2_1',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Lotação celas individuais Homens'
@@ -588,7 +1500,15 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
-            'name' => '16',
+            'name' => '15_2_1_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Dimensão Homens'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '15_2_2',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Lotação celas individuais Mulheres'
@@ -596,7 +1516,56 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
-            'name' => '17',
+            'name' => '15_2_2_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Dimensão Mulheres'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '16_1_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Número de celas homens'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '16_1_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Número de celas mulheres'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '16_2_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Capacidade média das celas coletivas homens'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '16_2_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Capacidade média das celas coletivas mulheres'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '16_3_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Lotação média das celas coletivas homens'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '16_3_1_1',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Dimensão'
@@ -604,7 +1573,23 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         [
-            'name' => '18',
+            'name' => '16_3_2',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Lotação média das celas coletivas mulheres'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '16_3_2_1',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Dimensão'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '17',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Permeabilidade'
@@ -618,7 +1603,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             ]
         ],
         [
-            'name' => '19',
+            'name' => '18',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Ventilação cruzada geral'
@@ -631,7 +1616,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             ]
         ],
         [
-            'name' => '20',
+            'name' => '19',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Ventilação cruzada nas celas'
@@ -644,7 +1629,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             ]
         ],
         [
-            'name' => '21',
+            'name' => '20',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Iluminação natural nas celas'
@@ -656,7 +1641,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             ]
         ],
         [
-            'name' => '22',
+            'name' => '21',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Incidência de sol nas celas'
@@ -669,7 +1654,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             ]
         ],
         [
-            'name' => '23',
+            'name' => '22',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Programa de combate a incêndio'
@@ -681,7 +1666,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             ]
         ],
         [
-            'name' => '24',
+            'name' => '23',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Extintores de incêndio'
@@ -690,27 +1675,34 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'options' => [
                 'Insuficiente',
                 'Suficiente',
-            ]
-        ],
-        [
-            'name' => '25',
-            'page' => '4',
-            'translate' => [
-                'pt-br' => 'Extintores de incêndio'
-            ],
-            'type' => 'select',
-            'options' => [
                 'Sem condições de uso',
                 'Em condições de uso',
             ]
         ],
         [
-            'name' => '26',
+            'name' => '24',
             'page' => '4',
             'translate' => [
                 'pt-br' => 'Construído ou ampliado com subvenção de recursos federais?'
             ],
             'type' => 'boolean',
+        ],
+        [
+            'name' => '25',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Reformado com subvenção de recursos federais?'
+            ],
+            'type' => 'boolean',
+        ],
+        [
+            'name' => '26',
+            'page' => '4',
+            'translate' => [
+                'pt-br' => 'Indicativos da atuação de facções no estabelecimento?'
+            ],
+            'type' => 'boolean',
+            // Quais???
         ],
         [
             'name' => '26_1',
@@ -723,23 +1715,6 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'Quais'
             ],
             'type' => 'text',
-        ],
-        [
-            'name' => '27',
-            'page' => '4',
-            'translate' => [
-                'pt-br' => 'Reformado com subvenção de recursos federais?'
-            ],
-            'type' => 'boolean',
-        ],
-        [
-            'name' => '28',
-            'page' => '4',
-            'translate' => [
-                'pt-br' => 'Indicativos da atuação de facções no estabelecimento?'
-            ],
-            'type' => 'boolean',
-            // Quais???
         ],
 
         //END page 4
