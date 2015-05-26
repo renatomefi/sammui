@@ -34,10 +34,10 @@
             <div class="panel-body">
 
                 <div class="panel-group"
-                     ui-state='accordionHomem'>
+                     ui-state='accordion_14_4_homens'>
 
                     <div class="panel panel-default"
-                         ng-repeat="atividades in
+                         ng-repeat="panel in
                          [
                          {id:1,title:'Cozinha',field:'14_4_1'},
                          {id:2,title:'Limpeza',field:'14_4_2'},
@@ -51,15 +51,15 @@
                          ]
                          "
                             >
-                        <div class="panel-heading" ui-set="{'accordionHomem': atividades.id}">
+                        <div class="panel-heading" ui-set="{'accordion_14_4_homens': panel.id}">
                             <h4 class="panel-title">
-                                {{atividades.title}}
+                                {{panel.title}}
                             </h4>
                         </div>
 
-                        <div class="panel-body" ui-if="accordionHomem == {{atividades.id}}">
+                        <div class="panel-body" ui-if="accordion_14_4_homens == {{panel.id}}">
                             <div ng-repeat="i in [1,2,3]">
-                                <form-field name="{{atividades.field}}_{{i}}">
+                                <form-field name="{{panel.field}}_{{i}}">
                                     <input ng-model="field.value"
                                            ng-model-options="{ debounce: 300 }"
                                            class="form-control">
@@ -81,10 +81,10 @@
             <div class="panel-body">
 
                 <div class="panel-group"
-                     ui-state='accordionMulher'>
+                     ui-state='accordion_14_4_mulheres'>
 
                     <div class="panel panel-default"
-                         ng-repeat="atividades in
+                         ng-repeat="panel in
                          [
                          {id:1,title:'Cozinha',field:'14_4_11'},
                          {id:2,title:'Limpeza',field:'14_4_12'},
@@ -98,15 +98,15 @@
                          ]
                          "
                             >
-                        <div class="panel-heading" ui-set="{'accordionMulher': atividades.id}">
+                        <div class="panel-heading" ui-set="{'accordion_14_4_mulheres': panel.id}">
                             <h4 class="panel-title">
-                                {{atividades.title}}
+                                {{panel.title}}
                             </h4>
                         </div>
 
-                        <div class="panel-body" ui-if="accordionMulher == {{atividades.id}}">
+                        <div class="panel-body" ui-if="accordion_14_4_mulheres == {{panel.id}}">
                             <div ng-repeat="i in [1,2,3]">
-                                <form-field name="{{atividades.field}}_{{i}}">
+                                <form-field name="{{panel.field}}_{{i}}">
                                     <input ng-model="field.value"
                                            ng-model-options="{ debounce: 300 }"
                                            class="form-control">
@@ -130,10 +130,10 @@
             <div class="panel-body">
 
                 <div class="panel-group"
-                     ui-state='accordionRemuneracao'>
+                     ui-state='accordion_14_4_1'>
 
                     <div class="panel panel-default"
-                         ng-repeat="remuneracao in
+                         ng-repeat="panel in
                          [
                          {id:1,title:'Cozinha',field:'14_4_21'},
                          {id:2,title:'Limpeza',field:'14_4_22'},
@@ -148,15 +148,15 @@
                          ]
                          "
                             >
-                        <div class="panel-heading" ui-set="{'accordionRemuneracao': remuneracao.id}">
+                        <div class="panel-heading" ui-set="{'accordion_14_4_1': panel.id}">
                             <h4 class="panel-title">
-                                {{remuneracao.title}}
+                                {{panel.title}}
                             </h4>
                         </div>
 
-                        <div class="panel-body" ui-if="accordionRemuneracao == {{remuneracao.id}}">
+                        <div class="panel-body" ui-if="accordion_14_4_1 == {{panel.id}}">
                             <div ng-repeat="i in [1,2]">
-                                <form-field name="{{remuneracao.field}}_{{i}}">
+                                <form-field name="{{panel.field}}_{{i}}">
                                     <input ng-model="field.value"
                                            ng-model-options="{ debounce: 300 }"
                                            class="form-control">
