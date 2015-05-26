@@ -6702,6 +6702,323 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
         ],
         //END page 23
 
+        //BEGIN page 24
+        [
+            'name' => '1_1',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Estrutura predial'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_2',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Manutenção'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_3',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Limpeza'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_4',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Ventilação das celas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_5',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Iluminação das celas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_6',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Insolação das celas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_7',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Cozinha'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_8',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Refeitório'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_9',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Assistência à saúde'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_10',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Assistência à educação'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_11',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Assistência jurídica'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_12',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Assistência social'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_13',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Atividades laborais'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_14',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Cela para isolamento/seguro'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_15',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Cela de sanção disciplinar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_16',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Local de visita social'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_17',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Local de visita íntima'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_18',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Pátio de sol'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_19',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Alojamento dos agentes'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_20',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Segurança'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_21',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Procedimentos da unidade'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+
     ];
 
 
