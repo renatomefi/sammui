@@ -14,7 +14,7 @@ trait AssertRestUtils
     /**
      * @inheritdoc
      */
-    protected function assertJsonResponse($response, $statusCode = Response::HTTP_OK, $convert = false, $isArray = false)
+    public function assertJsonResponse($response, $statusCode = Response::HTTP_OK, $convert = false, $isArray = false)
     {
 
         if (is_array($statusCode)) {
@@ -48,7 +48,7 @@ trait AssertRestUtils
     /**
      * @inheritdoc
      */
-    protected function assertErrorResult($result)
+    public function assertErrorResult($result)
     {
         $this->assertObjectHasAttribute('code', $result);
         $this->assertObjectHasAttribute('message', $result);

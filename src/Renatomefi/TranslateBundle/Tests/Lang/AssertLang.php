@@ -14,7 +14,7 @@ trait AssertLang
     /**
      * @inheritdoc
      */
-    protected function assertLangStructure($langObj)
+    public function assertLangStructure($langObj)
     {
         $this->assertObjectHasAttribute('id', $langObj);
         $this->assertObjectHasAttribute('last_update', $langObj);
@@ -25,7 +25,7 @@ trait AssertLang
     /**
      * @inheritdoc
      */
-    protected function assertLangTranslationFormat($translation)
+    public function assertLangTranslationFormat($translation)
     {
         $this->assertObjectHasAttribute('id', $translation);
         $this->assertObjectHasAttribute('key', $translation);
@@ -36,7 +36,7 @@ trait AssertLang
     /**
      * @inheritdoc
      */
-    protected function assertLangTranslationData($translation, $skipValue = false)
+    public function assertLangTranslationData($translation, $skipValue = false)
     {
         $this->assertEquals(static::TRANSLATION_KEY, $translation->key);
         $this->assertEquals(static::LANG, $translation->language->key);
@@ -47,7 +47,7 @@ trait AssertLang
     /**
      * @inheritdoc
      */
-    protected function assertLangTranslationNotFound(Response $response)
+    public function assertLangTranslationNotFound(Response $response)
     {
         $notFound = $this->assertJsonResponse($response, 404, true);
 
