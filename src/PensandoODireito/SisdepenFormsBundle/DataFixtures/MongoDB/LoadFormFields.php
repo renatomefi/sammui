@@ -3903,6 +3903,1436 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
         //END page 11
 
         //BEGIN page 12
+        [
+            'name' => '1_1_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
         //END page 12
 
         //BEGIN page 13
