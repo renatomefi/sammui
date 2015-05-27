@@ -163,6 +163,11 @@ class LoadForm extends AbstractFixture implements FixtureInterface, ContainerAwa
             'number' => 24,
             'group' => LoadForm::GROUP_SEMESTRAL
         ],
+        [
+            'title' => 'Conclusão',
+            'number' => 25,
+            'group' => LoadForm::GROUP_SEMESTRAL
+        ],
 
     ];
 
