@@ -3903,6 +3903,1436 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
         //END page 11
 
         //BEGIN page 12
+        [
+            'name' => '1_1_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_1_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_2_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_3_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_4_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_5_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_6_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_7_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_8_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_9_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_10_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_11_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_12_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_13_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_14_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_15_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_16_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_17_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_18_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_19_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_20_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_21_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_1',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Penintenciaria'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_2',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Cadeia Pública ou estabelecimento congênere'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_3',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Colônia Agrícola, Industrial ou silimar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_4',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Centro de Observação Criminológico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
+        [
+            'name' => '1_22_5',
+            'page' => '12',
+            'translate' => [
+                'pt-br' => 'Hospital de Custódia e Tratamento Psiquiátrico'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ausência',
+                'Inconforme',
+                'Conforme',
+            ]
+        ],
         //END page 12
 
         //BEGIN page 13
@@ -4708,7 +6138,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'P'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4721,7 +6151,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'CP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4734,7 +6164,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COL'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4747,7 +6177,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COC'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4760,7 +6190,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'HCTP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4773,7 +6203,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'P'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4786,7 +6216,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'CP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4799,7 +6229,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COL'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4812,7 +6242,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COC'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4825,7 +6255,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'HCTP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4838,7 +6268,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'P'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4851,7 +6281,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'CP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4864,7 +6294,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COL'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4877,7 +6307,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COC'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4890,7 +6320,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'HCTP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4903,7 +6333,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'P'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4916,7 +6346,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'CP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4929,7 +6359,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COL'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4942,7 +6372,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COC'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4955,7 +6385,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'HCTP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4968,7 +6398,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'P'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4981,7 +6411,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'CP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -4994,7 +6424,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COL'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -5007,7 +6437,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COC'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -5020,7 +6450,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'HCTP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -5033,7 +6463,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'P'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -5046,7 +6476,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'CP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -5059,7 +6489,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COL'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -5072,7 +6502,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'COC'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -5085,7 +6515,7 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
                 'pt-br' => 'HCTP'
             ],
             'type' => 'select',
-            'options'=>[
+            'options' => [
                 'Ausência',
                 'Inconforme',
                 'Conforme',
@@ -6701,6 +8131,718 @@ class LoadFormFields extends AbstractFixture implements FixtureInterface, Contai
             'type' => 'text',
         ],
         //END page 23
+
+        //BEGIN page 24
+        [
+            'name' => '1_1',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Estrutura predial'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_2',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Manutenção'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_3',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Limpeza'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_4',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Ventilação das celas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_5',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Iluminação das celas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_6',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Insolação das celas'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_7',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Cozinha'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_8',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Refeitório'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_9',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Assistência à saúde'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_10',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Assistência à educação'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_11',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Assistência jurídica'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_12',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Assistência social'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_13',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Atividades laborais'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_14',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Cela para isolamento/seguro'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_15',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Cela de sanção disciplinar'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_16',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Local de visita social'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_17',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Local de visita íntima'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_18',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Pátio de sol'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_19',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Alojamento dos agentes'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_20',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Segurança'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        [
+            'name' => '1_21',
+            'page' => '24',
+            'translate' => [
+                'pt-br' => 'Procedimentos da unidade'
+            ],
+            'type' => 'select',
+            'options' => [
+                'Ótimo: 10 - 9',
+                'Bom: 8 - 7',
+                'Regular: 6 - 4',
+                'Ruim: 3 - 0',
+                'Não avaliado',
+            ]
+        ],
+        //END page 24
+
+        //BEGIN page 25
+        [
+            'name' => '1_1',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Ocupação total superior à capacidade da unidade (art. 85 da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_2',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'N.º de presos por cela superior ao n.º definido em lei (art. 88 da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_3',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Presença de pessoas com idade acima de 60 anos junto aos demais presos (art. 82, § 1º da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_4',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Irregularidade na distribuição dos presos nas celas, com presença de presos provisórios junto a presos condenados e presos primários com reincidentes (art. 84, § 1º da LEP, art. 7º da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_5',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Falta de programa individualizador da pena privativa de liberdade (art. 6º da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_6',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Existência de pessoas presas por medida de segurança cumprindo pena junto aos demais presos (anexo da Resolução nº 05/2004 do CNPCP, e art. 4º, Resolução nº 12/2009 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_7',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Presença de adolescentes no estabelecimento (arts. 123 e 185 do ECA);'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_8',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Presença de mulheres em ambientes de homens (art. 82, § 1º da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_9',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Presença de agentes do sexo masculino nas dependências internas dos estabelecimentos penais femininos (art. 83 § 3º da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_10',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de berçário para crianças nas unidades prisionais femininas (art. 83 § 2º da LEP, e art. 10, Resolução nº 4/2009 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_11',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Ausência de seção para gestante e parturiente nos estabelecimentos penais femininos (art. 89 da LEP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_12',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Ausência de creche para abrigar crianças entre 06 meses e 7 anos nos estabelecimentos penais femininos (art. 89 da LEP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_13',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Ausência ou número insuficiente de camas individuais (art. 8º, § 2º da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_14',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Condições precárias de higiene e limpeza das celas (art. 9º da Resolução n.º 14/94 CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_15',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Falta de cardápio alimentar orientado por nutricionistas (art. 13 da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_16',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'N.º de refeições por dia inadequado às necessidades dos presos (art. 13 da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_17',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Roupas fornecidas pelo estabelecimento impróprias às condições climáticas (art. 12, caput, da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_18',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Roupas sujas e/ou em mau estado de conservação (art. 12, § 2º da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_19',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de local para aquisição de produtos permitidos para higiene pessoal, mas não fornecidos pela administração (art. 13 da LEP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_20',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de sanitário na própria cela (art. 88, caput, da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_21',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Falta de assistência jurídica regular aos presos carentes (arts. 15, 16 e 41, VII da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_22',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Ausência de instalação destinada à Defensoria Pública (art. 83 § 5º da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_23',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de local destinado a atividades de estágio para universitários (art. 83, § 1º da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_24',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de curso de alfabetização (art. 40, p. un. da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_25',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de educação de ensino fundamental (art. 18 da LEP, meta 17 da Lei 10.172/2001)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_26',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de educação de ensino profissional (art. 19 da LEP, meta 17 da Lei 10.172/2001)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_27',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Ausência de biblioteca (art. 21 da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_28',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Não oferecimento de atividade física e/ou recreação (art. 23, IV e art. 41, V e VI da LEP, art. 14 da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_29',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Ausência de sala de aula para cursos básico e profissionalizante (art. 83 § 4º da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_30',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Falta de serviço de assistência social (arts. 22 e 41, VII da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_31',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de cursos de qualificação para o servidor penitenciário (art. 77, § 1º da LEP e art. 49 da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_32',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Ausência de equipe de saúde própria nas unidades com mais de 100 presos (art. 8º da Portaria Interministerial - Saúde e Justiça - n.º 1.777, de 09/09/2003)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_33',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Não disponibilização dos medicamentos básicos do SUS (art. 8º, § 4º da Portaria Interministerial - Saúde e Justiça - n.º 1.777/2003)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_34',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Nº de agentes penitenciários inferior ao recomendado: 5 presos por agente penitenciário, no mínimo (art. 1º, Resolução nº 09/2009 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_35',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Ausência de profissionais da equipe técnica ou nº insuficiente abaixo do recomendado (art. 2º, Resolução nº 09/2009 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_36',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de audiência especial com o diretor do estabelecimento (art. 41, XIII da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_37',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Falta de concessão de banho de sol regular aos presos (art. 14 da Resolução n.º 14/94 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_38',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Proibição da utilização dos meios de informação (art. 41, XV da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_39',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Proibição da utilização de correspondência escrita externa (art. 41, XV da LEP);'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_40',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Falta de tratamento nominal dos presos (art. 41, XI da LEP e art. 4º da Resolução n.º14/94 do CNPCP);'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_41',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de local específico para guarda de objetos pessoais dos presos (art. 45, §§ 1º e 2 da Resolução n.º 14/94 do CNPCP);'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_42',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Impedimento de visita íntima para relações homoafetivas (art. 2º, Resolução nº 04/2011 do CNPCP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_43',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Inexistência de Comissão Técnica de Classificação dos Condenados (art. 6º da LEP)'
+            ],
+            'type' => 'text',
+        ],
+        [
+            'name' => '1_44',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Deficiência na composição da Comissão Técnica (art. 7º da LEP)'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_45',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Condições inadequadas de realização de trabalho:
+
+Trabalho não remunerado (arts. 29 e 41, II da LEP);
+Jornada reduzida ou ampliada (art. 33 da LEP);
+Tipo de trabalho incompatível com a condição de idoso, doente ou pessoa com deficiência (art. 32, §§ 2º e 3º da LEP);
+Inexistência de trabalho voltado para a reinserção social do condenado (art.23, V da LEP);'
+            ],
+            'type' => 'text',
+        ],
+
+        [
+            'name' => '1_46',
+            'page' => '25',
+            'translate' => [
+                'pt-br' => 'Indícios de ocorrência de atos tipificados como tortura (Lei 9.455/97)'
+            ],
+            'type' => 'text',
+        ],
+
+
+
+
+        //END page 25
 
     ];
 

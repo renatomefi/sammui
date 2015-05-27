@@ -1,9 +1,9 @@
 <form>
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
-        <table>
 
-        </table>
+        <form-field name="24_1_{{i}}" ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21]">
+            <select-field ng-model="field.value" options="field.options"></select-field>
+        </form-field>
+
     </fieldset>
 </form>

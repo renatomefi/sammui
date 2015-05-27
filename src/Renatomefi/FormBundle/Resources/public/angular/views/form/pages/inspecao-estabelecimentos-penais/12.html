@@ -1,16 +1,161 @@
 <form>
-    <pre>{{formFields | json}}</pre>
-
     <fieldset>
 
-        <!-- Programa de necessidades do módulo de saúde por tipo de estabelecimento penal1
+        <legend>Programa de necessidades do módulo de saúde por tipo de estabelecimento penal</legend>
 
-Assinale na tabela:
-Ausência (A)
-Inconforme (I)
-Conforme (C)
+        <div class="panel panel-default">
+            <div class="panel-heading">PROGRAMA DISCRIMINADO / Estabelecimentos Penais com até 100 presos(10h/semana)</div>
 
-Observações:  -->
+            <div class="panel-body">
+                <div class="panel-group"
+                     ui-state='accordion_12_1_100presos'>
+
+                    <div class="panel panel-default"
+                         ng-repeat="panel in
+                         [
+                         {id:1,title:'Sala de recepção e espera',field:'12_1_1'},
+                         {id:2,title:'Sala de acolhimento multiprofissional',field:'12_1_2'},
+                         {id:3,title:'Sala de atendimento clínico multiprofissional ',field:'12_1_3'},
+                         {id:4,title:'Consultório de atendimento ginecológico com sanitário',field:'12_1_4'},
+                         {id:5,title:'Estoque',field:'12_1_5'},
+                         {id:6,title:'Dispensação de medicamentos e estoque',field:'12_1_6'},
+                         {id:7,title:'Cela enfermaria com solário',field:'12_1_7'},
+                         {id:8,title:'Sanitário para pacientes',field:'12_1_8'},
+                         ]
+                         "
+                            >
+                        <div class="panel-heading" ui-set="{'accordion_12_1_100presos': panel.id}">
+                            <h4 class="panel-title">
+                                {{panel.title}}
+                            </h4>
+                        </div>
+
+                        <div class="panel-body" ui-if="accordion_12_1_100presos == {{panel.id}}">
+                            <div ng-repeat="i in [1,2,3,4,5]">
+
+                                <form-field name="{{panel.field}}_{{i}}">
+                                    <select-field ng-model="field.value" options="field.options"></select-field>
+                                </form-field>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">PROGRAMA DISCRIMINADO / Estabelecimentos Penais com 101 a 300 presos(20h/semana)</div>
+
+            <div class="panel-body">
+                <div class="panel-group"
+                     ui-state='accordion_12_1_300presos'>
+
+                    <div class="panel panel-default"
+                         ng-repeat="panel in
+                         [
+                         {id:1,title:'Consultório de atendimento odontológico',field:'12_1_9'},
+                         {id:2,title:'Sala multiuso',field:'12_1_10'},
+                         {id:3,title:'Sala de procedimentos',field:'12_1_11'},
+                         ]
+                         "
+                            >
+                        <div class="panel-heading" ui-set="{'accordion_12_1_300presos': panel.id}">
+                            <h4 class="panel-title">
+                                {{panel.title}}
+                            </h4>
+                        </div>
+
+                        <div class="panel-body" ui-if="accordion_12_1_300presos == {{panel.id}}">
+                            <div ng-repeat="i in [1,2,3,4,5]">
+
+                                <form-field name="{{panel.field}}_{{i}}">
+                                    <select-field ng-model="field.value" options="field.options"></select-field>
+                                </form-field>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">PROGRAMA DISCRIMINADO / Estabelecimento de 301 a 700 presos (30h\semana)</div>
+
+            <div class="panel-body">
+                <div class="panel-group"
+                     ui-state='accordion_12_1_700presos'>
+
+                    <div class="panel panel-default"
+                         ng-repeat="panel in
+                         [
+                         {id:1,title:'Laboratório de diagnóstico',field:'12_1_12'},
+                         {id:2,title:'Sala de coleta de material para laboratório',field:'12_1_13'},
+                         {id:3,title:'Sala de Raio X',field:'12_1_14'},
+                         ]
+                         "
+                            >
+                        <div class="panel-heading" ui-set="{'accordion_12_1_700presos': panel.id}">
+                            <h4 class="panel-title">
+                                {{panel.title}}
+                            </h4>
+                        </div>
+
+                        <div class="panel-body" ui-if="accordion_12_1_700presos == {{panel.id}}">
+                            <div ng-repeat="i in [1,2,3,4,5]">
+
+                                <form-field name="{{panel.field}}_{{i}}">
+                                    <select-field ng-model="field.value" options="field.options"></select-field>
+                                </form-field>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">PROGRAMA DISCRIMINADO / Estabelecimento de 701 a 1000 presos (40h\semana)</div>
+
+            <div class="panel-body">
+                <div class="panel-group"
+                     ui-state='accordion_12_1_1000presos'>
+
+                    <div class="panel panel-default"
+                         ng-repeat="panel in
+                         [
+                         {id:1,title:'Cela de espera',field:'12_1_15'},
+                         {id:2,title:'Consultório Médico',field:'12_1_16'},
+                         {id:3,title:'Sala de curativos, suturas e Posto de Enfermagem',field:'12_1_17'},
+                         {id:4,title:'Cela de Observação (02 leitos)',field:'12_1_18'},
+                         {id:5,title:'Central de material esterilizado / expurgo',field:'12_1_19'},
+                         {id:6,title:'Rouparia',field:'12_1_20'},
+                         {id:7,title:'Depósito de Material de Limpeza',field:'12_1_21'},
+                         {id:8,title:'Sanitários para equipe de saúde',field:'12_1_22'},
+                         ]
+                         "
+                            >
+                        <div class="panel-heading" ui-set="{'accordion_12_1_1000presos': panel.id}">
+                            <h4 class="panel-title">
+                                {{panel.title}}
+                            </h4>
+                        </div>
+
+                        <div class="panel-body" ui-if="accordion_12_1_1000presos == {{panel.id}}">
+                            <div ng-repeat="i in [1,2,3,4,5]">
+
+                                <form-field name="{{panel.field}}_{{i}}">
+                                    <select-field ng-model="field.value" options="field.options"></select-field>
+                                </form-field>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </fieldset>
