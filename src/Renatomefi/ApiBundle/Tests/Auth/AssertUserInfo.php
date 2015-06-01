@@ -11,7 +11,7 @@ trait AssertUserInfo
     /**
      * @inheritdoc
      */
-    protected function assertUserInfoObjStructure($userInfo)
+    public function assertUserInfoObjStructure($userInfo)
     {
         $this->assertObjectHasAttribute('authenticated', $userInfo);
         $this->assertObjectHasAttribute('authenticated_fully', $userInfo);
@@ -26,7 +26,7 @@ trait AssertUserInfo
     /**
      * @inheritdoc
      */
-    protected function assertUserInfoObjNoAuth($userInfo)
+    public function assertUserInfoObjNoAuth($userInfo)
     {
         $this->assertTrue($userInfo->authenticated);
         $this->assertFalse($userInfo->authenticated_fully);
@@ -41,7 +41,7 @@ trait AssertUserInfo
     /**
      * @inheritdoc
      */
-    protected function assertUserInfoObjAdminAuth($userInfo)
+    public function assertUserInfoObjAdminAuth($userInfo)
     {
         $this->assertTrue($userInfo->authenticated);
         $this->assertTrue($userInfo->authenticated_fully);

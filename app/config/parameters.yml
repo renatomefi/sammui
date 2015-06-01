@@ -19,4 +19,4 @@ parameters:
     bower_bin: /usr/bin/bower
     fos_user_db_driver: mongodb
     fos_user_class: Renatomefi\UserBundle\Document\User
-    wkhtmltopdf_path: %kernel.root_dir%/../bin/wkhtmltopdf-amd64
+    wkhtmltopdf_path: '%kernel.root_dir%/../bin/wkhtmltopdf-amd64'

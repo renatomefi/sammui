@@ -12,7 +12,7 @@ trait AssertForm
     /**
      * @inheritdoc
      */
-    protected function assertFormStructure($form)
+    public function assertFormStructure($form)
     {
         $this->assertObjectHasAttribute('id', $form);
         $this->assertObjectHasAttribute('name', $form);

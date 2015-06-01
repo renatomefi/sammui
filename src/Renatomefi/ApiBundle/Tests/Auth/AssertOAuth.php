@@ -14,7 +14,7 @@ trait AssertOAuth
     /**
      * @inheritdoc
      */
-    protected function assertOAuthError(Response $responseObj)
+    public function assertOAuthError(Response $responseObj)
     {
         $response = json_decode($responseObj->getContent());
 
@@ -29,7 +29,7 @@ trait AssertOAuth
     /**
      * @inheritdoc
      */
-    protected function assertOAuthRequired(Response $responseObj)
+    public function assertOAuthRequired(Response $responseObj)
     {
         $response = json_decode($responseObj->getContent());
 
@@ -42,7 +42,7 @@ trait AssertOAuth
     /**
      * @inheritdoc
      */
-    protected function assertOAuthInvalidToken(Response $responseObj)
+    public function assertOAuthInvalidToken(Response $responseObj)
     {
         $response = json_decode($responseObj->getContent());
 

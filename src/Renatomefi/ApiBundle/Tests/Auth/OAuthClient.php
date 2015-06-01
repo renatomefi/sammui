@@ -25,7 +25,7 @@ trait OAuthClient
     /**
      * @return Client
      */
-    protected function getOAuthClient()
+    public function getOAuthClient()
     {
         if ($this->_OAuthClient)
             return $this->_OAuthClient;
@@ -47,7 +47,7 @@ trait OAuthClient
      * @param array $params
      * @return mixed
      */
-    protected function queryOAuth2Token($params = [])
+    public function queryOAuth2Token($params = [])
     {
         if (!method_exists($this, 'assertJsonResponse'))
             throw new \PHPUnit_Framework_Exception('You must to use AssertRestUtils trait in order to use this OAuthClient trait');
@@ -70,7 +70,7 @@ trait OAuthClient
     /**
      * @return mixed
      */
-    protected function getAnonymousCredentials()
+    public function getAnonymousCredentials()
     {
         return $this->queryOAuth2Token([
             'grant_type' => OAuth2::GRANT_TYPE_CLIENT_CREDENTIALS
@@ -80,7 +80,7 @@ trait OAuthClient
     /**
      * @return mixed
      */
-    protected function getAdminCredentials()
+    public function getAdminCredentials()
     {
         return $this->queryOAuth2Token([
             'grant_type' => OAuth2::GRANT_TYPE_USER_CREDENTIALS,
@@ -89,7 +89,7 @@ trait OAuthClient
         ]);
     }
 
-    protected function getCredentialsByRole($role)
+    public function getCredentialsByRole($role)
     {
         switch ($role) {
             case 'ROLE_ADMIN':
