@@ -93,7 +93,9 @@ class ProtocolFieldValue extends ProtocolEmbed
         $isArray = is_array($value);
 
         $str = '';
-        if ($isMulti) {
+        if (is_bool($value)) {
+            $str = ($value === true) ? 'form-value-true' : 'form-value-false';
+        } elseif ($isMulti) {
             if ($isArray) {
                 foreach ($value as $k => $v) {
                     if ($v === true)
@@ -107,8 +109,6 @@ class ProtocolFieldValue extends ProtocolEmbed
                     $str = $value;
                 }
             }
-        } elseif (is_bool($value)) {
-            $str = ($value === true) ? 'form-value-true' : 'form-value-false';
         } elseif (null === $value) {
             $str = 'form-value-null';
         } else {
