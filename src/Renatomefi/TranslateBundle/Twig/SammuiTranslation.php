@@ -1,7 +1,8 @@
 <?php
 
-namespace Renatomefi\FormBundle\Twig;
+namespace Renatomefi\TranslateBundle\Twig;
 
+use Renatomefi\TranslateBundle\Document\Language;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 
 class SammuiTranslation extends \Twig_Extension
@@ -12,6 +13,9 @@ class SammuiTranslation extends \Twig_Extension
      */
     protected $container;
 
+    /**
+     * @var Language
+     */
     protected $language;
 
     /**
@@ -31,6 +35,13 @@ class SammuiTranslation extends \Twig_Extension
         );
     }
 
+    /**
+     * Look for the translate at Language Document in order to translate from DB registers
+     *
+     * @param $value
+     * @param $lang
+     * @return string
+     */
     public function translateFilter($value, $lang)
     {
         if (!$this->language) {

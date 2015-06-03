@@ -1,4 +1,7 @@
 services:
-#    translate.example:
-#        class: Renatomefi\TranslateBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+  app.twig_extension:
+    class: Renatomefi\TranslateBundle\Twig\SammuiTranslation
+    arguments:
+      - @service_container
+    tags:
+      - { name: twig.extension }
