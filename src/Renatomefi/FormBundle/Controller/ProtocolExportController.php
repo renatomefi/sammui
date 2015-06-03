@@ -87,6 +87,9 @@ class ProtocolExportController extends Controller
             $this->renderView(
                 'FormBundle:ProtocolExport:pdf.html.twig',
                 [
+                    'language' => $lang,
+                    'protocol' => $protocol,
+                    'form' => $protocol->getForm(),
                     'fieldValues' => $protocol->getFieldValues()
                 ]
             ),

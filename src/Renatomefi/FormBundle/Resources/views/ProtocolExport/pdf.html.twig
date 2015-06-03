@@ -2,13 +2,41 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
+    <title>{{ form.name | sammuiTranslate(language) }} - {{ protocol.id }}</title>
+    <style type="text/css">
+        p {
+            margin-left: 2em;
+        }
+    </style>
 </head>
 <body>
+<div>
+    <h1>{{ form.name | sammuiTranslate(language) }}</h1>
+    <br>
+    {{ 'protocol' | sammuiTranslate(language) }} <strong>{{ protocol.id }}</strong>
+    {{ "form-#{form.name}-group-#{protocol.currentGroup}" | sammuiTranslate(language) }}
+    <br>
+    {{ 'form-protocol-first_save_date' | sammuiTranslate(language) }}: {{ protocol.firstSaveDate | date }}
+    <br>
+    {{ 'form-protocol-last_save_date' | sammuiTranslate(language) }}: {{ protocol.lastSaveDate | date }}
+    <br>
+</div>
+<hr>
 <ul>
     {% for fv in fieldValues %}
-        <li><strong>{{ fv.field.name }}:</strong> {{ fv.getValueInHR() }}</li>
+        <strong>
+            <span style="color: #000088">{{ fv.field.name | replace('_', '.') }}</span> {{ "form-#{form.name}-field-#{fv.field.name}" | sammuiTranslate(language) }}
+        </strong>
+        <p>
+            {{ fv.getValueInHR() | sammuiTranslate(language) }}
+        </p>
+        <br>
     {% endfor %}
 </ul>
+<hr>
+<div>
+    <h4>{{ 'form-filling-page-conclusion' | sammuiTranslate(language) }}</h4>
+    {{ protocol.conclusion | raw }}
+</div>
 </body>
 </html>
